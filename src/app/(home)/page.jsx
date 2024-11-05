@@ -1,7 +1,25 @@
 import Image from "next/image";
+import HomeHero from "./_components/HomeHero";
+import HomeVideo from "./_components/HomeVideo";
+
+
+export const metadata = {
+  title: "",
+  description:
+    "",
+  openGraph: {
+    title: "",
+    description:
+      "",
+    images: "",
+  },
+};
 
 export default function Home() {
   return (
-    <div>Home</div>
+    <div className="home">
+      <HomeHero />
+      <HomeVideo />
+    </div>
   );
 }
