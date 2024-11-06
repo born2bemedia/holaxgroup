@@ -73,10 +73,10 @@ const Footer = () => {
               <h3 className="footer__title">Get in Touch</h3>
               <ul className="footer__list">
                 <li className="footer__item">
-                  <Link href="#" className="footer__link">
+                  <Link href="tel:+447482749572" className="footer__link">
                     <span>
                       <Phone />
-                      phone
+                      +447482749572
                     </span>
                   </Link>
                 </li>
@@ -92,7 +92,7 @@ const Footer = () => {
                   <Link href="#" className="footer__link">
                     <span>
                       <Address />
-                      address
+                      71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ
                     </span>
                   </Link>
                 </li>

@@ -28,16 +28,43 @@ const HomeHero = () => {
         <section className="home-hero">
             <div className="home-hero__container _container">
                 <div className="home-hero__body">
-                    <h1 className="home-hero__title">
+                    <motion.h1
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="home-hero__title">
                         Start journey toward success
                         with <span>Holax Group</span>
-                    </h1>
-                    <div className="home-hero__icon"><ArrowLine /></div>
-                    <div className="home-hero__text">Enrol now and see how we <br /> can transform your future.</div>
-                    <Link href="#" className="home-hero__link">
-                        Book a free consultation
-                        <ArrowIcon />
-                    </Link>
+                    </motion.h1>
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        custom={0.1}
+                        className="home-hero__icon"><ArrowLine /></motion.div>
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        custom={0.2}
+                        className="home-hero__text">
+                        Enrol now and see how we <br /> can transform your future.
+                    </motion.div>
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        custom={0.3}
+                        className="">
+                        <Link href="#" className="home-hero__link">
+                            Book a free consultation
+                            <ArrowIcon />
+                        </Link>
+                    </motion.div>
                 </div>
             </div>
         </section>
