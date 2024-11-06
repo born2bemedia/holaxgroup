@@ -18,6 +18,8 @@
     "react-dom": "^18",
     "react-markdown": "^9.0.1",
     "react-phone-input-2": "^2.15.1",
+    "react-select": "^5.8.2",
+    "react-select-country-list": "^2.2.3",
     "react-toastify": "^10.0.6",
     "sass": "^1.80.6",
     "swiper": "^11.1.14",
