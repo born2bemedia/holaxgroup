@@ -8,7 +8,7 @@ const Thankyou = () => {
         <div className="thankyou__body">
           <h1>Thank You for Your Order!</h1>
           <p>
-            We appreciate your choice of Velloxia. Our team will review <br />
+            We appreciate your choice of Holaxgroup. Our team will review <br />
             your order and reach out shortly to confirm the details.
             <br />
             <b>Thank you for your trust in us!</b>
