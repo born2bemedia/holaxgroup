@@ -2,6 +2,7 @@ import Image from "next/image";
 import HomeHero from "./_components/HomeHero";
 import HomeVideo from "./_components/HomeVideo";
 import HomeItems from "./_components/HomeItems";
+import HomeAbout from "./_components/HomeAbout";
 
 
 export const metadata = {
@@ -21,6 +22,7 @@ export default function Home() {
     <div className="home">
       <HomeHero />
       <HomeVideo />
+      <HomeAbout />
       <HomeItems />
     </div>
   );
