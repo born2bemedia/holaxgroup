@@ -15,22 +15,24 @@ const PackagesWrap = async () => {
   const { fetchProducts, getProductByCategory } = useProductStore.getState();
   await fetchProducts();
   const products = getProductByCategory(
-    "business-consulting-complete-packages"
+    "marketing-consulting-complete-packages"
   );
   return (
     <section className="packages-wrap">
       <div className="_container">
         <div className="packages-wrap__body">
-          <h2>Business Consulting Complete Packages</h2>
+          <h2>Marketing Consulting Complete Packages</h2>
           <p>
-            Unlock your business’s full potential with our comprehensive
-            business consulting packages. Each package is crafted to build upon
-            the previous, providing a robust foundation and advanced growth
-            strategies. With services ranging from market analysis and risk
-            management to change management and innovation strategies, we equip
-            your business with the tools needed to thrive in a competitive
-            market. Choose the package that aligns with your business goals, and
-            let us guide you to success.
+            Transform your marketing efforts with Holax Group comprehensive
+            consulting packages. Our packages are designed to offer a
+            step-by-step enhancement of your marketing capabilities, starting
+            with foundational brand strategies and advancing to full-scale
+            market research and public relations. Whether you’re looking to
+            boost your online presence, engage your audience through compelling
+            content, or leverage influencer partnerships, our packages provide
+            the perfect blend of services to propel your brand forward. Select
+            the package that best fits your marketing objectives and watch your
+            brand soar.
           </p>
           <PackagesSlider products={products} />
           <div className="row">
