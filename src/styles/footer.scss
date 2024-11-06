@@ -133,8 +133,11 @@
 
         span {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 11px;
+            svg { 
+                min-width: 24px;
+            }
         }
     }
 
