@@ -66,7 +66,7 @@ export default function SignIn() {
     <>
       <section className="log-in">
         <div className="_container">
-          <h1>Welcome to Velloxia</h1>
+          <h1>Welcome to Holaxgroup</h1>
           <h2>Please sign in to your account</h2>
           <Formik
             initialValues={initialValues}
