@@ -11,47 +11,10 @@ const HomeVideo = () => {
                     <div className="home-video__image">
                         <img src="/images/home/home-img-01.png" alt="image" className="img-01" />
                         <img src="/images/home/home-img-02.png" alt="image" className="img-02" />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
                     </div>
                 </div>
             </div>
-        </section>
-        
+        </section>  
     );
 };
 
