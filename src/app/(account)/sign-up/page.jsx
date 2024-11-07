@@ -18,7 +18,6 @@ export default function SignUp() {
   const initialValues = {
     firstName: "",
     lastName: "",
-    phone: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -31,8 +30,6 @@ export default function SignUp() {
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().required("First name is required"),
     lastName: Yup.string().required("Last name is required"),
-    username: Yup.string().required("Username is required"),
-    phone: Yup.string().required("Phone number is required"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
@@ -41,18 +38,25 @@ export default function SignUp() {
       .oneOf([Yup.ref("password"), null], "Passwords must match")
       .required("Confirm password is required"),
     terms: Yup.bool().oneOf([true], "You must accept the terms and conditions"),
-    privacy: Yup.bool().oneOf([true], "You must accept the privacy policy"),
-    age: Yup.bool().oneOf([true], "You must be over 18 years old"),
   });
 
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
+    const userData = {
+      email: values.email,
+      password: values.password,
+      firstName: values.firstName,
+      lastName: values.lastName,
+      username: values.email,
+      phone: "",
+    };
+
     try {
       const response = await fetch("/api/auth/sign-up", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify(userData),
       });
 
       const data = await response.json();
@@ -94,211 +98,195 @@ export default function SignUp() {
     <>
       <section className="sign-up">
         <div className="_container">
-          <h1>Join us</h1>
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={handleSubmit}
-          >
-            {({ isSubmitting, touched, errors, values }) => (
-              <Form>
-                {/* Form Fields */}
-                <div>
-                  <Field
-                    type="text"
-                    name="firstName"
-                    placeholder="First name"
-                    className={
-                      touched.firstName && errors.firstName ? "invalid" : ""
-                    }
-                  />
-                  <ErrorMessage
-                    name="firstName"
-                    component="div"
-                    className="error"
-                  />
-                </div>
-                <div>
-                  <Field
-                    type="text"
-                    name="lastName"
-                    placeholder="Last name"
-                    className={
-                      touched.lastName && errors.lastName ? "invalid" : ""
-                    }
-                  />
-                  <ErrorMessage
-                    name="lastName"
-                    component="div"
-                    className="error"
-                  />
-                </div>
-                <div>
-                  <Field
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    className={
-                      touched.username && errors.username ? "invalid" : ""
-                    }
-                  />
-                  <ErrorMessage
-                    name="username"
-                    component="div"
-                    className="error"
-                  />
-                </div>
-                <div>
-                  <PhoneInput
-                    country={"us"}
-                    value={values.phone}
-                    placeholder="Phone Number"
-                    onChange={(phone) => setFieldValue("phone", phone)}
-                    className={touched.phone && errors.phone ? "invalid" : ""}
-                  />
-                  <ErrorMessage
-                    name="phone"
-                    component="div"
-                    className="error"
-                  />
-                </div>
-                <div>
-                  <Field
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    className={touched.email && errors.email ? "invalid" : ""}
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="error"
-                  />
-                </div>
+          <div className="log-in__body">
+            <h1>Join Holax Group today</h1>
+            <h2>
+              Join Holax Group today and access exclusive features. Fill out the
+              form below to create your account and enjoy member benefits and
+              opportunities.
+            </h2>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={handleSubmit}
+            >
+              {({ isSubmitting, touched, errors, values }) => (
+                <Form>
+                  {/* Form Fields */}
+                  <div>
+                    <Field
+                      type="text"
+                      name="firstName"
+                      placeholder="First name"
+                      className={
+                        touched.firstName && errors.firstName ? "invalid" : ""
+                      }
+                    />
+                    <ErrorMessage
+                      name="firstName"
+                      component="div"
+                      className="error"
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      type="text"
+                      name="lastName"
+                      placeholder="Last name"
+                      className={
+                        touched.lastName && errors.lastName ? "invalid" : ""
+                      }
+                    />
+                    <ErrorMessage
+                      name="lastName"
+                      component="div"
+                      className="error"
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      className={touched.email && errors.email ? "invalid" : ""}
+                    />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="error"
+                    />
+                  </div>
 
-                {/* Password and Confirm Password */}
-                <div>
-                  <Field
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    className={
-                      touched.password && errors.password ? "invalid" : ""
-                    }
-                  />
-                  <ErrorMessage
-                    name="password"
-                    component="div"
-                    className="error"
-                  />
-                </div>
-                <div>
-                  <Field
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Confirm password"
-                    className={
-                      touched.confirmPassword && errors.confirmPassword
-                        ? "invalid"
-                        : ""
-                    }
-                  />
-                  <ErrorMessage
-                    name="confirmPassword"
-                    component="div"
-                    className="error"
-                  />
-                </div>
+                  {/* Password and Confirm Password */}
+                  <div>
+                    <Field
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      className={
+                        touched.password && errors.password ? "invalid" : ""
+                      }
+                    />
+                    <ErrorMessage
+                      name="password"
+                      component="div"
+                      className="error"
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      type="password"
+                      name="confirmPassword"
+                      placeholder="Confirm password"
+                      className={
+                        touched.confirmPassword && errors.confirmPassword
+                          ? "invalid"
+                          : ""
+                      }
+                    />
+                    <ErrorMessage
+                      name="confirmPassword"
+                      component="div"
+                      className="error"
+                    />
+                  </div>
 
-                {/* Terms, Privacy, Age */}
-                <div className="checkbox">
-                  <Field
-                    type="checkbox"
-                    name="terms"
-                    className={touched.terms && errors.terms ? "invalid" : ""}
-                    id="terms"
-                  />
-                  <label htmlFor="terms">
-                    <CheckboxIcon />
-                    <span>
-                      I agree to the{" "}
-                      <Link href="/terms-and-conditions">
-                        Terms and Conditions
+                  {/* Terms, Privacy, Age */}
+                  <div className="checkboxes">
+                    <div className="checkbox">
+                      <Field
+                        type="checkbox"
+                        name="terms"
+                        className={
+                          touched.terms && errors.terms ? "invalid" : ""
+                        }
+                        id="terms"
+                      />
+                      <label htmlFor="terms">
+                        <CheckboxIcon />
+                        <span>
+                          I agree to the{" "}
+                          <Link href="/terms-and-conditions">
+                            Terms and Conditions
+                          </Link>
+                        </span>
+                      </label>
+                      <ErrorMessage
+                        name="terms"
+                        component="div"
+                        className="error"
+                      />
+                    </div>
+                    <div className="checkbox">
+                      <Field
+                        type="checkbox"
+                        name="privacy"
+                        className={
+                          touched.privacy && errors.privacy ? "invalid" : ""
+                        }
+                        id="privacy"
+                      />
+                      <label htmlFor="privacy">
+                        <CheckboxIcon />
+                        <span>
+                          I agree to the{" "}
+                          <Link href="/privacy-policy">Privacy Policy.</Link>
+                        </span>
+                      </label>
+                      <ErrorMessage
+                        name="privacy"
+                        component="div"
+                        className="error"
+                      />
+                    </div>
+
+                    <div className="checkbox">
+                      <Field
+                        type="checkbox"
+                        name="age"
+                        className={touched.age && errors.age ? "invalid" : ""}
+                        id="age"
+                      />
+                      <label htmlFor="age">
+                        <CheckboxIcon />
+                        <span>I am over 18 and I have read all the above.</span>
+                      </label>
+                      <ErrorMessage
+                        name="age"
+                        component="div"
+                        className="error"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
+                  <div>
+                    <button type="submit" disabled={isSubmitting}>
+                      Create Account
+                    </button>
+                  </div>
+
+                  <div className="bottom">
+                    <div>
+                      Already a member?{" "}
+                      <Link className="reset" href="/log-in">
+                        Log in
                       </Link>
-                    </span>
-                  </label>
-                  <ErrorMessage
-                    name="terms"
-                    component="div"
-                    className="error"
-                  />
-                </div>
-                <div className="checkbox">
-                  <Field
-                    type="checkbox"
-                    name="privacy"
-                    className={
-                      touched.privacy && errors.privacy ? "invalid" : ""
-                    }
-                    id="privacy"
-                  />
-                  <label htmlFor="privacy">
-                    <CheckboxIcon />
-                    <span>
-                      I agree to the{" "}
-                      <Link href="/privacy-policy">Privacy Policy</Link>.
-                    </span>
-                  </label>
-                  <ErrorMessage
-                    name="privacy"
-                    component="div"
-                    className="error"
-                  />
-                </div>
-                <div className="checkbox">
-                  <Field
-                    type="checkbox"
-                    name="age"
-                    className={touched.age && errors.age ? "invalid" : ""}
-                    id="age"
-                  />
-                  <label htmlFor="age">
-                    <CheckboxIcon />
-                    <span>
-                      I am over 18 years old, and I have read and accepted all
-                      of the above
-                    </span>
-                  </label>
-                  <ErrorMessage name="age" component="div" className="error" />
-                </div>
+                    </div>
+                  </div>
+                </Form>
+              )}
+            </Formik>
 
-                {/* Submit Button */}
-                <div>
-                  <button type="submit" disabled={isSubmitting}>
-                    Join us
-                  </button>
-                </div>
-              </Form>
+            {thanksPopupShow && (
+              <div className="success">
+                Your account has been successfully created! You can now log in
+                using your email and password.
+              </div>
             )}
-          </Formik>
-        </div>
-      </section>
-
-      {thanksPopupShow && (
-        <div>
-          <div>
-            <div>
-              <h3>Congratulations!</h3>
-              <p>
-                Your account has been successfully created. A confirmation email
-                has been sent to your inbox.
-                <br />
-                Welcome aboard!
-              </p>
-            </div>
           </div>
         </div>
-      )}
+      </section>
     </>
   );
 }

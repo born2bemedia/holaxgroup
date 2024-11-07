@@ -66,62 +66,81 @@ export default function SignIn() {
     <>
       <section className="log-in">
         <div className="_container">
-          <h1>Welcome to Holaxgroup</h1>
-          <h2>Please sign in to your account</h2>
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={handleSubmit}
-          >
-            {({ isSubmitting, touched, errors }) => (
-              <Form>
-                <div>
-                  <Field
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    className={touched.email && errors.email ? "invalid" : ""}
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="error"
-                  />
-                </div>
-                <div>
-                  <Field
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    className={
-                      touched.password && errors.password ? "invalid" : ""
-                    }
-                  />
-                  <ErrorMessage
-                    name="password"
-                    component="div"
-                    className="error"
-                  />
-                </div>
-                <button
-                  className="main-button"
-                  type="submit"
-                  disabled={isSubmitting}
-                >
-                  <span>Log in</span>
-                </button>
+          <div className="log-in__body">
+            <h1>Welcome to Holax Group!</h1>
+            <h2>
+              Please enter your username and password <br />
+              to access your account.
+            </h2>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={handleSubmit}
+            >
+              {({ isSubmitting, touched, errors }) => (
+                <Form>
+                  <div>
+                    <Field
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      className={touched.email && errors.email ? "invalid" : ""}
+                    />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="error"
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      className={
+                        touched.password && errors.password ? "invalid" : ""
+                      }
+                    />
+                    <ErrorMessage
+                      name="password"
+                      component="div"
+                      className="error"
+                    />
+                  </div>
+                  <button
+                    className="main-button"
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    <span>Log in</span>
+                  </button>
 
-                {errors.submit && (
-                  <div className="error submit-error">{errors.submit}</div>
-                )}
+                  {errors.submit && (
+                    <div className="error submit-error">{errors.submit}</div>
+                  )}
 
-                <Link className="reset" href="/reset-password">
-                  Forgot password?
-                </Link>
-              </Form>
-            )}
-          </Formik>
-          <SignUp />
+                  <div className="bottom">
+                    <div>
+                      Forgot your password? Don’t worry!
+                      <br />
+                      Click the link below to reset it.{" "}
+                      <Link className="reset" href="/reset-password">
+                        Forgot your password?
+                      </Link>
+                    </div>
+                    <div>
+                      New to Holax Group?{" "}
+                      <Link className="reset" href="/sign-up">
+                        Sign up
+                      </Link>{" "}
+                      now to join our <br />
+                      community and enjoy exclusive benefits and features.
+                    </div>
+                  </div>
+                </Form>
+              )}
+            </Formik>
+          </div>
         </div>
       </section>
     </>

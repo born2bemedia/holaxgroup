@@ -71,15 +71,16 @@ const ChangePasswordReset = ({ token }) => {
   return (
     <section className="change-password log-in">
       <div className="_container">
-        <h1>Change Password</h1>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting, touched, errors }) => (
-            <Form>
-               <div>
+        <div className="log-in__body">
+          <h1>Change Password</h1>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting, touched, errors }) => (
+              <Form>
+                <div>
                   <label>
                     <Field
                       placeholder="New password"
@@ -117,22 +118,23 @@ const ChangePasswordReset = ({ token }) => {
                     component="div"
                   />
                 </div>
-              <button
-                type="submit"
-                className="main-button"
-                disabled={isSubmitting}
-              >
-                <span>Set new password</span>
-              </button>
-              {passwordChanged && (
-                <div className="success">Password changed successfully!</div>
-              )}
-              {changePasswordError && (
-                <div className="error">{changePasswordError}</div>
-              )}
-            </Form>
-          )}
-        </Formik>
+                <button
+                  type="submit"
+                  className="main-button"
+                  disabled={isSubmitting}
+                >
+                  <span>Set new password</span>
+                </button>
+                {passwordChanged && (
+                  <div className="success">Password changed successfully!</div>
+                )}
+                {changePasswordError && (
+                  <div className="error">{changePasswordError}</div>
+                )}
+              </Form>
+            )}
+          </Formik>
+        </div>
       </div>
     </section>
   );

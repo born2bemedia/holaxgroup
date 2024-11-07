@@ -1,39 +1,70 @@
 @use "mixin" as *;
 
+body {
+  background: #f1f1f1;
+}
+
 .log-in,
 .sign-up {
-  padding: rem(220) 0 rem(170) 0;
+  margin: rem(160) 0 rem(180) 0;
   position: relative;
-  background: #f3f3f3;
+  background: #f1f1f1;
   //background-image: url(/images/cart/back.svg);
   background-position: left top;
   background-size: cover;
   @media (max-width: rem(992)) {
-    padding: rem(170) 0 rem(100) 0;
+    margin: rem(90) 0 0 0;
     background-image: none;
+    background: #082860;
+    padding: rem(50) 0 rem(80);
+  }
+  &__body {
+    padding: rem(60) rem(75);
+    max-width: rem(770);
+    margin: 0 auto;
+    background: #082860;
+    border-radius: rem(16);
+    @media (max-width: rem(992)) {
+      padding: 0;
+    }
+
+    .back {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: rem(6);
+      font-family: Inter;
+      font-size: rem(20);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.2;
+      text-align: left;
+      color: #fff;
+      margin-top: rem(30);
+    }
   }
   h1 {
-    color: #1fa169;
-    font-size: rem(42);
+    color: #fff;
+    font-size: rem(32);
     font-weight: 500;
     line-height: 1.2;
     text-align: center;
     margin: 0 0 rem(20) 0;
     @media (max-width: rem(992)) {
-      margin-bottom: rem(30);
+      margin-bottom: rem(20);
       font-size: rem(24);
     }
   }
   h2 {
-    color: #333;
-    font-size: rem(24);
-    font-weight: 500;
+    color: #ffffff;
+    font-size: rem(18);
+    font-weight: 300;
     line-height: 1.2;
     text-align: center;
-    margin: 0 0 rem(50) 0;
+    margin: 0 0 rem(30) 0;
     @media (max-width: rem(992)) {
       margin-bottom: rem(30);
-      font-size: rem(18);
+      font-size: rem(16);
     }
     &.no-account {
       margin-top: rem(50);
@@ -41,7 +72,7 @@
   }
 
   .success {
-    color: #1fa169;
+    color: #fff;
     font-size: rem(16);
     font-weight: 700;
     line-height: 1.2;
@@ -49,7 +80,7 @@
     margin: 30px 0 0 0;
     text-align: center;
   }
-  >.error {
+  > .error {
     color: #f00;
     font-size: rem(16);
     font-weight: 700;
@@ -60,14 +91,32 @@
   }
 
   form {
-    margin: rem(50) auto 0 auto;
-    max-width: rem(532);
-    background-color: #fff;
-    padding: rem(50) rem(20);
+    margin: 0 auto 0 auto;
+    max-width: rem(400);
     border-radius: rem(30);
     display: flex;
     flex-direction: column;
-    gap: rem(30);
+    gap: rem(20);
+
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      gap: rem(16);
+      div {
+        font-size: rem(14);
+        font-weight: 300;
+        line-height: 1.2;
+        text-align: center;
+        color: #fff;
+        a {
+          font-style: italic;
+          font-weight: 300;
+          text-decoration: underline;
+          color: #fff;
+        }
+      }
+    }
+
     > div {
       width: 100%;
       position: relative;
@@ -110,14 +159,15 @@
         input {
           font-size: rem(16);
           width: 100%;
-          height: rem(50);
+          height: rem(40);
           color: #333;
-          padding: 0 rem(20) 0 rem(40);
-          background-color: #f3f3f3;
+          padding: 0 rem(16) 0 rem(40);
+          background-color: #f1f1f1;
           border-radius: 0;
-          border: 1px solid #f3f3f3;
+          border: 1px solid #f1f1f1;
           font-weight: 500;
           border-radius: rem(30);
+          font-style: italic;
         }
         &.invalid {
           input {
@@ -145,14 +195,15 @@
         width: 100%;
         font-size: rem(16);
         width: 100%;
-        height: rem(50);
+        height: rem(40);
         color: #333;
-        padding: 0 rem(20) 0 rem(20);
+        padding: 0 rem(16) 0 rem(16);
         background-color: #f3f3f3;
         border-radius: 0;
         border: 1px solid #f3f3f3;
         font-weight: 500;
         border-radius: rem(30);
+        font-style: italic;
         &::placeholder {
           color: #33333366;
         }
@@ -161,6 +212,13 @@
         }
       }
     }
+
+    .checkboxes {
+      display: flex;
+      flex-direction: column;
+      gap: rem(10);
+    }
+
     .checkbox {
       width: 100%;
       position: relative;
@@ -180,7 +238,7 @@
         display: none;
         &:checked + label {
           svg {
-            rect {
+            circle {
               &:last-child {
                 opacity: 1;
               }
@@ -191,17 +249,18 @@
       label {
         display: flex;
         align-items: flex-start;
-        gap: 10px;
-        color: #848484;
+        gap: rem(8);
+        color: #fff;
         font-size: rem(14);
-        font-weight: 30;
+        font-weight: 300;
         line-height: 1.2;
         text-align: left;
+        font-style: italic;
         svg {
           width: rem(20);
           height: rem(20);
           margin-top: -5px;
-          rect {
+          circle {
             &:last-child {
               opacity: 0;
             }
@@ -211,7 +270,7 @@
           width: calc(100% - 30px);
           a {
             text-decoration: underline;
-            color: #1e1e1e;
+            color: #fff;
           }
         }
       }
@@ -222,18 +281,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: rem(54);
+      height: rem(50);
       border-radius: rem(30);
       color: #fff;
       font-size: rem(20);
       font-weight: 400;
       line-height: 1.2;
       text-align: left;
-      background-color: #1fa169;
+      background-color: #0e0e0e;
       border: none;
       &:hover {
-        color: #fff;
-        background-color: #000000;
+        color: #0e0e0e;
+        background-color: #fff;
       }
       @media (max-width: rem(992)) {
         width: 100%;

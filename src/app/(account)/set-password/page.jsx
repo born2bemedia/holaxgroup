@@ -20,7 +20,9 @@ function SetPasswordContent() {
     return (
       <section className="change-password log-in">
         <div className="_container">
-          <h1>Invalid or expired link.</h1>
+          <div className="log-in__body">
+            <h1>Invalid or expired link.</h1>
+          </div>
         </div>
       </section>
     );
