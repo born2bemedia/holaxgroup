@@ -1,79 +1,94 @@
 @use "mixin" as *;
 
 .account-wrap {
-  padding: rem(220) 0 rem(170) 0;
+  padding: rem(170) 0 rem(170) 0;
   position: relative;
   background: #f3f3f3;
-  background-image: url(/images/cart/back.svg);
   background-position: left top;
   background-size: cover;
   @media (max-width: rem(992)) {
     padding: rem(170) 0 rem(100) 0;
     background-image: none;
   }
-  h1 {
-    color: #1fa169;
-    font-size: rem(42);
-    font-weight: 500;
-    line-height: 1.2;
-    text-align: left;
-    margin: 0 0 rem(100) 0;
-    @media (max-width: rem(992)) {
-      margin-bottom: rem(30);
-      font-size: rem(24);
-    }
-  }
   &__body {
     display: flex;
-    gap: rem(30);
+    gap: rem(60);
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: rem(1084);
     @media (max-width: rem(992)) {
       flex-direction: column;
     }
     .account-nav {
-      width: rem(310);
+      width: 100%;
       list-style-type: none;
       margin: 0;
       padding: 0;
       display: flex;
-      flex-direction: column;
-      background: #ffffff;
-      border-radius: rem(30);
-      padding: rem(30) 0;
+      background: #082860;
+      border-radius: rem(15);
+      padding: 0;
+      gap: 10px;
+
       @media (max-width: rem(992)) {
         width: 100%;
       }
       li {
         cursor: pointer;
-        color: #1e1e1e;
-        font-size: rem(16);
-        font-weight: 600;
+        color: #ffffff;
+        font-size: rem(22);
+        font-weight: 300;
         line-height: 1.2;
         text-align: left;
-        padding: rem(25) rem(30);
-        height: rem(70);
+        padding: 0;
+        height: rem(60);
         border: none;
         display: flex;
         align-items: center;
-        border-bottom: 1px solid #a5a5a580;
+        justify-content: center;
+        flex-grow: 1;
+        border-radius: rem(15);
         &:last-child {
           border: none;
         }
         &.active {
-          color: #1fa169;
+          background: #134cb2;
         }
       }
     }
     .account-content {
-      width: calc(100% - 340px);
-      background: #ffffff;
-      border-radius: rem(30);
-      padding: rem(30) 0;
+      width: 100%;
       @media (max-width: rem(992)) {
         width: 100%;
       }
       .hidden {
         display: none;
       }
+
+      h2 {
+        font-family: Inter;
+        font-size: rem(32);
+        font-weight: 600;
+        line-height: 1.2;
+        text-align: center;
+        margin: 0 0 rem(30) 0;
+        color: #082860;
+      }
+
+      p {
+        color: #0e0e0e;
+        font-size: rem(20);
+        font-weight: 300;
+        line-height: 1.4;
+        text-align: center;
+        margin: 0;
+        span {
+          cursor: pointer;
+          color: #134cb2;
+          text-decoration: underline;
+        }
+      }
+
       .orders-wrap {
         width: 100%;
         @media (max-width: rem(992)) {
@@ -99,10 +114,10 @@
                 &:first-child {
                   width: calc(30%);
                 }
-                .files-col{
-                    display: flex;
-                    flex-direction: column;
-                    gap:5px;
+                .files-col {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
                 }
                 a {
                   display: flex;
@@ -112,17 +127,17 @@
                   font-weight: 300;
                   line-height: 1.2;
                   color: #333;
-                  &.reorder{
+                  &.reorder {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    border: 1px solid #1FA169;
+                    border: 1px solid #1fa169;
                     height: 30px;
                     width: 115px;
                     border-radius: rem(15);
-                    &:hover{
-                        background: #1FA169;
-                        color: #fff;
+                    &:hover {
+                      background: #1fa169;
+                      color: #fff;
                     }
                   }
                 }
@@ -272,11 +287,11 @@
                 background: transparent;
                 width: rem(5);
               }
-  
+
               &::-webkit-scrollbar-track {
                 background: #ffffff0d;
               }
-  
+
               &::-webkit-scrollbar-thumb {
                 background-color: #1fa169;
                 border-radius: 100px;
