@@ -1,31 +1,27 @@
 @use "mixin" as *;
 
 .cart-wrap {
-  padding: rem(220) 0 rem(170) 0;
+  padding: rem(170) 0 rem(170) 0;
   position: relative;
-  background: #f3f3f3;
-  background-image: url(/images/cart/back.svg);
-  background-position: left top;
-  background-size: cover;
+  background: #f1f1f1;
   @media (max-width: rem(992)) {
-    padding: rem(170) 0 rem(100) 0;
+    padding: rem(100) 0 rem(100) 0;
   }
   h1 {
-    color: #1e1e1e;
-    font-size: rem(36);
-    font-weight: 700;
+    color: #082860;
+    font-size: rem(32);
+    font-weight: 600;
     line-height: 1.2;
-    text-align: center;
     margin: 0 0 30px 0;
-    text-align: center;
+    text-align: left;
   }
   p {
-    color: #161616;
-    font-size: rem(16);
+    color: #0e0e0e;
+    font-size: rem(20);
     font-weight: 400;
     line-height: 1.2;
     text-align: center;
-    margin: 0 0 40px 0;
+    margin: 0 0 rem(40) 0;
     @media (max-width: rem(992)) {
       br {
         display: none;
@@ -34,26 +30,26 @@
   }
 
   .cart {
-    background: #ffffff;
-    border-radius: rem(30);
-    padding: rem(50) 0;
+    max-width: rem(1084);
+    margin: 0 auto;
     .cart-head {
-      padding: rem(0) rem(60) rem(20) rem(60);
+      padding: rem(16) rem(40) rem(16) rem(40);
       border-radius: 0;
       display: flex;
       gap: 50px;
       justify-content: space-between;
-      border-bottom: 1px solid #00000026;
+      background: #134cb2;
+      border-radius: rem(16);
       @media (max-width: rem(992)) {
         display: none;
       }
       div {
         font-size: rem(20);
-        font-weight: 500;
+        font-weight: 300;
         line-height: 1.2;
         text-align: center;
         width: rem(110);
-        color: #333;
+        color: #fff;
         &:last-child {
           text-align: right;
         }
@@ -68,8 +64,10 @@
         display: flex;
         gap: 50px;
         justify-content: space-between;
-        padding: rem(20) rem(60);
-        border-bottom: 1px solid #00000026;
+        padding: rem(16) rem(40);
+        border-radius: rem(16);
+        background: #fff;
+        margin: rem(15) 0;
         @media (max-width: rem(992)) {
           flex-direction: column;
           padding: rem(20);
@@ -84,7 +82,7 @@
             }
             &:first-child {
               &:before {
-                content: "Service";
+                content: "Service Name";
                 order: 1;
               }
               span {
@@ -98,7 +96,7 @@
             }
             &:nth-child(2) {
               &:before {
-                content: "Price, €";
+                content: "Price";
               }
             }
             &:nth-child(3) {
@@ -108,12 +106,12 @@
             }
             &:nth-child(4) {
               &:before {
-                content: "Subtotal, €";
+                content: "Subtotal";
               }
             }
           }
         }
-        >div {
+        > div {
           font-size: rem(20);
           font-weight: 300;
           line-height: 1.2;
@@ -158,16 +156,19 @@
 
   .total {
     display: flex;
-    justify-content: flex-end;
-    padding: 0 rem(60) 0 0;
+    justify-content: center;
     color: #161616;
-    font-size: rem(22);
-    font-weight: 500;
+    font-size: rem(28);
+    font-weight: 300;
     line-height: 1.2;
-    text-align: right;
-    margin: 40px 0;
-    text-transform: uppercase;
-    color: #1e1e1e;
+    text-align: center;
+
+    margin: rem(60) 0 rem(40) 0;
+    color: #0e0e0e;
+    span {
+      color: #134cb2;
+      font-weight: 600;
+    }
     @media (max-width: rem(992)) {
       justify-content: center;
       padding: 0;
@@ -175,8 +176,8 @@
   }
   .button-wrap {
     display: flex;
-    justify-content: flex-end;
-    padding: 0 rem(60) 0 0;
+    justify-content: center;
+    padding: 0;
     @media (max-width: rem(992)) {
       justify-content: center;
       padding: 0 rem(20);
@@ -185,23 +186,23 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: rem(246);
-      height: rem(54);
+      height: rem(50);
       border-radius: rem(30);
-      margin-left: rem(126);
       color: #fff;
       font-size: rem(20);
       font-weight: 400;
       line-height: 1.2;
       text-align: left;
-      background-color: #1fa169;
+      background-color: #0e0e0e;
+      border: none;
+      min-width: rem(300);
       &:hover {
-        color: #fff;
-        background-color: #000000;
+        color: #0e0e0e;
+        background-color: #fff;
       }
       @media (max-width: rem(992)) {
         width: 100%;
-        margin: 0;
+        margin: 0 0 0 0;
       }
     }
   }
@@ -212,51 +213,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: rem(40);
   }
   h1 {
-    font-size: rem(26);
-    font-weight: 500;
-    line-height: 1.2;
     text-align: center;
-    margin: 0;
-    span {
-      display: block;
-      color: #1fa169;
-    }
-    @media (max-width: rem(767)) {
-      br {
-        display: none;
-      }
-    }
   }
-  .buttons {
+  a {
+    margin-top: rem(40);
     display: flex;
-
-    align-items: center;
     justify-content: center;
-    gap: rem(30);
-    a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: rem(246);
-      height: rem(54);
-      border-radius: rem(30);
-      color: #fff;
-      font-size: rem(20);
-      font-weight: 400;
-      line-height: 1.2;
-      text-align: left;
-      background-color: #1fa169;
-      &:hover {
-        color: #fff;
-        background-color: #000000;
-      }
-      @media (max-width: rem(992)) {
-        width: 100%;
-        margin: 0;
-      }
+    align-items: center;
+    height: rem(50);
+    border-radius: rem(30);
+    color: #fff;
+    font-size: rem(20);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: left;
+    background-color: #0e0e0e;
+    border: none;
+    min-width: rem(300);
+    &:hover {
+      color: #0e0e0e;
+      background-color: #fff;
+    }
+    @media (max-width: rem(992)) {
+      width: 100%;
+      margin: 0 0 0 0;
     }
   }
 }

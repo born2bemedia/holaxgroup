@@ -34,7 +34,6 @@ const Dashboard = () => {
         <>
           <section className="account-wrap">
             <div className="_container">
-              <h1>Hi, {currentUser.username}!</h1>
 
               <div className="account-wrap__body">
                 <ul className="account-nav">
@@ -44,7 +43,7 @@ const Dashboard = () => {
                     onClick={() => toggleItem(1)}
                     className={`${openIndex === 1 && "active"}`}
                   >
-                    <span>My Orders</span>
+                    <span>My Account</span>
                   </li>
                   <li
                     data-id={openIndex}
@@ -52,7 +51,7 @@ const Dashboard = () => {
                     onClick={() => toggleItem(2)}
                     className={`${openIndex === 2 && "active"}`}
                   >
-                    <span>My Services</span>
+                    <span>Recent Orders</span>
                   </li>
                   <li
                     data-id={openIndex}
@@ -60,22 +59,45 @@ const Dashboard = () => {
                     onClick={() => toggleItem(3)}
                     className={`${openIndex === 3 && "active"}`}
                   >
-                    <span>Account Setting</span>
+                    <span>Downloads</span>
+                  </li>
+                  <li
+                    data-id={openIndex}
+                    aria-current="page"
+                    onClick={() => toggleItem(4)}
+                    className={`${openIndex === 4 && "active"}`}
+                  >
+                    <span>My Addresses</span>
                   </li>
                   <LogoutButton />
                 </ul>
 
                 <div className="account-content">
                   <div className={openIndex === 1 ? "block" : "hidden"}>
-                    <Orders />
+                    <h2>Welcome to your personal control centre.</h2>
+                    <p>
+                      Here, you can manage your{" "}
+                      <span onClick={() => toggleItem(4)}>account details</span>
+                      , monitor{" "}
+                      <span onClick={() => toggleItem(2)}>recent orders</span>,
+                      and update your{" "}
+                      <span onClick={() => toggleItem(4)}>billing address</span>{" "}
+                      in one convenient place. You can do it here if you need to
+                      change your password or update your personal information.
+                      Stay organised and in control with everything you need at
+                      your fingertips.
+                    </p>
                   </div>
                   <div className={openIndex === 2 ? "block" : "hidden"}>
-                    <AvailableFiles />
+                    <Orders />
                   </div>
                   <div className={openIndex === 3 ? "block" : "hidden"}>
+                    <AvailableFiles />
+                  </div>
+                  <div className={openIndex === 4 ? "block" : "hidden"}>
                     <PersonalData />
                   </div>
-                  <div className={openIndex === 4 ? "block" : "hidden"}></div>
+                  <div className={openIndex === 5 ? "block" : "hidden"}></div>
                 </div>
               </div>
             </div>

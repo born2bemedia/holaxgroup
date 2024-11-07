@@ -31,11 +31,12 @@ const CartPage = () => {
               <section className="cart-wrap">
                 <div className="_container">
                   <div className="cart">
+                    <h1>Cart</h1>
                     <div className="cart-head">
-                      <div>Service</div>
-                      <div>Price, €</div>
+                      <div>Service Name</div>
+                      <div>Price</div>
                       <div>Quantity</div>
-                      <div>Subtotal, €</div>
+                      <div>Subtotal</div>
                     </div>
                     <div className="cart-content">
                       {cart.map((item) => (
@@ -46,7 +47,7 @@ const CartPage = () => {
                             </button>
                             <span>{item.name}</span>
                           </div>
-                          <div>{item.attributes.price}</div>
+                          <div>€{item.attributes.price}</div>
                           <div>
                             <div className="qt">
                               <img
@@ -63,12 +64,12 @@ const CartPage = () => {
                             </div>
                           </div>
 
-                          <div>{item.quantity * item.attributes.price}</div>
+                          <div>€{item.quantity * item.attributes.price}</div>
                         </div>
                       ))}
                     </div>
 
-                    <div className="total">Total: {totalAmount}</div>
+                    <div className="total">Total: <span>€{totalAmount}</span></div>
                     <div className="button-wrap">
                       <Link className="main-button" href="/checkout">
                         <span>Checkout</span>
@@ -82,22 +83,14 @@ const CartPage = () => {
             <div>
               <section className="cart-wrap empty">
                 <div className="_container">
-                  <h1>
-                    It looks like you have not added any services to the cart
-                    yet.
-                    <span>
-                      Explore our offerings and choose the services you need.
-                    </span>
-                  </h1>
-                  <img src="/images/arrowDown.svg" />
-                  <div className="buttons">
-                    <Link href="/business-consulting">
-                      <span>Business Consulting</span>
-                    </Link>
-                    <Link href="/marketing-consulting">
-                      <span>Marketing Consulting</span>
-                    </Link>
-                  </div>
+                  <h1>Your cart is empty.</h1>
+                  <p>
+                    Discover our wide array of business and marketing consulting
+                    services!
+                  </p>
+                  <Link href="/">
+                    <span>Go home</span>
+                  </Link>
                 </div>
               </section>
             </div>
