@@ -610,6 +610,7 @@ body {
 }
 
 .consulting-why {
+  overflow: hidden;
   background: #ffffff;
   padding: rem(90) 0;
   .top {
@@ -679,6 +680,7 @@ body {
 
   .swiper {
     margin-bottom: rem(80);
+    overflow: unset;
     @media (max-width: rem(992)) {
       margin-bottom: rem(50);
     }

@@ -28,7 +28,7 @@ const ConsultingWhy = () => {
             slidesPerView={2}
             autoplay={true}
             pagination={{ clickable: true }}
-            loop={true}
+            loop={false}
             breakpoints={{
               // For mobile, show only 1 slide per view
               320: {

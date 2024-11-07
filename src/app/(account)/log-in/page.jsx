@@ -42,7 +42,7 @@ export default function SignIn() {
       });
 
       const data = await response.json();
-
+      console.log(data);
       if (!response.ok) {
         throw new Error(data.message || "Login failed");
       }
@@ -110,6 +110,11 @@ export default function SignIn() {
                 >
                   <span>Log in</span>
                 </button>
+
+                {errors.submit && (
+                  <div className="error submit-error">{errors.submit}</div>
+                )}
+
                 <Link className="reset" href="/reset-password">
                   Forgot password?
                 </Link>

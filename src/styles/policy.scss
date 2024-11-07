@@ -1,0 +1,105 @@
+@use "mixin" as *;
+
+.policy-inner {
+  margin: rem(120) 0 rem(180) 0;
+  @media (max-width: rem(992)) {
+    margin: rem(100) 0 rem(100) 0;
+  }
+  h1 {
+    color: #0e0e0e;
+    margin: 0 0 rem(16) 0;
+    font-size: rem(48);
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: left;
+    @media (max-width: rem(992)) {
+      font-size: rem(28);
+      margin: 0 0 rem(10) 0;
+    }
+  }
+  &__body {
+    .top {
+      margin-bottom: rem(70);
+      @media (max-width: rem(992)) {
+        margin-bottom: rem(40);
+      }
+      span {
+        font-family: Inter;
+        font-size: rem(20);
+        font-weight: 300;
+        line-height: 1.2;
+        text-align: left;
+        color: #0e0e0e;
+        opacity: 0.4;
+      }
+    }
+    .content {
+      h2 {
+        color: #0e0e0e;
+        margin: rem(40) 0 rem(20) 0;
+        font-size: rem(32);
+        font-weight: 500;
+        line-height: 1.2;
+        text-align: left;
+        &:first-child {
+          margin-top: 0;
+        }
+        @media (max-width: rem(992)) {
+          font-size: rem(24);
+          margin: rem(40) 0 rem(20) 0;
+        }
+      }
+      p {
+        color: #0e0e0e;
+        font-size: rem(20);
+        font-weight: 300;
+        line-height: 1.2;
+        text-align: left;
+        margin: 0 0 rem(20) 0;
+        @media (max-width: rem(992)) {
+          font-size: rem(16);
+        }
+      }
+      ul {
+        margin: 0 0 rem(20) 0;
+        padding-left: rem(24);
+        li {
+          list-style-type: disc;
+          color: #0e0e0e;
+          font-size: rem(20);
+          font-weight: 300;
+          line-height: 1.2;
+          text-align: left;
+          margin: 0;
+          @media (max-width: rem(992)) {
+            font-size: rem(16);
+          }
+          p {
+            margin: 0;
+          }
+        }
+      }
+      ol {
+        margin: 0 0 rem(20) 0;
+        padding-left: rem(24);
+        li {
+          color: #0e0e0e;
+          font-size: rem(20);
+          font-weight: 300;
+          line-height: 1.2;
+          text-align: left;
+          margin: 0;
+          @media (max-width: rem(992)) {
+            font-size: rem(16);
+          }
+          p {
+            margin: 0;
+          }
+        }
+      }
+      a {
+        color: #134cb2;
+      }
+    }
+  }
+}
