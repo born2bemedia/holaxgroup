@@ -16,8 +16,9 @@ const useOrderStore = create((set, get) => ({
   getOrders: async () => {
     try {
       const response = await axiosClient.get(
-        "orders?populate[products][populate]=*&populate[invoice]=*&populate[files]=*"
+        "orders?[populate]=*"
       );
+      console.log(response);
       return response.data.data;
     } catch (error) {
       console.error("Failed to fetch orders", error);
@@ -28,9 +29,7 @@ const useOrderStore = create((set, get) => ({
   getOrdersByUser: async (email) => {
     try {
       const orders = await get().getOrders(); // Reference `getOrders` using `get()`
-      const orderByUser = orders.filter(
-        (order) => order.email === email
-      );
+      const orderByUser = orders.filter((order) => order.email === email);
       return orderByUser;
     } catch (error) {
       console.error("Failed to fetch orders by user", error);
