@@ -97,7 +97,7 @@ const HomeItems = () => {
                                 <div className="home-items__text">
                                     Are you ready to take your career to the next level? At Holax Group, we are always looking for talented individuals who share our passion for excellence and innovation. Explore our current job openings and become part of a team that makes a difference.
                                 </div>
-                                <Link href="#" className="home-items__link">
+                                <Link href="/careers" className="home-items__link">
                                     View open positions
                                     <ArrowIcon />
                                 </Link>
