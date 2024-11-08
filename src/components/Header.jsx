@@ -3,8 +3,10 @@ import React, { useEffect, useState } from "react";
 import "@/styles/header.scss";
 import "@/styles/base.scss";
 import Link from "next/link";
+import useAuthStore from "@/stores/authStore";
 
 const Header = () => {
+  const { currentUser, fetchCurrentUser } = useAuthStore();
   const [menuOpened, setMenuOpened] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState({});
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -232,23 +234,41 @@ const Header = () => {
           <div className="header__col-03">
             <nav className="header__nav">
               <ul className="header__account">
-                <li className="header__account-item">
-                  <Link href="/cart" className="header__account-link">
-                    <img src="/images/cart.svg" alt="cart" />
-                  </Link>
-                </li>
-                <li className="separator">|</li>
-                <li className="header__account-item">
-                  <Link href="/log-in" className="header__account-link">
-                    Login
-                  </Link>
-                </li>
-                <li className="separator">|</li>
-                <li className="header__account-item">
-                  <Link href="/sign-up" className="header__account-link">
-                    Sign up
-                  </Link>
-                </li>
+                {!currentUser ? (
+                  <>
+                    <li className="header__account-item">
+                      <Link href="/cart" className="header__account-link">
+                        <img src="/images/cart.svg" alt="cart" />
+                      </Link>
+                    </li>
+                    <li className="separator">|</li>
+                    <li className="header__account-item">
+                      <Link href="/log-in" className="header__account-link">
+                        Login
+                      </Link>
+                    </li>
+                    <li className="separator">|</li>
+                    <li className="header__account-item">
+                      <Link href="/sign-up" className="header__account-link">
+                        Sign up
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className="header__account-item">
+                      <Link href="/cart" className="header__account-link">
+                        <img src="/images/cart.svg" alt="cart" />
+                      </Link>
+                    </li>
+                    <li className="separator">|</li>
+                    <li className="header__account-item">
+                      <Link href="/dashboard" className="header__account-link">
+                        Account
+                      </Link>
+                    </li>
+                  </>
+                )}
               </ul>
             </nav>
           </div>
