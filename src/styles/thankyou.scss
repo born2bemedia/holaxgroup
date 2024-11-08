@@ -11,20 +11,38 @@
   }
 
   h1 {
-    color: #1fa169;
-    font-size: rem(42);
-    font-weight: 700;
+    color: #082860;
+    font-size: rem(32);
+    font-weight: 600;
     line-height: 1.2;
     text-align: center;
-    margin: 0 0 35px 0;
+    margin: 0 0 rem(30) 0;
     text-align: center;
   }
   p {
-    color: #333333;
-    font-size: rem(26);
+    color: #0e0e0e;
+    font-size: rem(20);
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.2;
     text-align: center;
-    margin: 0;
+    margin: 0 0 rem(60) 0;
+  }
+  a {
+    background-color: #0e0e0e;
+    border: 1px solid #0e0e0e;
+    height: rem(50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: rem(25);
+    color: #fff;
+    font-size: rem(20);
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    padding: 0 rem(20);
+    width: rem(300);
+    max-width: 100%;
+    margin: 0 auto;
   }
 }
