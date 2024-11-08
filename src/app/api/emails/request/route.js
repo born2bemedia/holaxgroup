@@ -67,20 +67,30 @@ export async function POST(request) {
               <td style="padding: 40px">
                 <h2 style="text-align: left; font-size: 20px;color:#202020;">Dear ${fullName},</h2>
                 <p style="text-align: left; font-size: 16px;color:#202020;">
-                 Thank you for contacting Holaxgroup. We’ve received your inquiry and will be in touch shortly to provide the assistance you need.
+                 We are pleased to confirm that we have received and accepted your order. At Holax Group, we are dedicated to providing exceptional service and delivering top-quality results tailored to your needs.
                 </p>
                 <p style="text-align: left; font-size: 16px;color:#202020;">
-                We appreciate your interest in our services and look forward to supporting you on your career journey.
+                  As agreed, we will soon send you the bank details necessary for payment. Once we receive the payment, we will promptly begin processing your order.
                 </p>
-                <h2 style="text-align: left; font-size: 20px;color:#202020;"> Best regards,<br /> The Holaxgroup Team</h2>
+                
+                <ul style="text-align: left; font-size: 16px;">
+                  <li>Description of Services: ${service}</li>
+                </ul>
+
+                <p style="text-align: left; font-size: 16px;color:#202020;">
+                  To ensure timely processing of your order, please make the payment at your earliest convenience. If you have any questions or need further assistance, please feel free to contact us.
+                </p>
+                <p style="text-align: left; font-size: 16px;color:#202020;">
+                 Thank you for choosing Holax Group. We look forward to serving you and exceeding your expectations!
+                </p>
+                <h2 style="text-align: left; font-size: 20px;color:#202020;"> Best regards,<br /> Holax Group Team</h2>
               </td>
             </tr>
           </tbody>
           <tfoot>
-            <td style="padding: 24px; background-color: #A225EE; color: #fff; font-size: 20px; text-align: center; font-weight: 600;">
-              Thanks for using
-              <a href="https://holaxgroup.com/" style="text-decoration: underline; color: #fff; font-size: 20px; font-weight: 600;">holaxgroup.com</a>
-            </td>
+            <td>
+                <img style="width: 100%" src="https://holaxgroup.com/images/email_footer.png" alt="Holaxgroup Header" />
+              </td>
           </tfoot>
         </table>
       `,
