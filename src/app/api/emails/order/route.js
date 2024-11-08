@@ -5,9 +5,19 @@ export async function POST(request) {
   try {
     const requestBody = await request.text();
     const bodyJSON = JSON.parse(requestBody);
-    const { firstName, lastName, email, phone, addressLine1, addressLine2, city, zip, country, cart, totalAmount } =
-      bodyJSON;
-
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      addressLine1,
+      addressLine2,
+      city,
+      zip,
+      country,
+      cart,
+      totalAmount,
+    } = bodyJSON;
 
     // Create HTML list of cart items
     const cartItemsHtml = cart
@@ -42,10 +52,9 @@ export async function POST(request) {
         <tr>
           <td>
             <p style="text-align: left; font-size: 16px">
-              Name: ${fullName}<br>
+              Name: ${firstName} ${lastName}<br>
               Email: ${email}<br>
               Phone: ${phone}<br>
-              Message: ${message}
             </p>
             <p style="text-align: left; font-size: 16px;font-weight:600;">Order:</p>
             <ul style="text-align: left; font-size: 16px;">
@@ -76,93 +85,29 @@ export async function POST(request) {
             <tr>
               <td style="padding: 40px">
                 <h2 style="text-align: left; font-size: 20px">Dear ${firstName} ${lastName},</h2>
-                <p style="text-align: left; font-size: 16px">
-                 Thank you for your order! We are pleased to confirm that we have successfully received your request for services. Below are the details of your order:
+                <p style="text-align: left; font-size: 16px;color:#202020;">
+                 We are pleased to confirm that we have received and accepted your order. At Holax Group, we are dedicated to providing exceptional service and delivering top-quality results tailored to your needs.
                 </p>
-                <p style="text-align: left; font-size: 20px; font-weight: 600;color: #1FA169;">
-                  Order Summary:
-                </p>
-                <p style="text-align: left; font-size: 14px;color:#333;padding: 10px 20px;background-color: #D3D3D3;margin-bottom: 0;">
-                  <strong>Service:</strong>
+                <p style="text-align: left; font-size: 16px;color:#202020;">
+                  As agreed, we will soon send you the bank details necessary for payment. Once we receive the payment, we will promptly begin processing your order.
                 </p>
                 <ul style="text-align: left; font-size: 16px;list-style-type: none;margin: 0;padding: 10px 20px;background-color: #F3F3F3;">
                  ${cartItemsHtml}
                 </ul>
-                <p style="text-align: left; font-size: 14px;color:#FFFFFF;padding: 10px 20px;background-color: #1FA169;margin-top: 0;">
-                  <strong>Subtotal:</strong> €${totalAmount}
+                <p style="text-align: left; font-size: 16px;color:#202020;">
+                  To ensure timely processing of your order, please make the payment at your earliest convenience. If you have any questions or need further assistance, please feel free to contact us.
                 </p>
-
-                <table style="width:100%;">
-                  <tbody>
-                    <tr>
-                      <td>
-                         <p style="text-align: left; font-size: 20px; font-weight: 600;color: #1FA169;">
-                            Billing Details:
-                          </p>
-                          <ul style="text-align: left; font-size: 14px;list-style-type: none;padding-left: 18px;">
-                           <li>
-                              <strong>First Name:</strong> ${firstName}
-                            </li>
-                            <li>
-                              <strong>Last Name:</strong> ${lastName}
-                            </li>
-                            <li>
-                              <strong>Address Line 1:</strong> ${addressLine1}
-                            </li>
-                            <li>
-                              <strong>Address Line 2:</strong> ${addressLine2}
-                            </li>
-                            <li>
-                              <strong>City:</strong> ${city}
-                            </li>
-                            <li>
-                              <strong>Country:</strong> ${country}
-                            </li>
-                            <li>
-                              <strong>ZIP Code:</strong> ${zip}
-                            </li>
-                          </ul>
-                      </td>
-                      <td>
-                         <p style="text-align: left; font-size: 20px; font-weight: 600;color: #1FA169;">
-                            Contact Details:
-                          </p>
-                          <ul style="text-align: left; font-size: 14px;margin-bottom: 16px;padding-bottom: 16px;border-bottom: 1px solid #E8E8E8;padding-left: 18px;">
-                           <li>
-                              <strong>Email:</strong> ${email}
-                            </li>
-                            <li>
-                              <strong>Phone:</strong> ${phone}
-                            </li>
-                          </ul>
-                          <ul style="text-align: left; font-size: 14px;margin-bottom: 16px;padding-bottom: 16px;padding-left: 18px;">
-                           <li>
-                              <strong>Payment Method:</strong> Bank Transfer
-                            </li>
-                          </ul>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <p style="text-align: left; font-size: 16px">
-                  Please check your email for payment instructions and our bank details. If you have any special notes or further inquiries, feel free to reach out to us.
+                <p style="text-align: left; font-size: 16px;color:#202020;">
+                 Thank you for choosing Holax Group. We look forward to serving you and exceeding your expectations!
                 </p>
-                <p style="text-align: left; font-size: 16px">
-                  Thank you for choosing Holaxgroup. We look forward to working with you!
-                </p>
-                <h2 style="text-align: left; font-size: 16px">
-                  Best regards,<br />
-                  Holaxgroup Team
-                </h2>
+                <h2 style="text-align: left; font-size: 20px;color:#202020;"> Best regards,<br /> Holax Group Team</h2>
               </td>
             </tr>
           </tbody>
           <tfoot>
-            <td style="padding: 24px; background-color: #333333; color: #fff; font-size: 20px; text-align: center; font-weight: 600;">
-              Thanks for using
-              <a href="https://holaxgroup.com/" style="text-decoration: underline; color: #fff; font-size: 20px; font-weight: 600;">holaxgroup.com</a>
-            </td>
+            <td>
+                <img style="width: 100%" src="https://holaxgroup.com/images/email_footer.png" alt="Holaxgroup Header" />
+              </td>
           </tfoot>
         </table>
       `,

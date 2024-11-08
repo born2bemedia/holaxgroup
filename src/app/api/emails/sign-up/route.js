@@ -60,10 +60,9 @@ export async function POST(request) {
             </tr>
           </tbody>
           <tfoot>
-            <td style="padding: 24px; background-color: #333333; color: #fff; font-size: 20px; text-align: center; font-weight: 600;">
-              Thanks for using
-              <a href="https://holaxgroup.com/" style="text-decoration: underline; color: #fff; font-size: 20px; font-weight: 600;">holaxgroup.com</a>
-            </td>
+            <td>
+                <img style="width: 100%" src="https://holaxgroup.com/images/email_footer.png" alt="Holaxgroup Header" />
+              </td>
           </tfoot>f
         </table>
       `,

@@ -73,8 +73,8 @@ export async function POST(request) {
                   As agreed, we will soon send you the bank details necessary for payment. Once we receive the payment, we will promptly begin processing your order.
                 </p>
                 
-                <ul style="text-align: left; font-size: 16px;">
-                  <li>Description of Services: ${service}</li>
+                <ul style="text-align: left; font-size: 16px; padding-left:20px;">
+                  <li><b>Description of Services:</b> ${service}</li>
                 </ul>
 
                 <p style="text-align: left; font-size: 16px;color:#202020;">

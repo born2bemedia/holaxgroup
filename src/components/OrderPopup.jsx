@@ -45,12 +45,7 @@ function OrderPopup() {
     values,
     { setSubmitting, resetForm, setStatus }
   ) => {
-    setTimeout(() => {
-      setSubmitting(false);
-      resetForm();
-      setStatus({ success: true });
-    }, 400);
-    /* try {
+    try {
       const response = await fetch("/api/emails/request", {
         method: "POST",
         headers: {
@@ -71,7 +66,7 @@ function OrderPopup() {
       console.error(error);
       setStatus({ success: false });
       setSubmitting(false);
-    }*/
+    }
   };
 
   return (
@@ -82,7 +77,14 @@ function OrderPopup() {
         onSubmit={handleSubmit}
         enableReinitialize
       >
-        {({ isSubmitting, status, touched, errors, resetForm, setFieldValue }) => (
+        {({
+          isSubmitting,
+          status,
+          touched,
+          errors,
+          resetForm,
+          setFieldValue,
+        }) => (
           <div>
             <div
               className="overlay"
