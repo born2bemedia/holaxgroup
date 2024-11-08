@@ -16,6 +16,7 @@ const CareersLast = () => {
               open positions. Join us on our mission to deliver exceptional
               consulting services and drive meaningful change.
             </p>
+            <Link href="#jobs">Apply now and join our team</Link>
           </div>
         </div>
       </div>

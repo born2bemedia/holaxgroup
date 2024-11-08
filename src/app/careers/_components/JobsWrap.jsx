@@ -31,7 +31,7 @@ const JobsWrap = () => {
   };
 
   return (
-    <section className="jobs-wrap">
+    <section className="jobs-wrap" id="jobs">
       <div className="_container">
         <h2>Job Offers</h2>
         <div className="jobs-wrap__body">
