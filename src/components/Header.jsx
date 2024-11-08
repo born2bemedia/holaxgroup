@@ -51,8 +51,8 @@ const Header = () => {
         <div className="header__body">
           <div className="header__col-01">
             <Link href="/" className="header__logo" onClick={closeMenu}>
-              {/* <img src="/images/danube-logo.svg" alt="logo" /> */}
-              LOGO
+              <img src="/images/logo.svg" alt="logo" />
+              
             </Link>
           </div>
           <div className="header__col-02">
