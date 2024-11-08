@@ -1,4 +1,4 @@
-import "@/styles/articles.scss";
+import "@/styles/news.scss";
 import axiosClient from "@/app/api/GlobalApi";
 import Image from "next/image";
 import ArrowVertical from "@/icons/other/ArrowVertical";
@@ -7,22 +7,22 @@ import CasesCta from "../_components/CasesCta";
 
 // Use server-side data fetching to get the post by slug
 const fetchPostBySlugServer = async (slug) => {
-  const url = `articles?filters[slug][$eq]=${slug}&populate=*`; // Adjust your API query here
+  const url = `posts?filters[slug][$eq]=${slug}&populate=*`; // Adjust your API query here
   const response = await axiosClient.get(url);
-  const article = response.data.data[0]; // Assuming the response returns a single post
+  const post = response.data.data[0]; // Assuming the response returns a single post
 
-  return article
+  return post
     ? {
-        id: article.id,
-        slug: article.slug,
-        title: article.title,
-        content: article.content,
-        image: article.image,
-        icon: article.icon,
-        introduction: article.introduction,
-        conclusion: article.conclusion,
-        seo_title: article.seo_title,
-        seo_description: article.seo_description,
+        id: post.id,
+        slug: post.slug,
+        title: post.title,
+        content: post.content,
+        image: post.image,
+        icon: post.icon,
+        introduction: post.introduction,
+        conclusion: post.conclusion,
+        seo_title: post.seo_title,
+        seo_description: post.seo_description,
       }
     : null;
 };
@@ -31,11 +31,11 @@ const fetchPostBySlugServer = async (slug) => {
 export async function generateMetadata({ params }) {
   const awaitedParams = await params; // Await the params
   const { slug } = awaitedParams;
-  const article = await fetchPostBySlugServer(slug);
+  const post = await fetchPostBySlugServer(slug);
 
   return {
-    title: article?.seo_title || article?.title || "Default Title",
-    description: article?.seo_description || "Default description",
+    title: post?.seo_title || post?.title || "Default Title",
+    description: post?.seo_description || "Default description",
   };
 }
 
@@ -64,23 +64,27 @@ const CasesInner = async ({ params }) => {
         <div className="_container">
           <div className="case-inner__body">
             <div className="top">
-              <img src={singlePost.icon.url} />
-              <h1>{singlePost.title}</h1>
+              <div className="col-01">
+                <h1>{singlePost.title}</h1>
+                <div className="client">{singlePost.introduction}</div>
+              </div>
+              <Image
+                src={singlePost.image.url}
+                width={574}
+                height={323}
+                alt={singlePost.title}
+              />
             </div>
+            <ArrowVertical />
             <div className="content">
-              <div className="introduction">
-                <h2>Introduction</h2>
-                <p>{singlePost.introduction}</p>
-              </div>
               <ReactMarkdown>{singlePost.content}</ReactMarkdown>
-              <div className="conclusion">
-                <h2>Conclusion</h2>
-                <p>{singlePost.conclusion}</p>
-              </div>
+              <h2>Conclusion</h2>
+              <p>{singlePost.conclusion}</p>
             </div>
           </div>
         </div>
       </section>
+      <CasesCta />
     </>
   );
 };
