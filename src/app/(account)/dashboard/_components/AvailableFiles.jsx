@@ -36,65 +36,42 @@ function AvailableFiles() {
     fetchOrders();
   }, [currentUser, getOrdersByUser]);
 
+  const hasInvoice = orders?.some((order) => order.invoice?.url); // Check if any order has an invoice
+
   return (
     <div>
       {loading && <p className="">Loading orders...</p>}
       {error && <p className="">{error}</p>}
-      {orders && (
-        <div className="orders-wrap">
-          <table className="orders files">
-            <thead>
-              <tr>
-                <th>Service</th>
-                <th>Date</th>
-
-                <th>Documents</th>
-                <th>Manage</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders.map(
-                (order) =>
-                  // Render row only if there are files available
-                  order.files?.length > 0 && (
-                    <tr key={order.id}>
-                      <td>
-                        {order.order_status !== "cancelled" &&
-                          order.products.map((product) => (
-                            <span key={product.id}>
-                                {product.title}
-                                <br />
-                              </span>
-                          ))}
-                      </td>
-                      <td>{formatDate(order.createdAt)}</td>
-
-                      <td>
-                        {order.files.map((file, index) => (
-                          <span key={index} className="files-col">
-                            <Link
-                              key={file.id}
-                              href={`${file.url}`}
-                              target="_blank"
-                            >
-                              <img src="/images/download.svg" />
-                              {file.name}
-                            </Link>
-                          </span>
-                        ))}
-                      </td>
-                      <td>
-                        <Link href="/" className="reorder">
-                          Order Again
-                        </Link>
-                      </td>
-                    </tr>
-                  )
-              )}
-            </tbody>
-          </table>
-        </div>
-      )}
+      <div className="downloads-wrap">
+        {hasInvoice ? (
+          <div>
+            {orders.map(
+              (order, index) =>
+                order.invoice?.url && ( // Render only orders with an invoice
+                  <div className="download" key={order.id}>
+                    <div>
+                      <div>
+                        <span>{String(index + 1).padStart(2, "0")}.</span>
+                      </div>
+                      <div>
+                        <span>Invoice date:</span> {formatDate(order.createdAt)}
+                      </div>
+                      <div>
+                        <span>Invoice num:</span> #{order.id}
+                      </div>
+                    </div>
+                    <Link href={`${order.invoice.url}`} target="_blank">
+                      <span>Download Invoice</span>
+                      <img src="/images/download.svg" />
+                    </Link>
+                  </div>
+                )
+            )}
+          </div>
+        ) : (
+          <div className="empty">There are no downloads available yet.</div>
+        )}
+      </div>
     </div>
   );
 }

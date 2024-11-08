@@ -1,26 +1,31 @@
 @use "mixin" as *;
 
 .checkout-wrap {
-  padding: rem(220) 0 rem(170) 0;
+  padding: rem(135) 0 rem(170) 0;
   position: relative;
   background: #f3f3f3;
   background-position: left top;
   background-size: cover;
   @media (max-width: rem(992)) {
-    padding: rem(170) 0 rem(100) 0;
+    padding: rem(100) 0 rem(100) 0;
   }
+
+  &__body {
+    max-width: rem(1104);
+    margin: 0 auto;
+  }
+
   h1 {
     color: #1e1e1e;
-    font-size: rem(36);
+    font-size: rem(32);
     font-weight: 700;
     line-height: 1.2;
-    text-align: center;
-    margin: 0 0 30px 0;
-    text-align: center;
+    text-align: left;
+    margin: 0 0 rem(24) 0;
   }
 
   .success {
-    color: #1fa169;
+    color: #134cb2;
     font-size: rem(16);
     font-weight: 700;
     line-height: 1.2;
@@ -30,35 +35,86 @@
   }
   .error {
     color: #f00;
-    font-size: rem(16);
-    font-weight: 700;
+    font-size: rem(10);
+    font-weight: 300;
     line-height: 1.2;
-    text-align: center;
-    margin: 30px 0 0 0;
-    text-align: center;
+    text-align: left;
+    text-align: left;
+    margin: 0;
   }
 
   form {
-    max-width: rem(532);
     margin: 0 auto;
-    h3 {
-      color: #333;
-      font-size: rem(38);
-      font-weight: 500;
-      line-height: 1.2;
-      text-align: center;
-      margin: rem(50) 0 rem(40) 0;
-      &:first-child {
-        margin-top: 0;
+    display: flex;
+    gap: rem(12);
+    @media (max-width: rem(992)) {
+      flex-direction: column;
+    }
+    .col-01 {
+      width: calc(50% - rem(6));
+      padding: rem(35);
+      background: #fff;
+      border-radius: rem(15);
+      @media (max-width: rem(992)) {
+        width: 100%;
+        padding: rem(30) rem(20);
       }
+    }
+
+    .col-02 {
+      width: calc(50% - rem(6));
+      display: flex;
+      flex-direction: column;
+      gap: rem(12);
+      @media (max-width: rem(992)) {
+        width: 100%;
+      }
+      > div {
+        padding: rem(35);
+        background: #fff;
+        border-radius: rem(15);
+        @media (max-width: rem(992)) {
+          width: 100%;
+          padding: rem(30) rem(20);
+        }
+        textarea {
+          width: 100%;
+          font-size: rem(16);
+          width: 100%;
+          height: rem(100);
+          color: #333;
+          padding: rem(15) rem(20) rem(15) rem(20);
+          background-color: #f1f1f1;
+          border-radius: 0;
+          border: 1px solid #134cb2;
+          font-weight: 300;
+          font-style: italic;
+          border-radius: rem(15);
+          &::placeholder {
+            color: #33333366;
+          }
+          &.invalid {
+            border-color: #ff5353;
+          }
+        }
+      }
+    }
+
+    h3 {
+      color: #134cb2;
+      font-size: rem(24);
+      font-weight: 600;
+      line-height: 1.2;
+      text-align: left;
+      margin: 0 0 rem(28) 0;
     }
     .billing-data {
       display: flex;
       flex-wrap: wrap;
-      column-gap: 30px;
+      column-gap: 16px;
       row-gap: 20px;
       > div {
-        width: calc(50% - 15px);
+        width: calc(50% - 8px);
         position: relative;
         &.full {
           width: 100%;
@@ -102,11 +158,12 @@
             height: rem(50);
             color: #333;
             padding: 0 rem(20) 0 rem(40);
-            background-color: #ffffff;
+            background-color: #f1f1f1;
             border-radius: 0;
-            border: 1px solid #ffffff;
-            font-weight: 500;
+            border: 1px solid #134cb2;
+            font-weight: 300;
             border-radius: rem(30);
+            font-style: italic;
           }
           &.invalid {
             input {
@@ -132,8 +189,9 @@
         .error {
           position: absolute;
           left: 0;
-          font-size: rem(12);
+          font-size: rem(10);
           color: #ff5353;
+          margin: 0;
         }
         input,
         textarea {
@@ -143,10 +201,11 @@
           height: rem(50);
           color: #333;
           padding: 0 rem(20) 0 rem(20);
-          background-color: #ffffff;
+          background-color: #f1f1f1;
           border-radius: 0;
-          border: 1px solid #ffffff;
-          font-weight: 500;
+          border: 1px solid #134cb2;
+          font-weight: 300;
+          font-style: italic;
           border-radius: rem(30);
           &::placeholder {
             color: #33333366;
@@ -159,26 +218,49 @@
           height: rem(100);
           padding: rem(15) rem(20);
         }
+
+        .payment-method {
+          width: 100%;
+          font-size: rem(16);
+          width: 100%;
+          height: rem(50);
+          color: #0e0e0e;
+          padding: 0 rem(20) 0 rem(20);
+          background-color: #f1f1f1;
+          border-radius: 0;
+          border: 1px solid #134cb2;
+          font-weight: 500;
+          font-style: italic;
+          border-radius: rem(30);
+          display: flex;
+          align-items: center;
+        }
+
+        .payment-notes {
+          color: #0e0e0e;
+          font-size: rem(14);
+          font-weight: 200;
+          line-height: 1.2;
+          text-align: left;
+          margin-top: rem(20);
+          padding: 0 rem(16);
+        }
       }
     }
 
     .cart {
-      background: #ffffff;
-      border-radius: rem(30);
-      padding: rem(30) 0;
       .cart-head {
-        padding: rem(0) rem(35) rem(20) rem(35);
+        padding: 0 0 rem(16) 0;
         border-radius: 0;
         display: flex;
         gap: 50px;
         justify-content: space-between;
         border-bottom: 1px solid #00000026;
         @media (max-width: rem(992)) {
-          display: none;
         }
         div {
-          font-size: rem(16);
-          font-weight: 500;
+          font-size: rem(20);
+          font-weight: 600;
           line-height: 1.2;
           text-align: center;
           width: rem(110);
@@ -197,25 +279,18 @@
           display: flex;
           gap: 50px;
           justify-content: space-between;
-          padding: rem(20) rem(35);
+          padding: rem(16) 0;
           border-bottom: 1px solid #00000026;
           @media (max-width: rem(992)) {
-            flex-direction: column;
-            padding: rem(20);
             gap: 20px;
             > div {
-              width: 100% !important;
-              display: flex;
-              justify-content: space-between;
-
+              &:last-child {
+                text-align: right;
+              }
               &:before {
                 font-weight: 600;
               }
               &:first-child {
-                &:before {
-                  content: "Service";
-                  order: 1;
-                }
                 span {
                   text-align: right;
                   order: 2;
@@ -223,21 +298,6 @@
                 button {
                   order: 3;
                   margin: 0 0 0 rem(10);
-                }
-              }
-              &:nth-child(2) {
-                &:before {
-                  content: "Price, €";
-                }
-              }
-              &:nth-child(3) {
-                &:before {
-                  content: "Quantity";
-                }
-              }
-              &:nth-child(4) {
-                &:before {
-                  content: "Subtotal, €";
                 }
               }
             }
@@ -285,17 +345,12 @@
       }
 
       .total {
-        display: flex;
-        justify-content: flex-end;
-        padding: 0 rem(35) 0 0;
-        color: #161616;
-        font-size: rem(16);
-        font-weight: 500;
+        color: #134cb2;
+        font-size: rem(24);
+        font-weight: 600;
         line-height: 1.2;
         text-align: right;
-        margin: rem(20) 0 0 0;
-        text-transform: uppercase;
-        color: #1e1e1e;
+        margin-top: rem(20);
         @media (max-width: rem(992)) {
           justify-content: center;
           padding: 0;
@@ -355,7 +410,7 @@
       gap: 10px;
       align-items: center;
       flex-direction: column;
-      margin-top: rem(14);
+      margin-top: rem(40);
       @media (max-width: rem(992)) {
         flex-direction: column;
         gap: 10px;
@@ -364,7 +419,7 @@
         width: 100%;
         position: relative;
         margin-top: 10px;
-        padding: 0 rem(40);
+        padding: 0;
         @media (max-width: rem(992)) {
           width: 100%;
           padding: 0;
@@ -372,14 +427,16 @@
         .error {
           position: absolute;
           left: 0;
-          font-size: rem(12);
+          font-size: rem(10);
           color: #ff5353;
+          margin: 0;
+          font-weight: 300;
         }
         input {
           display: none;
           &:checked + label {
             svg {
-              rect {
+              circle {
                 &:last-child {
                   opacity: 1;
                 }
@@ -396,11 +453,12 @@
           font-weight: 30;
           line-height: 1.2;
           text-align: left;
+          font-style: italic;
           svg {
             width: rem(20);
             height: rem(20);
             margin-top: -5px;
-            rect {
+            circle {
               &:last-child {
                 opacity: 0;
               }
@@ -410,25 +468,26 @@
             width: calc(100% - 30px);
             a {
               text-decoration: underline;
-              color: #1e1e1e;
+              color: #134cb2;
             }
           }
         }
       }
       button {
-        margin-top: rem(50);
+        margin-top: rem(35);
+        margin-bottom: rem(10);
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: rem(54);
+        height: rem(50);
         border-radius: rem(30);
-        color: #fff;
+        color: #f1f1f1;
         font-size: rem(20);
         font-weight: 400;
         line-height: 1.2;
         text-align: left;
-        background-color: #1fa169;
+        background-color: #134cb2;
         border: none;
         &:hover {
           color: #fff;
@@ -440,14 +499,16 @@
         }
       }
       .privacy {
-        color: #1e1e1e;
-        font-size: rem(12);
-        font-weight: 400;
+        color: #0e0e0e;
+        font-size: rem(14);
+        font-style: italic;
+        font-weight: 200;
         line-height: 1.2;
-        text-align: left;
+        text-align: center;
+
         a {
           text-decoration: underline;
-          color: #1e1e1e;
+          color: #082860;
         }
       }
     }

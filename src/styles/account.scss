@@ -65,6 +65,27 @@
         display: none;
       }
 
+      section {
+        padding: rem(40) rem(70);
+        background: #ffffff;
+        border-radius: rem(15);
+        @media (max-width: rem(992)) {
+          padding: rem(30) rem(20);
+        }
+        h3 {
+          color: #134cb2;
+          font-size: rem(32);
+          font-weight: 600;
+          line-height: 1.2;
+          text-align: left;
+          margin: 0 0 rem(30) 0;
+          @media (max-width: rem(992)) {
+            font-size: rem(244);
+            margin: 0 0 rem(20) 0;
+          }
+        }
+      }
+
       h2 {
         font-family: Inter;
         font-size: rem(32);
@@ -89,6 +110,70 @@
         }
       }
 
+      .empty {
+        color: #0e0e0e;
+        font-size: rem(20);
+        font-weight: 300;
+        line-height: 1.2;
+        text-align: center;
+      }
+
+      .downloads-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: rem(15);
+        .download {
+          background: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-radius: rem(15);
+          padding: rem(16) rem(20);
+          @media (max-width: rem(992)) {
+            flex-direction: column;
+            gap: rem(30);
+            align-items: flex-start;
+          }
+          > div {
+            display: flex;
+            gap: rem(32);
+            @media (max-width: rem(992)) {
+              flex-direction: column;
+              gap: rem(10);
+              align-items: flex-start;
+            }
+            > div {
+              color: #0e0e0e;
+              font-size: rem(20);
+              font-weight: 400;
+              line-height: 1.2;
+              text-align: left;
+              @media (max-width: rem(992)) {
+                font-size: rem(16);
+              }
+              span {
+                color: #134cb2;
+                font-weight: 600;
+              }
+            }
+          }
+          a {
+            display: flex;
+            align-items: center;
+            gap: rem(10);
+            color: #0e0e0e;
+            font-size: rem(20);
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.2;
+            text-align: left;
+            @media (max-width: rem(992)) {
+              font-size: rem(16);
+            }
+          }
+        }
+      }
+
       .orders-wrap {
         width: 100%;
         @media (max-width: rem(992)) {
@@ -96,21 +181,19 @@
         }
         table {
           width: 100%;
+          border-collapse: collapse;
           &.files {
-            thead {
-              th {
-                padding: rem(0) 0 rem(20) rem(10);
-                text-align: left;
-                &:first-child {
-                  width: calc(30%);
+            tbody {
+              tr {
+                &.spacer {
+                  height: rem(15);
                 }
               }
-            }
-            tbody {
               td {
                 padding: rem(20) rem(10) rem(20) rem(10);
                 text-align: left;
                 vertical-align: baseline;
+
                 &:first-child {
                   width: calc(30%);
                 }
@@ -119,76 +202,64 @@
                   flex-direction: column;
                   gap: 5px;
                 }
-                a {
-                  display: flex;
-                  align-items: center;
-                  gap: 6px;
-                  font-size: rem(16);
-                  font-weight: 300;
-                  line-height: 1.2;
-                  color: #333;
-                  &.reorder {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    border: 1px solid #1fa169;
-                    height: 30px;
-                    width: 115px;
-                    border-radius: rem(15);
-                    &:hover {
-                      background: #1fa169;
-                      color: #fff;
-                    }
-                  }
-                }
               }
             }
           }
           thead {
             th {
-              padding: rem(0) 0 rem(20) rem(10);
+              padding: rem(20) 0 rem(20) rem(10);
               border-radius: 0;
-              font-size: rem(16);
-              font-weight: 500;
+              font-size: rem(20);
+              font-weight: 300;
               line-height: 1.2;
               text-align: center;
               width: rem(110);
-              color: #333;
+              color: #fff;
               white-space: nowrap;
-              border-bottom: 1px solid #00000026;
+              background: #134cb2;
               &:first-child {
                 text-align: left;
                 padding-left: rem(35);
+                border-radius: rem(15) 0 0 rem(15);
               }
               &:nth-child(3) {
                 text-align: left;
               }
               &:last-child {
                 padding-right: rem(35);
+                border-radius: 0 rem(15) rem(15) 0;
               }
             }
           }
           tbody {
+            tr {
+              &.spacer {
+                height: rem(15);
+              }
+            }
             td {
+              margin: rem(7) 0;
               padding: rem(20) 0 rem(20) rem(10);
               border-radius: 0;
-              font-size: rem(16);
+              font-size: rem(20);
               font-weight: 300;
               line-height: 1.2;
               text-align: center;
               color: #333;
               white-space: nowrap;
-              border-bottom: 1px solid #00000026;
               vertical-align: baseline;
+              background: #fff;
               &:first-child {
                 text-align: left;
                 padding-left: rem(35);
+                border-radius: rem(15) 0 0 rem(15);
               }
               &:nth-child(3) {
                 text-align: left;
               }
               &:last-child {
                 padding-right: rem(35);
+                border-radius: 0 rem(15) rem(15) 0;
               }
             }
           }
@@ -196,29 +267,26 @@
       }
 
       button {
-        margin-top: rem(30);
         width: rem(255);
         display: flex;
         justify-content: center;
         align-items: center;
-        height: rem(54);
+        height: rem(50);
         border-radius: rem(30);
         color: #fff;
         font-size: rem(20);
         font-weight: 400;
         line-height: 1.2;
         text-align: left;
-        background-color: #1fa169;
+        background-color: #0e0e0e;
         border: none;
         margin-left: auto;
         margin-right: rem(90);
+        border: 1px solid #0e0e0e;
+        width: 100%;
         &:hover {
-          color: #fff;
-          background-color: #000000;
-        }
-        @media (max-width: rem(992)) {
-          width: 100%;
-          margin: rem(30) 0 0 0;
+          color: #0e0e0e;
+          background-color: #fff;
         }
       }
 
@@ -228,13 +296,13 @@
 
       .billing-success,
       .success {
-        padding: rem(20) rem(90) 0 rem(90);
-        color: #1fa169;
+        padding: rem(20) 0 0 0;
+        color: #134cb2;
         font-size: rem(12);
         font-style: italic;
         font-weight: 300;
         line-height: 1.2;
-        text-align: right;
+        text-align: left;
         @media (max-width: rem(992)) {
           padding: rem(20) 0 0 0;
         }
@@ -258,14 +326,13 @@
         flex-wrap: wrap;
         column-gap: 30px;
         row-gap: 20px;
-        padding: rem(20) rem(90) 0 rem(90);
         @media (max-width: rem(992)) {
           flex-direction: column;
           padding: rem(20) 0;
         }
 
         > div {
-          width: calc(33.33% - 20px);
+          width: calc(50% - 15px);
           position: relative;
           @media (max-width: rem(992)) {
             width: 100%;
@@ -305,9 +372,10 @@
               padding: 0 rem(20) 0 rem(40);
               background-color: #f3f3f3;
               border-radius: 0;
-              border: 1px solid #f3f3f3;
+              border: 1px solid #134cb2;
               font-weight: 500;
               border-radius: rem(30);
+              font-style: italic;
             }
             &.invalid {
               input {
@@ -346,7 +414,7 @@
             padding: 0 rem(20) 0 rem(20);
             background-color: #f3f3f3;
             border-radius: 0;
-            border: 1px solid #f3f3f3;
+            border: 1px solid #134cb2;
             font-weight: 500;
             border-radius: rem(30);
             &::placeholder {

@@ -51,9 +51,8 @@ function Orders() {
                 <th>Order ID</th>
                 <th>Service</th>
 
-                <th>Total, €</th>
+                <th>Total</th>
                 <th>Order Status</th>
-                <th>Invoice</th>
               </tr>
             </thead>
             <tbody>
@@ -70,24 +69,18 @@ function Orders() {
                           href={"#"}
                           className=""
                         >
-                          {product.title}<br/>
+                          {product.title}
+                          <br />
                         </span>
                       ))}
                   </td>
 
-                  <td>{order.amount}</td>
+                  <td>€{order.amount}</td>
                   <td>
                     {order.order_status === "cancelled" ? (
                       <div className="cancelled">Cancelled</div>
                     ) : (
                       <div className="completed">Completed</div>
-                    )}
-                  </td>
-                  <td>
-                    {order.invoice ? (
-                     <Link href={`${order.invoice.url}`} target="_blank"><img src="/images/download.svg"/></Link>
-                    ) : (
-                     <span><img src="/images/inactive.svg"/></span>
                     )}
                   </td>
                 </tr>
