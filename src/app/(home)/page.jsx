@@ -1,4 +1,4 @@
-import Image from "next/image";
+import "@/styles/base.scss";
 import HomeHero from "./_components/HomeHero";
 import HomeVideo from "./_components/HomeVideo";
 import HomeItems from "./_components/HomeItems";

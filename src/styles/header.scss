@@ -7,6 +7,7 @@
     width: 100%;
     z-index: 30;
     padding: 17px 0;
+    border-bottom: 1px solid #809ed0;
     &__container { 
 
     }
@@ -65,9 +66,11 @@
         font-size: 16px;
         line-height: normal;
         transition: all 0.3s ease 0s;
+        color: #134CB2;
+        font-weight: 500;
 
         &:hover { 
-            color: #134CB2;
+            color: #0E0E0E;
         }
     }
 
