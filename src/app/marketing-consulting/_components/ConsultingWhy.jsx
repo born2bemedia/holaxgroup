@@ -135,7 +135,7 @@ const ConsultingWhy = () => {
               </div>
             </SwiperSlide>
           </Swiper>
-          <Link href="#">Start your marketing journey</Link>
+          <Link href="/what-we-do">Start your marketing journey</Link>
         </div>
       </div>
     </section>

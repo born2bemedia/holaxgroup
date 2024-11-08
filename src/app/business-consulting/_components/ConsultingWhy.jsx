@@ -114,7 +114,7 @@ const ConsultingWhy = () => {
               </div>
             </SwiperSlide>
           </Swiper>
-          <Link href="#">Learn more about our consultants</Link>
+          <Link href="/what-we-do">Learn more about our consultants</Link>
         </div>
       </div>
     </section>

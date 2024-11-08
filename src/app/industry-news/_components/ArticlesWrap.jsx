@@ -5,19 +5,20 @@ import { motion } from "framer-motion";
 import useArticlesStore from "@/stores/articlesStore";
 import Link from "next/link";
 import OrderIcon from "@/icons/OrderIcon";
+import usePostsStore from "@/stores/postsStore";
 
 const ArticlesWrap = () => {
-  const articles = useArticlesStore((state) => state.articles);
-  const fetchArticles = useArticlesStore((state) => state.fetchArticles);
+  const posts = usePostsStore((state) => state.posts);
+  const fetchPosts = usePostsStore((state) => state.fetchPosts);
 
   useEffect(() => {
-    fetchArticles()
-      .then(() => console.log("Articles loaded:", articles))
+    fetchPosts()
+      .then(() => console.log("Articles loaded:", posts))
       .catch((error) => console.error("Error loading articles:", error));
-  }, [fetchArticles]);
+  }, [fetchPosts]);
 
   return (
-    <section className="articles-wrap">
+    <section className="news-wrap">
       <div className="_container">
         <motion.h2
           initial="hidden"
@@ -25,25 +26,25 @@ const ArticlesWrap = () => {
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          Articles
+          News
         </motion.h2>
-        <div className="articles-wrap__body">
-          {articles.length > 0 ? (
-            articles.map((caseItem) => (
+        <div className="news-wrap__body">
+          {posts.length > 0 ? (
+            posts.map((post) => (
               <motion.div
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                key={caseItem.id}
+                key={post.id}
                 className="case"
               >
                 <div className="top">
-                  <img src={caseItem.image.url} alt={caseItem.title}/>
-                  <h3>{caseItem.title}</h3>
+                  <img src={post.image.url} alt={post.title}/>
+                  <h3>{post.title}</h3>
                 </div>
                 <Link
-                  href={`/articles/${caseItem.slug}`}
+                  href={`/industry-news/${post.slug}`}
                   className="more"
                 >
                   <span>Read more</span>

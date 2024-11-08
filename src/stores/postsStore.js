@@ -4,7 +4,7 @@ import axiosClient from "@/app/api/GlobalApi";
 
 const cmsUrl = process.env.NEXT_PUBLIC_CMS_URL;
 
-const buildArticlesUrl = (count) => {
+const buildPostsUrl = (count) => {
   const query = {
     fields: [
       "id",
@@ -24,40 +24,40 @@ const buildArticlesUrl = (count) => {
     sort: ["id:asc"],
   };
 
-  return `articles?${qs.stringify(query)}`;
+  return `posts?${qs.stringify(query)}`;
 };
 
-const useArticlesStore = create((set) => ({
-  articles: [],
+const usePostsStore = create((set) => ({
+  posts: [],
   slugs: [],
   loading: false,
   error: null,
   singlePost: {},
 
-  fetchArticles: async (count = 999) => {
+  fetchPosts: async (count = 999) => {
     set({ loading: true, error: null });
     try {
-      const url = buildArticlesUrl(count);
+      const url = buildPostsUrl(count);
       const response = await axiosClient.get(url);
-      const articles = response.data.data.map((article) => {
+      const posts = response.data.data.map((post) => {
         return {
-          id: article.id,
-          slug: article.slug,
-          title: article.title,
-          content: article.content,
-          image: article.image,
-          icon: article.icon,
-          introduction: article.introduction,
-          conclusion: article.conclusion,
-          seo_title: article.seo_title,
-          seo_description: article.seo_description,
+          id: post.id,
+          slug: post.slug,
+          title: post.title,
+          content: post.content,
+          image: post.image,
+          icon: post.icon,
+          introduction: post.introduction,
+          conclusion: post.conclusion,
+          seo_title: post.seo_title,
+          seo_description: post.seo_description,
         };
       });
-      console.log(articles);
-      set({ articles, loading: false });
+      console.log(posts);
+      set({ posts, loading: false });
     } catch (error) {
       console.error(
-        "Error fetching articles:",
+        "Error fetching posts:",
         error.response?.data || error.message
       );
       set({ error: error.message, loading: false });
@@ -67,10 +67,10 @@ const useArticlesStore = create((set) => ({
   fetchSlugs: async (count) => {
     set({ loading: true, error: null });
     try {
-      const url = buildArticlesUrl(count);
+      const url = buildPostsUrl(count);
       const response = await axiosClient.get(url);
 
-      const slugs = response.data.data.map((article) => article.slug);
+      const slugs = response.data.data.map((article) => post.slug);
 
       set({ slugs, loading: false });
     } catch (error) {
@@ -84,4 +84,4 @@ const useArticlesStore = create((set) => ({
 
 }));
 
-export default useArticlesStore;
+export default usePostsStore;
