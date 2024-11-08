@@ -13,6 +13,7 @@ import "react-phone-input-2/lib/style.css";
 import useCartStore from "@/stores/cartStore"; // Zustand cart store
 import useAuthStore from "@/stores/authStore"; // Zustand auth store
 import useOrderStore from "@/stores/orderStore"; // Zustand order store
+import CheckboxIconBlack from "@/icons/CheckboxIconBlack";
 
 const getCountryOptionByCode = (code) => {
   const countries = countryList().getData();
@@ -26,16 +27,17 @@ const customStyles = {
     color: "#333",
     height: "50px",
     borderRadius: "30px",
-    background: "#fff",
-    border: state.isFocused ? "1px solid #fff" : "1px solid #fff",
+    background: "#F1F1F1",
+    border: state.isFocused ? "1px solid #134CB2" : "1px solid #134CB2",
     fontSize: "16px",
     fontWeight: "400",
     lineHeight: "1.2",
     textAlign: "left",
     padding: "0 20px",
     boxShadow: "unset",
+    fontStyle: "italic",
     "&:hover": {
-      borderColor: "#fff",
+      borderColor: "#134CB2",
     },
   }),
   valueContainer: (provided) => ({
@@ -76,7 +78,7 @@ const customStyles = {
     background: state.isSelected ? "#F2F2F2" : "#F2F2F2",
     color: "#1E1E1E",
     "&:hover": {
-      background: "#1FA169",
+      background: "#134CB2",
       color: "#ffffff",
     },
   }),
@@ -113,6 +115,7 @@ const CartPage = () => {
     lastName: currentUser?.lastName || "",
     addressLine1: currentUser?.addressLine1 || "",
     addressLine2: currentUser?.addressLine2 || "",
+    province: "",
     city: currentUser?.city || "",
     zip: currentUser?.zip || "",
     country: getCountryOptionByCode(currentUser?.country) || null,
@@ -279,7 +282,8 @@ const CartPage = () => {
             <div>
               <section className="checkout-wrap">
                 <div className="_container">
-                  <div>
+                  <div className="checkout-wrap__body">
+                    <h1>Checkout</h1>
                     <Formik
                       initialValues={initialValues}
                       validationSchema={validationSchema}
@@ -294,286 +298,312 @@ const CartPage = () => {
                         status,
                       }) => (
                         <Form>
-                          <h3>Billing Details</h3>
-                          <div className="billing-data">
-                            <div>
-                              <label>
-                                <Field
-                                  placeholder="First Name"
-                                  type="text"
-                                  name="firstName"
-                                  className={
-                                    touched.firstName && errors.firstName
-                                      ? "invalid"
-                                      : ""
-                                  }
+                          <div className="col-01">
+                            <h3>Billing Address</h3>
+                            <div className="billing-data">
+                              <div className="full">
+                                <Field name="country">
+                                  {({ field }) => (
+                                    <Select
+                                      {...field}
+                                      placeholder="Country/Region"
+                                      options={countryList().getData()}
+                                      styles={customStyles}
+                                      className={`form-field ${
+                                        touched.country && errors.country
+                                          ? "invalid"
+                                          : ""
+                                      }`}
+                                      value={values.country?.value}
+                                      onChange={(option) =>
+                                        setFieldValue("country", option.value)
+                                      }
+                                    />
+                                  )}
+                                </Field>
+                                <ErrorMessage
+                                  name="country"
+                                  component="div"
+                                  className="error"
                                 />
-                              </label>
-                              <ErrorMessage
-                                className="error"
-                                name="firstName"
-                                component="div"
-                              />
-                            </div>
-                            <div>
-                              <label>
-                                <Field
-                                  placeholder="Last Name"
-                                  type="text"
-                                  name="lastName"
-                                  className={
-                                    touched.lastName && errors.lastName
-                                      ? "invalid"
-                                      : ""
-                                  }
-                                />
-                              </label>
-                              <ErrorMessage
-                                className="error"
-                                name="lastName"
-                                component="div"
-                              />
-                            </div>
-                            <div className="full">
-                              <label>
-                                <Field
-                                  placeholder="Address Line 1"
-                                  type="text"
-                                  name="addressLine1"
-                                  className={
-                                    touched.addressLine1 && errors.addressLine1
-                                      ? "invalid"
-                                      : ""
-                                  }
-                                />
-                              </label>
-                              <ErrorMessage
-                                className="error"
-                                name="addressLine1"
-                                component="div"
-                              />
-                            </div>
-                            <div className="full">
-                              <label>
-                                <Field
-                                  placeholder="Address Line 2"
-                                  type="text"
-                                  name="addressLine2"
-                                />
-                              </label>
-                            </div>
-                            <div>
-                              <label>
-                                <Field
-                                  placeholder="City"
-                                  type="text"
-                                  name="city"
-                                  className={
-                                    touched.city && errors.city ? "invalid" : ""
-                                  }
-                                />
-                              </label>
-                              <ErrorMessage
-                                className="error"
-                                name="city"
-                                component="div"
-                              />
-                            </div>
-
-                            <div>
-                              <Field name="country">
-                                {({ field }) => (
-                                  <Select
-                                    {...field}
-                                    options={countryList().getData()}
-                                    styles={customStyles}
-                                    className={`form-field ${
-                                      touched.country && errors.country
+                              </div>
+                              <div>
+                                <label>
+                                  <Field
+                                    placeholder="First Name"
+                                    type="text"
+                                    name="firstName"
+                                    className={
+                                      touched.firstName && errors.firstName
                                         ? "invalid"
                                         : ""
-                                    }`}
-                                    value={values.country?.value}
-                                    onChange={(option) =>
-                                      setFieldValue("country", option.value)
                                     }
                                   />
-                                )}
-                              </Field>
-                              <ErrorMessage
-                                name="country"
-                                component="div"
-                                className="error"
-                              />
-                            </div>
-
-                            <div className="full">
-                              <label>
-                                <Field
-                                  placeholder="ZIP Code"
-                                  type="text"
-                                  name="zip"
-                                  className={
-                                    touched.zip && errors.zip ? "invalid" : ""
-                                  }
+                                </label>
+                                <ErrorMessage
+                                  className="error"
+                                  name="firstName"
+                                  component="div"
                                 />
-                              </label>
-                              <ErrorMessage
-                                className="error"
-                                name="zip"
-                                component="div"
-                              />
-                            </div>
-                          </div>
+                              </div>
+                              <div>
+                                <label>
+                                  <Field
+                                    placeholder="Last Name"
+                                    type="text"
+                                    name="lastName"
+                                    className={
+                                      touched.lastName && errors.lastName
+                                        ? "invalid"
+                                        : ""
+                                    }
+                                  />
+                                </label>
+                                <ErrorMessage
+                                  className="error"
+                                  name="lastName"
+                                  component="div"
+                                />
+                              </div>
 
-                          <h3>Contact Details</h3>
-                          <div className="billing-data">
-                            <div>
-                              <label>
-                                <Field
-                                  placeholder="Email"
-                                  type="email"
-                                  name="email"
+                              <div className="full">
+                                <PhoneInput
+                                  country={"us"}
+                                  value={values.phone}
+                                  placeholder="Phone Number"
+                                  onChange={(phone) =>
+                                    setFieldValue("phone", phone)
+                                  }
                                   className={
-                                    touched.email && errors.email
+                                    touched.phone && errors.phone
                                       ? "invalid"
                                       : ""
                                   }
                                 />
-                              </label>
-                              <ErrorMessage
-                                className="error"
-                                name="email"
-                                component="div"
-                              />
+                                <ErrorMessage
+                                  name="phone"
+                                  component="div"
+                                  className="error"
+                                />
+                              </div>
+                              <div className="full">
+                                <label>
+                                  <Field
+                                    placeholder="Email"
+                                    type="email"
+                                    name="email"
+                                    className={
+                                      touched.email && errors.email
+                                        ? "invalid"
+                                        : ""
+                                    }
+                                  />
+                                </label>
+                                <ErrorMessage
+                                  className="error"
+                                  name="email"
+                                  component="div"
+                                />
+                              </div>
+                              <div className="full">
+                                <label>
+                                  <Field
+                                    placeholder="Address Line 1"
+                                    type="text"
+                                    name="addressLine1"
+                                    className={
+                                      touched.addressLine1 &&
+                                      errors.addressLine1
+                                        ? "invalid"
+                                        : ""
+                                    }
+                                  />
+                                </label>
+                                <ErrorMessage
+                                  className="error"
+                                  name="addressLine1"
+                                  component="div"
+                                />
+                              </div>
+                              <div className="full">
+                                <label>
+                                  <Field
+                                    placeholder="Address Line 2"
+                                    type="text"
+                                    name="addressLine2"
+                                  />
+                                </label>
+                              </div>
+                              <div className="full">
+                                <label>
+                                  <Field
+                                    placeholder="Province / Region"
+                                    type="text"
+                                    name="province"
+                                  />
+                                </label>
+                              </div>
+                              <div>
+                                <label>
+                                  <Field
+                                    placeholder="City"
+                                    type="text"
+                                    name="city"
+                                    className={
+                                      touched.city && errors.city
+                                        ? "invalid"
+                                        : ""
+                                    }
+                                  />
+                                </label>
+                                <ErrorMessage
+                                  className="error"
+                                  name="city"
+                                  component="div"
+                                />
+                              </div>
+                              <div>
+                                <label>
+                                  <Field
+                                    placeholder="ZIP Code"
+                                    type="text"
+                                    name="zip"
+                                    className={
+                                      touched.zip && errors.zip ? "invalid" : ""
+                                    }
+                                  />
+                                </label>
+                                <ErrorMessage
+                                  className="error"
+                                  name="zip"
+                                  component="div"
+                                />
+                              </div>
+                              <div className="full">
+                                <div className="payment-method">
+                                  Payment Method: Bank Transfer*
+                                </div>
+                                <div className="payment-notes">
+                                  * You will soon receive an email with payment
+                                  instructions, including our bank details and a
+                                  summary of your order details.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="col-02">
+                            <div>
+                              <h3>Additional Information</h3>
+                              <div className="full">
+                                <Field
+                                  as="textarea"
+                                  placeholder="Include special instructions for your order"
+                                  name="specialNotes"
+                                />
+                              </div>
                             </div>
                             <div>
-                              <PhoneInput
-                                country={"us"}
-                                value={values.phone}
-                                placeholder="Phone Number"
-                                onChange={(phone) =>
-                                  setFieldValue("phone", phone)
-                                }
-                                className={
-                                  touched.phone && errors.phone ? "invalid" : ""
-                                }
-                              />
-                              <ErrorMessage
-                                name="phone"
-                                component="div"
-                                className="error"
-                              />
-                            </div>
-                          </div>
-
-                          <h3>Payment Method</h3>
-                          <div className="payment">
-                            <div>Bank Transfer*</div>
-                            <p>
-                              Dear user! After you place your order, you will
-                              receive an email with payment instructions and our
-                              bank details, along with a summary of your order.
-                            </p>
-                          </div>
-
-                          <h3>Any special notes?</h3>
-                          <div className="billing-data">
-                            <div className="full">
-                              <Field
-                                as="textarea"
-                                placeholder="Message"
-                                name="specialNotes"
-                              />
-                            </div>
-                          </div>
-
-                          <h3>Order Summary</h3>
-                          <div className="cart">
-                            <div className="cart-head">
-                              <div>Service</div>
-                              <div>Price, €</div>
-                              <div>Subtotal, €</div>
-                            </div>
-                            <div className="cart-content">
-                              {cart.map((item) => (
-                                <div key={item.id} className="cart-item">
-                                  <div>
-                                    <span>
-                                      {item.name} <b>x {item.quantity}</b>
-                                    </span>
-                                  </div>
-                                  <div>{item.attributes.price}</div>
-
-                                  <div>
-                                    {item.quantity * item.attributes.price}
-                                  </div>
+                              <h3>Order Summary</h3>
+                              <div className="cart">
+                                <div className="cart-head">
+                                  <div>Service Name</div>
+                                  <div>Subtotal</div>
                                 </div>
-                              ))}
-                            </div>
+                                <div className="cart-content">
+                                  {cart.map((item) => (
+                                    <div key={item.id} className="cart-item">
+                                      <div>
+                                        {item.name} <b>x {item.quantity}</b>
+                                      </div>
+                                      <div>
+                                        €{item.quantity * item.attributes.price}
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
 
-                            <div className="total">Total: {totalAmount}</div>
-                          </div>
+                                <div className="total">
+                                  Total: €{totalAmount}
+                                </div>
+                              </div>
 
-                          <div className="place-order">
-                            <div className="checkbox">
-                              <Field
-                                type="checkbox"
-                                name="terms"
-                                className={
-                                  touched.terms && errors.terms ? "invalid" : ""
-                                }
-                                id="terms"
-                              />
-                              <label htmlFor="terms">
-                                <CheckboxIcon />
-                                <span>
-                                  I have read and agree to the website's{" "}
-                                  <Link href="/terms-and-conditions">
-                                    Terms of Use
+                              <div className="place-order">
+                                <div className="checkbox">
+                                  <Field
+                                    type="checkbox"
+                                    name="terms"
+                                    className={
+                                      touched.terms && errors.terms
+                                        ? "invalid"
+                                        : ""
+                                    }
+                                    id="terms"
+                                  />
+                                  <label htmlFor="terms">
+                                    <CheckboxIconBlack />
+                                    <span>
+                                      I have read and agree to the website's{" "}
+                                      <Link href="/terms-and-conditions">
+                                        Terms and Conditions.
+                                      </Link>
+                                    </span>
+                                  </label>
+                                  <ErrorMessage
+                                    name="terms"
+                                    component="div"
+                                    className="error"
+                                  />
+                                </div>
+
+                                <div className="checkbox">
+                                  <Field
+                                    type="checkbox"
+                                    name="refundPolicy"
+                                    className={
+                                      touched.refundPolicy &&
+                                      errors.refundPolicy
+                                        ? "invalid"
+                                        : ""
+                                    }
+                                    id="refundPolicy"
+                                  />
+                                  <label htmlFor="refundPolicy">
+                                    <CheckboxIconBlack />
+                                    <span>
+                                      I have read and agree to the{" "}
+                                      <Link href="/refund-policy">
+                                        Refund Policy
+                                      </Link>
+                                    </span>
+                                  </label>
+                                  <ErrorMessage
+                                    name="refundPolicy"
+                                    component="div"
+                                    className="error"
+                                  />
+                                </div>
+
+                                <button
+                                  className="main-button"
+                                  type="submit"
+                                  disabled={isSubmitting}
+                                >
+                                  <span>Submit</span>
+                                </button>
+
+                                <div className="privacy">
+                                  We will utilise your personal information to
+                                  process your order, improve your browsing
+                                  experience on our website, and perform other
+                                  purposes detailed in our{" "}
+                                  <Link href="/privacy-policy">
+                                    Privacy Policy
                                   </Link>
-                                </span>
-                              </label>
-                              <ErrorMessage
-                                name="terms"
-                                component="div"
-                                className="error"
-                              />
+                                  .
+                                </div>
+                              </div>
                             </div>
-
-                            <div className="checkbox">
-                              <Field
-                                type="checkbox"
-                                name="refundPolicy"
-                                className={
-                                  touched.refundPolicy && errors.refundPolicy
-                                    ? "invalid"
-                                    : ""
-                                }
-                                id="refundPolicy"
-                              />
-                              <label htmlFor="refundPolicy">
-                                <CheckboxIcon />
-                                <span>
-                                  I have read and agree to the{" "}
-                                  <Link href="/refund-policy">
-                                    Refund Policy
-                                  </Link>
-                                </span>
-                              </label>
-                              <ErrorMessage
-                                name="refundPolicy"
-                                component="div"
-                                className="error"
-                              />
-                            </div>
-
-                            <button
-                              className="main-button"
-                              type="submit"
-                              disabled={isSubmitting}
-                            >
-                              <span>Submit</span>
-                            </button>
                           </div>
 
                           {isLoading && (

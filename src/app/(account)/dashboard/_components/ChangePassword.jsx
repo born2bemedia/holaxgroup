@@ -70,90 +70,90 @@ const ChangePassword = () => {
 
   return (
     <section className="change-password">
-      <div className="_container">
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting, touched, errors }) => (
-            <Form>
-              <div className="billing-data">
-                <div>
-                  <label>
-                    <Field
-                      placeholder="Current password"
-                      type="password"
-                      name="currentPassword"
-                      className={
-                        touched.currentPassword && errors.currentPassword
-                          ? "invalid"
-                          : ""
-                      }
-                    />
-                  </label>
-                  <ErrorMessage
-                    className="error"
+      <h3>Change Password</h3>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ isSubmitting, touched, errors }) => (
+          <Form>
+            <div className="billing-data">
+              <div>
+                <label>
+                  <Field
+                    placeholder="Current password"
+                    type="password"
                     name="currentPassword"
-                    component="div"
+                    className={
+                      touched.currentPassword && errors.currentPassword
+                        ? "invalid"
+                        : ""
+                    }
                   />
-                </div>
-                <div>
-                  <label>
-                    <Field
-                      placeholder="New password"
-                      type="password"
-                      name="newPassword"
-                      className={
-                        touched.newPassword && errors.newPassword
-                          ? "invalid"
-                          : ""
-                      }
-                    />
-                  </label>
-                  <ErrorMessage
-                    className="error"
-                    name="newPassword"
-                    component="div"
-                  />
-                </div>
-                <div>
-                  <label>
-                    <Field
-                      placeholder="Confirm password"
-                      type="password"
-                      name="confirmPassword"
-                      className={
-                        touched.confirmPassword && errors.confirmPassword
-                          ? "invalid"
-                          : ""
-                      }
-                    />
-                  </label>
-                  <ErrorMessage
-                    className="error"
-                    name="confirmPassword"
-                    component="div"
-                  />
-                </div>
+                </label>
+                <ErrorMessage
+                  className="error"
+                  name="currentPassword"
+                  component="div"
+                />
               </div>
-              <button
-                type="submit"
-                className="main-button"
-                disabled={isSubmitting}
-              >
-                <span>Update Data</span>
-              </button>
-              {passwordChanged && (
-                <div className="success">Password changed successfully!</div>
-              )}
-              {changePasswordError && (
-                <div className="error">{changePasswordError}</div>
-              )}
-            </Form>
-          )}
-        </Formik>
-      </div>
+              <div>
+                <label>
+                  <Field
+                    placeholder="New password"
+                    type="password"
+                    name="newPassword"
+                    className={
+                      touched.newPassword && errors.newPassword ? "invalid" : ""
+                    }
+                  />
+                </label>
+                <ErrorMessage
+                  className="error"
+                  name="newPassword"
+                  component="div"
+                />
+              </div>
+              <div>
+                <label>
+                  <Field
+                    placeholder="Confirm password"
+                    type="password"
+                    name="confirmPassword"
+                    className={
+                      touched.confirmPassword && errors.confirmPassword
+                        ? "invalid"
+                        : ""
+                    }
+                  />
+                </label>
+                <ErrorMessage
+                  className="error"
+                  name="confirmPassword"
+                  component="div"
+                />
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  className="main-button"
+                  disabled={isSubmitting}
+                >
+                  <span>Save changes</span>
+                </button>
+              </div>
+            </div>
+
+            {passwordChanged && (
+              <div className="success">Password changed successfully!</div>
+            )}
+            {changePasswordError && (
+              <div className="error">{changePasswordError}</div>
+            )}
+          </Form>
+        )}
+      </Formik>
     </section>
   );
 };

@@ -24,7 +24,7 @@ const customStyles = {
     height: "50px",
     borderRadius: "30px",
     background: "#F3F3F3",
-    border: state.isFocused ? "1px solid #fff" : "1px solid #fff",
+    border: state.isFocused ? "1px solid #134CB2" : "1px solid #134CB2",
     fontSize: "16px",
     fontWeight: "400",
     lineHeight: "1.2",
@@ -32,7 +32,7 @@ const customStyles = {
     padding: "0 20px",
     boxShadow: "unset",
     "&:hover": {
-      borderColor: "#fff",
+      borderColor: "#134CB2",
     },
   }),
   valueContainer: (provided) => ({
@@ -73,7 +73,7 @@ const customStyles = {
     background: state.isSelected ? "#F2F2F2" : "#F2F2F2",
     color: "#1E1E1E",
     "&:hover": {
-      background: "#1FA169",
+      background: "#134CB2",
       color: "#ffffff",
     },
   }),
@@ -151,7 +151,6 @@ const PersonalData = () => {
         setBillingSuccess(
           "Your personal information has been updated successfully."
         );
-        
       } else {
         const errorData = await response.json();
         setBillingError(errorData.message);
@@ -167,186 +166,180 @@ const PersonalData = () => {
   return (
     <>
       <section className="personal-data">
-        <div className="_container">
-          {isMounted && (
-            <Formik
-              initialValues={initialValues}
-              validationSchema={validationSchema}
-              onSubmit={handleSubmit}
-            >
-              {({ isSubmitting, setFieldValue, touched, errors, values }) => (
-                <Form>
-                  <div className="billing-data">
-                    <div>
-                      <label>
-                        <Field
-                          placeholder="First name"
-                          type="text"
-                          name="firstName"
-                          className={
-                            touched.firstName && errors.firstName
-                              ? "invalid"
-                              : ""
-                          }
-                        />
-                      </label>
-                      <ErrorMessage
-                        className="error"
+        <h3>Personal Information</h3>
+        {isMounted && (
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting, setFieldValue, touched, errors, values }) => (
+              <Form>
+                <div className="billing-data">
+                  <div>
+                    <label>
+                      <Field
+                        placeholder="First name"
+                        type="text"
                         name="firstName"
-                        component="div"
-                      />
-                    </div>
-                    <div>
-                      <label>
-                        <Field
-                          placeholder="Last name"
-                          type="text"
-                          name="lastName"
-                          className={
-                            touched.lastName && errors.lastName ? "invalid" : ""
-                          }
-                        />
-                      </label>
-                      <ErrorMessage
-                        className="error"
-                        name="lastName"
-                        component="div"
-                      />
-                    </div>
-                    <div>
-                      <label>
-                        <Field
-                          placeholder="Email"
-                          type="email"
-                          name="email"
-                          className={
-                            touched.email && errors.email ? "invalid" : ""
-                          }
-                        />
-                      </label>
-                      <ErrorMessage
-                        className="error"
-                        name="email"
-                        component="div"
-                      />
-                    </div>
-                    <div>
-                      <PhoneInput
-                        country={"us"}
-                        value={values.phone}
-                        placeholder="Phone Number"
-                        onChange={(phone) => setFieldValue("phone", phone)}
                         className={
-                          touched.phone && errors.phone ? "invalid" : ""
+                          touched.firstName && errors.firstName ? "invalid" : ""
                         }
                       />
-                      <ErrorMessage
-                        name="phone"
-                        component="div"
-                        className="error"
-                      />
-                    </div>
-                    <div>
-                      <label>
-                        <Field
-                          placeholder="Address Line 1"
-                          type="text"
-                          name="addressLine1"
-                          className={
-                            touched.addressLine1 && errors.addressLine1
-                              ? "invalid"
-                              : ""
-                          }
-                        />
-                      </label>
-                      <ErrorMessage
-                        className="error"
-                        name="addressLine1"
-                        component="div"
-                      />
-                    </div>
-                    <div>
-                      <label>
-                        <Field
-                          placeholder="Address Line 2"
-                          type="text"
-                          name="addressLine2"
-                        />
-                      </label>
-                    </div>
-                    <div>
-                      <label>
-                        <Field
-                          placeholder="City"
-                          type="text"
-                          name="city"
-                          className={
-                            touched.city && errors.city ? "invalid" : ""
-                          }
-                        />
-                      </label>
-                      <ErrorMessage
-                        className="error"
-                        name="city"
-                        component="div"
-                      />
-                    </div>
-                    <div>
-                      <label>
-                        <Field
-                          placeholder="ZIP"
-                          type="text"
-                          name="zip"
-                          className={touched.zip && errors.zip ? "invalid" : ""}
-                        />
-                      </label>
-                      <ErrorMessage
-                        className="error"
-                        name="zip"
-                        component="div"
-                      />
-                    </div>
-                    <div>
-                      <Field name="country">
-                        {({ field }) => (
-                          <Select
-                            {...field}
-                            options={countryList().getData()}
-                            styles={customStyles}
-                            className={`form-field ${
-                              touched.country && errors.country ? "invalid" : ""
-                            }`}
-                            value={countryList()
-                              .getData()
-                              .find(
-                                (option) =>
-                                  option.value === values.country?.value
-                              )}
-                            onChange={(option) =>
-                              setFieldValue("country", option)
-                            }
-                          />
-                        )}
-                      </Field>
-                      <ErrorMessage
-                        name="country"
-                        component="div"
-                        className="error"
-                      />
-                    </div>
+                    </label>
+                    <ErrorMessage
+                      className="error"
+                      name="firstName"
+                      component="div"
+                    />
                   </div>
-                  <button
-                    type="submit"
-                    className="main-button"
-                    disabled={isSubmitting}
-                  >
-                    <span>Update Data</span>
-                  </button>
-                </Form>
-              )}
-            </Formik>
-          )}
-        </div>
+                  <div>
+                    <label>
+                      <Field
+                        placeholder="Last name"
+                        type="text"
+                        name="lastName"
+                        className={
+                          touched.lastName && errors.lastName ? "invalid" : ""
+                        }
+                      />
+                    </label>
+                    <ErrorMessage
+                      className="error"
+                      name="lastName"
+                      component="div"
+                    />
+                  </div>
+                  <div>
+                    <label>
+                      <Field
+                        placeholder="Email"
+                        type="email"
+                        name="email"
+                        className={
+                          touched.email && errors.email ? "invalid" : ""
+                        }
+                      />
+                    </label>
+                    <ErrorMessage
+                      className="error"
+                      name="email"
+                      component="div"
+                    />
+                  </div>
+                  <div>
+                    <PhoneInput
+                      country={"us"}
+                      value={values.phone}
+                      placeholder="Phone Number"
+                      onChange={(phone) => setFieldValue("phone", phone)}
+                      className={touched.phone && errors.phone ? "invalid" : ""}
+                    />
+                    <ErrorMessage
+                      name="phone"
+                      component="div"
+                      className="error"
+                    />
+                  </div>
+                  <div>
+                    <label>
+                      <Field
+                        placeholder="Address Line 1"
+                        type="text"
+                        name="addressLine1"
+                        className={
+                          touched.addressLine1 && errors.addressLine1
+                            ? "invalid"
+                            : ""
+                        }
+                      />
+                    </label>
+                    <ErrorMessage
+                      className="error"
+                      name="addressLine1"
+                      component="div"
+                    />
+                  </div>
+                  <div>
+                    <label>
+                      <Field
+                        placeholder="Address Line 2"
+                        type="text"
+                        name="addressLine2"
+                      />
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <Field
+                        placeholder="City"
+                        type="text"
+                        name="city"
+                        className={touched.city && errors.city ? "invalid" : ""}
+                      />
+                    </label>
+                    <ErrorMessage
+                      className="error"
+                      name="city"
+                      component="div"
+                    />
+                  </div>
+                  <div>
+                    <label>
+                      <Field
+                        placeholder="ZIP"
+                        type="text"
+                        name="zip"
+                        className={touched.zip && errors.zip ? "invalid" : ""}
+                      />
+                    </label>
+                    <ErrorMessage
+                      className="error"
+                      name="zip"
+                      component="div"
+                    />
+                  </div>
+                  <div>
+                    <Field name="country">
+                      {({ field }) => (
+                        <Select
+                          {...field}
+                          options={countryList().getData()}
+                          styles={customStyles}
+                          className={`form-field ${
+                            touched.country && errors.country ? "invalid" : ""
+                          }`}
+                          value={countryList()
+                            .getData()
+                            .find(
+                              (option) => option.value === values.country?.value
+                            )}
+                          onChange={(option) =>
+                            setFieldValue("country", option)
+                          }
+                        />
+                      )}
+                    </Field>
+                    <ErrorMessage
+                      name="country"
+                      component="div"
+                      className="error"
+                    />
+                  </div>
+                  <div>
+                    <button
+                      type="submit"
+                      className="main-button"
+                      disabled={isSubmitting}
+                    >
+                      <span>Save changes</span>
+                    </button>
+                  </div>
+                </div>
+              </Form>
+            )}
+          </Formik>
+        )}
         {billingError && <div className="billing-error">{billingError}</div>}
         {billingSuccess && (
           <div className="billing-success">{billingSuccess}</div>
