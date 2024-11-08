@@ -7,16 +7,8 @@ export async function POST(request) {
     const requestBody = await request.text();
     const bodyJSON = JSON.parse(requestBody);
 
-    const {
-      fullName,
-      email,
-      phone,
-      position,
-      resume,
-      portfolio,
-      message,
-    } = bodyJSON;
-
+    const { fullName, email, phone, position, resume, portfolio, message } =
+      bodyJSON;
 
     // Configure nodemailer with Gmail SMTP
     const transporter = nodemailer.createTransport({
@@ -98,22 +90,21 @@ export async function POST(request) {
                 <p style="text-align: left; font-size: 16px;color:#202020;">
                 We appreciate your interest in our services and look forward to supporting you on your career journey.
                 </p>
-                <h2 style="text-align: left; font-size: 20px;color:#202020;"> Best regards,<br /> The Holaxgroup Team</h2>
+                <h2 style="text-align: left; font-size: 20px;color:#202020;"> Best regards,<br /> The Holax Group Team</h2>
               </td>
             </tr>
           </tbody>
           <tfoot>
-            <td style="padding: 24px; background-color: #A225EE; color: #fff; font-size: 20px; text-align: center; font-weight: 600;">
-              Thanks for using
-              <a href="https://holaxgroup.com/" style="text-decoration: underline; color: #fff; font-size: 20px; font-weight: 600;">holaxgroup.com</a>
-            </td>
+             <td>
+                <img style="width: 100%" src="https://holaxgroup.com/images/email_footer.png" alt="Holaxgroup Header" />
+              </td>
           </tfoot>
         </table>
       `,
     };
 
     // Send confirmation email to the client
-    await transporter.sendMail(mailOptionsClient);
+    //await transporter.sendMail(mailOptionsClient);
 
     return NextResponse.json({ message: "Success: emails were sent" });
   } catch (error) {
