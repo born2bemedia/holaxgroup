@@ -592,6 +592,15 @@ const CartPage = () => {
                                   <span>Submit</span>
                                 </button>
 
+                                {isLoading && (
+                                  <div
+                                    className="loading"
+                                    style={{ marginTop: "10px" }}
+                                  >
+                                    <img src="/images/loading.svg" />
+                                  </div>
+                                )}
+
                                 <div className="privacy">
                                   We will utilise your personal information to
                                   process your order, improve your browsing
@@ -605,12 +614,6 @@ const CartPage = () => {
                               </div>
                             </div>
                           </div>
-
-                          {isLoading && (
-                            <div className="loading">
-                              <img src="/images/loading.svg" />
-                            </div>
-                          )}
 
                           {/*status?.success && (
                             <p className="success-message">
