@@ -8,6 +8,7 @@ import WhatHow from "./_components/WhatHow";
 import WhatWhy from "./_components/WhatWhy";
 import WhatFeatures from "./_components/WhatFeatures";
 import WhatOur from "./_components/WhatOur";
+import WhatApproach from "./_components/WhatApproach";
 
 
 
@@ -29,7 +30,7 @@ export default function WhatWeDo() {
       <WhatHero />
       <WhatVideo />
       <WhatText />
-
+      <WhatApproach />
       <WhatOur />
       <WhatFeatures />
       <WhatWhy />
