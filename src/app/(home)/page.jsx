@@ -1,9 +1,10 @@
-import Image from "next/image";
+import "@/styles/base.scss";
 import HomeHero from "./_components/HomeHero";
 import HomeVideo from "./_components/HomeVideo";
 import HomeItems from "./_components/HomeItems";
 import HomeAbout from "./_components/HomeAbout";
 import HomeServices from "./_components/HomeServices";
+import FormBottom from "./_components/FormBottom";
 
 
 export const metadata = {
@@ -26,6 +27,7 @@ export default function Home() {
       <HomeServices />
       <HomeAbout />
       <HomeItems />
+      <FormBottom />
     </div>
   );
 }
