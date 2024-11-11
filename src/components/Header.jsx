@@ -75,7 +75,7 @@ const Header = () => {
                     onMouseLeave={handleMouseLeave}
                   >
                     <div className="wrapper">
-                      <Link href="/solutions" onClick={closeMenu}>
+                      <Link href="#" onClick={closeMenu}>
                         Our Solutions
                       </Link>
                       {/* <button type="button" className="btn">
@@ -129,7 +129,7 @@ const Header = () => {
                     onMouseLeave={handleMouseLeave}
                   >
                     <div className="wrapper">
-                      <Link href="/company" onClick={closeMenu}>
+                      <Link href="#" onClick={closeMenu}>
                         Company
                       </Link>
                       {/* <button type="button" className="btn">
@@ -178,7 +178,7 @@ const Header = () => {
                     onMouseLeave={handleMouseLeave}
                   >
                     <div className="wrapper">
-                      <Link href="/insights" onClick={closeMenu}>
+                      <Link href="#" onClick={closeMenu}>
                         Insights
                       </Link>
                       <button type="button" className="btn">
