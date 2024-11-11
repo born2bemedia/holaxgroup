@@ -9,6 +9,7 @@ import ConsultingHero from "./_components/ConsultingHero";
 import ConsultingSecond from "./_components/ConsultingSecond";
 import ConsultingPricelist from "./_components/ConsultingPricelist";
 import ConsultingWhy from "./_components/ConsultingWhy";
+import FormBottom from "../(home)/_components/FormBottom";
 
 const BusinessConsulting = () => {
   return (
@@ -19,6 +20,7 @@ const BusinessConsulting = () => {
       <PackagesWrap />
       <ConsultingWhy />
       <ConsultingPricelist />
+      <FormBottom />
       <OrderPopup />
     </>
   );

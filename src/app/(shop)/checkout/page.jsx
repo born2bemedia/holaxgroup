@@ -595,7 +595,7 @@ const CartPage = () => {
                                 {isLoading && (
                                   <div
                                     className="loading"
-                                    style={{ marginTop: "10px" }}
+                                    style={{ margin: "10px auto 0 auto" }}
                                   >
                                     <img src="/images/loading.svg" />
                                   </div>
