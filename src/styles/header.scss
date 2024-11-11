@@ -1,13 +1,14 @@
 @use "mixin" as *;
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 30;
   padding: 17px 0;
-  border-bottom: 1px solid #134CB280;
+  border-bottom: 1px solid #134cb280;
+  background: #f1f1f1;
   &__container {
   }
 
@@ -48,7 +49,7 @@
       align-items: center;
       .cart-link {
         img {
-            width: 20px;
+          width: 20px;
         }
       }
     }
@@ -123,6 +124,87 @@
       &:hover {
         color: #134cb2;
       }
+    }
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 29;
+  background: #f1f1f1;
+  width: 100vw;
+  height: 100vh;
+  padding: rem(89) rem(16) rem(16) rem(16);
+  box-sizing: border-box;
+  overflow-y: auto;
+  * {
+    box-sizing: border-box;
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: rem(30);
+    li {
+      &.with-sub-menu {
+        &.active{
+          a{
+            svg{
+              transform: rotate(-180deg);
+            }
+          }
+        }
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          svg{
+            transition: all 0.5s;
+            transform: rotate(0);
+          }
+        }
+      }
+      a {
+        color: #0e0e0e;
+        font-size: rem(28);
+        font-weight: 400;
+        line-height: 1.2;
+        text-align: left;
+      }
+      .submenu {
+        display: flex;
+        flex-direction: column;
+        gap: rem(20);
+        margin-top: rem(30);
+        li {
+          a {
+            color: #0e0e0e;
+            font-size: rem(20);
+            font-weight: 400;
+            line-height: 1.2;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  .mobile-account {
+    display: flex;
+    gap: rem(20);
+    align-items: center;
+    color: #0e0e0e;
+    font-size: rem(22);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: left;
+    padding: rem(30) 0;
+    border-top: 1px solid #0e0e0e;
+    border-bottom: 1px solid #0e0e0e;
+    margin-top: rem(30);
+    a {
+      display: flex;
     }
   }
 }
