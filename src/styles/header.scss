@@ -1,129 +1,126 @@
 @use "mixin" as *;
 
 .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 30;
+  padding: 17px 0;
+  &__container {
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  &__logo {
+    font-size: 38px;
+    line-height: normal;
+    color: #0e0e0e;
+  }
+
+  &__col-01 {
+  }
+
+  &__col-02 {
+    @media (max-width: 992px) {
+      display: none;
+    }
+  }
+
+  &__col-03 {
+    @media (max-width: 992px) {
+      display: none;
+    }
+  }
+
+  &__col-04 {
+    display: none;
+    @media (max-width: 992px) {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      .cart-link {
+        img {
+            width: 20px;
+        }
+      }
+    }
+  }
+
+  &__nav {
+  }
+
+  &__account {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__account-item {
+  }
+
+  &__account-link {
+    color: #0e0e0e;
+    font-size: 16px;
+    line-height: normal;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      color: #134cb2;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  &__item {
+  }
+
+  &__item-menu {
+    a {
+      color: #0e0e0e;
+    }
+    &._submenu {
+      position: relative;
+
+      &._open {
+      }
+    }
+  }
+
+  &__submenu {
     position: absolute;
-    top: 0;
+    top: 16px;
     left: 0;
-    width: 100%;
-    z-index: 30;
-    padding: 17px 0;
-    border-bottom: 1px solid #809ed0;
-    &__container { 
+    background-color: #fff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 
+    &._active {
+      padding: 11px 12px;
+      margin-top: 16px;
     }
+  }
 
-    &__body { 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 32px;
+  &__subitem {
+    a {
+      white-space: nowrap;
+      transition: all 0.3s ease 0s;
+
+      &:hover {
+        color: #134cb2;
+      }
     }
-
-    &__logo { 
-        font-size: 38px;
-        line-height: normal;
-        color: #0E0E0E;
-    }
-
-    &__col-01 {
-
-    }
-
-    &__col-02 {
-        @media(max-width: 992px) { 
-            display: none;
-        }
-    }
-
-    &__col-03 {
-        @media(max-width: 992px) { 
-            display: none;
-        }
-    }
-
-    &__col-04 {
-        @media(min-width: 992px) { 
-            display: none;
-        }
-    }
-
-    &__nav { 
-
-    }
-
-    &__account { 
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-
-    &__account-item { 
-
-    }
-
-    &__account-link { 
-        color: #0E0E0E;
-        font-size: 16px;
-        line-height: normal;
-        transition: all 0.3s ease 0s;
-        color: #134CB2;
-        font-weight: 500;
-
-        &:hover { 
-            color: #0E0E0E;
-        }
-    }
-
-    &__list { 
-        display: flex;
-        align-items: center;
-        gap: 28px;
-    }
-
-    &__item { 
-
-        
-    }
-
-    &__item-menu { 
-        a { 
-            color: #0E0E0E;
-        }
-        &._submenu { 
-            position: relative;
-
-            &._open { 
-
-            }
-        }
-    }
-
-    &__submenu { 
-        position: absolute;
-        top: 16px;
-        left: 0;
-        background-color: #fff;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        row-gap: 14px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        
-        &._active { 
-            padding: 11px 12px;
-            margin-top: 16px;
-        }
-    }
-
-    &__subitem { 
-
-        a { 
-            white-space: nowrap;
-            transition: all 0.3s ease 0s;
-
-            &:hover { 
-                color: #134CB2;
-            }
-        }
-    }
+  }
 }

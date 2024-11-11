@@ -1,0 +1,307 @@
+@use "mixin" as *;
+
+body {
+  background: #f1f1f1;
+}
+
+.log-in,
+.sign-up {
+  margin: rem(160) 0 rem(180) 0;
+  position: relative;
+  background: #f1f1f1;
+  //background-image: url(/images/cart/back.svg);
+  background-position: left top;
+  background-size: cover;
+  @media (max-width: rem(992)) {
+    margin: rem(90) 0 0 0;
+    background-image: none;
+    background: #082860;
+    padding: rem(50) 0 rem(80);
+  }
+  &__body {
+    padding: rem(60) rem(75);
+    max-width: rem(770);
+    margin: 0 auto;
+    background: #082860;
+    border-radius: rem(16);
+    @media (max-width: rem(992)) {
+      padding: 0;
+    }
+
+    .back {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: rem(6);
+      font-family: Inter;
+      font-size: rem(20);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.2;
+      text-align: left;
+      color: #fff;
+      margin-top: rem(30);
+    }
+  }
+  h1 {
+    color: #fff;
+    font-size: rem(32);
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0 0 rem(20) 0;
+    @media (max-width: rem(992)) {
+      margin-bottom: rem(20);
+      font-size: rem(24);
+    }
+  }
+  h2 {
+    color: #ffffff;
+    font-size: rem(18);
+    font-weight: 300;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0 0 rem(30) 0;
+    @media (max-width: rem(992)) {
+      margin-bottom: rem(30);
+      font-size: rem(16);
+    }
+    &.no-account {
+      margin-top: rem(50);
+    }
+  }
+
+  .success {
+    color: #fff;
+    font-size: rem(16);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    margin: 30px 0 0 0;
+    text-align: center;
+  }
+  > .error {
+    color: #f00;
+    font-size: rem(16);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    margin: 30px 0 0 0;
+    text-align: center;
+  }
+
+  form {
+    margin: 0 auto 0 auto;
+    max-width: rem(400);
+    border-radius: rem(30);
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      gap: rem(16);
+      div {
+        font-size: rem(14);
+        font-weight: 300;
+        line-height: 1.2;
+        text-align: center;
+        color: #fff;
+        a {
+          font-style: italic;
+          font-weight: 300;
+          text-decoration: underline;
+          color: #fff;
+        }
+      }
+    }
+
+    > div {
+      width: 100%;
+      position: relative;
+      @media (max-width: rem(992)) {
+        width: 100%;
+      }
+      .error {
+        position: absolute;
+        left: 0;
+        font-size: rem(12);
+        color: #ff5353;
+      }
+
+      .react-tel-input {
+        .country-list {
+          width: rem(255);
+          background: #f2f2f2;
+          li {
+            color: #1e1e1e;
+            &.highlight,
+            &:hover {
+              background: #1fa169;
+              color: #fff;
+            }
+          }
+          &::-webkit-scrollbar {
+            background: transparent;
+            width: rem(5);
+          }
+
+          &::-webkit-scrollbar-track {
+            background: #ffffff0d;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #1fa169;
+            border-radius: 100px;
+          }
+        }
+        input {
+          font-size: rem(16);
+          width: 100%;
+          height: rem(40);
+          color: #333;
+          padding: 0 rem(16) 0 rem(40);
+          background-color: #f1f1f1;
+          border-radius: 0;
+          border: 1px solid #f1f1f1;
+          font-weight: 500;
+          border-radius: rem(30);
+          font-style: italic;
+        }
+        &.invalid {
+          input {
+            border: 1px solid #ee342a;
+          }
+          & + span {
+            color: #ee342a;
+            position: absolute;
+            font-size: 11px;
+            line-height: 1;
+          }
+        }
+        .flag-dropdown {
+          border: none !important;
+          background: transparent !important;
+        }
+        .selected-flag {
+          border: none !important;
+          background: transparent !important;
+        }
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        font-size: rem(16);
+        width: 100%;
+        height: rem(40);
+        color: #333;
+        padding: 0 rem(16) 0 rem(16);
+        background-color: #f3f3f3;
+        border-radius: 0;
+        border: 1px solid #f3f3f3;
+        font-weight: 500;
+        border-radius: rem(30);
+        font-style: italic;
+        &::placeholder {
+          color: #33333366;
+        }
+        &.invalid {
+          border-color: #ff5353;
+        }
+      }
+    }
+
+    .checkboxes {
+      display: flex;
+      flex-direction: column;
+      gap: rem(10);
+    }
+
+    .checkbox {
+      width: 100%;
+      position: relative;
+      margin-top: 10px;
+      padding: 0;
+      @media (max-width: rem(992)) {
+        width: 100%;
+        padding: 0;
+      }
+      .error {
+        position: absolute;
+        left: 0;
+        font-size: rem(12);
+        color: #ff5353;
+      }
+      input {
+        display: none;
+        &:checked + label {
+          svg {
+            circle {
+              &:last-child {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+      label {
+        display: flex;
+        align-items: flex-start;
+        gap: rem(8);
+        color: #fff;
+        font-size: rem(14);
+        font-weight: 300;
+        line-height: 1.2;
+        text-align: left;
+        font-style: italic;
+        svg {
+          width: rem(20);
+          height: rem(20);
+          margin-top: -5px;
+          circle {
+            &:last-child {
+              opacity: 0;
+            }
+          }
+        }
+        span {
+          width: calc(100% - 30px);
+          a {
+            text-decoration: underline;
+            color: #fff;
+          }
+        }
+      }
+    }
+    button {
+      margin-top: rem(0);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: rem(50);
+      border-radius: rem(30);
+      color: #fff;
+      font-size: rem(20);
+      font-weight: 400;
+      line-height: 1.2;
+      text-align: left;
+      background-color: #0e0e0e;
+      border: none;
+      &:hover {
+        color: #0e0e0e;
+        background-color: #fff;
+      }
+      @media (max-width: rem(992)) {
+        width: 100%;
+        margin: 0 0 0 0;
+      }
+    }
+    .reset {
+      text-align: center;
+      color: #1fa169;
+    }
+  }
+}
