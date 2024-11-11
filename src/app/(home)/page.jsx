@@ -7,18 +7,6 @@ import HomeServices from "./_components/HomeServices";
 import FormBottom from "./_components/FormBottom";
 
 
-export const metadata = {
-  title: "",
-  description:
-    "",
-  openGraph: {
-    title: "",
-    description:
-      "",
-    images: "",
-  },
-};
-
 export default function Home() {
   return (
     <div className="home">

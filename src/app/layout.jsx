@@ -13,6 +13,18 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+export const metadata = {
+  title: "Welcome to Holax Group| Expert Consulting Services",
+  description:
+    "Discover Holax Group, your trusted business and marketing consulting services partner. Let us help you achieve your business goals with tailored solutions.",
+  openGraph: {
+    title: "Welcome to Holax Group| Expert Consulting Services",
+    description:
+      "Discover Holax Group, your trusted business and marketing consulting services partner. Let us help you achieve your business goals with tailored solutions.",
+    //images: "https://holaxgroup.com/images/meta.png",
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
