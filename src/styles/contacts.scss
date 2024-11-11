@@ -30,12 +30,12 @@
         display: flex;
         align-items: flex-start;
         gap: 36px;
-        
-        img { 
+
+        img {
             position: relative;
             top: 5px;
 
-            @media(max-width: 767px) { 
+            @media (max-width: 767px) {
                 display: none;
             }
         }
@@ -45,9 +45,8 @@
 .contacts-main {
     @include adaptiv-value("padding-bottom", 150, 100, 1);
     &__container {
-
-        &._container { 
-            @media(max-width: 992px) { 
+        &._container {
+            @media (max-width: 992px) {
                 padding: 0;
             }
         }
@@ -93,9 +92,9 @@
                     }
                     input {
                         padding: 10px 16px;
-                        background-color: #F1F1F1;
+                        background-color: #f1f1f1;
                         border-radius: 100px;
-                        border: 1px solid #134CB2;
+                        border: 1px solid #134cb2;
                         width: 100%;
                         font-size: 16px;
                         line-height: normal;
@@ -120,7 +119,7 @@
                         padding: 10px 16px;
                         background-color: #f1f1f1;
                         border-radius: 8px;
-                        border: 1px solid #134CB2;
+                        border: 1px solid #134cb2;
                         width: 100%;
                         font-size: 16px;
                         line-height: normal;
@@ -176,7 +175,7 @@
 
                         .row-title {
                             max-width: 136px;
-                            color: #0E0E0E;
+                            color: #0e0e0e;
                             font-size: 16px;
                             line-height: normal;
                             font-family: "Inter", sans-serif;
@@ -196,7 +195,7 @@
                                 padding: 0 0 0 35px;
                                 font-size: 16px;
                                 line-height: normal;
-                                color: #0E0E0E;
+                                color: #0e0e0e;
                                 cursor: pointer;
                                 &::before {
                                     content: "";
@@ -206,7 +205,7 @@
                                     width: 24px;
                                     height: 24px;
                                     border-radius: 8px;
-                                    border: 1px solid #134CB2;
+                                    border: 1px solid #134cb2;
                                 }
 
                                 &::after {
@@ -217,7 +216,7 @@
                                     width: 10px;
                                     height: 10px;
                                     border-radius: 100px;
-                                    background-color: #134CB2;
+                                    background-color: #134cb2;
                                     opacity: 0;
                                     visibility: hidden;
                                     transition: all 0.3s ease 0s;
@@ -343,15 +342,42 @@
                     text-align: center;
                 }
             }
+
+            .success-message {
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 5px;
+                font-size: 20px;
+                line-height: normal;
+                font-weight: 300;
+                font-style: italic;
+
+                @media (max-width: 767px) {
+                    font-size: 18px;
+                }
+                span {
+                    font-size: 22px;
+                    line-height: normal;
+                    font-weight: 600;
+                    font-style: normal;
+
+                    @media (max-width: 767px) {
+                        font-size: 16px;
+                    }
+                }
+            }
         }
     }
 
-    &__label { 
-        @include adaptiv-value('font-size', 24, 20, 1);
+    &__label {
+        @include adaptiv-value("font-size", 24, 20, 1);
         line-height: normal;
         font-weight: 500;
-        color: #0E0E0E;
-        @include adaptiv-value('margin-bottom', 50, 35, 1);
+        color: #0e0e0e;
+        @include adaptiv-value("margin-bottom", 50, 35, 1);
     }
 
     &__details {
@@ -416,14 +442,14 @@
     }
 
     &__link {
-        color: #0E0E0E;
+        color: #0e0e0e;
         font-size: 20px;
         line-height: normal;
         font-weight: 500;
     }
 
     &__image {
-        @media(max-width: 992px) { 
+        @media (max-width: 992px) {
             padding: 30px 16px;
             background-color: #fff;
         }
