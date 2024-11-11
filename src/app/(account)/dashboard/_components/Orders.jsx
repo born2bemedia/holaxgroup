@@ -14,7 +14,7 @@ function Orders() {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat("en-US", {
       day: "2-digit",
-      month: "long",
+      month: "2-digit",
       year: "numeric",
     }).format(date);
   };
@@ -27,6 +27,7 @@ function Orders() {
       try {
         const ordersData = await getOrdersByUser(currentUser.email); // Fetch orders using Zustand
         setOrders(ordersData);
+        console.log("ordersData", ordersData);
       } catch (error) {
         console.error("Failed to fetch orders:", error);
         setError("Failed to load orders.");
@@ -47,19 +48,26 @@ function Orders() {
           <table className="orders">
             <thead>
               <tr>
-                <th>Date</th>
                 <th>Order ID</th>
+                <th>Date</th>
+
                 <th>Service</th>
 
-                <th>Total</th>
-                <th>Order Status</th>
+                <th>Cost</th>
+                <th>Status</th>
+                <th>Invoice</th>
               </tr>
             </thead>
             <tbody>
               {orders.map((order) => (
                 <tr key={order.id}>
-                  <td>{formatDate(order.createdAt)}</td>
-                  <td>#{order.id}</td>
+                  <td>
+                    <span className="id">#{order.id}</span>
+                  </td>
+                  <td>
+                    <span>{formatDate(order.createdAt)}</span>
+                  </td>
+
                   <td>
                     {order.order_status !== "cancelled" &&
                       order.products.map((product) => (
@@ -75,13 +83,33 @@ function Orders() {
                       ))}
                   </td>
 
-                  <td>€{order.amount}</td>
                   <td>
-                    {order.order_status === "cancelled" ? (
-                      <div className="cancelled">Cancelled</div>
-                    ) : (
-                      <div className="completed">Completed</div>
-                    )}
+                    <span>€{order.amount}</span>
+                  </td>
+                  <td>
+                    <span>
+                      {order.order_status === "cancelled" ? (
+                        <div className="cancelled">Cancelled</div>
+                      ) : (
+                        <div className="completed">Completed</div>
+                      )}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      {order.invoice?.url ? (
+                        <Link href={`${order.invoice.url}`} target="_blank">
+                          <img src="/images/download.svg" />
+                        </Link>
+                      ) : (
+                        <Link href="#" target="_blank">
+                          <img
+                            className="inactive"
+                            src="/images/download.svg"
+                          />
+                        </Link>
+                      )}
+                    </span>
                   </td>
                 </tr>
               ))}
