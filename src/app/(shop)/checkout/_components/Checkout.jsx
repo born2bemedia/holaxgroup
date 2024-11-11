@@ -633,22 +633,14 @@ const Checkout = () => {
             <div>
               <section className="cart-wrap empty">
                 <div className="_container">
-                  <h1>
-                    It looks like you have not added any services to the cart
-                    yet.
-                    <span>
-                      Explore our offerings and choose the services you need.
-                    </span>
-                  </h1>
-                  <img src="/images/arrowDown.svg" />
-                  <div className="buttons">
-                    <Link href="/business-consulting">
-                      <span>Business Consulting</span>
-                    </Link>
-                    <Link href="/marketing-consulting">
-                      <span>Marketing Consulting</span>
-                    </Link>
-                  </div>
+                  <h1>Your cart is empty.</h1>
+                  <p>
+                    Discover our wide array of business and marketing consulting
+                    services!
+                  </p>
+                  <Link href="/">
+                    <span>Go home</span>
+                  </Link>
                 </div>
               </section>
             </div>

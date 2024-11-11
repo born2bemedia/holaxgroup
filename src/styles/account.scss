@@ -208,7 +208,7 @@
           }
           thead {
             th {
-              padding: rem(20) 0 rem(7) rem(10);
+              padding: rem(20) 0 rem(15) rem(10);
               border-radius: 0;
               font-size: rem(16);
               font-weight: 300;
@@ -224,7 +224,7 @@
                 border-radius: rem(15) 0 0 rem(15);
                 width: 5%;
               }
-              &:nth-child(2){
+              &:nth-child(2) {
                 width: 15%;
               }
               &:nth-child(3) {
@@ -243,44 +243,34 @@
               }
             }
             td {
-              padding: rem(7) 0 rem(7) rem(0);
-
-              span {
-                display: block;
-                border-radius: 0;
-                padding: rem(20) 0 rem(20) rem(10);
-                height: inherit;
-                font-size: rem(16);
-                font-weight: 400;
-                line-height: 1.2;
-                text-align: center;
-                color: #333;
-                white-space: nowrap;
-                vertical-align: baseline;
-                background: #fff;
-              }
+              border-radius: 0;
+              padding: rem(20) 0 rem(20) rem(10);
+              height: inherit;
+              font-size: rem(16);
+              font-weight: 400;
+              line-height: 1.2;
+              text-align: center;
+              color: #333;
+              white-space: nowrap;
+              vertical-align: baseline;
+              background: #fff;
+              border-bottom: rem(15) solid #f1f1f1;
               &:first-child {
                 width: rem(50);
-                span {
-                  text-align: left;
-                  padding-left: rem(35);
-                  border-radius: rem(15) 0 0 rem(15);
-                }
+                text-align: left;
+                padding-left: rem(35);
+                border-radius: rem(15) 0 0 rem(15);
               }
               &:nth-child(3) {
-                span {
-                  text-align: left;
-                }
+                text-align: left;
               }
               &:last-child {
-                span {
-                  padding: rem(15) rem(35) rem(15) rem(10);
-                  border-radius: 0 rem(15) rem(15) 0;
-                }
+                padding: rem(15) rem(35) rem(15) rem(10);
+                border-radius: 0 rem(15) rem(15) 0;
               }
-              img{
-                &.inactive{
-                  filter:grayscale(1);
+              img {
+                &.inactive {
+                  filter: grayscale(1);
                   opacity: 0.3;
                 }
               }
