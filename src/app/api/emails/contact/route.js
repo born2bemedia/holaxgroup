@@ -58,7 +58,7 @@ export async function POST(request) {
       to: email,
       subject: "Thank You for Contacting Holaxgroup",
       html: `
-      <table width="640" style="border-collapse: collapse; margin: 0 auto; font-style: sans-serif; border-right: 1px solid #222222; border-left: 1px solid #222222;">
+<table width="640" style="border-collapse: collapse; margin: 0 auto; font-style: sans-serif; border-right: 1px solid #222222; border-left: 1px solid #222222;">
     <thead>
         <tr>
             <th style="background-image: url('https://holaxgroup.com/images/letter-top.png'); background-size: cover;background-position: center center; background-repeat: no-repeat; height: 117px;"></th>
@@ -81,8 +81,8 @@ export async function POST(request) {
     </tbody>
     <tfoot>
         <tr>
-            <td style="background-color: #333333; font-weight: 600; font-family: Roboto, sans-serif;padding: 30px 0;">
-                <a href="https://holaxgroup.com/"><img src="https://holaxgroup.com/images/letter-bottom.png" alt="Holaxgroup"></a>
+            <td style="background-color: #333333; font-weight: 600; font-family: Roboto, sans-serif;">
+                <a href="https://holaxgroup.com/"><img src="https://holaxgroup.com/images/letter-bottom.png" alt="Holaxgroup" style="width:100%;"></a>
             </td>
         </tr>
     </tfoot>
