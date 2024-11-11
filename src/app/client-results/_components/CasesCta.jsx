@@ -25,7 +25,7 @@ const CasesCta = () => {
             <span></span>
             <span></span>
           </div>
-          <Link href="#">Start your journey with Holax Group</Link>
+          <Link href="/contacts">Start your journey with Holax Group</Link>
         </motion.div>
       </div>
     </section>
