@@ -13,14 +13,14 @@ import WhatApproach from "./_components/WhatApproach";
 
 
 export const metadata = {
-  title: "",
+  title: "Our Approach and Services | Holax Group",
   description:
-    "",
+    "Learn about Holax Group’ unique approach to delivering top-tier consulting services. Explore how our expertise can help your business thrive.",
   openGraph: {
-    title: "",
+    title: "Our Approach and Services | Holax Group",
     description:
-      "",
-    images: "",
+      "Learn about Holax Group’ unique approach to delivering top-tier consulting services. Explore how our expertise can help your business thrive.",
+    //images: "https://holaxgroup.com/images/meta.png",
   },
 };
 
