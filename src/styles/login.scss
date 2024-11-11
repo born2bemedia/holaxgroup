@@ -98,6 +98,11 @@ body {
     flex-direction: column;
     gap: rem(20);
 
+    >.error{
+      text-align: center;
+      color: #fff;
+    }
+
     .bottom {
       display: flex;
       flex-direction: column;
