@@ -529,51 +529,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: rem(40);
   }
   h1 {
-    font-size: rem(26);
-    font-weight: 500;
-    line-height: 1.2;
     text-align: center;
-    margin: 0;
-    span {
-      display: block;
-      color: #1fa169;
-    }
-    @media (max-width: rem(767)) {
-      br {
-        display: none;
-      }
-    }
   }
-  .buttons {
+  a {
+    margin-top: rem(40);
     display: flex;
-
-    align-items: center;
     justify-content: center;
-    gap: rem(30);
-    a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: rem(246);
-      height: rem(54);
-      border-radius: rem(30);
-      color: #fff;
-      font-size: rem(20);
-      font-weight: 400;
-      line-height: 1.2;
-      text-align: left;
-      background-color: #1fa169;
-      &:hover {
-        color: #fff;
-        background-color: #000000;
-      }
-      @media (max-width: rem(992)) {
-        width: 100%;
-        margin: 0;
-      }
+    align-items: center;
+    height: rem(50);
+    border-radius: rem(30);
+    color: #fff;
+    font-size: rem(20);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: left;
+    background-color: #0e0e0e;
+    border: none;
+    min-width: rem(300);
+    &:hover {
+      color: #0e0e0e;
+      background-color: #fff;
+    }
+    @media (max-width: rem(992)) {
+      width: 100%;
+      margin: 0 0 0 0;
     }
   }
 }
+

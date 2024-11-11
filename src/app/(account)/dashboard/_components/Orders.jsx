@@ -37,13 +37,14 @@ function Orders() {
     };
 
     fetchOrders();
+    console.log("orders", orders);
   }, [currentUser, getOrdersByUser]);
 
   return (
     <div>
       {loading && <p>Loading orders...</p>}
       {error && <p>{error}</p>}
-      {orders && (
+      {orders ? (
         <div className="orders-wrap">
           <table className="orders">
             <thead>
@@ -69,18 +70,18 @@ function Orders() {
                   </td>
 
                   <td>
-                    {order.order_status !== "cancelled" &&
-                      order.products.map((product) => (
+                    <span>
+                      {order.products.map((product) => (
                         <span
                           key={product.id}
                           target="_blank"
                           href={"#"}
                           className=""
                         >
-                          {product.title}
-                          <br />
+                          {product.title}<br/>
                         </span>
                       ))}
+                    </span>
                   </td>
 
                   <td>
@@ -116,6 +117,8 @@ function Orders() {
             </tbody>
           </table>
         </div>
+      ) : (
+        <div className="empty">There are currently no orders placed.</div>
       )}
     </div>
   );
