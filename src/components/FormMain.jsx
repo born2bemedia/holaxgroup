@@ -1,53 +1,41 @@
-import { useState, useEffect } from "react";
-import { Formik, Form, Field, useFormikContext } from "formik";
+import React, { useState } from "react";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import dynamic from "next/dynamic";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
-function useCountryCode() {
-  const [countryCode, setCountryCode] = useState("us");
+const initialValues = {
+  yourName: "",
+  email: "",
+  phone: "",
+  projectName: "",
+  projectDescription: "",
+  businessName: "",
+  contactPreference: [],
+  bestTimeToReach: "",
+  timeline: "",
+  budget: "",
+  additionalDetails: "",
+};
 
-  useEffect(() => {
+const validationSchema = Yup.object().shape({
+  yourName: Yup.string().required("Required"),
+  email: Yup.string().email("Invalid email").required("Required"),
+  phone: Yup.string().required("Required"),
+  projectName: Yup.string().required("Required"),
+  projectDescription: Yup.string().required("Required"),
+  businessName: Yup.string().required("Required"),
+  contactPreference: Yup.array().min(1, "Select at least one contact method"),
+  bestTimeToReach: Yup.string(),
+  timeline: Yup.string(),
+  budget: Yup.string(),
+  additionalDetails: Yup.string(),
+});
 
-    setCountryCode("us");
-  }, []);
-
-  return countryCode;
-}
-
-function FormMain() {
-  const countryCode = useCountryCode();
-  const [isSuccess, setIsSuccess] = useState(false);
+const FormMain = () => {
   const [isFormVisible, setIsFormVisible] = useState(true);
-
-  const validationSchema = Yup.object({
-    yourName: Yup.string().required("This field is required."),
-    email: Yup.string().email("Please enter a valid email address.").required("This field is required."),
-    phone: Yup.string().required("This field is required."),
-    businessName: Yup.string().required("This field is required."),
-    projectDescription: Yup.string().required("This field is required."),
-    goals: Yup.string().required("This field is required."),
-    contactPreference: Yup.array().min(1, "Please select at least one contact method."),
-    bestTimeToReach: Yup.string().required("This field is required."),
-    timeline: Yup.string().required("This field is required."),
-    budget: Yup.string().required("This field is required."),
-  });
-
-  const initialValues = {
-    yourName: "",
-    email: "",
-    phone: "",
-    projectName: "",
-    businessName: "",
-    projectDescription: "",
-    goals: "",
-    contactPreference: [],
-    bestTimeToReach: "",
-    timeline: "",
-    budget: "",
-    additionalDetails: "",
-  };
+  const [isSuccess, setIsSuccess] = useState(false);
+  const countryCode = "us";
 
   const handleSubmit = async (values, { setSubmitting, resetForm, setStatus }) => {
     try {
@@ -74,19 +62,22 @@ function FormMain() {
     }
   };
 
+  const contactMethods = ["email", "phone", "other"];
+
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      {({ isSubmitting, status, errors, touched }) => (
+      {({ isSubmitting, errors, touched }) => (
         <div className="wrapper">
           {isFormVisible && (
             <Form className="form">
-              {Object.keys(errors).length > 0 && touched && (
+              {Object.keys(errors).length > 0 && Object.values(touched).some((t) => t) && (
                 <span className="general-error">Please fill in all required fields.</span>
               )}
+
               <div className="row row-01">
                 <Field name="yourName">
                   {({ field, form }) => (
@@ -99,6 +90,7 @@ function FormMain() {
                   )}
                 </Field>
               </div>
+
               <div className="row row-02">
                 <Field name="email">
                   {({ field, form }) => (
@@ -111,6 +103,7 @@ function FormMain() {
                   )}
                 </Field>
               </div>
+
               <div className="row row-03">
                 <Field name="phone">
                   {({ field, form }) => (
@@ -124,6 +117,7 @@ function FormMain() {
                   )}
                 </Field>
               </div>
+
               <div className="row row-04">
                 <Field name="projectName">
                   {({ field, form }) => (
@@ -131,22 +125,25 @@ function FormMain() {
                       {...field}
                       type="text"
                       placeholder="Your Business or Project Name"
-                      className={form.touched.email && form.errors.email ? "invalid" : ""}
+                      className={form.touched.projectName && form.errors.projectName ? "invalid" : ""}
                     />
                   )}
                 </Field>
               </div>
+
               <div className="row row-05">
                 <Field name="projectDescription">
                   {({ field, form }) => (
                     <input
                       {...field}
+                      type="text"
                       placeholder="Briefly Describe Your Project or Business Needs"
                       className={form.touched.projectDescription && form.errors.projectDescription ? "invalid" : ""}
                     />
                   )}
                 </Field>
               </div>
+
               <div className="row row-06">
                 <Field name="businessName">
                   {({ field, form }) => (
@@ -154,59 +151,32 @@ function FormMain() {
                       {...field}
                       type="text"
                       placeholder="What Are Your Main Goals and Objectives?"
-                      className={form.touched.email && form.errors.email ? "invalid" : ""}
+                      className={form.touched.businessName && form.errors.businessName ? "invalid" : ""}
                     />
                   )}
                 </Field>
               </div>
+
               <div className="row row-07 _checkboxes">
                 <h2 className="row-title">Preferred Contact Method</h2>
                 <div className="wrapper">
                   <Field name="contactPreference">
                     {({ field, form }) => (
                       <>
-                        <label
-                          className={field.value.includes("email") ? "_active" : ""}
-                        >
-                          <input
-                            type="checkbox"
-                            checked={field.value.includes("email")}
-                            onChange={() => {
-                              const set = new Set(field.value);
-                              set.has("email") ? set.delete("email") : set.add("email");
-                              form.setFieldValue(field.name, Array.from(set));
-                            }}
-                          />
-                          Email
-                        </label>
-                        <label
-                          className={field.value.includes("phone") ? "_active" : ""}
-                        >
-                          <input
-                            type="checkbox"
-                            checked={field.value.includes("phone")}
-                            onChange={() => {
-                              const set = new Set(field.value);
-                              set.has("phone") ? set.delete("phone") : set.add("phone");
-                              form.setFieldValue(field.name, Array.from(set));
-                            }}
-                          />
-                          Phone
-                        </label>
-                        <label
-                          className={field.value.includes("other") ? "_active" : ""}
-                        >
-                          <input
-                            type="checkbox"
-                            checked={field.value.includes("other")}
-                            onChange={() => {
-                              const set = new Set(field.value);
-                              set.has("other") ? set.delete("other") : set.add("other");
-                              form.setFieldValue(field.name, Array.from(set));
-                            }}
-                          />
-                          Other
-                        </label>
+                        {contactMethods.map((method) => (
+                          <label key={method} className={field.value.includes(method) ? "_active" : ""}>
+                            <input
+                              type="checkbox"
+                              checked={field.value.includes(method)}
+                              onChange={() => {
+                                const set = new Set(field.value);
+                                set.has(method) ? set.delete(method) : set.add(method);
+                                form.setFieldValue(field.name, Array.from(set));
+                              }}
+                            />
+                            {method.charAt(0).toUpperCase() + method.slice(1)}
+                          </label>
+                        ))}
                       </>
                     )}
                   </Field>
@@ -218,13 +188,13 @@ function FormMain() {
                   {({ field, form }) => (
                     <textarea
                       {...field}
-                      type="text"
                       placeholder="When Is the Best Time to Reach You?"
                       className={form.touched.bestTimeToReach && form.errors.bestTimeToReach ? "invalid" : ""}
                     />
                   )}
                 </Field>
               </div>
+
               <div className="row row-09">
                 <Field name="timeline">
                   {({ field, form }) => (
@@ -237,6 +207,7 @@ function FormMain() {
                   )}
                 </Field>
               </div>
+
               <div className="row row-10">
                 <Field name="budget">
                   {({ field, form }) => (
@@ -249,17 +220,20 @@ function FormMain() {
                   )}
                 </Field>
               </div>
+
               <div className="row row-11">
                 <Field name="additionalDetails">
                   {({ field, form }) => (
                     <input
                       {...field}
+                      type="text"
                       placeholder="Any Other Details or Specific Requirements You'd Like to Share"
                       className={form.touched.additionalDetails && form.errors.additionalDetails ? "invalid" : ""}
                     />
                   )}
                 </Field>
               </div>
+
               <button type="submit" className="button" disabled={isSubmitting}>
                 Submit Inquiry
               </button>
@@ -274,6 +248,6 @@ function FormMain() {
       )}
     </Formik>
   );
-}
+};
 
 export default FormMain;
