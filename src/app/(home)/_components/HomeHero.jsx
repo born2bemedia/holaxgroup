@@ -60,7 +60,7 @@ const HomeHero = () => {
                         variants={fadeInUp}
                         custom={0.3}
                         className="">
-                        <Link href="#" className="home-hero__link">
+                        <Link href="#form-connect" className="home-hero__link">
                             Book a free consultation
                             <ArrowIcon />
                         </Link>
