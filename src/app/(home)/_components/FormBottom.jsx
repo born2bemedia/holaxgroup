@@ -8,7 +8,7 @@ import FormMain from "@/components/FormMain";
 const FormBottom = () => {
 
     return (
-        <section className="form-bottom">
+        <section className="form-bottom" id="form-connect">
             <div className="form-bottom__container _container">
                 <div className="form-bottom__body">
                     <div className="form-bottom__col-01">

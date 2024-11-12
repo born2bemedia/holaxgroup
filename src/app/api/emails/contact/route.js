@@ -13,7 +13,6 @@ export async function POST(request) {
       projectName,
       businessName,
       projectDescription,
-      goals,
       contactPreference,
       bestTimeToReach,
       timeline,
@@ -44,8 +43,7 @@ export async function POST(request) {
         Project Name: ${projectName}
         Business Name: ${businessName}
         Project Description: ${projectDescription}
-        Goals: ${goals}
-        Contact Preference: ${contactPreference.join(", ")}
+        Contact Preference: ${contactPreference}
         Best Time to Reach: ${bestTimeToReach}
         Timeline: ${timeline}
         Budget: ${budget}

@@ -74,6 +74,7 @@ const Header = () => {
                       <div className="wrapper">
                         <Link href="#" onClick={closeMenu}>
                           Our Solutions
+                          <ChevronDown />
                         </Link>
                         {/* <button type="button" className="btn">
                         {!submenuOpen["solutions"] ? (
@@ -131,7 +132,7 @@ const Header = () => {
                     >
                       <div className="wrapper">
                         <Link href="#" onClick={closeMenu}>
-                          Company
+                          Company <ChevronDown />
                         </Link>
                         {/* <button type="button" className="btn">
                         {!submenuOpen["company"] ? (
@@ -180,7 +181,7 @@ const Header = () => {
                     >
                       <div className="wrapper">
                         <Link href="#" onClick={closeMenu}>
-                          Insights
+                          Insights <ChevronDown />
                         </Link>
                         <button type="button" className="btn">
                           {/*  {!submenuOpen["insights"] ? (

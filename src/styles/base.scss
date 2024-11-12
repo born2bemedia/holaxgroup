@@ -324,7 +324,7 @@ a {
             display: flex;
             gap: 23px;
 
-            @media(max-width: 767px) { 
+            @media (max-width: 767px) {
               justify-content: space-between;
             }
 
@@ -334,7 +334,7 @@ a {
               font-size: 16px;
               line-height: normal;
               font-family: "Inter", sans-serif;
-              @media(max-width: 767px) { 
+              @media (max-width: 767px) {
                 max-width: 100%;
               }
             }
@@ -493,7 +493,7 @@ a {
           transform: translate(-50%, 0);
           color: #ff0000;
           width: 100%;
-          text-align: center
+          text-align: center;
         }
       }
     }
@@ -523,5 +523,96 @@ a {
     line-height: normal;
     color: #fff;
     font-weight: 300;
+  }
+}
+
+.thanks-popup-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  width: 100%;
+  min-height: 100%;
+  opacity: 0;
+  pointer-events: none;
+
+  background: #000000b2;
+  backdrop-filter: blur(15px);
+  &.opened {
+    opacity: 1;
+    pointer-events: all;
+    transition: all 0.5s;
+    .popup-inner {
+      transform: translate(-50%, -50%) scale(1);
+      transition: all 0.5s;
+    }
+  }
+  .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .popup-inner {
+    transition: all 0.5s;
+    width: rem(573);
+    max-width: 95%;
+    background: #fff;
+    padding: 45px;
+    border-radius: rem(30);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 99999;
+    min-height: rem(150);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 95vh;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    &:-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+    @media (max-width: rem(992)) {
+      padding: 40px 24px;
+    }
+    .popup-close {
+      position: absolute;
+      right: 24px;
+      top: 24px;
+      cursor: pointer;
+      @media (max-width: rem(992)) {
+        top: 24px;
+        right: 24px;
+      }
+    }
+    h2 {
+      margin: 0 0 5px 0;
+      font-size: rem(22);
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      color: #040404;
+      width: 100%;
+      @media (max-width: rem(992)) {
+        font-size: rem(24);
+      }
+    }
+    p {
+      color: #040404;
+      font-size: rem(20);
+      font-weight: 300;
+      line-height: 1.2;
+      text-align: center;
+      margin: 0;
+      font-style: italic;
+    }
   }
 }
