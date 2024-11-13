@@ -123,6 +123,7 @@ body {
     display: none;
     @media (max-width: rem(992)) {
       display: block;
+      width: 100%;
     }
   }
   &__body {
@@ -177,6 +178,7 @@ body {
       &:hover {
         background: #082860;
         .top {
+          
           h3 {
             color: #fff;
           }
@@ -198,6 +200,9 @@ body {
         }
       }
       .top {
+        img{
+          margin-bottom: rem(20);
+        }
         h3 {
           color: #0e0e0e;
           margin: rem(35) 0 0 0;

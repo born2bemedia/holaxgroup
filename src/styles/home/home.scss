@@ -105,6 +105,7 @@
 .home-items {
     @include adaptiv-value("padding-top", 90, 50, 1);
     @include adaptiv-value("padding-bottom", 90, 50, 1);
+    background: #fff;
     &__container {
     }
 
@@ -354,7 +355,7 @@
             line-height: normal;
             text-align: center;
             font-weight: 300;
-
+            padding: 0 16px;
             @media (max-width: 992px) {
                 padding: 0 16px;
             }

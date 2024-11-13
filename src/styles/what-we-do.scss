@@ -216,6 +216,7 @@
 .what-how {
     @include adaptiv-value("padding-top", 90, 80, 1);
     @include adaptiv-value("padding-bottom", 180, 100, 1);
+    background: #fff;
     &__container {
     }
 
@@ -734,6 +735,7 @@
 .what-approach {
     @include adaptiv-value("padding-top", 90, 40, 1);
     @include adaptiv-value("padding-bottom", 75, 65, 1);
+    background: #fff;
     &__container {
     }
 

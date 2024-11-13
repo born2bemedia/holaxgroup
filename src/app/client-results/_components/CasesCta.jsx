@@ -1,4 +1,5 @@
 "use client";
+import ArrowIcon from "@/icons/other/ArrowIcon";
 import ChevronDown from "@/icons/other/ChevronDown";
 import ChevronRight from "@/icons/other/ChevronRight";
 import { fadeInUp } from "@/utils/animations";
@@ -25,7 +26,9 @@ const CasesCta = () => {
             <span></span>
             <span></span>
           </div>
-          <Link href="/contacts">Start your journey with Holax Group</Link>
+          <Link href="/contacts">
+            Start your journey with Holax Group <ArrowIcon />
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -590,20 +590,43 @@ body {
         }
       }
       a {
-        background-color: #0e0e0e;
-        border: 1px solid #0e0e0e;
-        height: rem(50);
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: rem(25);
-        color: #fff;
-        font-size: rem(20);
-        font-weight: 500;
-        line-height: 1.2;
-        text-align: center;
-        padding: 0 rem(35);
         width: fit-content;
+        padding-top: 16px;
+        padding-right: 35px;
+        padding-bottom: 16px;
+        padding-left: 35px;
+        border-radius: 100px;
+        color: #fff;
+        background-color: #0e0e0e;
+        transition: all 0.3s ease 0s;
+        position: relative;
+
+        svg {
+          opacity: 0;
+          position: absolute;
+          top: 50%;
+          right: 35px;
+          transform: translate(0, -50%);
+          transition: all 0.3s ease 0s;
+
+          circle {
+            fill: #0e0e0e;
+            path {
+              fill: #fff;
+            }
+          }
+        }
+
+        &:hover {
+          padding-right: 78px;
+          background-color: #134cb2;
+          svg {
+            opacity: 1;
+          }
+        }
       }
     }
   }
@@ -661,21 +684,44 @@ body {
     }
   }
   a {
-    background-color: #0e0e0e;
-    border: 1px solid #0e0e0e;
-    height: rem(50);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: rem(25);
-    color: #fff;
-    font-size: rem(20);
-    font-weight: 500;
-    line-height: 1.2;
-    text-align: center;
-    padding: 0 rem(35);
     width: fit-content;
+    padding-top: 16px;
+    padding-right: 35px;
+    padding-bottom: 16px;
+    padding-left: 35px;
+    border-radius: 100px;
+    color: #fff;
+    background-color: #0e0e0e;
+    transition: all 0.3s ease 0s;
+    position: relative;
     margin: 0 auto;
+
+    svg {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      right: 35px;
+      transform: translate(0, -50%);
+      transition: all 0.3s ease 0s;
+
+      circle {
+        fill: #0e0e0e;
+        path {
+          fill: #fff;
+        }
+      }
+    }
+
+    &:hover {
+      padding-right: 78px;
+      background-color: #134cb2;
+      svg {
+        opacity: 1;
+      }
+    }
   }
 
   .swiper {
