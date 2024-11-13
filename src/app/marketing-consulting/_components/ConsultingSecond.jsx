@@ -3,12 +3,18 @@ import React from "react";
 const ConsultingSecond = () => {
   return (
     <section className="consulting-second">
-      <img src="/images/consulting/heroDt.png" alt="image" className="img-01" />
-      <img
-        src="/images/consulting/heroMob.png"
-        alt="image"
-        className="img-02"
-      />
+      <div className="video">
+        <video
+          width="2000"
+          height="440"
+          autoPlay={true}
+          muted
+          loop
+          preload="none"
+        >
+          <source src="/videos/marketing.webm" type="video/mp4" />
+        </video>
+      </div>
       <div className="_container">
         <div className="consulting-second__body">
           Our tailored marketing consulting services are crafted to elevate your

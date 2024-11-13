@@ -8,8 +8,18 @@ import React from "react";
 const CasesSecond = () => {
   return (
     <section className="cases-second">
-      <img src="/images/cases/heroDt.png" alt="image" className="img-01" />
-      <img src="/images/cases/heroMob.png" alt="image" className="img-02" />
+      <div className="video">
+        <video
+          width="2000"
+          height="395"
+          autoPlay={true}
+          muted
+          loop
+          preload="none"
+        >
+          <source src="/videos/cases.webm" type="video/mp4" />
+        </video>
+      </div>
       <div className="_container">
         <motion.div
           initial="hidden"

@@ -112,18 +112,22 @@ body {
 }
 
 .articles-second {
-  .img-01 {
-    margin-top: rem(70);
-    display: block;
-    @media (max-width: rem(992)) {
-      display: none;
-    }
-  }
-  .img-02 {
-    display: none;
-    @media (max-width: rem(992)) {
-      display: block;
+  .video {
+    position: relative;
+    height: 457px;
+    overflow: hidden;
+    video {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       width: 100%;
+      height: auto;
+      min-height: 100%;
+      @media (max-width: 767px) {
+        height: 100%;
+        width: auto;
+      }
     }
   }
   &__body {
@@ -178,7 +182,6 @@ body {
       &:hover {
         background: #082860;
         .top {
-          
           h3 {
             color: #fff;
           }
@@ -200,7 +203,7 @@ body {
         }
       }
       .top {
-        img{
+        img {
           margin-bottom: rem(20);
         }
         h3 {

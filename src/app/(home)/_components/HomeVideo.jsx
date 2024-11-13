@@ -3,19 +3,26 @@ import React, { useState, useEffect } from "react";
 import "@/styles/home/home.scss";
 
 const HomeVideo = () => {
-
-    return (
-        <section className="home-video">
-            <div className="home-video__container">
-                <div className="home-video__body">
-                    <div className="home-video__image">
-                        <img src="/images/home/home-img-01.png" alt="image" className="img-01" />
-                        <img src="/images/home/home-img-02.png" alt="image" className="img-02" />
-                    </div>
-                </div>
-            </div>
-        </section>  
-    );
+  return (
+    <section className="home-video">
+      <div className="home-video__container">
+        <div className="home-video__body">
+          <div className="home-video__image">
+            <video
+              width="320"
+              height="280"
+              autoPlay={true}
+              muted
+              loop
+              preload="none"
+            >
+              <source src="/videos/home1.webm" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default HomeVideo;
