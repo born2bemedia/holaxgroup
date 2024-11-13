@@ -1,3 +1,4 @@
+import ArrowIcon from "@/icons/other/ArrowIcon";
 import Link from "next/link";
 import React from "react";
 
@@ -16,7 +17,7 @@ const CareersLast = () => {
               open positions. Join us on our mission to deliver exceptional
               consulting services and drive meaningful change.
             </p>
-            <Link href="#jobs">Apply now and join our team</Link>
+            <Link href="#jobs">Apply now and join our team <ArrowIcon /></Link>
           </div>
         </div>
       </div>

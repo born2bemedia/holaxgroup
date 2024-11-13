@@ -6,6 +6,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import ArrowLine4 from "@/icons/other/ArrowLine4";
+import ArrowIcon from "@/icons/other/ArrowIcon";
 
 const ConsultingWhy = () => {
   return (
@@ -135,7 +136,7 @@ const ConsultingWhy = () => {
               </div>
             </SwiperSlide>
           </Swiper>
-          <Link href="/what-we-do">Start your marketing journey</Link>
+          <Link href="/what-we-do">Start your marketing journey <ArrowIcon /></Link>
         </div>
       </div>
     </section>

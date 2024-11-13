@@ -1,3 +1,4 @@
+import ArrowIcon from "@/icons/other/ArrowIcon";
 import Link from "next/link";
 import React from "react";
 
@@ -17,7 +18,7 @@ const ConsultingPricelist = () => {
               pricing will help you make informed decisions. Simply click the
               link below to get started.
             </p>
-            <Link href="#">Download price list</Link>
+            <Link href="#">Download price list <ArrowIcon /></Link>
           </div>
         </div>
       </div>

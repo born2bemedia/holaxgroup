@@ -102,7 +102,7 @@ const Header = () => {
                           paddingTop:
                             submenuOpen["solutions"] ||
                             hoveredItem === "solutions"
-                              ? "10px"
+                              ? "20px"
                               : "0",
                         }}
                       >

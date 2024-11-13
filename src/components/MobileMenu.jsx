@@ -102,12 +102,6 @@ const MobileMenu = () => {
             </li>
           </>
         )}
-        <li className="separator">|</li>
-        <li className="header__account-item">
-          <Link href="/cart" className="header__account-link">
-            <img src="/images/cart.svg" alt="cart" />
-          </Link>
-        </li>
       </ul>
     </div>
   );
