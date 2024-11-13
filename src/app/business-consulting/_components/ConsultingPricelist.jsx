@@ -7,7 +7,18 @@ const ConsultingPricelist = () => {
     <section className="pricelist">
       <div className="_container">
         <div className="pricelist__body">
-          <img src="/images/consulting/pricelist.png" alt="image" />
+          <div className="video">
+            <video
+              width="560"
+              height="402"
+              autoPlay={true}
+              muted
+              loop
+              preload="none"
+            >
+              <source src="/videos/home2.webm" type="video/mp4" />
+            </video>
+          </div>
           <div>
             <h2>Download Our Complete Price List</h2>
             <p>
@@ -18,7 +29,9 @@ const ConsultingPricelist = () => {
               pricing will help you make informed decisions. Simply click the
               link below to get started.
             </p>
-            <Link href="#">Download price list <ArrowIcon /></Link>
+            <Link href="#">
+              Download price list <ArrowIcon />
+            </Link>
           </div>
         </div>
       </div>

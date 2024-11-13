@@ -7,8 +7,18 @@ import React from "react";
 const CareersSecond = () => {
   return (
     <section className="careers-second">
-      <img src="/images/careers/heroDt.png" alt="image" className="img-01" />
-      <img src="/images/careers/heroMob.png" alt="image" className="img-02" />
+      <div className="video">
+        <video
+          width="2000"
+          height="395"
+          autoPlay={true}
+          muted
+          loop
+          preload="none"
+        >
+          <source src="/videos/careers.webm" type="video/mp4" />
+        </video>
+      </div>
     </section>
   );
 };

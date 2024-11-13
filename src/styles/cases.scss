@@ -111,17 +111,22 @@ body {
 }
 
 .cases-second {
-  .img-01 {
-    margin-top: rem(70);
-    display: block;
-    @media (max-width: rem(992)) {
-      display: none;
-    }
-  }
-  .img-02 {
-    display: none;
-    @media (max-width: rem(992)) {
-      display: block;
+  .video {
+    position: relative;
+    height: 440px;
+    overflow: hidden;
+    video {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      @media (max-width: 767px) {
+        height: 100%;
+        width: auto;
+      }
     }
   }
   &__body {

@@ -122,17 +122,22 @@ body {
 }
 
 .consulting-second {
-  .img-01 {
-    margin-top: rem(70);
-    display: block;
-    @media (max-width: rem(992)) {
-      display: none;
-    }
-  }
-  .img-02 {
-    display: none;
-    @media (max-width: rem(992)) {
-      display: block;
+  .video {
+    position: relative;
+    height: 440px;
+    overflow: hidden;
+    video {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      @media (max-width: 767px) {
+        height: 100%;
+        width: auto;
+      }
     }
   }
   &__body {
@@ -550,7 +555,7 @@ body {
   &__body {
     display: flex;
     gap: rem(110);
-    align-items: center;
+    //align-items: center;
     @media (max-width: rem(992)) {
       flex-direction: column-reverse;
       gap: rem(50);
@@ -563,9 +568,24 @@ body {
     }
     > div {
       width: calc(50% - 55px);
+      position: relative;
+      overflow: hidden;
       @media (max-width: rem(992)) {
         width: 100%;
       }
+      &.video {
+        @media (max-width: rem(992)) {
+          height: 233px;
+        }
+      }
+      video {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: auto;
+      }
+
       h2 {
         font-size: rem(48);
         font-weight: 500;
