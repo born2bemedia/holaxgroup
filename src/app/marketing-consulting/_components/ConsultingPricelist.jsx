@@ -29,7 +29,9 @@ const ConsultingPricelist = () => {
               pricing will help you make informed decisions. Simply click the
               link below to get started.
             </p>
-            <Link href="#">Download price list <ArrowIcon /></Link>
+            <Link href="https://holaxgroup.com/Holax-price-list.pdf" download="download">
+              Download price list <ArrowIcon />
+            </Link>
           </div>
         </div>
       </div>
