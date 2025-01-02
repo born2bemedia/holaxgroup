@@ -78,13 +78,13 @@ const ContactsMain = () => {
                   </Link>
                 </li>
                 <li className="contacts-main__social">
-                  <Link href="#" className="contacts-main__social-link twitter">
+                  <Link href="https://x.com/Holaxgroup" className="contacts-main__social-link twitter">
                     <Twitter />
                   </Link>
                 </li>
                 <li className="contacts-main__social">
                   <Link
-                    href="#"
+                    href="https://www.facebook.com/holaxgroup"
                     className="contacts-main__social-link facebook"
                   >
                     <Facebook />
