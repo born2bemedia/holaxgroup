@@ -30,12 +30,12 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="footer__social">
-                  <Link href="#" className="footer__social-link twitter">
+                  <Link href="https://x.com/Holaxgroup" className="footer__social-link twitter">
                     <Twitter />
                   </Link>
                 </li>
                 <li className="footer__social">
-                  <Link href="#" className="footer__social-link facebook">
+                  <Link href="https://www.facebook.com/holaxgroup" className="footer__social-link facebook">
                     <Facebook />
                   </Link>
                 </li>
