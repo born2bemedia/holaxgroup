@@ -25,17 +25,18 @@ const Footer = () => {
               </div>
               <ul className="footer__socials">
                 <li className="footer__social">
-                  <Link href="#" className="footer__social-link instagram">
-                    <Instagram />
-                  </Link>
-                </li>
-                <li className="footer__social">
-                  <Link href="https://x.com/Holaxgroup" className="footer__social-link twitter">
+                  <Link
+                    href="https://x.com/Holaxgroup"
+                    className="footer__social-link twitter"
+                  >
                     <Twitter />
                   </Link>
                 </li>
                 <li className="footer__social">
-                  <Link href="https://www.facebook.com/holaxgroup" className="footer__social-link facebook">
+                  <Link
+                    href="https://www.facebook.com/holaxgroup"
+                    className="footer__social-link facebook"
+                  >
                     <Facebook />
                   </Link>
                 </li>
@@ -117,7 +118,8 @@ const Footer = () => {
                   <Link href="#" className="footer__link">
                     <span>
                       <Address />
-                      71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ
+                      71-75 Shelton Street, Covent Garden, London, United
+                      Kingdom, WC2H 9JQ
                     </span>
                   </Link>
                 </li>
