@@ -71,14 +71,9 @@ const ContactsMain = () => {
               <ul className="contacts-main__socials">
                 <li className="contacts-main__social">
                   <Link
-                    href="#"
-                    className="contacts-main__social-link instagram"
+                    href="https://x.com/Holaxgroup"
+                    className="contacts-main__social-link twitter"
                   >
-                    <Instagram />
-                  </Link>
-                </li>
-                <li className="contacts-main__social">
-                  <Link href="https://x.com/Holaxgroup" className="contacts-main__social-link twitter">
                     <Twitter />
                   </Link>
                 </li>
