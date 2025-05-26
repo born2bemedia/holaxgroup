@@ -12,6 +12,7 @@ import * as Yup from "yup";
 import usePopupStore from "@/stores/popupStore";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { excludedCountries } from "@/utils/countries";
 
 function OrderPopup() {
   const { orderPopupDisplay, setOrderPopupDisplay, serviceValue, serviceType } =
@@ -160,6 +161,7 @@ function OrderPopup() {
                         <div>
                           <PhoneInput
                             country={"us"}
+                            excludeCountries={excludedCountries}
                             value=""
                             placeholder="Your Contact Number"
                             onChange={(phone) => setFieldValue("phone", phone)}

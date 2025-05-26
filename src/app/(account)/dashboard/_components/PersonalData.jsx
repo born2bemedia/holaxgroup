@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import ChangePassword from "./ChangePassword";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { excludedCountries } from "@/utils/countries";
 
 const getCountryOptionByCode = (code) => {
   const countries = countryList().getData();
@@ -230,6 +231,7 @@ const PersonalData = () => {
                   <div>
                     <PhoneInput
                       country={"us"}
+                      excludeCountries={excludedCountries}
                       value={values.phone}
                       placeholder="Phone Number"
                       onChange={(phone) => setFieldValue("phone", phone)}

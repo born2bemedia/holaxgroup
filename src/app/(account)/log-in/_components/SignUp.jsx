@@ -7,8 +7,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 import CheckboxIcon from "@/icons/CheckboxIcon";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
 
 export default function SignUp() {
   const [thanksPopupShow, setThanksPopupShow] = useState(false);
@@ -39,15 +37,14 @@ export default function SignUp() {
   });
 
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
-
     const userData = {
-        email: values.email,
-        password: values.password,
-        firstName: values.firstName,
-        lastName: values.lastName,
-        username: values.email,
-        phone: "",
-    }
+      email: values.email,
+      password: values.password,
+      firstName: values.firstName,
+      lastName: values.lastName,
+      username: values.email,
+      phone: "",
+    };
 
     try {
       const response = await fetch("/api/auth/sign-up", {
@@ -188,7 +185,7 @@ export default function SignUp() {
             {/* Submit Button */}
             <div>
               <button type="submit" disabled={isSubmitting}>
-              Create Account
+                Create Account
               </button>
             </div>
           </Form>
