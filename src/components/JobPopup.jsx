@@ -13,6 +13,7 @@ import usePopupStore from "@/stores/popupStore";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import ChevronDown from "@/icons/other/ChevronDown";
+import { excludedCountries } from "@/utils/countries";
 
 function JobPopup() {
   const { jobsPopupDisplay, setJobsPopupDisplay, jobValue } = usePopupStore();
@@ -185,6 +186,7 @@ function JobPopup() {
                         <div>
                           <PhoneInput
                             country={"us"}
+                            excludeCountries={excludedCountries}
                             value=""
                             placeholder="Your Contact Number"
                             onChange={(phone) => setFieldValue("phone", phone)}

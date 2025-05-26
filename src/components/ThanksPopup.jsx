@@ -1,17 +1,7 @@
 "use client";
+
 import React from "react";
-import {
-  Formik,
-  Form,
-  Field,
-  ErrorMessage,
-  useField,
-  useFormikContext,
-} from "formik";
-import * as Yup from "yup";
 import usePopupStore from "@/stores/popupStore";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
 
 function ThanksPopup() {
   const { thanksPopupDisplay, setThanksPopupDisplay } = usePopupStore();

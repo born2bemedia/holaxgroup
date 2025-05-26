@@ -6,6 +6,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import usePopupStore from "@/stores/popupStore";
 import ThanksPopup from "./ThanksPopup";
+import { excludedCountries } from "@/utils/countries";
 
 function useCountryCode() {
   const { thanksPopupDisplay, setThanksPopupDisplay } = usePopupStore();
@@ -133,6 +134,7 @@ function FormMain() {
                     {({ field, form }) => (
                       <PhoneInput
                         country={countryCode}
+                        excludeCountries={excludedCountries}
                         value={field.value}
                         onChange={(value) => form.setFieldValue("phone", value)}
                         placeholder="Your Contact Number"

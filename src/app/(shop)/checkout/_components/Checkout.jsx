@@ -14,6 +14,7 @@ import useCartStore from "@/stores/cartStore"; // Zustand cart store
 import useAuthStore from "@/stores/authStore"; // Zustand auth store
 import useOrderStore from "@/stores/orderStore"; // Zustand order store
 import CheckboxIconBlack from "@/icons/CheckboxIconBlack";
+import { excludedCountries } from "@/utils/countries";
 
 const getCountryOptionByCode = (code) => {
   const countries = countryList().getData();
@@ -370,6 +371,7 @@ const Checkout = () => {
                                 <PhoneInput
                                   country={"us"}
                                   value={values.phone}
+                                  excludeCountries={excludedCountries}
                                   placeholder="Phone Number"
                                   onChange={(phone) =>
                                     setFieldValue("phone", phone)
