@@ -79,7 +79,7 @@ const ContactsMain = () => {
                 </li>
                 <li className="contacts-main__social">
                   <Link
-                    href="https://www.facebook.com/holaxgroup"
+                    href="https://www.facebook.com/holaxcom/"
                     className="contacts-main__social-link facebook"
                   >
                     <Facebook />
