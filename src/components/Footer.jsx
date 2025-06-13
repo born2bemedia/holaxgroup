@@ -34,7 +34,7 @@ const Footer = () => {
                 </li>
                 <li className="footer__social">
                   <Link
-                    href="https://www.facebook.com/holaxgroup"
+                    href="https://www.facebook.com/holaxcom/"
                     className="footer__social-link facebook"
                   >
                     <Facebook />
