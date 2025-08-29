@@ -7,6 +7,7 @@ import "react-phone-input-2/lib/style.css";
 import usePopupStore from "@/stores/popupStore";
 import ThanksPopup from "./ThanksPopup";
 import { excludedCountries } from "@/utils/countries";
+import ReCaptcha from "react-google-recaptcha";
 
 function useCountryCode() {
   const { thanksPopupDisplay, setThanksPopupDisplay } = usePopupStore();
@@ -23,7 +24,12 @@ function FormMain() {
   const countryCode = useCountryCode();
   const [isSuccess, setIsSuccess] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(true);
+  const [isRecaptchaVerified, setIsRecaptchaVerified] = useState(false);
   const { thanksPopupDisplay, setThanksPopupDisplay } = usePopupStore();
+
+  const onRecaptchaChange = (value) => {
+    setIsRecaptchaVerified(!!value);
+  };
 
   const validationSchema = Yup.object({
     yourName: Yup.string().required("This field is required.1"),
@@ -314,10 +320,14 @@ function FormMain() {
                     )}
                   </Field>
                 </div>
+                <ReCaptcha
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                  onChange={onRecaptchaChange}
+                />
                 <button
                   type="submit"
                   className="button"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !isRecaptchaVerified}
                 >
                   Submit Inquiry
                 </button>
