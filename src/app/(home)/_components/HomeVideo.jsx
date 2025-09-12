@@ -15,6 +15,8 @@ const HomeVideo = () => {
               muted
               loop
               preload="none"
+              playsInline
+              poster="/images/home/poster.webp"
             >
               <source src="/videos/home1.webm" type="video/mp4" />
             </video>

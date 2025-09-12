@@ -15,6 +15,8 @@ const ArticlesSecond = () => {
           muted
           loop
           preload="none"
+          playsInline
+          poster="/images/news/poster.webp"
         >
           <source src="/videos/news.webm" type="video/mp4" />
         </video>

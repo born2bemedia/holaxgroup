@@ -16,6 +16,8 @@ const CasesSecond = () => {
           muted
           loop
           preload="none"
+          playsInline
+          poster="/images/cases/heroDt.png"
         >
           <source src="/videos/cases.webm" type="video/mp4" />
         </video>
