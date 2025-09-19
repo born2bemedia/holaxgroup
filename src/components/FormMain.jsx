@@ -1,20 +1,21 @@
-import { useState, useEffect } from "react";
-import { Formik, Form, Field, useFormikContext } from "formik";
-import * as Yup from "yup";
-import dynamic from "next/dynamic";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import usePopupStore from "@/stores/popupStore";
-import ThanksPopup from "./ThanksPopup";
-import { excludedCountries } from "@/utils/countries";
-import ReCaptcha from "react-google-recaptcha";
+import { useState, useEffect } from 'react';
+import { Formik, Form, Field, useFormikContext } from 'formik';
+import * as Yup from 'yup';
+import dynamic from 'next/dynamic';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import usePopupStore from '@/stores/popupStore';
+import ThanksPopup from './ThanksPopup';
+import { excludedCountries } from '@/utils/countries';
+import ReCaptcha from 'react-google-recaptcha';
+import { useTranslations } from 'next-intl';
 
 function useCountryCode() {
   const { thanksPopupDisplay, setThanksPopupDisplay } = usePopupStore();
-  const [countryCode, setCountryCode] = useState("us");
+  const [countryCode, setCountryCode] = useState('us');
 
   useEffect(() => {
-    setCountryCode("us");
+    setCountryCode('us');
   }, []);
 
   return countryCode;
@@ -27,47 +28,71 @@ function FormMain() {
   const [isRecaptchaVerified, setIsRecaptchaVerified] = useState(false);
   const { thanksPopupDisplay, setThanksPopupDisplay } = usePopupStore();
 
-  const onRecaptchaChange = (value) => {
+  const t = useTranslations('formMain');
+
+  const onRecaptchaChange = value => {
     setIsRecaptchaVerified(!!value);
   };
 
   const validationSchema = Yup.object({
-    yourName: Yup.string().required("This field is required.1"),
+    yourName: Yup.string().required(
+      t('errors.yourName', { fallback: 'This field is required.1' }),
+    ),
     email: Yup.string()
-      .email("Please enter a valid email address.")
-      .required("This field is required.2"),
-    phone: Yup.string().required("This field is required.3"),
-    businessName: Yup.string().required("This field is required.4"),
-    projectDescription: Yup.string().required("This field is required.5"),
-    contactPreference: Yup.string().required("Please select a contact method."),
-    bestTimeToReach: Yup.string().required("This field is required.7"),
-    timeline: Yup.string().required("This field is required.8"),
-    budget: Yup.string().required("This field is required.9"),
+      .email(
+        t('errors.invalidEmail', {
+          fallback: 'Please enter a valid email address.',
+        }),
+      )
+      .required(t('errors.email', { fallback: 'This field is required.2' })),
+    phone: Yup.string().required(
+      t('errors.phone', { fallback: 'This field is required.3' }),
+    ),
+    businessName: Yup.string().required(
+      t('errors.businessName', { fallback: 'This field is required.4' }),
+    ),
+    projectDescription: Yup.string().required(
+      t('errors.projectDescription', { fallback: 'This field is required.5' }),
+    ),
+    contactPreference: Yup.string().required(
+      t('errors.contactPreference', {
+        fallback: 'Please select a contact method.',
+      }),
+    ),
+    bestTimeToReach: Yup.string().required(
+      t('errors.bestTimeToReach', { fallback: 'This field is required.7' }),
+    ),
+    timeline: Yup.string().required(
+      t('errors.timeline', { fallback: 'This field is required.8' }),
+    ),
+    budget: Yup.string().required(
+      t('errors.budget', { fallback: 'This field is required.9' }),
+    ),
   });
 
   const initialValues = {
-    yourName: "",
-    email: "",
-    phone: "",
-    projectName: "",
-    businessName: "",
-    projectDescription: "",
+    yourName: '',
+    email: '',
+    phone: '',
+    projectName: '',
+    businessName: '',
+    projectDescription: '',
     contactPreference: [],
-    bestTimeToReach: "",
-    timeline: "",
-    budget: "",
-    additionalDetails: "",
+    bestTimeToReach: '',
+    timeline: '',
+    budget: '',
+    additionalDetails: '',
   };
 
   const handleSubmit = async (
     values,
-    { setSubmitting, resetForm, setStatus }
+    { setSubmitting, resetForm, setStatus },
   ) => {
     try {
-      const response = await fetch("/api/emails/contact", {
-        method: "POST",
+      const response = await fetch('/api/emails/contact', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(values),
       });
@@ -100,7 +125,9 @@ function FormMain() {
               <Form className="form">
                 {Object.keys(errors).length > 0 && touched && (
                   <span className="general-error">
-                    Please fill in all required fields.
+                    {t('pleaseFill', {
+                      fallback: 'Please fill in all required fields.',
+                    })}
                   </span>
                 )}
                 <div className="row row-01">
@@ -109,11 +136,13 @@ function FormMain() {
                       <input
                         {...field}
                         type="text"
-                        placeholder="Your Full Name"
+                        placeholder={t('fields.yourName', {
+                          fallback: 'Your Full Name',
+                        })}
                         className={
                           form.touched.yourName && form.errors.yourName
-                            ? "invalid"
-                            : ""
+                            ? 'invalid'
+                            : ''
                         }
                       />
                     )}
@@ -125,11 +154,13 @@ function FormMain() {
                       <input
                         {...field}
                         type="email"
-                        placeholder="Your Email Address"
+                        placeholder={t('fields.email', {
+                          fallback: 'Your Email Address',
+                        })}
                         className={
                           form.touched.email && form.errors.email
-                            ? "invalid"
-                            : ""
+                            ? 'invalid'
+                            : ''
                         }
                       />
                     )}
@@ -142,12 +173,14 @@ function FormMain() {
                         country={countryCode}
                         excludeCountries={excludedCountries}
                         value={field.value}
-                        onChange={(value) => form.setFieldValue("phone", value)}
-                        placeholder="Your Contact Number"
+                        onChange={value => form.setFieldValue('phone', value)}
+                        placeholder={t('fields.phone', {
+                          fallback: 'Your Contact Number',
+                        })}
                         className={
                           form.touched.phone && form.errors.phone
-                            ? "invalid"
-                            : ""
+                            ? 'invalid'
+                            : ''
                         }
                       />
                     )}
@@ -159,11 +192,13 @@ function FormMain() {
                       <input
                         {...field}
                         type="text"
-                        placeholder="Your Business or Project Name"
+                        placeholder={t('fields.projectName', {
+                          fallback: 'Your Business or Project Name',
+                        })}
                         className={
                           form.touched.email && form.errors.email
-                            ? "invalid"
-                            : ""
+                            ? 'invalid'
+                            : ''
                         }
                       />
                     )}
@@ -174,12 +209,15 @@ function FormMain() {
                     {({ field, form }) => (
                       <input
                         {...field}
-                        placeholder="Briefly Describe Your Project or Business Needs"
+                        placeholder={t('fields.projectDescription', {
+                          fallback:
+                            'Briefly Describe Your Project or Business Needs',
+                        })}
                         className={
                           form.touched.projectDescription &&
                           form.errors.projectDescription
-                            ? "invalid"
-                            : ""
+                            ? 'invalid'
+                            : ''
                         }
                       />
                     )}
@@ -191,63 +229,75 @@ function FormMain() {
                       <input
                         {...field}
                         type="text"
-                        placeholder="What Are Your Main Goals and Objectives?"
+                        placeholder={t('fields.businessName', {
+                          fallback: 'What Are Your Main Goals and Objectives?',
+                        })}
                         className={
                           form.touched.email && form.errors.email
-                            ? "invalid"
-                            : ""
+                            ? 'invalid'
+                            : ''
                         }
                       />
                     )}
                   </Field>
                 </div>
                 <div className="row row-07 _checkboxes">
-                  <h2 className="row-title">Preferred Contact Method</h2>
+                  <h2 className="row-title">
+                    {t('fields.contactPreference', {
+                      fallback: 'Preferred Contact Method',
+                    })}
+                  </h2>
                   <div className="wrapper">
                     <Field name="contactPreference">
                       {({ field, form }) => (
                         <>
                           <label
-                            className={field.value === "email" ? "_active" : ""}
+                            className={field.value === 'email' ? '_active' : ''}
                           >
                             <input
                               type="radio"
                               name="contactPreference"
                               value="email"
-                              checked={field.value === "email"}
+                              checked={field.value === 'email'}
                               onChange={() =>
-                                form.setFieldValue(field.name, "email")
+                                form.setFieldValue(field.name, 'email')
                               }
                             />
-                            Email
+                            {t('fields.contact.email', {
+                              fallback: 'Email',
+                            })}
                           </label>
                           <label
-                            className={field.value === "phone" ? "_active" : ""}
+                            className={field.value === 'phone' ? '_active' : ''}
                           >
                             <input
                               type="radio"
                               name="contactPreference"
                               value="phone"
-                              checked={field.value === "phone"}
+                              checked={field.value === 'phone'}
                               onChange={() =>
-                                form.setFieldValue(field.name, "phone")
+                                form.setFieldValue(field.name, 'phone')
                               }
                             />
-                            Phone
+                            {t('fields.contact.phone', {
+                              fallback: 'Phone',
+                            })}
                           </label>
                           <label
-                            className={field.value === "other" ? "_active" : ""}
+                            className={field.value === 'other' ? '_active' : ''}
                           >
                             <input
                               type="radio"
                               name="contactPreference"
                               value="other"
-                              checked={field.value === "other"}
+                              checked={field.value === 'other'}
                               onChange={() =>
-                                form.setFieldValue(field.name, "other")
+                                form.setFieldValue(field.name, 'other')
                               }
                             />
-                            Other
+                            {t('fields.contact.other', {
+                              fallback: 'Other',
+                            })}
                           </label>
                         </>
                       )}
@@ -261,12 +311,14 @@ function FormMain() {
                       <textarea
                         {...field}
                         type="text"
-                        placeholder="When Is the Best Time to Reach You?"
+                        placeholder={t('fields.whenIsTheBestTimeToReach', {
+                          fallback: 'When Is the Best Time to Reach You?',
+                        })}
                         className={
                           form.touched.bestTimeToReach &&
                           form.errors.bestTimeToReach
-                            ? "invalid"
-                            : ""
+                            ? 'invalid'
+                            : ''
                         }
                       />
                     )}
@@ -278,11 +330,17 @@ function FormMain() {
                       <input
                         {...field}
                         type="text"
-                        placeholder="What Is Your Expected Timeline for This Project?"
+                        placeholder={t(
+                          'fields.whatIsYourExpectedTimelineForThisProject',
+                          {
+                            fallback:
+                              'What Is Your Expected Timeline for This Project?',
+                          },
+                        )}
                         className={
                           form.touched.timeline && form.errors.timeline
-                            ? "invalid"
-                            : ""
+                            ? 'invalid'
+                            : ''
                         }
                       />
                     )}
@@ -294,11 +352,17 @@ function FormMain() {
                       <input
                         {...field}
                         type="text"
-                        placeholder="What Is Your Budget Range for This Project?"
+                        placeholder={t(
+                          'fields.whatIsYourBudgetRangeForThisProject',
+                          {
+                            fallback:
+                              'What Is Your Budget Range for This Project?',
+                          },
+                        )}
                         className={
                           form.touched.budget && form.errors.budget
-                            ? "invalid"
-                            : ""
+                            ? 'invalid'
+                            : ''
                         }
                       />
                     )}
@@ -309,12 +373,18 @@ function FormMain() {
                     {({ field, form }) => (
                       <input
                         {...field}
-                        placeholder="Any Other Details or Specific Requirements You'd Like to Share"
+                        placeholder={t(
+                          'fields.anyOtherDetailsOrSpecificRequirementsYoudLikeToShare',
+                          {
+                            fallback:
+                              "Any Other Details or Specific Requirements You'd Like to Share",
+                          },
+                        )}
                         className={
                           form.touched.additionalDetails &&
                           form.errors.additionalDetails
-                            ? "invalid"
-                            : ""
+                            ? 'invalid'
+                            : ''
                         }
                       />
                     )}
@@ -329,12 +399,14 @@ function FormMain() {
                   className="button"
                   disabled={isSubmitting || !isRecaptchaVerified}
                 >
-                  Submit Inquiry
+                  {t('submit', {
+                    fallback: 'Submit Inquiry',
+                  })}
                 </button>
                 {isSubmitting && (
                   <div
                     className="loading"
-                    style={{ margin: "10px auto 0 auto" }}
+                    style={{ margin: '10px auto 0 auto' }}
                   >
                     <img src="/images/loading.svg" />
                   </div>

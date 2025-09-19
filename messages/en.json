@@ -348,6 +348,196 @@
         "1": "can transform your future."
       },
       "button": "Book a free consultation"
+    },
+    "services": {
+      "title": "Discover Our Services",
+      "tabs": {
+        "tab1": "Business Consulting",
+        "tab2": "Marketing Consulting"
+      },
+      "businessConsulting": {
+        "title": "Business Consulting",
+        "description": "Elevate your brand and connect with your audience through our dynamic marketing consulting services. Whether you want to enhance your digital presence, create compelling content, or drive targeted campaigns, our tailored solutions deliver measurable results and propel your brand forward.",
+        "button": "Improve operations now",
+        "slides": {
+          "0": {
+            "title": "Strategic Planning",
+            "text": "Develop a clear, actionable roadmap to achieve your business goals. Our strategic planning services help you define your vision, set realistic targets, and outline the steps needed to reach them."
+          },
+          "1": {
+            "title": "Operational Improvement",
+            "text": "Optimise your business processes for maximum efficiency and effectiveness. We identify bottlenecks, streamline workflows, and implement best practices to enhance your operations."
+          },
+          "2": {
+            "title": "Financial Consulting",
+            "text": "Strengthen your financial health with our expert advice. From budgeting and forecasting to financial analysis and risk management, we provide the insights you need to make informed decisions."
+          },
+          "3": {
+            "title": "Market Analysis",
+            "text": "Gain a competitive edge with in-depth market research and analysis. We help you understand market trends, identify opportunities, and develop strategies to capture new markets."
+          },
+          "4": {
+            "title": "Business Process Reengineering",
+            "text": "Transform your business processes to achieve significant performance improvements. We help you redesign workflows, eliminate inefficiencies, and leverage technology to drive growth."
+          },
+          "5": {
+            "title": "Change Management",
+            "text": "Our change management services help you navigate organisational changes smoothly and effectively. They also ensure your team is aligned and engaged."
+          },
+          "6": {
+            "title": "Performance Management",
+            "text": "Enhance your team’s performance with our comprehensive management solutions. We provide tools and strategies to set goals, measure progress, and improve productivity."
+          },
+          "7": {
+            "title": "Risk Management",
+            "text": "Manage potential risks and uncertainties to ensure your business remains resilient and adapts to changing environments."
+          },
+          "8": {
+            "title": "Leadership Development",
+            "text": "Cultivate strong leaders within your organisation. We offer customised leadership development programs that equip your team with the skills and confidence to lead effectively."
+          },
+          "9": {
+            "title": "Innovation & Growth Strategy",
+            "text": "Foster a culture of innovation and drive sustainable growth. Our experts work with you to identify new opportunities, create innovative solutions, and implement growth strategies that keep you ahead of the competition."
+          }
+        }
+      },
+      "marketingConsulting": {
+        "slides": {
+          "0": {
+            "title": "Brand Strategy Development",
+            "text": "Craft a powerful brand identity that resonates with your target audience. We help you define your brand’s mission, vision, and values, creating a cohesive strategy differentiating you in the marketplace."
+          },
+          "1": {
+            "title": "Digital Marketing Strategy",
+            "text": "Maximise your online impact with a comprehensive digital marketing strategy. We provide insights and tactics across SEO, SEM, social media, and email marketing to boost your online presence and engagement."
+          },
+          "2": {
+            "title": "Content Marketing",
+            "text": "Engage your audience with compelling, high-quality content. Our content marketing services include content creation, strategy development, and distribution to ensure your message reaches and resonates with your target audience."
+          },
+          "3": {
+            "title": "Social Media Management",
+            "text": "Build a solid social media presence that drives engagement and growth. We manage your social media channels, creating and executing campaigns that connect with your audience and enhance your brand’s visibility."
+          },
+          "4": {
+            "title": "SEO & SEM",
+            "text": "Improve your website’s visibility and attract more traffic through expert SEO and SEM strategies. We optimise your website and manage paid search campaigns to ensure you rank higher and reach the right audience."
+          },
+          "5": {
+            "title": "Email Marketing",
+            "text": "Develop and execute effective email marketing campaigns that convert. From crafting compelling newsletters to automated email sequences, we ensure your email marketing efforts drive results."
+          },
+          "6": {
+            "title": "Market Research & Analysis",
+            "text": "Understand your market and stay ahead of the competition with in-depth market research. We provide actionable insights into market trends, customer behaviour, and competitive landscape to inform your marketing strategies."
+          },
+          "7": {
+            "title": "Campaign Management",
+            "text": "Plan and execute targeted marketing campaigns that deliver results. Our campaign management services cover everything from strategy development to execution and analysis, ensuring your campaigns achieve their objectives."
+          },
+          "8": {
+            "title": "Influencer Marketing",
+            "text": "Leverage the power of influencers to amplify your brand’s reach. We connect you with the right influencers and manage partnerships to create authentic and impactful marketing campaigns."
+          },
+          "9": {
+            "title": "Public Relations",
+            "text": "Build and maintain a positive public image with our strategic public relations services. We help you craft press releases, manage media relations, and handle crisis communication to keep your brand in a favourable light."
+          }
+        },
+        "title": "Marketing Consulting",
+        "description": "Elevate your brand and connect with your audience through our dynamic marketing consulting services. Whether you want to enhance your digital presence, create compelling content, or drive targeted campaigns, our tailored solutions deliver measurable results and propel your brand forward.",
+        "button": "Improve operations now"
+      }
+    },
+    "about": {
+      "title": "About Us",
+      "description": "At Holax Group, we specialise in offering bespoke business and marketing consulting solutions. Our seasoned experts are dedicated to providing personalised guidance and innovative strategies to help our clients navigate the competitive landscape. We are committed to building lasting relationships through a collaborative approach, ensuring measurable success and growth for our clients.",
+      "ourMission": "Our Mission",
+      "mission": "Our mission is to empower entrepreneurs with the insights, strategies, and tools necessary to achieve their marketing and operational goals. We are dedicated to driving growth, enhancing market presence, and fostering innovation. By leveraging our expertise, we aim to create sustainable value and help our clients realise their fullest potential in their respective industries.",
+      "ourStory": "Our Story",
+      "story": "Holax Group was founded to provide individuals with access to top-tier consulting services that truly understand their unique challenges. Our story concerns passion, dedication, and a relentless quest for excellence. From humble beginnings, we have evolved into a trusted partner for businesses across various industries, known for our ability to adapt to the ever-changing market landscape. Our narrative is woven with tales of transformation, success, and a shared commitment to making a meaningful impact on the businesses we serve.",
+      "ourValues": "Our Values",
+      "values": {
+        "0": "Integrity in Action",
+        "1": "We believe in authenticity and transparency, ensuring that our actions always align with our words."
+      },
+      "pursuitOfExcellence": "Pursuit of Excellence",
+      "pursuitOfExcellenceText": "We strive for brilliance in everything we do, constantly raising the bar to exceed expectations.",
+      "creativeInnovation": "Creative Innovation",
+      "creativeInnovationText": "We thrive on creativity and originality, finding unique solutions to the most complex challenges.",
+      "empoweringPartnerships": "Empowering Partnerships",
+      "empoweringPartnershipsText": "We build empowering relationships that celebrate collaboration and mutual growth.",
+      "clientCentredExcellence": "Client-Centred Excellence",
+      "clientCentredText": "Our clients are the core of our universe, and their success defines our own."
+    },
+    "items": {
+      "title": "What We Do",
+      "label": "Transforming Visions into Reality",
+      "text": "Our approach centres on understanding your unique business challenges and crafting bespoke solutions that align with your vision. Our comprehensive consulting services encompass strategic planning, operational improvement, and innovative growth strategies. By leveraging our deep expertise and collaborative methodology, we drive sustainable growth and ensure your business competes and thrives in a dynamic marketplace.",
+      "button": "Explore our approach",
+      "clientResults": {
+        "title": "Client Results",
+        "label": "Success Stories that Inspire",
+        "text": "Discover how our clients have achieved remarkable success with the help of Holax Group. Read our case studies and testimonials to see the tangible impact of our consulting solutions and learn how we can help you reach your goals.",
+        "button": "See client success"
+      },
+      "industryNews": {
+        "title": "Industry News",
+        "label": "Stay Ahead with the Latest Industry Trends",
+        "text": "Keep up with the ever-evolving market landscape. Our Industry News section brings you the latest updates, trends, and insights from across various sectors, helping you stay informed and make strategic decisions.",
+        "button": "Read industry news"
+      },
+      "articles": {
+        "title": "Articles",
+        "label": "Insights and Expertise",
+        "text": "Dive into our collection of articles written by industry experts. From in-depth analysis to practical tips, our articles provide valuable knowledge to help you navigate the complexities of business and marketing.",
+        "button": "Explore articles"
+      },
+      "careers": {
+        "title": "Careers",
+        "label": "Join Our Dynamic Team",
+        "text": "Are you ready to take your career to the next level? At Holax Group, we are always looking for talented individuals who share our passion for excellence and innovation. Explore our current job openings and become part of a team that makes a difference.",
+        "button": "View open positions"
+      }
+    },
+    "formBottom": {
+      "title": "Connect with",
+      "description": "Start your path to success with our expert guidance. Fill out the form below to share your project vision, and our consultant will contact you promptly to discuss your goals."
     }
+  },
+  "formMain": {
+    "errors": {
+      "yourName": "This field is required.1",
+      "email": "This field is required.2",
+      "invalidEmail": "Please enter a valid email address.",
+      "phone": "This field is required.3",
+      "businessName": "This field is required.4",
+      "projectDescription": "This field is required.5",
+      "contactPreference": "Please select a contact method.",
+      "bestTimeToReach": "This field is required.7",
+      "timeline": "This field is required.8",
+      "budget": "This field is required.9"
+    },
+    "pleaseFill": "Please fill in all required fields.",
+    "fields": {
+      "yourName": "Your Full Name",
+      "email": "Your Email Address",
+      "phone": "Your Contact Number",
+      "projectName": "Your Business or Project Name",
+      "projectDescription": "Briefly Describe Your Project or Business Needs",
+      "businessName": "What Are Your Main Goals and Objectives?",
+      "contactPreference": "Preferred Contact Method",
+      "contact": {
+        "email": "Email",
+        "phone": "Phone",
+        "other": "Other"
+      },
+      "whenIsTheBestTimeToReach": "When Is the Best Time to Reach You?",
+      "whatIsYourExpectedTimelineForThisProject": "What Is Your Expected Timeline for This Project?",
+      "whatIsYourBudgetRangeForThisProject": "What Is Your Budget Range for This Project?",
+      "anyOtherDetailsOrSpecificRequirementsYoudLikeToShare": "Any Other Details or Specific Requirements You'd Like to Share"
+    },
+    "submit": "Submit Inquiry"
   }
 }
