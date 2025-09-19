@@ -539,5 +539,105 @@
       "anyOtherDetailsOrSpecificRequirementsYoudLikeToShare": "Any Other Details or Specific Requirements You'd Like to Share"
     },
     "submit": "Submit Inquiry"
+  },
+  "marketingConsulting": {
+    "hero": {
+      "title": {
+        "0": "Ignite Your Brand with Strategic",
+        "1": "Marketing Solutions"
+      },
+      "text": "At Holax Group, we understand the power of effective marketing in driving business success."
+    },
+    "second": {
+      "text1": "Our tailored marketing consulting services are crafted to elevate your brand and connect with your audience meaningfully. Whether you aim to enhance your digital presence, create compelling content, or execute targeted campaigns, our marketing experts offer the insights and strategies you need to stand out in a crowded marketplace.",
+      "text2": "Let us partner with you to amplify your brand’s impact and achieve measurable results that propel your business forward."
+    },
+    "products": {
+      "howWeCanHelp": "How We Can Help",
+      "categories": {
+        "0": "Brand Strategy & Development",
+        "1": "Digital Marketing & Online Presence",
+        "2": "Content & Communication",
+        "3": "Market Research & Analysis",
+        "4": "Campaign Management & Execution"
+      }
+    },
+    "packages": {
+      "title": "Marketing Consulting Complete Packages",
+      "description": "Transform your marketing efforts with Holax Group comprehensive consulting packages. Our packages are designed to offer a step-by-step enhancement of your marketing capabilities, starting with foundational brand strategies and advancing to full-scale market research and public relations. Whether you’re looking to boost your online presence, engage your audience through compelling content, or leverage influencer partnerships, our packages provide the perfect blend of services to propel your brand forward. Select the package that best fits your marketing objectives and watch your brand soar."
+    },
+    "why": {
+      "title": "Our Step-by-Step Approach",
+      "subtitle": "Your Path to Marketing Success",
+      "text": "At Holax Group, we believe in a systematic and collaborative approach to ensure your marketing consulting experience is seamless and effective. Here’s how we work with you every step of the way to elevate your brand and achieve your marketing goals:",
+      "slides": {
+        "0": {
+          "title": "Initial Consultation",
+          "text": "We start with a comprehensive consultation to understand your business, marketing needs, and objectives. This helps us tailor our services to your specific goals."
+        },
+        "1": {
+          "title": "Market Research & Analysis",
+          "text": "Our team conducts thorough market research to gather insights into your target audience, competitors, and industry trends. This forms the foundation of our strategic planning."
+        },
+        "2": {
+          "title": "Strategy Development",
+          "text": "Based on our research, we develop a customised marketing strategy that aligns with your business goals. This includes brand positioning, digital marketing plans, content strategies, and more."
+        },
+        "3": {
+          "title": "Implementation",
+          "text": "We put the approved strategy into action, setting up your digital presence, creating content, managing social media, and executing campaigns. Our team ensures every aspect is optimised for success."
+        },
+        "4": {
+          "title": "Ongoing Management",
+          "text": "Continuous management and optimization are crucial. We monitor all marketing activities, making necessary adjustments to improve performance and achieve desired outcomes."
+        },
+        "5": {
+          "title": "Performance Analytics",
+          "text": "We provide detailed analytics and reports to measure the effectiveness of our marketing efforts. This includes tracking key metrics, evaluating ROI, and identifying areas for improvement."
+        },
+        "6": {
+          "title": "Continuous Improvement",
+          "text": "Marketing is an ongoing process. We work with you to refine strategies, explore new opportunities, and ensure your marketing efforts evolve with market changes and business growth."
+        },
+        "7": {
+          "title": "Feedback & Collaboration",
+          "text": "Your feedback is essential. We maintain open communication to ensure our services meet your expectations and adapt to your evolving needs."
+        }
+      },
+      "button": "Start your marketing journey"
+    },
+    "pricelist": {
+      "title": "Download Our Complete Price List",
+      "description": "Interested in understanding our service offerings in detail? Download our complete price list to explore the range of consulting solutions we provide. Whether you need business consulting or marketing consulting services, our transparent pricing will help you make informed decisions. Simply click the link below to get started.",
+      "button": "Download price list"
+    },
+    "orderPopup": {
+      "errors": {
+        "required": "This field is required",
+        "invalidEmail": "Please, enter valid email"
+      },
+      "title1": "Service Request",
+      "title2": "Ready-made plan request",
+      "description1": "Ready to enhance your business? Complete the form below to request your customised business consulting solution from Holax Group.",
+      "description2": "Interested in our ready-made plan? Complete the form below, and our specialists will contact you to discuss all the essential details.",
+      "selectedService": "Selected Service:",
+      "request": "Request:",
+      "yourFullName": "Your Full Name",
+      "yourEmailAddress": "Your Email Address",
+      "yourContactNumber": "Your Contact Number",
+      "yourMessage": "Your Message",
+      "send": "Send",
+      "success": {
+        "title": "Your request has been sent successfully.",
+        "description": "We will contact you soon!"
+      }
+    }
+  },
+  "orderButton": {
+    "label": "Order"
+  },
+  "addToCartButton": {
+    "inCart": "In Cart",
+    "buy": "Buy"
   }
 }

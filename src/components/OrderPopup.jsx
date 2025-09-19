@@ -1,5 +1,5 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 import {
   Formik,
   Form,
@@ -7,35 +7,48 @@ import {
   ErrorMessage,
   useField,
   useFormikContext,
-} from "formik";
-import * as Yup from "yup";
-import usePopupStore from "@/stores/popupStore";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import { excludedCountries } from "@/utils/countries";
+} from 'formik';
+import * as Yup from 'yup';
+import usePopupStore from '@/stores/popupStore';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import { excludedCountries } from '@/utils/countries';
+import { useTranslations } from 'next-intl';
 
 function OrderPopup() {
   const { orderPopupDisplay, setOrderPopupDisplay, serviceValue, serviceType } =
     usePopupStore();
 
+  const t = useTranslations('marketingConsulting.orderPopup');
+
   const validationSchema = Yup.object({
-    fullName: Yup.string().required("This field is required"),
+    fullName: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required' }),
+    ),
     email: Yup.string()
-      .email("Please, enter valid email")
-      .required("This field is required"),
-    phone: Yup.string().required("This field is required"),
-    service: Yup.string().required("This field is required"),
+      .email(
+        t('errors.invalidEmail', {
+          fallback: 'Please enter a valid email address',
+        }),
+      )
+      .required(t('errors.required', { fallback: 'This field is required' })),
+    phone: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required' }),
+    ),
+    service: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required' }),
+    ),
   });
 
   const initialValues = {
-    fullName: "",
-    email: "",
-    phone: "",
+    fullName: '',
+    email: '',
+    phone: '',
     service: serviceValue,
-    message: "",
+    message: '',
   };
 
-  const closePopup = (resetForm) => {
+  const closePopup = resetForm => {
     setOrderPopupDisplay(false);
     if (resetForm) {
       resetForm();
@@ -44,13 +57,13 @@ function OrderPopup() {
 
   const handleSubmit = async (
     values,
-    { setSubmitting, resetForm, setStatus }
+    { setSubmitting, resetForm, setStatus },
   ) => {
     try {
-      const response = await fetch("/api/emails/request", {
-        method: "POST",
+      const response = await fetch('/api/emails/request', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(values),
       });
@@ -71,7 +84,7 @@ function OrderPopup() {
   };
 
   return (
-    <div className={`order-popup-wrap ${orderPopupDisplay ? "opened" : ""}`}>
+    <div className={`order-popup-wrap ${orderPopupDisplay ? 'opened' : ''}`}>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -113,28 +126,42 @@ function OrderPopup() {
                   <Form>
                     {!status && (
                       <div className="form-inner">
-                        {serviceType == "service" ? (
+                        {serviceType == 'service' ? (
                           <>
-                            <h2>Service Request</h2>
+                            <h2>
+                              {t('title1', { fallback: 'Service Request' })}
+                            </h2>
                             <p>
-                              Ready to enhance your business? Complete the form
-                              below to request your customised business
-                              consulting solution from Holax Group.
+                              {t('description1', {
+                                fallback:
+                                  'Ready to enhance your business? Complete the form below to request your customised business consulting solution from Holax Group.',
+                              })}
                             </p>
                             <span className="service">
-                              <b>Selected Service:</b> {serviceValue}
+                              <b>
+                                {t('selectedService', {
+                                  fallback: 'Selected Service:',
+                                })}
+                              </b>{' '}
+                              {serviceValue}
                             </span>
                           </>
                         ) : (
                           <>
-                            <h2>Ready-made plan request</h2>
+                            <h2>
+                              {t('title2', {
+                                fallback: 'Ready-made plan request',
+                              })}
+                            </h2>
                             <p>
-                              Interested in our ready-made plan? Complete the
-                              form below, and our specialists will contact you
-                              to discuss all the essential details.
+                              {t('description2', {
+                                fallback:
+                                  'Interested in our ready-made plan? Complete the form below, and our specialists will contact you to discuss all the essential details.',
+                              })}
                             </p>
                             <span className="service">
-                              <b>Request:</b> {serviceValue}
+                              <b>{t('request', { fallback: 'Request:' })}</b>{' '}
+                              {serviceValue}
                             </span>
                           </>
                         )}
@@ -144,11 +171,13 @@ function OrderPopup() {
                           <Field
                             name="fullName"
                             type="text"
-                            placeholder="Your Full Name"
+                            placeholder={t('yourFullName', {
+                              fallback: 'Your Full Name',
+                            })}
                             className={
                               touched.fullName && errors.fullName
-                                ? "invalid"
-                                : ""
+                                ? 'invalid'
+                                : ''
                             }
                           />
                           <ErrorMessage
@@ -160,13 +189,15 @@ function OrderPopup() {
 
                         <div>
                           <PhoneInput
-                            country={"us"}
+                            country={'us'}
                             excludeCountries={excludedCountries}
                             value=""
-                            placeholder="Your Contact Number"
-                            onChange={(phone) => setFieldValue("phone", phone)}
+                            placeholder={t('yourContactNumber', {
+                              fallback: 'Your Contact Number',
+                            })}
+                            onChange={phone => setFieldValue('phone', phone)}
                             className={
-                              touched.phone && errors.phone ? "invalid" : ""
+                              touched.phone && errors.phone ? 'invalid' : ''
                             }
                           />
                           <ErrorMessage
@@ -180,9 +211,11 @@ function OrderPopup() {
                           <Field
                             name="email"
                             type="email"
-                            placeholder="Your Email Address"
+                            placeholder={t('yourEmailAddress', {
+                              fallback: 'Your Email Address',
+                            })}
                             className={
-                              touched.email && errors.email ? "invalid" : ""
+                              touched.email && errors.email ? 'invalid' : ''
                             }
                           />
                           <ErrorMessage
@@ -196,9 +229,11 @@ function OrderPopup() {
                           <Field
                             name="message"
                             as="textarea"
-                            placeholder="Your Message"
+                            placeholder={t('yourMessage', {
+                              fallback: 'Your Message',
+                            })}
                             className={
-                              touched.message && errors.message ? "invalid" : ""
+                              touched.message && errors.message ? 'invalid' : ''
                             }
                           />
                           <ErrorMessage
@@ -213,14 +248,23 @@ function OrderPopup() {
                           className="main-button"
                           disabled={isSubmitting}
                         >
-                          <span>Send</span>
+                          <span>{t('send', { fallback: 'Send' })}</span>
                         </button>
                       </div>
                     )}
                     {status && status.success && (
                       <div className="success">
-                        <h3>Your request has been sent successfully.</h3>
-                        <p>We will contact you soon!</p>
+                        <h3>
+                          {t('success.title', {
+                            fallback:
+                              'Your request has been sent successfully.',
+                          })}
+                        </h3>
+                        <p>
+                          {t('success.description', {
+                            fallback: 'We will contact you soon!',
+                          })}
+                        </p>
                       </div>
                     )}
                   </Form>

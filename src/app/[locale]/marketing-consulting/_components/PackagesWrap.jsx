@@ -1,38 +1,38 @@
-import AddToCartButton from "@/components/AddToCartButton";
-import OrderIcon from "@/icons/OrderIcon";
-import PackageIcon1 from "@/icons/PackageIcon1";
-import PackageIcon2 from "@/icons/PackageIcon2";
-import PackageIcon3 from "@/icons/PackageIcon3";
-import PackageIcon4 from "@/icons/PackageIcon4";
-import useProductStore from "@/stores/productsStore";
-import Link from "next/link";
-import React from "react";
-import ReactMarkdown from "react-markdown";
-import PackagesSlider from "./PackagesSlider";
-import OrderButton from "@/components/OrderButton";
+import AddToCartButton from '@/components/AddToCartButton';
+import OrderIcon from '@/icons/OrderIcon';
+import PackageIcon1 from '@/icons/PackageIcon1';
+import PackageIcon2 from '@/icons/PackageIcon2';
+import PackageIcon3 from '@/icons/PackageIcon3';
+import PackageIcon4 from '@/icons/PackageIcon4';
+import useProductStore from '@/stores/productsStore';
+import Link from 'next/link';
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import PackagesSlider from './PackagesSlider';
+import OrderButton from '@/components/OrderButton';
+import { getTranslations } from 'next-intl/server';
 
 const PackagesWrap = async () => {
   const { fetchProducts, getProductByCategory } = useProductStore.getState();
   await fetchProducts();
   const products = getProductByCategory(
-    "marketing-consulting-complete-packages"
+    'marketing-consulting-complete-packages',
   );
+
+  const t = await getTranslations('marketingConsulting.packages');
+
   return (
     <section className="packages-wrap">
       <div className="_container">
         <div className="packages-wrap__body">
-          <h2>Marketing Consulting Complete Packages</h2>
+          <h2>
+            {t('title', { fallback: 'Marketing Consulting Complete Packages' })}
+          </h2>
           <p>
-            Transform your marketing efforts with Holax Group comprehensive
-            consulting packages. Our packages are designed to offer a
-            step-by-step enhancement of your marketing capabilities, starting
-            with foundational brand strategies and advancing to full-scale
-            market research and public relations. Whether you’re looking to
-            boost your online presence, engage your audience through compelling
-            content, or leverage influencer partnerships, our packages provide
-            the perfect blend of services to propel your brand forward. Select
-            the package that best fits your marketing objectives and watch your
-            brand soar.
+            {t('description', {
+              fallback:
+                'Transform your marketing efforts with Holax Group comprehensive consulting packages. Our packages are designed to offer a step-by-step enhancement of your marketing capabilities, starting with foundational brand strategies and advancing to full-scale market research and public relations. Whether you’re looking to boost your online presence, engage your audience through compelling content, or leverage influencer partnerships, our packages provide the perfect blend of services to propel your brand forward. Select the package that best fits your marketing objectives and watch your brand soar.',
+            })}
           </p>
           <PackagesSlider products={products} />
           <div className="row">
@@ -50,8 +50,8 @@ const PackagesWrap = async () => {
                 </div>
                 <div className="bottom">
                   <div className="price">
-                    <span>{product.for_request && "From "}</span> €
-                    {product.price}{" "}
+                    <span>{product.for_request && 'From '}</span> €
+                    {product.price}{' '}
                     <span>{product.suffix && product.suffix}</span>
                   </div>
                   {product.for_request ? (
