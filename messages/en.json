@@ -339,5 +339,15 @@
         }
       }
     }
+  },
+  "home": {
+    "hero": {
+      "title": "Start journey toward success with",
+      "subtitle": {
+        "0": "Enrol now and see how we",
+        "1": "can transform your future."
+      },
+      "button": "Book a free consultation"
+    }
   }
 }

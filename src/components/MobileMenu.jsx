@@ -1,14 +1,15 @@
-"use client";
-import ChevronDown from "@/icons/other/ChevronDown";
-import Link from "next/link";
-import React, { useState } from "react";
-import useAuthStore from "@/stores/authStore";
+'use client';
+import ChevronDown from '@/icons/other/ChevronDown';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import useAuthStore from '@/stores/authStore';
+import { LangSwitcher } from './LangSwitcher';
 
 const MobileMenu = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const { currentUser, fetchCurrentUser } = useAuthStore();
 
-  const toggleAccordion = (index) => {
+  const toggleAccordion = index => {
     if (activeIndex === index) {
       setActiveIndex(null);
     } else {
@@ -21,7 +22,7 @@ const MobileMenu = () => {
         <li>
           <Link href="/">Home</Link>
         </li>
-        <li className={`with-sub-menu ${activeIndex === 1 ? "active" : ""} `}>
+        <li className={`with-sub-menu ${activeIndex === 1 ? 'active' : ''} `}>
           <Link href="#" onClick={() => toggleAccordion(1)}>
             Our Solutions <ChevronDown />
           </Link>
@@ -36,7 +37,7 @@ const MobileMenu = () => {
             </ul>
           )}
         </li>
-        <li className={`with-sub-menu ${activeIndex === 2 ? "active" : ""} `}>
+        <li className={`with-sub-menu ${activeIndex === 2 ? 'active' : ''} `}>
           <Link href="#" onClick={() => toggleAccordion(2)}>
             Company <ChevronDown />
           </Link>
@@ -51,21 +52,17 @@ const MobileMenu = () => {
             </ul>
           )}
         </li>
-        <li className={`with-sub-menu ${activeIndex === 3 ? "active" : ""} `}>
+        <li className={`with-sub-menu ${activeIndex === 3 ? 'active' : ''} `}>
           <Link href="#" onClick={() => toggleAccordion(3)}>
             Insights <ChevronDown />
           </Link>
           {activeIndex === 3 && (
             <ul className="submenu">
               <li className="header__subitem">
-                <Link href="/industry-news">
-                  Industry News
-                </Link>
+                <Link href="/industry-news">Industry News</Link>
               </li>
               <li className="header__subitem">
-                <Link href="/articles">
-                  Articles
-                </Link>
+                <Link href="/articles">Articles</Link>
               </li>
             </ul>
           )}
@@ -91,6 +88,8 @@ const MobileMenu = () => {
                 Sign up
               </Link>
             </li>
+            <li className="separator">|</li>
+            <LangSwitcher />
           </>
         ) : (
           <>
@@ -100,6 +99,8 @@ const MobileMenu = () => {
                 Account
               </Link>
             </li>
+            <li className="separator">|</li>
+            <LangSwitcher />
           </>
         )}
       </ul>

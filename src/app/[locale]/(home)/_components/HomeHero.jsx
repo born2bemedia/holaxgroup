@@ -6,8 +6,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import ArrowIcon from "@/icons/other/ArrowIcon";
 import ArrowLine from "@/icons/other/ArrowLine";
+import { useTranslations } from "next-intl";
 
 const HomeHero = () => {
+    const t = useTranslations("home.hero");
 
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
@@ -34,8 +36,8 @@ const HomeHero = () => {
                         viewport={{ once: true }}
                         variants={fadeInUp}
                         className="home-hero__title">
-                        Start journey toward success
-                        with <span>Holax Group</span>
+                        {t("title", { fallback: "Start journey toward success with" })}
+                        <span>Holax Group</span>
                     </motion.h1>
                     <motion.div
                         initial="hidden"
@@ -51,7 +53,7 @@ const HomeHero = () => {
                         variants={fadeInUp}
                         custom={0.2}
                         className="home-hero__text">
-                        Enrol now and see how we <br /> can transform your future.
+                        {t('subtitle.0', { fallback: "Enrol now and see how we" })} <br /> {t('subtitle.1', { fallback: "can transform your future." })}
                     </motion.div>
                     <motion.div
                         initial="hidden"
@@ -61,7 +63,7 @@ const HomeHero = () => {
                         custom={0.3}
                         className="">
                         <Link href="#form-connect" className="home-hero__link">
-                            Book a free consultation
+                            {t('button', { fallback: "Book a free consultation" })}
                             <ArrowIcon />
                         </Link>
                     </motion.div>

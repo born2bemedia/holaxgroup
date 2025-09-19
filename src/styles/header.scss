@@ -1,4 +1,4 @@
-@use "mixin" as *;
+@use 'mixin' as *;
 
 .header {
   position: fixed;
@@ -72,6 +72,9 @@
     font-size: 16px;
     line-height: normal;
     transition: all 0.3s ease 0s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
     &:hover {
       color: #134cb2;
@@ -96,11 +99,11 @@
 
       &._open {
       }
-      .wrapper{
+      .wrapper {
         display: flex;
-        >a{
+        > a {
           display: flex;
-          gap:rem(6);
+          gap: rem(6);
           align-items: center;
         }
       }
@@ -122,7 +125,6 @@
       padding: 20px 16px;
       margin-top: 16px;
     }
-
   }
 
   &__subitem {
@@ -157,9 +159,9 @@
     gap: rem(30);
     li {
       &.with-sub-menu {
-        &.active{
-          a{
-            svg{
+        &.active {
+          a {
+            svg {
               transform: rotate(-180deg);
             }
           }
@@ -168,7 +170,7 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-          svg{
+          svg {
             transition: all 0.5s;
             transform: rotate(0);
           }

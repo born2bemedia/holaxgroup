@@ -1,12 +1,14 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import "@/styles/header.scss";
-import "@/styles/base.scss";
-import Link from "next/link";
-import useAuthStore from "@/stores/authStore";
-import ChevronDown from "@/icons/other/ChevronDown";
-import { usePathname } from "next/navigation";
-import MobileMenu from "./MobileMenu";
+'use client';
+import React, { useEffect, useState } from 'react';
+import '@/styles/header.scss';
+import '@/styles/base.scss';
+import Link from 'next/link';
+import useAuthStore from '@/stores/authStore';
+import ChevronDown from '@/icons/other/ChevronDown';
+import { usePathname } from 'next/navigation';
+import MobileMenu from './MobileMenu';
+import { useLocale } from 'next-intl';
+import { LangSwitcher } from './LangSwitcher';
 
 const Header = () => {
   const { currentUser, fetchCurrentUser } = useAuthStore();
@@ -15,27 +17,26 @@ const Header = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [buttonActive, setButtonActive] = useState(false);
   const pathname = usePathname();
-
   const [hoveredItem, setHoveredItem] = useState(null);
 
   const menuOpen = () => {
-    setMenuOpened((prev) => !prev);
-    setButtonActive((prev) => !prev);
+    setMenuOpened(prev => !prev);
+    setButtonActive(prev => !prev);
     //document.body.classList.toggle("no-scroll", !menuOpened);
   };
 
   const closeMenu = () => {
     setMenuOpened(false);
     setButtonActive(false);
-    document.body.classList.remove("no-scroll");
+    document.body.classList.remove('no-scroll');
   };
 
   useEffect(() => {
     setMenuOpened(false);
-    document.body.classList.remove("no-scroll");
+    document.body.classList.remove('no-scroll');
   }, [pathname]);
 
-  const handleMouseEnter = (index) => {
+  const handleMouseEnter = index => {
     setHoveredItem(index);
   };
 
@@ -64,11 +65,11 @@ const Header = () => {
                     </li>
                     <li
                       className={`header__item-menu _submenu ${
-                        submenuOpen["solutions"] || hoveredItem === "solutions"
-                          ? "_open"
-                          : ""
+                        submenuOpen['solutions'] || hoveredItem === 'solutions'
+                          ? '_open'
+                          : ''
                       }`}
-                      onMouseEnter={() => handleMouseEnter("solutions")}
+                      onMouseEnter={() => handleMouseEnter('solutions')}
                       onMouseLeave={handleMouseLeave}
                     >
                       <div className="wrapper">
@@ -86,24 +87,24 @@ const Header = () => {
                       </div>
                       <ul
                         className={`header__submenu ${
-                          submenuOpen["solutions"] ||
-                          hoveredItem === "solutions"
-                            ? "_active"
-                            : ""
+                          submenuOpen['solutions'] ||
+                          hoveredItem === 'solutions'
+                            ? '_active'
+                            : ''
                         }`}
                         style={{
                           maxHeight:
-                            submenuOpen["solutions"] ||
-                            hoveredItem === "solutions"
-                              ? "1000px"
-                              : "0",
-                          overflow: "hidden",
-                          transition: "all 0.3s ease 0s",
+                            submenuOpen['solutions'] ||
+                            hoveredItem === 'solutions'
+                              ? '1000px'
+                              : '0',
+                          overflow: 'hidden',
+                          transition: 'all 0.3s ease 0s',
                           paddingTop:
-                            submenuOpen["solutions"] ||
-                            hoveredItem === "solutions"
-                              ? "20px"
-                              : "0",
+                            submenuOpen['solutions'] ||
+                            hoveredItem === 'solutions'
+                              ? '20px'
+                              : '0',
                         }}
                       >
                         <li className="header__subitem">
@@ -123,11 +124,11 @@ const Header = () => {
                     </li>
                     <li
                       className={`header__item-menu _submenu ${
-                        submenuOpen["company"] || hoveredItem === "company"
-                          ? "_open"
-                          : ""
+                        submenuOpen['company'] || hoveredItem === 'company'
+                          ? '_open'
+                          : ''
                       }`}
-                      onMouseEnter={() => handleMouseEnter("company")}
+                      onMouseEnter={() => handleMouseEnter('company')}
                       onMouseLeave={handleMouseLeave}
                     >
                       <div className="wrapper">
@@ -144,17 +145,17 @@ const Header = () => {
                       </div>
                       <ul
                         className={`header__submenu ${
-                          submenuOpen["company"] || hoveredItem === "company"
-                            ? "_active"
-                            : ""
+                          submenuOpen['company'] || hoveredItem === 'company'
+                            ? '_active'
+                            : ''
                         }`}
                         style={{
                           maxHeight:
-                            submenuOpen["company"] || hoveredItem === "company"
-                              ? "1000px"
-                              : "0",
-                          overflow: "hidden",
-                          transition: "all 0.3s ease 0s",
+                            submenuOpen['company'] || hoveredItem === 'company'
+                              ? '1000px'
+                              : '0',
+                          overflow: 'hidden',
+                          transition: 'all 0.3s ease 0s',
                         }}
                       >
                         <li className="header__subitem">
@@ -172,11 +173,11 @@ const Header = () => {
 
                     <li
                       className={`header__item-menu _submenu ${
-                        submenuOpen["insights"] || hoveredItem === "insights"
-                          ? "_open"
-                          : ""
+                        submenuOpen['insights'] || hoveredItem === 'insights'
+                          ? '_open'
+                          : ''
                       }`}
-                      onMouseEnter={() => handleMouseEnter("insights")}
+                      onMouseEnter={() => handleMouseEnter('insights')}
                       onMouseLeave={handleMouseLeave}
                     >
                       <div className="wrapper">
@@ -193,18 +194,18 @@ const Header = () => {
                       </div>
                       <ul
                         className={`header__submenu ${
-                          submenuOpen["insights"] || hoveredItem === "insights"
-                            ? "_active"
-                            : ""
+                          submenuOpen['insights'] || hoveredItem === 'insights'
+                            ? '_active'
+                            : ''
                         }`}
                         style={{
                           maxHeight:
-                            submenuOpen["insights"] ||
-                            hoveredItem === "insights"
-                              ? "1000px"
-                              : "0",
-                          overflow: "hidden",
-                          transition: "all 0.3s ease 0s",
+                            submenuOpen['insights'] ||
+                            hoveredItem === 'insights'
+                              ? '1000px'
+                              : '0',
+                          overflow: 'hidden',
+                          transition: 'all 0.3s ease 0s',
                         }}
                       >
                         <li className="header__subitem">
@@ -256,6 +257,8 @@ const Header = () => {
                           Sign up
                         </Link>
                       </li>
+                      <li className="separator">|</li>
+                      <LangSwitcher />
                     </>
                   ) : (
                     <>
@@ -279,7 +282,7 @@ const Header = () => {
               </Link>
               <button
                 onClick={menuOpen}
-                className={`header__menu-btn ${menuOpened ? "_active" : ""}`}
+                className={`header__menu-btn ${menuOpened ? '_active' : ''}`}
               >
                 {!menuOpened ? (
                   <img src="/images/menu-open.svg" alt="menu-burger" />
