@@ -675,5 +675,36 @@
     "login": "Login",
     "signUp": "Sign Up",
     "account": "Account"
+  },
+  "footer": {
+    "text": "Optimise your operations and transform your strategy today.",
+    "expertise": "Expertise",
+    "whatWeDo": "What We Do",
+    "clientResults": "Client Results",
+    "ourSolutions": "Our Solutions",
+    "businessConsulting": "Business Consulting",
+    "marketingConsulting": "Marketing Consulting",
+    "joinCommunity": "Join Community",
+    "careers": "Careers",
+    "industryNews": "Industry News",
+    "articles": "Articles",
+    "getInTouch": "Get in Touch",
+    "legal": "Legal",
+    "termsAndConditions": "Terms and Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "refundPolicy": "Refund Policy",
+    "cookiePolicy": "Cookie Policy",
+    "copyright": "All Rights Reserved"
+  },
+  "industrySlug": {
+    "conclusion": "Conclusion",
+    "pageNotFound": "Page not found",
+    "casesCta": {
+      "title": {
+        "0": "Ready to Achieve Your",
+        "1": "Success Story?"
+      },
+      "text": "Start your journey with Holax Group"
+    }
   }
 }

@@ -1,16 +1,20 @@
-import React from "react";
-import Link from "next/link";
-import "@/styles/footer.scss";
-import "@/styles/base.scss";
-import Instagram from "@/icons/social/Instagram";
-import Twitter from "@/icons/social/Twitter";
-import Facebook from "@/icons/social/Facebook";
-import Phone from "@/icons/other/Phone";
-import Email from "@/icons/other/Email";
-import Address from "@/icons/other/Address";
+import React from 'react';
+import Link from 'next/link';
+import '@/styles/footer.scss';
+import '@/styles/base.scss';
+import Instagram from '@/icons/social/Instagram';
+import Twitter from '@/icons/social/Twitter';
+import Facebook from '@/icons/social/Facebook';
+import Phone from '@/icons/other/Phone';
+import Email from '@/icons/other/Email';
+import Address from '@/icons/other/Address';
+import { useTranslations } from 'next-intl';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const t = useTranslations('footer');
+
   return (
     <footer className="footer">
       <div className="footer__container _container">
@@ -21,7 +25,10 @@ const Footer = () => {
                 <img src="/images/foot-logo.svg" width={100} />
               </Link>
               <div className="footer__text">
-                Optimise your operations and transform your strategy today.
+                {t('text', {
+                  fallback:
+                    'Optimise your operations and transform your strategy today.',
+                })}
               </div>
               <ul className="footer__socials">
                 <li className="footer__social">
@@ -43,57 +50,69 @@ const Footer = () => {
               </ul>
             </div>
             <div className="footer__col-02">
-              <h3 className="footer__title">Expertise</h3>
+              <h3 className="footer__title">
+                {t('expertise', { fallback: 'Expertise' })}
+              </h3>
               <ul className="footer__list">
                 <li className="footer__item">
                   <Link href="/what-we-do" className="footer__link">
-                    What We Do
+                    {t('whatWeDo', { fallback: 'What We Do' })}
                   </Link>
                 </li>
                 <li className="footer__item">
                   <Link href="/client-results" className="footer__link">
-                    Client Results
+                    {t('clientResults', { fallback: 'Client Results' })}
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="footer__col-03">
-              <h3 className="footer__title">Our Solutions</h3>
+              <h3 className="footer__title">
+                {t('ourSolutions', { fallback: 'Our Solutions' })}
+              </h3>
               <ul className="footer__list">
                 <li className="footer__item">
                   <Link href="/business-consulting" className="footer__link">
-                    Business Consulting
+                    {t('businessConsulting', {
+                      fallback: 'Business Consulting',
+                    })}
                   </Link>
                 </li>
                 <li className="footer__item">
                   <Link href="/marketing-consulting" className="footer__link">
-                    Marketing Consulting
+                    {t('marketingConsulting', {
+                      fallback: 'Marketing Consulting',
+                    })}
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="footer__col-04">
-              <h3 className="footer__title">Join Community</h3>
+              <h3 className="footer__title">
+                {t('joinCommunity', { fallback: 'Join Community' })}
+              </h3>
               <ul className="footer__list">
                 <li className="footer__item">
                   <Link href="/careers" className="footer__link">
-                    Careers
+                    {t('careers', { fallback: 'Careers' })}
                   </Link>
                 </li>
                 <li className="footer__item">
                   <Link href="/industry-news" className="footer__link">
-                    Industry News
+                    {t('industryNews', { fallback: 'Industry News' })}
                   </Link>
                 </li>
                 <li className="footer__item">
                   <Link href="/articles" className="footer__link">
-                    Articles
+                    {t('articles', { fallback: 'Articles' })}
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="footer__col-05">
-              <h3 className="footer__title">Get in Touch</h3>
+              <h3 className="footer__title">
+                {t('getInTouch', { fallback: 'Get in Touch' })}
+              </h3>
               <ul className="footer__list">
                 <li className="footer__item">
                   <Link href="tel:+447482749572" className="footer__link">
@@ -130,22 +149,24 @@ const Footer = () => {
               <ul className="footer__list">
                 <li className="footer__item">
                   <Link href="/terms-and-conditions" className="footer__link">
-                    Terms and Conditions
+                    {t('termsAndConditions', {
+                      fallback: 'Terms and Conditions',
+                    })}
                   </Link>
                 </li>
                 <li className="footer__item">
                   <Link href="/privacy-policy" className="footer__link">
-                    Privacy Policy
+                    {t('privacyPolicy', { fallback: 'Privacy Policy' })}
                   </Link>
                 </li>
                 <li className="footer__item">
                   <Link href="/refund-policy" className="footer__link">
-                    Refund Policy
+                    {t('refundPolicy', { fallback: 'Refund Policy' })}
                   </Link>
                 </li>
                 <li className="footer__item">
                   <Link href="/cookie-policy" className="footer__link">
-                    Cookie Policy
+                    {t('cookiePolicy', { fallback: 'Cookie Policy' })}
                   </Link>
                 </li>
               </ul>
@@ -153,9 +174,10 @@ const Footer = () => {
           </div>
           <div className="footer__row-02">
             <div className="footer__copy">
-              © {currentYear} Holax LTD. All Rights Reserved |{" "}
+              © {currentYear} Holax LTD.{' '}
+              {t('copyright', { fallback: 'All Rights Reserved' })} |{' '}
               <Link href="/privacy-policy" className="footer__link-policy">
-                Privacy Policy
+                {t('privacyPolicy', { fallback: 'Privacy Policy' })}
               </Link>
             </div>
           </div>
