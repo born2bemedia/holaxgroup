@@ -1,17 +1,20 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { fadeInUp } from "@/utils/animations";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import EmailContacts from "@/icons/other/EmailContacts";
-import PhoneContacts from "@/icons/other/PhoneContacts";
-import AddressContacts from "@/icons/other/AddressContacts";
-import FormMain from "@/components/FormMain";
-import Instagram from "@/icons/social/Instagram";
-import Twitter from "@/icons/social/Twitter";
-import Facebook from "@/icons/social/Facebook";
+'use client';
+import React, { useState, useEffect } from 'react';
+import { fadeInUp } from '@/utils/animations';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import EmailContacts from '@/icons/other/EmailContacts';
+import PhoneContacts from '@/icons/other/PhoneContacts';
+import AddressContacts from '@/icons/other/AddressContacts';
+import FormMain from '@/components/FormMain';
+import Instagram from '@/icons/social/Instagram';
+import Twitter from '@/icons/social/Twitter';
+import Facebook from '@/icons/social/Facebook';
+import { useTranslations } from 'next-intl';
 
 const ContactsMain = () => {
+  const t = useTranslations('contacts.main');
+
   return (
     <section className="contacts-main">
       <div className="contacts-main__container _container">
@@ -24,7 +27,9 @@ const ContactsMain = () => {
             className="contacts-main__col-01"
           >
             <div className="contacts-main__details">
-              <h2 className="contacts-main__title">Contact Details</h2>
+              <h2 className="contacts-main__title">
+                {t('title', { fallback: 'Contact Details' })}
+              </h2>
               <ul className="contacts-main__list">
                 <li className="contacts-main__item">
                   <PhoneContacts />
@@ -48,14 +53,20 @@ const ContactsMain = () => {
                   <AddressContacts />
                   <div className="wrapper">
                     <div className="row">
-                      <h3 className="title">Registered address:</h3>
+                      <h3 className="title">
+                        {t('registeredAddress', {
+                          fallback: 'Registered address:',
+                        })}
+                      </h3>
                       <div className="text">
                         71-75 Shelton Street, Covent Garden, London, United
                         Kingdom, WC2H 9JQ
                       </div>
                     </div>
                     <div className="row">
-                      <h3 className="title">Office address:</h3>
+                      <h3 className="title">
+                        {t('officeAddress', { fallback: 'Office address:' })}
+                      </h3>
                       <div className="text">
                         62 Great Eastern Street, London, EC2A 3QR
                       </div>
@@ -66,7 +77,7 @@ const ContactsMain = () => {
             </div>
             <div className="contacts-main__details">
               <h2 className="contacts-main__title">
-                Follow Us on Social Media
+                {t('followUs', { fallback: 'Follow Us on Social Media' })}
               </h2>
               <ul className="contacts-main__socials">
                 <li className="contacts-main__social">
@@ -87,16 +98,19 @@ const ContactsMain = () => {
                 </li>
               </ul>
               <div className="text">
-                We’re excited to connect with you and discuss how Holax Group
-                can help you achieve your business goals. Reach out through any
-                of the channels above, and let’s start a conversation.
+                {t('text', {
+                  fallback:
+                    'We’re excited to connect with you and discuss how Holax Group can help you achieve your business goals. Reach out through any of the channels above, and let’s start a conversation.',
+                })}
               </div>
             </div>
           </motion.div>
           <motion.div className="contacts-main__col-02">
             <h3 className="contacts-main__label">
-              Fill out the form below with your details and inquiry, and one of
-              our representatives will get back to you shortly.
+              {t('fillOut', {
+                fallback:
+                  'Fill out the form below with your details and inquiry, and one of our representatives will get back to you shortly.',
+              })}
             </h3>
             <FormMain />
           </motion.div>

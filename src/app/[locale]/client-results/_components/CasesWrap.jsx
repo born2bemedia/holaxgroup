@@ -1,19 +1,22 @@
-"use client";
-import React, { useEffect } from "react";
-import { fadeInUp } from "@/utils/animations";
-import { motion } from "framer-motion";
-import useCasesStore from "@/stores/casesStore";
-import Link from "next/link";
-import OrderIcon from "@/icons/OrderIcon";
+'use client';
+import React, { useEffect } from 'react';
+import { fadeInUp } from '@/utils/animations';
+import { motion } from 'framer-motion';
+import useCasesStore from '@/stores/casesStore';
+import Link from 'next/link';
+import OrderIcon from '@/icons/OrderIcon';
+import { useTranslations } from 'next-intl';
 
 const CasesWrap = () => {
-  const cases = useCasesStore((state) => state.cases);
-  const fetchCases = useCasesStore((state) => state.fetchCases);
+  const cases = useCasesStore(state => state.cases);
+  const fetchCases = useCasesStore(state => state.fetchCases);
+
+  const t = useTranslations('clientResults.wrap');
 
   useEffect(() => {
     fetchCases()
-      .then(() => console.log("Cases loaded:", cases))
-      .catch((error) => console.error("Error loading cases:", error));
+      .then(() => console.log('Cases loaded:', cases))
+      .catch(error => console.error('Error loading cases:', error));
   }, [fetchCases]);
 
   return (
@@ -25,11 +28,11 @@ const CasesWrap = () => {
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          Case Study
+          {t('title', { fallback: 'Case Study' })}
         </motion.h2>
         <div className="cases-wrap__body">
           {cases.length > 0 ? (
-            cases.map((caseItem) => (
+            cases.map(caseItem => (
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -41,23 +44,25 @@ const CasesWrap = () => {
                 <div className="top">
                   <h3>{caseItem.title}</h3>
                   <div className="client">
-                    <span>Client: {caseItem.client}</span>
+                    <span>{t('client', { fallback: 'Client:' })}</span>
+                    {caseItem.client}
                   </div>
                   <div className="challenge">
-                    <span>Challenge:</span> {caseItem.challenge}
+                    <span>{t('challenge', { fallback: 'Challenge:' })}</span>{' '}
+                    {caseItem.challenge}
                   </div>
                 </div>
                 <Link
                   href={`/client-results/${caseItem.slug}`}
                   className="more"
                 >
-                  <span>Read more</span>
+                  <span>{t('readMore', { fallback: 'Read more' })}</span>
                   <OrderIcon />
                 </Link>
               </motion.div>
             ))
           ) : (
-            <p>Loading cases...</p>
+            <p>{t('loading', { fallback: 'Loading cases...' })}</p>
           )}
         </div>
       </div>
