@@ -1,20 +1,23 @@
-"use client";
-import React, { useEffect } from "react";
-import { fadeInUp } from "@/utils/animations";
-import { motion } from "framer-motion";
-import useArticlesStore from "@/stores/articlesStore";
-import Link from "next/link";
-import OrderIcon from "@/icons/OrderIcon";
-import usePostsStore from "@/stores/postsStore";
+'use client';
+import React, { useEffect } from 'react';
+import { fadeInUp } from '@/utils/animations';
+import { motion } from 'framer-motion';
+import useArticlesStore from '@/stores/articlesStore';
+import Link from 'next/link';
+import OrderIcon from '@/icons/OrderIcon';
+import usePostsStore from '@/stores/postsStore';
+import { useTranslations } from 'next-intl';
 
 const ArticlesWrap = () => {
-  const posts = usePostsStore((state) => state.posts);
-  const fetchPosts = usePostsStore((state) => state.fetchPosts);
+  const posts = usePostsStore(state => state.posts);
+  const fetchPosts = usePostsStore(state => state.fetchPosts);
+
+  const t = useTranslations('industryNews.wrap');
 
   useEffect(() => {
     fetchPosts()
-      .then(() => console.log("Articles loaded:", posts))
-      .catch((error) => console.error("Error loading articles:", error));
+      .then(() => console.log('Articles loaded:', posts))
+      .catch(error => console.error('Error loading articles:', error));
   }, [fetchPosts]);
 
   return (
@@ -26,11 +29,11 @@ const ArticlesWrap = () => {
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          News
+          {t('title', { fallback: 'News' })}
         </motion.h2>
         <div className="news-wrap__body">
           {posts.length > 0 ? (
-            posts.map((post) => (
+            posts.map(post => (
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -40,20 +43,17 @@ const ArticlesWrap = () => {
                 className="case"
               >
                 <div className="top">
-                  <img src={post.image.url} alt={post.title}/>
+                  <img src={post.image.url} alt={post.title} />
                   <h3>{post.title}</h3>
                 </div>
-                <Link
-                  href={`/industry-news/${post.slug}`}
-                  className="more"
-                >
-                  <span>Read more</span>
+                <Link href={`/industry-news/${post.slug}`} className="more">
+                  <span>{t('readMore', { fallback: 'Read more' })}</span>
                   <OrderIcon />
                 </Link>
               </motion.div>
             ))
           ) : (
-            <p>Loading articles...</p>
+            <p>{t('loading', { fallback: 'Loading articles...' })}</p>
           )}
         </div>
       </div>

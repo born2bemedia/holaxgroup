@@ -639,5 +639,24 @@
   "addToCartButton": {
     "inCart": "In Cart",
     "buy": "Buy"
+  },
+  "industryNews": {
+    "hero": {
+      "title": {
+        "0": "Stay Updated With the Latest in",
+        "1": "the Industry"
+      },
+      "text": {
+        "0": "Welcome to our Industry News page, where we inform you",
+        "1": "about the latest trends, insights, and developments in the",
+        "2": "business and marketing consulting industry. Stay ahead of",
+        "3": "the curve with our curated news articles and expert analyses."
+      }
+    },
+    "wrap": {
+      "title": "News",
+      "readMore": "Read more",
+      "loading": "Loading articles..."
+    }
   }
 }
