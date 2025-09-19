@@ -7,7 +7,7 @@ import useAuthStore from '@/stores/authStore';
 import ChevronDown from '@/icons/other/ChevronDown';
 import { usePathname } from 'next/navigation';
 import MobileMenu from './MobileMenu';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { LangSwitcher } from './LangSwitcher';
 
 const Header = () => {
@@ -18,6 +18,8 @@ const Header = () => {
   const [buttonActive, setButtonActive] = useState(false);
   const pathname = usePathname();
   const [hoveredItem, setHoveredItem] = useState(null);
+
+  const t = useTranslations('header');
 
   const menuOpen = () => {
     setMenuOpened(prev => !prev);
@@ -60,7 +62,7 @@ const Header = () => {
                   <ul className="header__list">
                     <li className="header__item-menu">
                       <Link href="/" onClick={closeMenu}>
-                        Home
+                        {t('home', { fallback: 'Home' })}
                       </Link>
                     </li>
                     <li
@@ -74,7 +76,7 @@ const Header = () => {
                     >
                       <div className="wrapper">
                         <Link href="#" onClick={closeMenu}>
-                          Our Solutions
+                          {t('ourSolutions', { fallback: 'Our Solutions' })}
                           <ChevronDown />
                         </Link>
                         {/* <button type="button" className="btn">
@@ -109,7 +111,9 @@ const Header = () => {
                       >
                         <li className="header__subitem">
                           <Link href="/business-consulting" onClick={closeMenu}>
-                            Business Consulting
+                            {t('businessConsulting', {
+                              fallback: 'Business Consulting',
+                            })}
                           </Link>
                         </li>
                         <li className="header__subitem">
@@ -117,7 +121,9 @@ const Header = () => {
                             href="/marketing-consulting"
                             onClick={closeMenu}
                           >
-                            Marketing Consulting
+                            {t('marketingConsulting', {
+                              fallback: 'Marketing Consulting',
+                            })}
                           </Link>
                         </li>
                       </ul>
@@ -133,7 +139,8 @@ const Header = () => {
                     >
                       <div className="wrapper">
                         <Link href="#" onClick={closeMenu}>
-                          Company <ChevronDown />
+                          {t('company', { fallback: 'Company' })}{' '}
+                          <ChevronDown />
                         </Link>
                         {/* <button type="button" className="btn">
                         {!submenuOpen["company"] ? (
@@ -160,12 +167,12 @@ const Header = () => {
                       >
                         <li className="header__subitem">
                           <Link href="/what-we-do" onClick={closeMenu}>
-                            What We Do
+                            {t('whatWeDo', { fallback: 'What We Do' })}
                           </Link>
                         </li>
                         <li className="header__subitem">
                           <Link href="/client-results" onClick={closeMenu}>
-                            Client Results
+                            {t('clientResults', { fallback: 'Client Results' })}
                           </Link>
                         </li>
                       </ul>
@@ -182,7 +189,8 @@ const Header = () => {
                     >
                       <div className="wrapper">
                         <Link href="#" onClick={closeMenu}>
-                          Insights <ChevronDown />
+                          {t('insights', { fallback: 'Insights' })}{' '}
+                          <ChevronDown />
                         </Link>
                         <button type="button" className="btn">
                           {/*  {!submenuOpen["insights"] ? (
@@ -210,12 +218,12 @@ const Header = () => {
                       >
                         <li className="header__subitem">
                           <Link href="/industry-news" onClick={closeMenu}>
-                            Industry News
+                            {t('industryNews', { fallback: 'Industry News' })}
                           </Link>
                         </li>
                         <li className="header__subitem">
                           <Link href="/articles" onClick={closeMenu}>
-                            Articles
+                            {t('articles', { fallback: 'Articles' })}
                           </Link>
                         </li>
                       </ul>
@@ -223,12 +231,12 @@ const Header = () => {
 
                     <li className="header__item-menu">
                       <Link href="/careers" onClick={closeMenu}>
-                        Careers
+                        {t('careers', { fallback: 'Careers' })}
                       </Link>
                     </li>
                     <li className="header__item-menu">
                       <Link href="/contacts" onClick={closeMenu}>
-                        Contacts
+                        {t('contacts', { fallback: 'Contacts' })}
                       </Link>
                     </li>
                   </ul>
@@ -248,13 +256,13 @@ const Header = () => {
                       <li className="separator">|</li>
                       <li className="header__account-item">
                         <Link href="/log-in" className="header__account-link">
-                          Login
+                          {t('login', { fallback: 'Login' })}
                         </Link>
                       </li>
                       <li className="separator">|</li>
                       <li className="header__account-item">
                         <Link href="/sign-up" className="header__account-link">
-                          Sign up
+                          {t('signUp', { fallback: 'Sign up' })}
                         </Link>
                       </li>
                       <li className="separator">|</li>
@@ -268,7 +276,7 @@ const Header = () => {
                           href="/dashboard"
                           className="header__account-link"
                         >
-                          Account
+                          {t('account', { fallback: 'Account' })}
                         </Link>
                       </li>
                     </>
@@ -294,7 +302,6 @@ const Header = () => {
           </div>
         </div>
       </header>
-
       {menuOpened && <MobileMenu />}
     </>
   );

@@ -4,10 +4,13 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import useAuthStore from '@/stores/authStore';
 import { LangSwitcher } from './LangSwitcher';
+import { useTranslations } from 'next-intl';
 
 const MobileMenu = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const { currentUser, fetchCurrentUser } = useAuthStore();
+
+  const t = useTranslations('header');
 
   const toggleAccordion = index => {
     if (activeIndex === index) {
@@ -20,58 +23,74 @@ const MobileMenu = () => {
     <div className="mobile-menu">
       <ul className="menu">
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/">{t('home', { fallback: 'Home' })}</Link>
         </li>
         <li className={`with-sub-menu ${activeIndex === 1 ? 'active' : ''} `}>
-          <Link href="#" onClick={() => toggleAccordion(1)}>
-            Our Solutions <ChevronDown />
+          <Link href="/our-solutions" onClick={() => toggleAccordion(1)}>
+            {t('ourSolutions', { fallback: 'Our Solutions' })} <ChevronDown />
           </Link>
           {activeIndex === 1 && (
             <ul className="submenu">
               <li className="header__subitem">
-                <Link href="/business-consulting">Business Consulting</Link>
+                <Link href="/business-consulting">
+                  {t('businessConsulting', { fallback: 'Business Consulting' })}
+                </Link>
               </li>
               <li className="header__subitem">
-                <Link href="/marketing-consulting">Marketing Consulting</Link>
+                <Link href="/marketing-consulting">
+                  {t('marketingConsulting', {
+                    fallback: 'Marketing Consulting',
+                  })}
+                </Link>
               </li>
             </ul>
           )}
         </li>
         <li className={`with-sub-menu ${activeIndex === 2 ? 'active' : ''} `}>
           <Link href="#" onClick={() => toggleAccordion(2)}>
-            Company <ChevronDown />
+            {t('company', { fallback: 'Company' })} <ChevronDown />
           </Link>
           {activeIndex === 2 && (
             <ul className="submenu">
               <li className="header__subitem">
-                <Link href="/what-we-do">What We Do</Link>
+                <Link href="/what-we-do">
+                  {t('whatWeDo', { fallback: 'What We Do' })}
+                </Link>
               </li>
               <li className="header__subitem">
-                <Link href="/client-results">Client Results</Link>
+                <Link href="/client-results">
+                  {t('clientResults', { fallback: 'Client Results' })}
+                </Link>
               </li>
             </ul>
           )}
         </li>
         <li className={`with-sub-menu ${activeIndex === 3 ? 'active' : ''} `}>
           <Link href="#" onClick={() => toggleAccordion(3)}>
-            Insights <ChevronDown />
+            {t('insights', { fallback: 'Insights' })} <ChevronDown />
           </Link>
           {activeIndex === 3 && (
             <ul className="submenu">
               <li className="header__subitem">
-                <Link href="/industry-news">Industry News</Link>
+                <Link href="/industry-news">
+                  {t('industryNews', { fallback: 'Industry News' })}
+                </Link>
               </li>
               <li className="header__subitem">
-                <Link href="/articles">Articles</Link>
+                <Link href="/articles">
+                  {t('articles', { fallback: 'Articles' })}
+                </Link>
               </li>
             </ul>
           )}
         </li>
         <li>
-          <Link href="/careers">Careers</Link>
+          <Link href="/careers">{t('careers', { fallback: 'Careers' })}</Link>
         </li>
         <li>
-          <Link href="/contacts">Contacts</Link>
+          <Link href="/contacts">
+            {t('contacts', { fallback: 'Contacts' })}
+          </Link>
         </li>
       </ul>
       <ul className="mobile-account">
@@ -79,13 +98,13 @@ const MobileMenu = () => {
           <>
             <li className="header__account-item">
               <Link href="/log-in" className="header__account-link">
-                Login
+                {t('login', { fallback: 'Login' })}
               </Link>
             </li>
             <li className="separator">|</li>
             <li className="header__account-item">
               <Link href="/sign-up" className="header__account-link">
-                Sign up
+                {t('signUp', { fallback: 'Sign up' })}
               </Link>
             </li>
             <li className="separator">|</li>
@@ -96,7 +115,7 @@ const MobileMenu = () => {
             <li className="separator">|</li>
             <li className="header__account-item">
               <Link href="/dashboard" className="header__account-link">
-                Account
+                {t('account', { fallback: 'Account' })}
               </Link>
             </li>
             <li className="separator">|</li>

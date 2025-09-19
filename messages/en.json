@@ -658,5 +658,22 @@
       "readMore": "Read more",
       "loading": "Loading articles..."
     }
+  },
+  "header": {
+    "home": "Home",
+    "ourSolutions": "Our Solutions",
+    "businessConsulting": "Business Consulting",
+    "marketingConsulting": "Marketing Consulting",
+    "company": "Company",
+    "whatWeDo": "What We Do",
+    "clientResults": "Client Results",
+    "insights": "Insights",
+    "industryNews": "Industry News",
+    "articles": "Articles",
+    "careers": "Careers",
+    "contacts": "Contacts",
+    "login": "Login",
+    "signUp": "Sign Up",
+    "account": "Account"
   }
 }
