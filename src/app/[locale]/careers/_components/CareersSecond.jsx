@@ -15,6 +15,8 @@ const CareersSecond = () => {
           muted
           loop
           preload="none"
+          playsInline
+          poster="/images/careers/heroDt.png"
         >
           <source src="/videos/careers.webm" type="video/mp4" />
         </video>

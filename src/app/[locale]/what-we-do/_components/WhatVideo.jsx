@@ -14,6 +14,8 @@ const WhatVideo = () => {
               muted
               loop
               preload="none"
+              playsInline
+              poster="/images/what/poster.webp"
             >
               <source src="/videos/what.webm" type="video/mp4" />
             </video>

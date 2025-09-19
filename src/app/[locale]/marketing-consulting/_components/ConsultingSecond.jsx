@@ -11,6 +11,8 @@ const ConsultingSecond = () => {
           muted
           loop
           preload="none"
+          playsInline
+          poster="/images/marketing/poster.webp"
         >
           <source src="/videos/marketing.webm" type="video/mp4" />
         </video>
