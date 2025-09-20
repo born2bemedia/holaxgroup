@@ -1121,5 +1121,10 @@
     },
     "logout": "Log Out",
     "loading": "Loading..."
+  },
+  "articlesSlug": {
+    "notFound": "Post not found",
+    "introduction": "Introduction",
+    "conclusion": "Conclusion"
   }
 }
