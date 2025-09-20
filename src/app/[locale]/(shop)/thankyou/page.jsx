@@ -1,20 +1,28 @@
-import React from "react";
-import "@/styles/thankyou.scss";
-import Link from "next/link";
+import React from 'react';
+import '@/styles/thankyou.scss';
+import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const Thankyou = () => {
+  const t = useTranslations('thankyou');
+
   return (
     <section className="thankyou">
       <div className="_container">
         <div className="thankyou__body">
-          <h1>Thank you for your order!</h1>
+          <h1>{t('title', { fallback: 'Thank you for your order!' })}</h1>
           <p>
-            We appreciate your decision to choose Holax Group.
+            {t('text', {
+              fallback:
+                'We appreciate your decision to choose Holax Group. One of our representatives will contact you soon to confirm the details of your order.',
+            })}
             <br />
-            One of our representatives will contact you soon to confirm the
-            details of your order.
+            {t('text2', {
+              fallback:
+                'One of our representatives will contact you soon to confirm the details of your order.',
+            })}
           </p>
-          <Link href="/">Go home</Link>
+          <Link href="/">{t('goHome', { fallback: 'Go home' })}</Link>
         </div>
       </div>
     </section>

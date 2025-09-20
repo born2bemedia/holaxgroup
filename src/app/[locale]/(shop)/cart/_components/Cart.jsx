@@ -1,10 +1,11 @@
-"use client";
-import "@/styles/cart.scss";
-import React, { useState, useEffect } from "react";
-import DeleteIcon from "@/icons/DeleteIcon";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import useCartStore from "@/stores/cartStore"; // Імпорт Zustend Store
+'use client';
+import '@/styles/cart.scss';
+import React, { useState, useEffect } from 'react';
+import DeleteIcon from '@/icons/DeleteIcon';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import useCartStore from '@/stores/cartStore'; // Імпорт Zustend Store
+import { useTranslations } from 'next-intl';
 
 const Cart = () => {
   const {
@@ -17,6 +18,8 @@ const Cart = () => {
   } = useCartStore();
   const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
+
+  const t = useTranslations('cart');
 
   useEffect(() => {
     setIsMounted(true);
@@ -31,15 +34,17 @@ const Cart = () => {
               <section className="cart-wrap">
                 <div className="_container">
                   <div className="cart">
-                    <h1>Cart</h1>
+                    <h1>{t('title', { fallback: 'Cart' })}</h1>
                     <div className="cart-head">
-                      <div>Service Name</div>
-                      <div>Price</div>
-                      <div>Quantity</div>
-                      <div>Subtotal</div>
+                      <div>
+                        {t('serviceName', { fallback: 'Service Name' })}
+                      </div>
+                      <div>{t('price', { fallback: 'Price' })}</div>
+                      <div>{t('quantity', { fallback: 'Quantity' })}</div>
+                      <div>{t('subtotal', { fallback: 'Subtotal' })}</div>
                     </div>
                     <div className="cart-content">
-                      {cart.map((item) => (
+                      {cart.map(item => (
                         <div key={item.id} className="cart-item">
                           <div>
                             <button onClick={() => deleteFromCart(item.id)}>
@@ -69,10 +74,13 @@ const Cart = () => {
                       ))}
                     </div>
 
-                    <div className="total">Total: <span>€{totalAmount}</span></div>
+                    <div className="total">
+                      {t('total', { fallback: 'Total' })}:{' '}
+                      <span>€{totalAmount}</span>
+                    </div>
                     <div className="button-wrap">
                       <Link className="main-button" href="/checkout">
-                        <span>Checkout</span>
+                        <span>{t('checkout', { fallback: 'Checkout' })}</span>
                       </Link>
                     </div>
                   </div>
@@ -83,13 +91,17 @@ const Cart = () => {
             <div>
               <section className="cart-wrap empty">
                 <div className="_container">
-                  <h1>Your cart is empty.</h1>
+                  <h1>
+                    {t('empty.title', { fallback: 'Your cart is empty.' })}
+                  </h1>
                   <p>
-                    Discover our wide array of business and marketing consulting
-                    services!
+                    {t('empty.text', {
+                      fallback:
+                        'Discover our wide array of business and marketing consulting services!',
+                    })}
                   </p>
                   <Link href="/">
-                    <span>Go home</span>
+                    <span>{t('goHome', { fallback: 'Go home' })}</span>
                   </Link>
                 </div>
               </section>

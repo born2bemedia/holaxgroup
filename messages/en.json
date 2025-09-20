@@ -884,5 +884,71 @@
       "introduction": "Introduction",
       "conclusion": "Conclusion"
     }
+  },
+  "cart": {
+    "title": "Cart",
+    "serviceName": "Service Name",
+    "price": "Price",
+    "quantity": "Quantity",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "checkout": "Checkout",
+    "goHome": "Go home",
+    "empty": {
+      "title": "Your cart is empty.",
+      "text": "Discover our wide array of business and marketing consulting services!"
+    }
+  },
+  "checkout": {
+    "errors": {
+      "required": "This field is required",
+      "invalidEmail": "Please provide a valid email address.",
+      "termsAndConditions": "You must accept the terms and conditions.",
+      "refundPolicy": "You must accept the refund policy."
+    },
+    "title": "Checkout",
+    "billingAddress": "Billing Address",
+    "country": "Country/Region",
+    "province": "Province/State",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phoneNumber": "Phone Number",
+    "addressLine1": "Address Line 1",
+    "addressLine2": "Address Line 2",
+    "city": "City",
+    "zip": "ZIP Code",
+    "email": "Email",
+    "phone": "Phone",
+    "paymentMethod": "Payment Method",
+    "paymentNotes": "* You will soon receive an email with payment instructions, including our bank details and a summary of your order details.",
+    "additionalInformation": "Additional Information",
+    "specialNotes": "Include special instructions for your order",
+    "orderSummary": "Order Summary",
+    "serviceName": "Service Name",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "terms": {
+      "0": "I have read and agree to the website's",
+      "1": "Terms and Conditions."
+    },
+    "refund": {
+      "0": "I have read and agree to the",
+      "1": "Refund Policy."
+    },
+    "submit": "Submit",
+    "privacy": {
+      "0": "We will utilise your personal information to process your order, improve your browsing experience on our website, and perform other purposes detailed in our",
+      "1": "Privacy Policy."
+    },
+    "empty": {
+      "title": "Your cart is empty.",
+      "text": "Discover our wide array of business and marketing consulting services!",
+      "goHome": "Go home"
+    }
+  },
+  "thankyou": {
+    "title": "Thank you for your order!",
+    "text": "We appreciate your decision to choose Holax Group. One of our representatives will contact you soon to confirm the details of your order.",
+    "goHome": "Go home"
   }
 }

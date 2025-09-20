@@ -1,86 +1,87 @@
-"use client";
-import "@/styles/checkout.scss";
-import React, { useState, useEffect } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import CheckboxIcon from "@/icons/CheckboxIcon";
-import Select from "react-select";
-import countryList from "react-select-country-list";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import useCartStore from "@/stores/cartStore"; // Zustand cart store
-import useAuthStore from "@/stores/authStore"; // Zustand auth store
-import useOrderStore from "@/stores/orderStore"; // Zustand order store
-import CheckboxIconBlack from "@/icons/CheckboxIconBlack";
-import { excludedCountries } from "@/utils/countries";
+'use client';
+import '@/styles/checkout.scss';
+import React, { useState, useEffect } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import CheckboxIcon from '@/icons/CheckboxIcon';
+import Select from 'react-select';
+import countryList from 'react-select-country-list';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import useCartStore from '@/stores/cartStore'; // Zustand cart store
+import useAuthStore from '@/stores/authStore'; // Zustand auth store
+import useOrderStore from '@/stores/orderStore'; // Zustand order store
+import CheckboxIconBlack from '@/icons/CheckboxIconBlack';
+import { excludedCountries } from '@/utils/countries';
+import { useTranslations } from 'next-intl';
 
-const getCountryOptionByCode = (code) => {
+const getCountryOptionByCode = code => {
   const countries = countryList().getData();
-  return countries.find((country) => country.value === code);
+  return countries.find(country => country.value === code);
 };
 
 const customStyles = {
   control: (provided, state) => ({
     ...provided,
-    width: "100%",
-    color: "#333",
-    height: "50px",
-    borderRadius: "30px",
-    background: "#F1F1F1",
-    border: state.isFocused ? "1px solid #134CB2" : "1px solid #134CB2",
-    fontSize: "16px",
-    fontWeight: "400",
-    lineHeight: "1.2",
-    textAlign: "left",
-    padding: "0 20px",
-    boxShadow: "unset",
-    fontStyle: "italic",
-    "&:hover": {
-      borderColor: "#134CB2",
+    width: '100%',
+    color: '#333',
+    height: '50px',
+    borderRadius: '30px',
+    background: '#F1F1F1',
+    border: state.isFocused ? '1px solid #134CB2' : '1px solid #134CB2',
+    fontSize: '16px',
+    fontWeight: '400',
+    lineHeight: '1.2',
+    textAlign: 'left',
+    padding: '0 20px',
+    boxShadow: 'unset',
+    fontStyle: 'italic',
+    '&:hover': {
+      borderColor: '#134CB2',
     },
   }),
-  valueContainer: (provided) => ({
+  valueContainer: provided => ({
     ...provided,
-    height: "50px",
-    margin: "0",
-    padding: "0",
-    border: "none",
+    height: '50px',
+    margin: '0',
+    padding: '0',
+    border: 'none',
   }),
-  input: (provided) => ({
+  input: provided => ({
     ...provided,
-    height: "50px",
-    margin: "0",
-    padding: "0",
-    border: "none",
-    color: "#1E1E1E",
+    height: '50px',
+    margin: '0',
+    padding: '0',
+    border: 'none',
+    color: '#1E1E1E',
   }),
-  singleValue: (provided) => ({
+  singleValue: provided => ({
     ...provided,
-    color: "#1E1E1E",
+    color: '#1E1E1E',
   }),
-  indicatorsContainer: (provided) => ({
+  indicatorsContainer: provided => ({
     ...provided,
-    "> span": {
-      display: "none",
+    '> span': {
+      display: 'none',
     },
   }),
-  indicatorContainer: (provided) => ({
+  indicatorContainer: provided => ({
     ...provided,
-    padding: "0",
+    padding: '0',
   }),
-  menu: (provided) => ({
+  menu: provided => ({
     ...provided,
-    background: "#ffffff0d",
+    background: '#ffffff0d',
   }),
   option: (provided, state) => ({
     ...provided,
-    background: state.isSelected ? "#F2F2F2" : "#F2F2F2",
-    color: "#1E1E1E",
-    "&:hover": {
-      background: "#134CB2",
-      color: "#ffffff",
+    background: state.isSelected ? '#F2F2F2' : '#F2F2F2',
+    color: '#1E1E1E',
+    '&:hover': {
+      background: '#134CB2',
+      color: '#ffffff',
     },
   }),
 };
@@ -94,6 +95,8 @@ const Checkout = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  const t = useTranslations('checkout');
+
   useEffect(() => {
     fetchCurrentUser();
     setIsMounted(true);
@@ -102,7 +105,7 @@ const Checkout = () => {
   if (loading || !isMounted) {
     return (
       <div>
-        <section className="checkout-wrap" style={{ minHeight: "100vh" }}>
+        <section className="checkout-wrap" style={{ minHeight: '100vh' }}>
           <div className="_container">
             <div></div>
           </div>
@@ -112,46 +115,68 @@ const Checkout = () => {
   }
 
   const initialValues = {
-    firstName: currentUser?.firstName || "",
-    lastName: currentUser?.lastName || "",
-    addressLine1: currentUser?.addressLine1 || "",
-    addressLine2: currentUser?.addressLine2 || "",
-    province: "",
-    city: currentUser?.city || "",
-    zip: currentUser?.zip || "",
+    firstName: currentUser?.firstName || '',
+    lastName: currentUser?.lastName || '',
+    addressLine1: currentUser?.addressLine1 || '',
+    addressLine2: currentUser?.addressLine2 || '',
+    province: '',
+    city: currentUser?.city || '',
+    zip: currentUser?.zip || '',
     country: getCountryOptionByCode(currentUser?.country) || null,
-    email: currentUser?.email || "",
-    phone: currentUser?.phone || "",
-    specialNotes: "",
+    email: currentUser?.email || '',
+    phone: currentUser?.phone || '',
+    specialNotes: '',
     terms: false,
     refundPolicy: false,
   };
 
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required("This field is required."),
-    lastName: Yup.string().required("This field is required."),
-    addressLine1: Yup.string().required("This field is required."),
-    city: Yup.string().required("This field is required."),
-    zip: Yup.string().required("This field is required."),
-    country: Yup.string().required("This field is required."),
+    firstName: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
+    lastName: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
+    addressLine1: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
+    city: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
+    zip: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
+    country: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
     email: Yup.string()
-      .email("Please provide a valid email address.")
-      .required("This field is required."),
-    phone: Yup.string().required("This field is required."),
+      .email(
+        t('errors.invalidEmail', {
+          fallback: 'Please provide a valid email address.',
+        }),
+      )
+      .required(t('errors.required', { fallback: 'This field is required.' })),
+    phone: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
     terms: Yup.bool().oneOf(
       [true],
-      "You must accept the terms and conditions."
+      t('errors.termsAndConditions', {
+        fallback: 'You must accept the terms and conditions.',
+      }),
     ),
     refundPolicy: Yup.bool().oneOf(
       [true],
-      "You must accept the refund policy."
+      t('errors.refundPolicy', {
+        fallback: 'You must accept the refund policy.',
+      }),
     ),
   });
 
   const generateRandomPassword = (length = 12) => {
     const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
-    let password = "";
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+    let password = '';
     for (let i = 0; i < length; i++) {
       const randomIndex = Math.floor(Math.random() * characters.length);
       password += characters[randomIndex];
@@ -173,10 +198,10 @@ const Checkout = () => {
           phone: values.phone,
         };
 
-        const registerResponse = await fetch("/api/auth/sign-up", {
-          method: "POST",
+        const registerResponse = await fetch('/api/auth/sign-up', {
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(registerData),
         });
@@ -184,17 +209,17 @@ const Checkout = () => {
         if (registerResponse.ok) {
           const registerResult = await registerResponse.json();
           userId = registerResult.user.id;
-          localStorage.setItem("jwt", registerResult.jwt);
+          localStorage.setItem('jwt', registerResult.jwt);
           fetchCurrentUser();
-          await fetch("/api/emails/sign-up", {
-            method: "POST",
+          await fetch('/api/emails/sign-up', {
+            method: 'POST',
             headers: {
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
             },
             body: JSON.stringify(registerData),
           });
         } else {
-          throw new Error("User registration failed.");
+          throw new Error('User registration failed.');
         }
       } else {
         const updateData = {
@@ -211,25 +236,25 @@ const Checkout = () => {
         };
 
         const token = getToken();
-        const updateResponse = await fetch("/api/auth/user-update", {
-          method: "POST",
+        const updateResponse = await fetch('/api/auth/user-update', {
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(updateData),
         });
 
         if (!updateResponse.ok) {
-          throw new Error("Failed to update user data.");
+          throw new Error('Failed to update user data.');
         }
 
         const updatedUser = await updateResponse.json();
         setCurrentUser(updatedUser.user);
-        localStorage.setItem("user", JSON.stringify(updatedUser.user));
+        localStorage.setItem('user', JSON.stringify(updatedUser.user));
       }
 
-      const productIds = cart.map((product) => product.documentId);
+      const productIds = cart.map(product => product.documentId);
       //const products = cart.map((product) => ({ id: product.id }));
 
       const orderData = {
@@ -238,7 +263,7 @@ const Checkout = () => {
           users_permissions_user: userId,
           products: productIds,
           amount: totalAmount,
-          order_status: "completed",
+          order_status: 'completed',
         },
       };
 
@@ -258,18 +283,18 @@ const Checkout = () => {
         totalAmount, // Include total amount in the email
       };
 
-      await fetch("/api/emails/order", {
-        method: "POST",
+      await fetch('/api/emails/order', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(emailOrderData),
       });
       setIsLoading(false);
-      router.push("/thankyou");
+      router.push('/thankyou');
       clearCart();
     } catch (error) {
-      console.error("Order creation failed:", error);
+      console.error('Order creation failed:', error);
     } finally {
       setSubmitting(false);
     }
@@ -284,7 +309,7 @@ const Checkout = () => {
               <section className="checkout-wrap">
                 <div className="_container">
                   <div className="checkout-wrap__body">
-                    <h1>Checkout</h1>
+                    <h1>{t('title', { fallback: 'Checkout' })}</h1>
                     <Formik
                       initialValues={initialValues}
                       validationSchema={validationSchema}
@@ -300,24 +325,30 @@ const Checkout = () => {
                       }) => (
                         <Form>
                           <div className="col-01">
-                            <h3>Billing Address</h3>
+                            <h3>
+                              {t('billingAddress', {
+                                fallback: 'Billing Address',
+                              })}
+                            </h3>
                             <div className="billing-data">
                               <div className="full">
                                 <Field name="country">
                                   {({ field }) => (
                                     <Select
                                       {...field}
-                                      placeholder="Country/Region"
+                                      placeholder={t('country', {
+                                        fallback: 'Country/Region',
+                                      })}
                                       options={countryList().getData()}
                                       styles={customStyles}
                                       className={`form-field ${
                                         touched.country && errors.country
-                                          ? "invalid"
-                                          : ""
+                                          ? 'invalid'
+                                          : ''
                                       }`}
                                       value={values.country?.value}
-                                      onChange={(option) =>
-                                        setFieldValue("country", option.value)
+                                      onChange={option =>
+                                        setFieldValue('country', option.value)
                                       }
                                     />
                                   )}
@@ -331,13 +362,15 @@ const Checkout = () => {
                               <div>
                                 <label>
                                   <Field
-                                    placeholder="First Name"
+                                    placeholder={t('firstName', {
+                                      fallback: 'First Name',
+                                    })}
                                     type="text"
                                     name="firstName"
                                     className={
                                       touched.firstName && errors.firstName
-                                        ? "invalid"
-                                        : ""
+                                        ? 'invalid'
+                                        : ''
                                     }
                                   />
                                 </label>
@@ -350,13 +383,15 @@ const Checkout = () => {
                               <div>
                                 <label>
                                   <Field
-                                    placeholder="Last Name"
+                                    placeholder={t('lastName', {
+                                      fallback: 'Last Name',
+                                    })}
                                     type="text"
                                     name="lastName"
                                     className={
                                       touched.lastName && errors.lastName
-                                        ? "invalid"
-                                        : ""
+                                        ? 'invalid'
+                                        : ''
                                     }
                                   />
                                 </label>
@@ -369,17 +404,19 @@ const Checkout = () => {
 
                               <div className="full">
                                 <PhoneInput
-                                  country={"us"}
+                                  country={'us'}
                                   value={values.phone}
                                   excludeCountries={excludedCountries}
-                                  placeholder="Phone Number"
-                                  onChange={(phone) =>
-                                    setFieldValue("phone", phone)
+                                  placeholder={t('phoneNumber', {
+                                    fallback: 'Phone Number',
+                                  })}
+                                  onChange={phone =>
+                                    setFieldValue('phone', phone)
                                   }
                                   className={
                                     touched.phone && errors.phone
-                                      ? "invalid"
-                                      : ""
+                                      ? 'invalid'
+                                      : ''
                                   }
                                 />
                                 <ErrorMessage
@@ -391,13 +428,15 @@ const Checkout = () => {
                               <div className="full">
                                 <label>
                                   <Field
-                                    placeholder="Email"
+                                    placeholder={t('email', {
+                                      fallback: 'Email',
+                                    })}
                                     type="email"
                                     name="email"
                                     className={
                                       touched.email && errors.email
-                                        ? "invalid"
-                                        : ""
+                                        ? 'invalid'
+                                        : ''
                                     }
                                   />
                                 </label>
@@ -410,14 +449,16 @@ const Checkout = () => {
                               <div className="full">
                                 <label>
                                   <Field
-                                    placeholder="Address Line 1"
+                                    placeholder={t('addressLine1', {
+                                      fallback: 'Address Line 1',
+                                    })}
                                     type="text"
                                     name="addressLine1"
                                     className={
                                       touched.addressLine1 &&
                                       errors.addressLine1
-                                        ? "invalid"
-                                        : ""
+                                        ? 'invalid'
+                                        : ''
                                     }
                                   />
                                 </label>
@@ -430,7 +471,9 @@ const Checkout = () => {
                               <div className="full">
                                 <label>
                                   <Field
-                                    placeholder="Address Line 2"
+                                    placeholder={t('addressLine2', {
+                                      fallback: 'Address Line 2',
+                                    })}
                                     type="text"
                                     name="addressLine2"
                                   />
@@ -439,7 +482,9 @@ const Checkout = () => {
                               <div className="full">
                                 <label>
                                   <Field
-                                    placeholder="Province / Region"
+                                    placeholder={t('province', {
+                                      fallback: 'Province / Region',
+                                    })}
                                     type="text"
                                     name="province"
                                   />
@@ -448,13 +493,15 @@ const Checkout = () => {
                               <div>
                                 <label>
                                   <Field
-                                    placeholder="City"
+                                    placeholder={t('city', {
+                                      fallback: 'City',
+                                    })}
                                     type="text"
                                     name="city"
                                     className={
                                       touched.city && errors.city
-                                        ? "invalid"
-                                        : ""
+                                        ? 'invalid'
+                                        : ''
                                     }
                                   />
                                 </label>
@@ -467,11 +514,13 @@ const Checkout = () => {
                               <div>
                                 <label>
                                   <Field
-                                    placeholder="ZIP Code"
+                                    placeholder={t('zip', {
+                                      fallback: 'ZIP Code',
+                                    })}
                                     type="text"
                                     name="zip"
                                     className={
-                                      touched.zip && errors.zip ? "invalid" : ""
+                                      touched.zip && errors.zip ? 'invalid' : ''
                                     }
                                   />
                                 </label>
@@ -483,12 +532,15 @@ const Checkout = () => {
                               </div>
                               <div className="full">
                                 <div className="payment-method">
-                                  Payment Method: Bank Transfer*
+                                  {t('paymentMethod', {
+                                    fallback: 'Payment Method: Bank Transfer*',
+                                  })}
                                 </div>
                                 <div className="payment-notes">
-                                  * You will soon receive an email with payment
-                                  instructions, including our bank details and a
-                                  summary of your order details.
+                                  {t('paymentNotes', {
+                                    fallback:
+                                      '* You will soon receive an email with payment instructions, including our bank details and a summary of your order details.',
+                                  })}
                                 </div>
                               </div>
                             </div>
@@ -496,24 +548,43 @@ const Checkout = () => {
 
                           <div className="col-02">
                             <div>
-                              <h3>Additional Information</h3>
+                              <h3>
+                                {t('additionalInformation', {
+                                  fallback: 'Additional Information',
+                                })}
+                              </h3>
                               <div className="full">
                                 <Field
                                   as="textarea"
-                                  placeholder="Include special instructions for your order"
+                                  placeholder={t('specialNotes', {
+                                    fallback:
+                                      'Include special instructions for your order',
+                                  })}
                                   name="specialNotes"
                                 />
                               </div>
                             </div>
                             <div>
-                              <h3>Order Summary</h3>
+                              <h3>
+                                {t('orderSummary', {
+                                  fallback: 'Order Summary',
+                                })}
+                              </h3>
                               <div className="cart">
                                 <div className="cart-head">
-                                  <div>Service Name</div>
-                                  <div>Subtotal</div>
+                                  <div>
+                                    {t('serviceName', {
+                                      fallback: 'Service Name',
+                                    })}
+                                  </div>
+                                  <div>
+                                    {t('subtotal', {
+                                      fallback: 'Subtotal',
+                                    })}
+                                  </div>
                                 </div>
                                 <div className="cart-content">
-                                  {cart.map((item) => (
+                                  {cart.map(item => (
                                     <div key={item.id} className="cart-item">
                                       <div>
                                         {item.name} <b>x {item.quantity}</b>
@@ -526,7 +597,10 @@ const Checkout = () => {
                                 </div>
 
                                 <div className="total">
-                                  Total: €{totalAmount}
+                                  {t('total', {
+                                    fallback: 'Total',
+                                  })}
+                                  : €{totalAmount}
                                 </div>
                               </div>
 
@@ -537,17 +611,22 @@ const Checkout = () => {
                                     name="terms"
                                     className={
                                       touched.terms && errors.terms
-                                        ? "invalid"
-                                        : ""
+                                        ? 'invalid'
+                                        : ''
                                     }
                                     id="terms"
                                   />
                                   <label htmlFor="terms">
                                     <CheckboxIconBlack />
                                     <span>
-                                      I have read and agree to the website's{" "}
+                                      {t('terms.0', {
+                                        fallback:
+                                          "I have read and agree to the website's",
+                                      })}{' '}
                                       <Link href="/terms-and-conditions">
-                                        Terms and Conditions.
+                                        {t('terms.1', {
+                                          fallback: 'Terms and Conditions.',
+                                        })}
                                       </Link>
                                     </span>
                                   </label>
@@ -565,17 +644,22 @@ const Checkout = () => {
                                     className={
                                       touched.refundPolicy &&
                                       errors.refundPolicy
-                                        ? "invalid"
-                                        : ""
+                                        ? 'invalid'
+                                        : ''
                                     }
                                     id="refundPolicy"
                                   />
                                   <label htmlFor="refundPolicy">
                                     <CheckboxIconBlack />
                                     <span>
-                                      I have read and agree to the{" "}
+                                      {t('refund.0', {
+                                        fallback:
+                                          'I have read and agree to the',
+                                      })}{' '}
                                       <Link href="/refund-policy">
-                                        Refund Policy
+                                        {t('refund.1', {
+                                          fallback: 'Refund Policy.',
+                                        })}
                                       </Link>
                                     </span>
                                   </label>
@@ -591,25 +675,31 @@ const Checkout = () => {
                                   type="submit"
                                   disabled={isSubmitting}
                                 >
-                                  <span>Submit</span>
+                                  <span>
+                                    {t('submit', {
+                                      fallback: 'Submit',
+                                    })}
+                                  </span>
                                 </button>
 
                                 {isLoading && (
                                   <div
                                     className="loading"
-                                    style={{ margin: "10px auto 0 auto" }}
+                                    style={{ margin: '10px auto 0 auto' }}
                                   >
                                     <img src="/images/loading.svg" />
                                   </div>
                                 )}
 
                                 <div className="privacy">
-                                  We will utilise your personal information to
-                                  process your order, improve your browsing
-                                  experience on our website, and perform other
-                                  purposes detailed in our{" "}
+                                  {t('privacy.0', {
+                                    fallback:
+                                      'We will utilise your personal information to process your order, improve your browsing experience on our website, and perform other purposes detailed in our',
+                                  })}{' '}
                                   <Link href="/privacy-policy">
-                                    Privacy Policy
+                                    {t('privacy.1', {
+                                      fallback: 'Privacy Policy.',
+                                    })}
                                   </Link>
                                   .
                                 </div>
@@ -635,13 +725,23 @@ const Checkout = () => {
             <div>
               <section className="cart-wrap empty">
                 <div className="_container">
-                  <h1>Your cart is empty.</h1>
+                  <h1>
+                    {t('empty.title', {
+                      fallback: 'Your cart is empty.',
+                    })}
+                  </h1>
                   <p>
-                    Discover our wide array of business and marketing consulting
-                    services!
+                    {t('empty.text', {
+                      fallback:
+                        'Discover our wide array of business and marketing consulting services!',
+                    })}
                   </p>
                   <Link href="/">
-                    <span>Go home</span>
+                    <span>
+                      {t('empty.goHome', {
+                        fallback: 'Go home',
+                      })}
+                    </span>
                   </Link>
                 </div>
               </section>
