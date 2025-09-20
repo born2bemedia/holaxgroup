@@ -1,28 +1,31 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { fadeInUp } from "@/utils/animations";
-import { motion } from "framer-motion";
-import useJobsStore from "@/stores/jobsStore";
-import JobPlusIcon from "@/icons/JobPlusIcon";
-import ReactMarkdown from "react-markdown";
-import JobButton from "@/components/JobButton";
-import JobMinusIcon from "@/icons/JobMinusIcon";
+'use client';
+import React, { useEffect, useState } from 'react';
+import { fadeInUp } from '@/utils/animations';
+import { motion } from 'framer-motion';
+import useJobsStore from '@/stores/jobsStore';
+import JobPlusIcon from '@/icons/JobPlusIcon';
+import ReactMarkdown from 'react-markdown';
+import JobButton from '@/components/JobButton';
+import JobMinusIcon from '@/icons/JobMinusIcon';
+import { useTranslations } from 'next-intl';
 
 const JobsWrap = () => {
   const [jobsArray, setJobsArray] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const jobs = useJobsStore((state) => state.jobs);
-  const fetchJobs = useJobsStore((state) => state.fetchJobs);
+  const jobs = useJobsStore(state => state.jobs);
+  const fetchJobs = useJobsStore(state => state.fetchJobs);
+
+  const t = useTranslations('careers.jobs');
 
   useEffect(() => {
     fetchJobs()
-      .then(() => console.log("Articles loaded:", jobs))
-      .catch((error) => console.error("Error loading articles:", error));
+      .then(() => console.log('Articles loaded:', jobs))
+      .catch(error => console.error('Error loading articles:', error));
   }, [fetchJobs]);
 
-  const toggleAccordion = (index) => {
-    console.log("click");
+  const toggleAccordion = index => {
+    console.log('click');
     if (activeIndex === index) {
       setActiveIndex(null);
     } else {
@@ -33,7 +36,7 @@ const JobsWrap = () => {
   return (
     <section className="jobs-wrap" id="jobs">
       <div className="_container">
-        <h2>Job Offers</h2>
+        <h2>{t('title', { fallback: 'Job Offers' })}</h2>
         <div className="jobs-wrap__body">
           {jobs.map((job, index) => (
             <motion.div
@@ -41,7 +44,7 @@ const JobsWrap = () => {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className={`job-item ${activeIndex === index ? "active" : ""}`}
+              className={`job-item ${activeIndex === index ? 'active' : ''}`}
               key={index}
             >
               <div className="job-title">
@@ -62,9 +65,11 @@ const JobsWrap = () => {
               </div>
               {activeIndex === index && (
                 <div className="job-content">
-                  <h4>Responsibilities:</h4>
+                  <h4>
+                    {t('responsibilities', { fallback: 'Responsibilities:' })}
+                  </h4>
                   <ReactMarkdown>{job.requirements}</ReactMarkdown>
-                  <h4>Requirements:</h4>
+                  <h4>{t('requirements', { fallback: 'Requirements:' })}</h4>
                   <ReactMarkdown>{job.responsibilities}</ReactMarkdown>
                   <JobButton job={job.title} />
                 </div>

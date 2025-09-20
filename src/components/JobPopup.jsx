@@ -1,5 +1,5 @@
-"use client";
-import React, { useState } from "react";
+'use client';
+import React, { useState } from 'react';
 import {
   Formik,
   Form,
@@ -7,37 +7,50 @@ import {
   ErrorMessage,
   useField,
   useFormikContext,
-} from "formik";
-import * as Yup from "yup";
-import usePopupStore from "@/stores/popupStore";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import ChevronDown from "@/icons/other/ChevronDown";
-import { excludedCountries } from "@/utils/countries";
+} from 'formik';
+import * as Yup from 'yup';
+import usePopupStore from '@/stores/popupStore';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import ChevronDown from '@/icons/other/ChevronDown';
+import { excludedCountries } from '@/utils/countries';
+import { useTranslations } from 'next-intl';
 
 function JobPopup() {
   const { jobsPopupDisplay, setJobsPopupDisplay, jobValue } = usePopupStore();
 
+  const t = useTranslations('careers.jobPopup');
+
   const validationSchema = Yup.object({
-    fullName: Yup.string().required("This field is required"),
+    fullName: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required' }),
+    ),
     email: Yup.string()
-      .email("Please, enter valid email")
-      .required("This field is required"),
-    phone: Yup.string().required("This field is required"),
-    position: Yup.string().required("This field is required"),
+      .email(
+        t('errors.invalidEmail', {
+          fallback: 'Please, enter valid email',
+        }),
+      )
+      .required(t('errors.required', { fallback: 'This field is required' })),
+    phone: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required' }),
+    ),
+    position: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required' }),
+    ),
   });
 
   const initialValues = {
-    fullName: "",
-    email: "",
-    phone: "",
+    fullName: '',
+    email: '',
+    phone: '',
     position: jobValue,
-    message: "",
+    message: '',
     resume: null,
     portfolio: null,
   };
 
-  const closePopup = (resetForm) => {
+  const closePopup = resetForm => {
     setJobsPopupDisplay(false);
     if (resetForm) {
       resetForm();
@@ -46,7 +59,7 @@ function JobPopup() {
 
   const handleSubmit = async (
     values,
-    { setSubmitting, resetForm, setStatus }
+    { setSubmitting, resetForm, setStatus },
   ) => {
     let resumeData = null;
     if (values.resume) {
@@ -55,12 +68,12 @@ function JobPopup() {
         reader.onload = () => {
           const base64EncodedData = reader.result;
           resolve({
-            base64: base64EncodedData.split(";base64,").pop(), // Get only the base64 part
+            base64: base64EncodedData.split(';base64,').pop(), // Get only the base64 part
             filename: values.resume.name, // Get the filename
             mimetype: values.resume.type, // Get the MIME type
           });
         };
-        reader.onerror = (error) => reject(error);
+        reader.onerror = error => reject(error);
         reader.readAsDataURL(values.resume);
       });
     }
@@ -72,12 +85,12 @@ function JobPopup() {
         reader.onload = () => {
           const base64EncodedData = reader.result;
           resolve({
-            base64: base64EncodedData.split(";base64,").pop(), // Get only the base64 part
+            base64: base64EncodedData.split(';base64,').pop(), // Get only the base64 part
             filename: values.portfolio.name, // Get the filename
             mimetype: values.portfolio.type, // Get the MIME type
           });
         };
-        reader.onerror = (error) => reject(error);
+        reader.onerror = error => reject(error);
         reader.readAsDataURL(values.portfolio);
       });
     }
@@ -89,10 +102,10 @@ function JobPopup() {
     };
 
     try {
-      const response = await fetch("/api/emails/job", {
-        method: "POST",
+      const response = await fetch('/api/emails/job', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
       });
@@ -113,7 +126,7 @@ function JobPopup() {
   };
 
   return (
-    <div className={`order-popup-wrap ${jobsPopupDisplay ? "opened" : ""}`}>
+    <div className={`order-popup-wrap ${jobsPopupDisplay ? 'opened' : ''}`}>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -156,12 +169,19 @@ function JobPopup() {
                   <Form>
                     {!status && (
                       <div className="form-inner">
-                        <h2>Ready to join Holax Group?</h2>
+                        <h2>
+                          {t('title', {
+                            fallback: 'Ready to join Holax Group?',
+                          })}
+                        </h2>
                         <p>
-                          Fill out the form below to submit your application!
+                          {t('description', {
+                            fallback:
+                              'Fill out the form below to submit your application!',
+                          })}
                         </p>
                         <span className="service">
-                          <b>Job:</b> {jobValue}
+                          <b>{t('job', { fallback: 'Job:' })}</b> {jobValue}
                         </span>
 
                         <Field type="hidden" name="position" />
@@ -169,11 +189,13 @@ function JobPopup() {
                           <Field
                             name="fullName"
                             type="text"
-                            placeholder="Your Full Name"
+                            placeholder={t('yourFullName', {
+                              fallback: 'Your Full Name',
+                            })}
                             className={
                               touched.fullName && errors.fullName
-                                ? "invalid"
-                                : ""
+                                ? 'invalid'
+                                : ''
                             }
                           />
                           <ErrorMessage
@@ -185,13 +207,15 @@ function JobPopup() {
 
                         <div>
                           <PhoneInput
-                            country={"us"}
+                            country={'us'}
                             excludeCountries={excludedCountries}
                             value=""
-                            placeholder="Your Contact Number"
-                            onChange={(phone) => setFieldValue("phone", phone)}
+                            placeholder={t('contactNumber', {
+                              fallback: 'Your Contact Number',
+                            })}
+                            onChange={phone => setFieldValue('phone', phone)}
                             className={
-                              touched.phone && errors.phone ? "invalid" : ""
+                              touched.phone && errors.phone ? 'invalid' : ''
                             }
                           />
                           <ErrorMessage
@@ -205,9 +229,11 @@ function JobPopup() {
                           <Field
                             name="email"
                             type="email"
-                            placeholder="Your Email Address"
+                            placeholder={t('emailAddress', {
+                              fallback: 'Your Email Address',
+                            })}
                             className={
-                              touched.email && errors.email ? "invalid" : ""
+                              touched.email && errors.email ? 'invalid' : ''
                             }
                           />
                           <ErrorMessage
@@ -222,13 +248,15 @@ function JobPopup() {
                             <span
                               className="upload-custom"
                               onClick={() =>
-                                document.getElementById("resume").click()
+                                document.getElementById('resume').click()
                               }
                             >
                               <span className="fileName">
                                 {values.resume
                                   ? values.resume.name
-                                  : "Upload Resume (PDF or Word)"}
+                                  : t('uploadResume', {
+                                      fallback: 'Upload Resume (PDF or Word)',
+                                    })}
                               </span>
                               <span>
                                 Choose file <ChevronDown />
@@ -238,13 +266,13 @@ function JobPopup() {
                               id="resume"
                               name="resume"
                               type="file"
-                              onChange={(event) => {
+                              onChange={event => {
                                 setFieldValue(
-                                  "resume",
-                                  event.currentTarget.files[0]
+                                  'resume',
+                                  event.currentTarget.files[0],
                                 );
                               }}
-                              style={{ display: "none" }}
+                              style={{ display: 'none' }}
                             />
                             <ErrorMessage name="resume" component="span" />
                           </div>
@@ -255,29 +283,35 @@ function JobPopup() {
                             <span
                               className="upload-custom"
                               onClick={() =>
-                                document.getElementById("portfolio").click()
+                                document.getElementById('portfolio').click()
                               }
                             >
                               <span className="fileName">
                                 {values.portfolio
                                   ? values.portfolio.name
-                                  : "Upload Portfolio (if applicable)"}
+                                  : t('uploadPortfolio', {
+                                      fallback:
+                                        'Upload Portfolio (if applicable)',
+                                    })}
                               </span>
                               <span>
-                                Choose file <ChevronDown />
+                                {t('chooseFile', {
+                                  fallback: 'Choose file',
+                                })}{' '}
+                                <ChevronDown />
                               </span>
                             </span>
                             <input
                               id="portfolio"
                               name="portfolio"
                               type="file"
-                              onChange={(event) => {
+                              onChange={event => {
                                 setFieldValue(
-                                  "portfolio",
-                                  event.currentTarget.files[0]
+                                  'portfolio',
+                                  event.currentTarget.files[0],
                                 );
                               }}
-                              style={{ display: "none" }}
+                              style={{ display: 'none' }}
                             />
                             <ErrorMessage name="portfolio" component="span" />
                           </div>
@@ -287,9 +321,11 @@ function JobPopup() {
                           <Field
                             name="message"
                             as="textarea"
-                            placeholder="Your Message"
+                            placeholder={t('yourMessage', {
+                              fallback: 'Your Message',
+                            })}
                             className={
-                              touched.message && errors.message ? "invalid" : ""
+                              touched.message && errors.message ? 'invalid' : ''
                             }
                           />
                           <ErrorMessage
@@ -304,14 +340,23 @@ function JobPopup() {
                           className="main-button"
                           disabled={isSubmitting}
                         >
-                          <span>Send</span>
+                          <span>{t('send', { fallback: 'Send' })}</span>
                         </button>
                       </div>
                     )}
                     {status && status.success && (
                       <div className="success">
-                        <h3>Your request has been sent successfully.</h3>
-                        <p>We will contact you soon!</p>
+                        <h3>
+                          {t('success.title', {
+                            fallback:
+                              'Your request has been sent successfully.',
+                          })}
+                        </h3>
+                        <p>
+                          {t('success.description', {
+                            fallback: 'We will contact you soon!',
+                          })}
+                        </p>
                       </div>
                     )}
                   </Form>

@@ -754,5 +754,43 @@
     "challenge": "Challenge:",
     "solution": "Solution:",
     "results": "Results:"
+  },
+  "careers": {
+    "hero": {
+      "title": "Join Our Team at",
+      "description": "We believe in fostering a dynamic and inclusive workplace where innovation thrives and talent flourishes. Join a team dedicated to driving growth, delivering excellence, and making a positive impact. Explore our current job openings and discover how you can contribute to our mission and grow your career with us."
+    },
+    "jobs": {
+      "title": "Job Offers",
+      "responsibilities": "Responsibilities:",
+      "requirements": "Requirements:",
+      "button": "Apply for a position"
+    },
+    "last": {
+      "title": "Ready to Make an Impact?",
+      "text": "At Holax Group, we value diversity, creativity, and dedication. If you are passionate about making a difference and want to be part of a forward-thinking team, we invite you to apply for one of our open positions. Join us on our mission to deliver exceptional consulting services and drive meaningful change.",
+      "button": "Apply now and join our team"
+    },
+    "jobPopup": {
+      "errors": {
+        "required": "This field is required",
+        "invalidEmail": "Please, enter valid email"
+      },
+      "title": "Ready to join Holax Group?",
+      "description": "Fill out the form below to submit your application!",
+      "job": "Job:",
+      "yourFullName": "Your Full Name",
+      "contactNumber": "Your Contact Number",
+      "emailAddress": "Your Email Address",
+      "uploadResume": "Upload Resume (PDF or Word)",
+      "uploadPortfolio": "Upload Portfolio (if applicable)",
+      "chooseFile": "Choose file",
+      "yourMessage": "Your Message",
+      "send": "Send",
+      "success": {
+        "title": "Your request has been sent successfully.",
+        "description": "We will contact you soon!"
+      }
+    }
   }
 }
