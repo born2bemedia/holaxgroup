@@ -792,5 +792,75 @@
         "description": "We will contact you soon!"
       }
     }
+  },
+  "businessConsulting": {
+    "hero": {
+      "title": "Transform Your Business with",
+      "subtitle": "Expert Guidance",
+      "text": {
+        "0": "At Holax Group, we specialise in empowering",
+        "1": "businesses to achieve their highest potential."
+      }
+    },
+    "second": {
+      "text": {
+        "0": "Our bespoke business consulting solutions are designed to address your unique challenges and drive success. From strategic planning and operational improvement to financial optimization and leadership development, our experts provide personalised guidance and innovative strategies to ensure your business thrives in today’s competitive landscape.",
+        "1": "Let us help you turn your vision into reality and set your business on the path to sustained growth and success."
+      }
+    },
+    "tabs": {
+      "categories": {
+        "0": "Strategic Planning & Development",
+        "1": "Operational Excellence",
+        "2": "Financial Optimization",
+        "3": "Customer & Experience Management",
+        "4": "Technology & Digital Transformation"
+      },
+      "title": "How We Can Help"
+    },
+    "packages": {
+      "title": "Business Consulting Complete Packages",
+      "text": "Unlock your business’s full potential with our comprehensive business consulting packages. Each package is crafted to build upon the previous, providing a robust foundation and advanced growth strategies. With services ranging from market analysis and risk management to change management and innovation strategies, we equip your business with the tools needed to thrive in a competitive market. Choose the package that aligns with your business goals, and let us guide you to success."
+    },
+    "why": {
+      "title": "Why Choose Our Business Consultants?",
+      "text": "Choosing the right business consultant is crucial to achieving your goals. Here’s why our consultants stand out:",
+      "slides": {
+        "0": {
+          "title": "Expertise and Experience",
+          "text": "Our team comprises seasoned professionals with extensive industry experience. We bring a wealth of knowledge and proven strategies to address your unique business challenges."
+        },
+        "1": {
+          "title": "Tailored Solutions",
+          "text": "We don’t believe in one-size-fits-all. Our consultants work closely with you to develop customised solutions that align with your specific needs, objectives, and industry dynamics."
+        },
+        "2": {
+          "title": "Innovative Approach",
+          "text": "We stay ahead by embracing the latest trends and technologies. Our innovative approach ensures you receive cutting-edge solutions that drive sustainable growth and success."
+        },
+        "3": {
+          "title": "Collaborative Partnership",
+          "text": "We view our clients as partners. Our collaborative approach fosters solid relationships and ensures we work together towards your business goals."
+        },
+        "4": {
+          "title": "Measurable Results",
+          "text": "We are committed to delivering results. Our strategies are designed to provide measurable outcomes, helping you track progress and achieve your business objectives."
+        },
+        "5": {
+          "title": "Comprehensive Services",
+          "text": "We offer a wide range of services to meet your business needs. From strategic planning to operational improvement, we provide the tools and expertise you need to succeed."
+        },
+        "6": {
+          "title": "Commitment to Excellence",
+          "text": "We strive for excellence in everything we do. Our dedication to high standards and continuous improvement means receiving the best possible service."
+        }
+      },
+      "button": "Learn more about our consultants"
+    },
+    "priceList": {
+      "title": "Download Our Complete Price List",
+      "description": "Interested in understanding our service offerings in detail? Download our complete price list to explore the range of consulting solutions we provide. Whether you need business consulting or marketing consulting services, our transparent pricing will help you make informed decisions. Simply click the link below to get started.",
+      "button": "Download price list"
+    }
   }
 }
