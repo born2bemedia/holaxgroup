@@ -1,81 +1,82 @@
-"use client";
-import "@/styles/account.scss";
-import React, { useEffect, useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import Select from "react-select";
-import countryList from "react-select-country-list";
-import useAuthStore from "@/stores/authStore";
-import { useRouter } from "next/navigation";
-import ChangePassword from "./ChangePassword";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import { excludedCountries } from "@/utils/countries";
+'use client';
+import '@/styles/account.scss';
+import React, { useEffect, useState } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import Select from 'react-select';
+import countryList from 'react-select-country-list';
+import useAuthStore from '@/stores/authStore';
+import { useRouter } from 'next/navigation';
+import ChangePassword from './ChangePassword';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import { excludedCountries } from '@/utils/countries';
+import { useTranslations } from 'next-intl';
 
-const getCountryOptionByCode = (code) => {
+const getCountryOptionByCode = code => {
   const countries = countryList().getData();
-  return countries.find((country) => country.value === code);
+  return countries.find(country => country.value === code);
 };
 
 const customStyles = {
   control: (provided, state) => ({
     ...provided,
-    width: "100%",
-    color: "#333",
-    height: "50px",
-    borderRadius: "30px",
-    background: "#F3F3F3",
-    border: state.isFocused ? "1px solid #134CB2" : "1px solid #134CB2",
-    fontSize: "16px",
-    fontWeight: "400",
-    lineHeight: "1.2",
-    textAlign: "left",
-    padding: "0 20px",
-    boxShadow: "unset",
-    "&:hover": {
-      borderColor: "#134CB2",
+    width: '100%',
+    color: '#333',
+    height: '50px',
+    borderRadius: '30px',
+    background: '#F3F3F3',
+    border: state.isFocused ? '1px solid #134CB2' : '1px solid #134CB2',
+    fontSize: '16px',
+    fontWeight: '400',
+    lineHeight: '1.2',
+    textAlign: 'left',
+    padding: '0 20px',
+    boxShadow: 'unset',
+    '&:hover': {
+      borderColor: '#134CB2',
     },
   }),
-  valueContainer: (provided) => ({
+  valueContainer: provided => ({
     ...provided,
-    height: "50px",
-    margin: "0",
-    padding: "0",
-    border: "none",
+    height: '50px',
+    margin: '0',
+    padding: '0',
+    border: 'none',
   }),
-  input: (provided) => ({
+  input: provided => ({
     ...provided,
-    height: "50px",
-    margin: "0",
-    padding: "0",
-    border: "none",
-    color: "#1E1E1E",
+    height: '50px',
+    margin: '0',
+    padding: '0',
+    border: 'none',
+    color: '#1E1E1E',
   }),
-  singleValue: (provided) => ({
+  singleValue: provided => ({
     ...provided,
-    color: "#1E1E1E",
+    color: '#1E1E1E',
   }),
-  indicatorsContainer: (provided) => ({
+  indicatorsContainer: provided => ({
     ...provided,
-    "> span": {
-      display: "none",
+    '> span': {
+      display: 'none',
     },
   }),
-  indicatorContainer: (provided) => ({
+  indicatorContainer: provided => ({
     ...provided,
-    padding: "0",
+    padding: '0',
   }),
-  menu: (provided) => ({
+  menu: provided => ({
     ...provided,
-    background: "#ffffff0d",
+    background: '#ffffff0d',
   }),
   option: (provided, state) => ({
     ...provided,
-    background: state.isSelected ? "#F2F2F2" : "#F2F2F2",
-    color: "#1E1E1E",
-    "&:hover": {
-      background: "#134CB2",
-      color: "#ffffff",
+    background: state.isSelected ? '#F2F2F2' : '#F2F2F2',
+    color: '#1E1E1E',
+    '&:hover': {
+      background: '#134CB2',
+      color: '#ffffff',
     },
   }),
 };
@@ -85,8 +86,10 @@ const PersonalData = () => {
     useAuthStore();
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
-  const [billingError, setBillingError] = useState("");
-  const [billingSuccess, setBillingSuccess] = useState("");
+  const [billingError, setBillingError] = useState('');
+  const [billingSuccess, setBillingSuccess] = useState('');
+
+  const t = useTranslations('dashboard.personalData');
 
   useEffect(() => {
     fetchCurrentUser();
@@ -94,28 +97,46 @@ const PersonalData = () => {
   }, []);
 
   const initialValues = {
-    firstName: currentUser?.firstName || "",
-    lastName: currentUser?.lastName || "",
-    addressLine1: currentUser?.addressLine1 || "",
-    addressLine2: currentUser?.addressLine2 || "",
-    city: currentUser?.city || "",
-    zip: currentUser?.zip || "",
+    firstName: currentUser?.firstName || '',
+    lastName: currentUser?.lastName || '',
+    addressLine1: currentUser?.addressLine1 || '',
+    addressLine2: currentUser?.addressLine2 || '',
+    city: currentUser?.city || '',
+    zip: currentUser?.zip || '',
     country: getCountryOptionByCode(currentUser?.country) || null,
-    email: currentUser?.email || "",
-    phone: currentUser?.phone || "",
+    email: currentUser?.email || '',
+    phone: currentUser?.phone || '',
   };
 
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required("This field is required."),
-    lastName: Yup.string().required("This field is required."),
-    addressLine1: Yup.string().required("This field is required."),
-    city: Yup.string().required("This field is required."),
-    zip: Yup.string().required("This field is required."),
-    country: Yup.object().required("This field is required."),
+    firstName: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
+    lastName: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
+    addressLine1: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
+    city: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
+    zip: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
+    country: Yup.object().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
     email: Yup.string()
-      .email("Please provide a valid email address.")
-      .required("This field is required."),
-    phone: Yup.string().required("This field is required."),
+      .email(
+        t('errors.invalidEmail', {
+          fallback: 'Please provide a valid email address.',
+        }),
+      )
+      .required(t('errors.required', { fallback: 'This field is required.' })),
+    phone: Yup.string().required(
+      t('errors.required', { fallback: 'This field is required.' }),
+    ),
   });
 
   const handleSubmit = async (values, { setSubmitting }) => {
@@ -135,10 +156,10 @@ const PersonalData = () => {
         userId: currentUser?.id,
       };
 
-      const response = await fetch("/api/auth/user-update", {
-        method: "POST",
+      const response = await fetch('/api/auth/user-update', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(updateData),
@@ -147,18 +168,25 @@ const PersonalData = () => {
       if (response.ok) {
         const updatedUser = await response.json();
         setCurrentUser(updatedUser);
-        localStorage.setItem("user", JSON.stringify(updatedUser));
+        localStorage.setItem('user', JSON.stringify(updatedUser));
         fetchCurrentUser();
         setBillingSuccess(
-          "Your personal information has been updated successfully."
+          t('success', {
+            fallback:
+              'Your personal information has been updated successfully.',
+          }),
         );
       } else {
         const errorData = await response.json();
         setBillingError(errorData.message);
       }
     } catch (error) {
-      console.error("Failed to update user data", error);
-      setBillingError("An error occurred while updating your information.");
+      console.error('Failed to update user data', error);
+      setBillingError(
+        t('error', {
+          fallback: 'An error occurred while updating your information.',
+        }),
+      );
     } finally {
       setSubmitting(false);
     }
@@ -167,7 +195,9 @@ const PersonalData = () => {
   return (
     <>
       <section className="personal-data">
-        <h3>Personal Information</h3>
+        <h3>
+          {t('personalInformation', { fallback: 'Personal Information' })}
+        </h3>
         {isMounted && (
           <Formik
             initialValues={initialValues}
@@ -180,11 +210,11 @@ const PersonalData = () => {
                   <div>
                     <label>
                       <Field
-                        placeholder="First name"
+                        placeholder={t('firstName', { fallback: 'First name' })}
                         type="text"
                         name="firstName"
                         className={
-                          touched.firstName && errors.firstName ? "invalid" : ""
+                          touched.firstName && errors.firstName ? 'invalid' : ''
                         }
                       />
                     </label>
@@ -197,11 +227,11 @@ const PersonalData = () => {
                   <div>
                     <label>
                       <Field
-                        placeholder="Last name"
+                        placeholder={t('lastName', { fallback: 'Last name' })}
                         type="text"
                         name="lastName"
                         className={
-                          touched.lastName && errors.lastName ? "invalid" : ""
+                          touched.lastName && errors.lastName ? 'invalid' : ''
                         }
                       />
                     </label>
@@ -214,11 +244,11 @@ const PersonalData = () => {
                   <div>
                     <label>
                       <Field
-                        placeholder="Email"
+                        placeholder={t('email', { fallback: 'Email' })}
                         type="email"
                         name="email"
                         className={
-                          touched.email && errors.email ? "invalid" : ""
+                          touched.email && errors.email ? 'invalid' : ''
                         }
                       />
                     </label>
@@ -230,12 +260,12 @@ const PersonalData = () => {
                   </div>
                   <div>
                     <PhoneInput
-                      country={"us"}
+                      country={'us'}
                       excludeCountries={excludedCountries}
                       value={values.phone}
-                      placeholder="Phone Number"
-                      onChange={(phone) => setFieldValue("phone", phone)}
-                      className={touched.phone && errors.phone ? "invalid" : ""}
+                      placeholder={t('phone', { fallback: 'Phone Number' })}
+                      onChange={phone => setFieldValue('phone', phone)}
+                      className={touched.phone && errors.phone ? 'invalid' : ''}
                     />
                     <ErrorMessage
                       name="phone"
@@ -246,13 +276,15 @@ const PersonalData = () => {
                   <div>
                     <label>
                       <Field
-                        placeholder="Address Line 1"
+                        placeholder={t('addressLine1', {
+                          fallback: 'Address Line 1',
+                        })}
                         type="text"
                         name="addressLine1"
                         className={
                           touched.addressLine1 && errors.addressLine1
-                            ? "invalid"
-                            : ""
+                            ? 'invalid'
+                            : ''
                         }
                       />
                     </label>
@@ -265,7 +297,9 @@ const PersonalData = () => {
                   <div>
                     <label>
                       <Field
-                        placeholder="Address Line 2"
+                        placeholder={t('addressLine2', {
+                          fallback: 'Address Line 2',
+                        })}
                         type="text"
                         name="addressLine2"
                       />
@@ -274,10 +308,10 @@ const PersonalData = () => {
                   <div>
                     <label>
                       <Field
-                        placeholder="City"
+                        placeholder={t('city', { fallback: 'City' })}
                         type="text"
                         name="city"
-                        className={touched.city && errors.city ? "invalid" : ""}
+                        className={touched.city && errors.city ? 'invalid' : ''}
                       />
                     </label>
                     <ErrorMessage
@@ -289,10 +323,10 @@ const PersonalData = () => {
                   <div>
                     <label>
                       <Field
-                        placeholder="ZIP"
+                        placeholder={t('zip', { fallback: 'ZIP' })}
                         type="text"
                         name="zip"
-                        className={touched.zip && errors.zip ? "invalid" : ""}
+                        className={touched.zip && errors.zip ? 'invalid' : ''}
                       />
                     </label>
                     <ErrorMessage
@@ -309,16 +343,14 @@ const PersonalData = () => {
                           options={countryList().getData()}
                           styles={customStyles}
                           className={`form-field ${
-                            touched.country && errors.country ? "invalid" : ""
+                            touched.country && errors.country ? 'invalid' : ''
                           }`}
                           value={countryList()
                             .getData()
                             .find(
-                              (option) => option.value === values.country?.value
+                              option => option.value === values.country?.value,
                             )}
-                          onChange={(option) =>
-                            setFieldValue("country", option)
-                          }
+                          onChange={option => setFieldValue('country', option)}
                         />
                       )}
                     </Field>
@@ -334,7 +366,9 @@ const PersonalData = () => {
                       className="main-button"
                       disabled={isSubmitting}
                     >
-                      <span>Save changes</span>
+                      <span>
+                        {t('saveChanges', { fallback: 'Save changes' })}
+                      </span>
                     </button>
                   </div>
                 </div>

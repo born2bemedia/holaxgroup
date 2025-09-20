@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import useOrderStore from "@/stores/orderStore"; // Import the order store
-import useAuthStore from "@/stores/authStore";
-import Link from "next/link"; // Use the standard Next.js Link component
+import React, { useState, useEffect } from 'react';
+import useOrderStore from '@/stores/orderStore'; // Import the order store
+import useAuthStore from '@/stores/authStore';
+import Link from 'next/link'; // Use the standard Next.js Link component
+import { useTranslations } from 'next-intl';
 
 function Orders() {
   const { currentUser, fetchCurrentUser } = useAuthStore();
@@ -10,12 +11,14 @@ function Orders() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const formatDate = (dateString) => {
+  const t = useTranslations('dashboard.orders');
+
+  const formatDate = dateString => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat("en-US", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
+    return new Intl.DateTimeFormat('en-US', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
     }).format(date);
   };
 
@@ -27,40 +30,40 @@ function Orders() {
       try {
         const ordersData = await getOrdersByUser(currentUser.email); // Fetch orders using Zustand
         setOrders(ordersData);
-        console.log("ordersData", ordersData);
+        console.log('ordersData', ordersData);
       } catch (error) {
-        console.error("Failed to fetch orders:", error);
-        setError("Failed to load orders.");
+        console.error('Failed to fetch orders:', error);
+        setError('Failed to load orders.');
       } finally {
         setLoading(false);
       }
     };
 
     fetchOrders();
-    console.log("orders", orders);
+    console.log('orders', orders);
   }, [currentUser, getOrdersByUser]);
 
   return (
     <div>
-      {loading && <p>Loading orders...</p>}
+      {loading && <p>{t('loading', { fallback: 'Loading orders...' })}</p>}
       {error && <p>{error}</p>}
       {orders ? (
         <div className="orders-wrap">
           <table className="orders">
             <thead>
               <tr>
-                <th>Order ID</th>
-                <th>Date</th>
+                <th>{t('orderId', { fallback: 'Order ID' })}</th>
+                <th>{t('date', { fallback: 'Date' })}</th>
 
-                <th>Service</th>
+                <th>{t('service', { fallback: 'Service' })}</th>
 
-                <th>Cost</th>
-                <th>Status</th>
-                <th>Invoice</th>
+                <th>{t('cost', { fallback: 'Cost' })}</th>
+                <th>{t('status', { fallback: 'Status' })}</th>
+                <th>{t('invoice', { fallback: 'Invoice' })}</th>
               </tr>
             </thead>
             <tbody>
-              {orders.map((order) => (
+              {orders.map(order => (
                 <tr key={order.id}>
                   <td>
                     <span className="id">#{order.id}</span>
@@ -71,14 +74,15 @@ function Orders() {
 
                   <td>
                     <span>
-                      {order.products.map((product) => (
+                      {order.products.map(product => (
                         <span
                           key={product.id}
                           target="_blank"
-                          href={"#"}
+                          href={'#'}
                           className=""
                         >
-                          {product.title}<br/>
+                          {product.title}
+                          <br />
                         </span>
                       ))}
                     </span>
@@ -89,10 +93,14 @@ function Orders() {
                   </td>
                   <td>
                     <span>
-                      {order.order_status === "cancelled" ? (
-                        <div className="cancelled">Cancelled</div>
+                      {order.order_status === 'cancelled' ? (
+                        <div className="cancelled">
+                          {t('cancelled', { fallback: 'Cancelled' })}
+                        </div>
                       ) : (
-                        <div className="completed">Completed</div>
+                        <div className="completed">
+                          {t('completed', { fallback: 'Completed' })}
+                        </div>
                       )}
                     </span>
                   </td>
@@ -118,7 +126,9 @@ function Orders() {
           </table>
         </div>
       ) : (
-        <div className="empty">There are currently no orders placed.</div>
+        <div className="empty">
+          {t('noOrders', { fallback: 'There are currently no orders placed.' })}
+        </div>
       )}
     </div>
   );

@@ -950,5 +950,176 @@
     "title": "Thank you for your order!",
     "text": "We appreciate your decision to choose Holax Group. One of our representatives will contact you soon to confirm the details of your order.",
     "goHome": "Go home"
+  },
+  "signUp": {
+    "errors": {
+      "firstName": "First name is required",
+      "lastName": "Last name is required",
+      "invalidEmail": "Invalid email address",
+      "email": "Email is required",
+      "password": "Password is required",
+      "passwordsMustMatch": "Passwords must match",
+      "confirmPassword": "Passwords must match",
+      "terms": "You must accept the terms and conditions"
+    },
+    "title": "Join Holax Group today",
+    "description": "Join Holax Group today and access exclusive features. Fill out the form below to create your account and enjoy member benefits and opportunities.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "terms": {
+      "0": "I agree to the",
+      "1": "Terms and Conditions."
+    },
+    "privacy": {
+      "0": "I agree to the",
+      "1": "Privacy Policy."
+    },
+    "age": "I am over 18 and I have read all the above.",
+    "submit": "Create Account",
+    "login": {
+      "0": "Already a member?",
+      "1": "Log in"
+    },
+    "success": "Your account has been successfully created! You can now log in using your email and password."
+  },
+  "setPassword": {
+    "invalid": "Invalid or expired link.",
+    "form": {
+      "errors": {
+        "newPassword": "New password is required",
+        "confirmPassword": "Passwords must match",
+        "mustMatch": "Passwords must match"
+      },
+      "expiredToken": "Invalid or expired token.",
+      "tryAgain": "An error occurred. Please try again.",
+      "failed": "Failed to change password.",
+      "title": "Change Password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "setNewPassword": "Set new password",
+      "passwordChanged": "Password changed successfully!"
+    }
+  },
+  "resetPassword": {
+    "errors": {
+      "invalidEmail": "Invalid email address",
+      "email": "Email is required"
+    },
+    "title": "Reset Your Password",
+    "description": {
+      "0": "Please enter your email address, and we will",
+      "1": "send you the steps to reset your password."
+    },
+    "email": "Email",
+    "submit": "Reset now",
+    "resetNow": "Reset now",
+    "success": "A link to reset your password has been sent to your email. Please check your inbox and follow the instructions to proceed.",
+    "error": "An error occurred. Please try again.",
+    "goBack": "Go back"
+  },
+  "logIn": {
+    "errors": {
+      "email": "Email is required",
+      "invalidEmail": "Invalid email address",
+      "password": "Password is required"
+    },
+    "loginFailed": "Login failed",
+    "unexpectedError": "An unexpected error occurred",
+    "title": "Welcome to Holax Group!",
+    "description": {
+      "0": "Please enter your username and password",
+      "1": "to access your account."
+    },
+    "email": "Email",
+    "password": "Password",
+    "submit": "Log in",
+    "forgotPassTitle": {
+      "0": "Forgot your password? Don’t worry!",
+      "1": "Click the link below to reset it.",
+      "2": "Forgot your password?"
+    },
+    "signUp": {
+      "0": "New to Holax Group?",
+      "1": "Sign up",
+      "2": {
+        "0": "now to join our",
+        "1": "community and enjoy exclusive benefits and features."
+      }
+    }
+  },
+  "dashboard": {
+    "myAccount": "My Account",
+    "recentOrders": "Recent Orders",
+    "downloads": "Downloads",
+    "myAddresses": "My Addresses",
+    "welcome": "Welcome to your personal control centre.",
+    "brief": {
+      "0": "Here, you can manage your",
+      "1": "account details",
+      "2": "monitor",
+      "3": "recent orders",
+      "4": "in one convenient place. You can do it here if you need to change your password or update your personal information. Stay organised and in control with everything you need at your fingertips."
+    },
+    "orders": {
+      "orderId": "Order ID",
+      "date": "Date",
+      "service": "Service",
+      "cost": "Cost",
+      "status": "Status",
+      "invoice": "Invoice",
+      "cancelled": "Cancelled",
+      "completed": "Completed",
+      "noOrders": "There are currently no orders placed.",
+      "loading": "Loading orders..."
+    },
+    "availableFiles": {
+      "invoiceDate": "Invoice date:",
+      "invoiceNum": "Invoice num:",
+      "downloadInvoice": "Download Invoice",
+      "noDownloads": "There are no downloads available yet.",
+      "loading": "Loading orders..."
+    },
+    "personalData": {
+      "errors": {
+        "required": "This field is required",
+        "invalidEmail": "Please provide a valid email address"
+      },
+      "success": "Your personal information has been updated successfully.",
+      "error": "An error occurred while updating your information.",
+      "personalInformation": "Personal Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone Numberß",
+      "addressLine1": "Address Line 1",
+      "addressLine2": "Address Line 2",
+      "city": "City",
+      "zip": "ZIP",
+      "saveChanges": "Save changes"
+    },
+    "changePassword": {
+      "errors": {
+        "currentPassword": "Current password is required",
+        "newPassword": "New password is required",
+        "confirmPassword": "Passwords must match",
+        "mustMatch": "Confirm password is required",
+        "passwordMustBeAtLeast8Characters": "Password must be at least 8 characters"
+      },
+      "failed": "Failed to change password.",
+      "error": "An error occurred while changing the password.",
+      "title": "Change Password",
+      "newPassword": "New password",
+      "currentPassword": "Current password",
+      "confirmPassword": "Confirm password",
+      "setNewPassword": "Set new password",
+      "passwordChanged": "Password changed successfully!",
+      "changePassword": "Change Password",
+      "saveChanges": "Save changes"
+    },
+    "logout": "Log Out",
+    "loading": "Loading..."
   }
 }

@@ -1,37 +1,51 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import { useRouter } from "next/navigation";
-import axios from "axios";
+'use client';
+import React, { useState, useEffect } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
+import { useTranslations } from 'next-intl';
 
 const ChangePasswordReset = ({ token }) => {
-  const [changePasswordError, setChangePasswordError] = useState("");
+  const [changePasswordError, setChangePasswordError] = useState('');
   const [passwordChanged, setPasswordChanged] = useState(false);
   const router = useRouter();
   const [userToken, setUserToken] = useState(null);
 
+  const t = useTranslations('setPassword.form');
+
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       setUserToken(token);
     }
   }, [token]);
 
   const initialValues = {
-    newPassword: "",
-    confirmPassword: "",
+    newPassword: '',
+    confirmPassword: '',
   };
 
   const validationSchema = Yup.object().shape({
-    newPassword: Yup.string().required("New password is required"),
+    newPassword: Yup.string().required(
+      t('errors.newPassword', { fallback: 'New password is required' }),
+    ),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("newPassword"), null], "Passwords must match")
-      .required("Confirm password is required"),
+      .oneOf(
+        [Yup.ref('newPassword'), null],
+        t('errors.mustMatch', { fallback: 'Passwords must match' }),
+      )
+      .required(
+        t('errors.confirmPassword', {
+          fallback: 'Confirm password is required',
+        }),
+      ),
   });
 
   const handleSubmit = async (values, { setSubmitting }) => {
     if (!userToken) {
-      setChangePasswordError("Invalid or expired token.");
+      setChangePasswordError(
+        t('errors.expiredToken', { fallback: 'Invalid or expired token.' }),
+      );
       setSubmitting(false);
       return;
     }
@@ -45,23 +59,28 @@ const ChangePasswordReset = ({ token }) => {
           code: userToken, // token received in the reset link
           password: newPassword,
           passwordConfirmation: confirmPassword,
-        }
+        },
       );
 
       if (response.status === 200) {
         setPasswordChanged(true);
-        setChangePasswordError("");
+        setChangePasswordError('');
         setTimeout(() => {
           setPasswordChanged(false);
-          router.push("/log-in");
+          router.push('/log-in');
         }, 3000);
       } else {
-        setChangePasswordError("Failed to change password.");
+        setChangePasswordError(
+          t('errors.failed', { fallback: 'Failed to change password.' }),
+        );
       }
     } catch (error) {
-      console.error("Failed to change password", error);
+      console.error('Failed to change password', error);
       setChangePasswordError(
-        error.response?.data?.message || "An error occurred. Please try again."
+        error.response?.data?.message ||
+          t('errors.tryAgain', {
+            fallback: 'An error occurred. Please try again.',
+          }),
       );
     } finally {
       setSubmitting(false);
@@ -83,13 +102,15 @@ const ChangePasswordReset = ({ token }) => {
                 <div>
                   <label>
                     <Field
-                      placeholder="New password"
+                      placeholder={t('newPassword', {
+                        fallback: 'New password',
+                      })}
                       type="password"
                       name="newPassword"
                       className={
                         touched.newPassword && errors.newPassword
-                          ? "invalid"
-                          : ""
+                          ? 'invalid'
+                          : ''
                       }
                     />
                   </label>
@@ -102,13 +123,15 @@ const ChangePasswordReset = ({ token }) => {
                 <div>
                   <label>
                     <Field
-                      placeholder="Confirm password"
+                      placeholder={t('confirmPassword', {
+                        fallback: 'Confirm password',
+                      })}
                       type="password"
                       name="confirmPassword"
                       className={
                         touched.confirmPassword && errors.confirmPassword
-                          ? "invalid"
-                          : ""
+                          ? 'invalid'
+                          : ''
                       }
                     />
                   </label>
@@ -123,10 +146,16 @@ const ChangePasswordReset = ({ token }) => {
                   className="main-button"
                   disabled={isSubmitting}
                 >
-                  <span>Set new password</span>
+                  <span>
+                    {t('setNewPassword', { fallback: 'Set new password' })}
+                  </span>
                 </button>
                 {passwordChanged && (
-                  <div className="success">Password changed successfully!</div>
+                  <div className="success">
+                    {t('passwordChanged', {
+                      fallback: 'Password changed successfully!',
+                    })}
+                  </div>
                 )}
                 {changePasswordError && (
                   <div className="error">{changePasswordError}</div>

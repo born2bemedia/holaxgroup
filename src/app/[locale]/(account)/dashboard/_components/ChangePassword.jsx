@@ -1,30 +1,49 @@
-"use client";
-import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import useAuthStore from "@/stores/authStore"; // Zustand store for auth
-import axios from "axios";
-import { useState } from "react";
+'use client';
+import React from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import useAuthStore from '@/stores/authStore'; // Zustand store for auth
+import axios from 'axios';
+import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 const ChangePassword = () => {
   const { getToken } = useAuthStore(); // Zustand function to get token
-  const [changePasswordError, setChangePasswordError] = useState("");
+  const [changePasswordError, setChangePasswordError] = useState('');
   const [passwordChanged, setPasswordChanged] = useState(false);
 
+  const t = useTranslations('dashboard.changePassword');
+
   const initialValues = {
-    currentPassword: "",
-    newPassword: "",
-    confirmPassword: "",
+    currentPassword: '',
+    newPassword: '',
+    confirmPassword: '',
   };
 
   const validationSchema = Yup.object().shape({
-    currentPassword: Yup.string().required("Current password is required"),
+    currentPassword: Yup.string().required(
+      t('errors.currentPassword', { fallback: 'Current password is required' }),
+    ),
     newPassword: Yup.string()
-      .min(8, "Password must be at least 8 characters")
-      .required("New password is required"),
+      .min(
+        8,
+        t('errors.passwordMustBeAtLeast8Characters', {
+          fallback: 'Password must be at least 8 characters',
+        }),
+      )
+      .required(
+        t('errors.newPassword', { fallback: 'New password is required' }),
+      ),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("newPassword"), null], "Passwords must match")
-      .required("Confirm password is required"),
+      .oneOf(
+        [Yup.ref('newPassword'), null],
+        t('errors.confirmPassword', { fallback: 'Passwords must match' }),
+      )
+      .required(
+        t('errors.confirmPassword', {
+          fallback: 'Confirm password is required',
+        }),
+      ),
   });
 
   const handleSubmit = async (values, { setSubmitting }) => {
@@ -45,23 +64,27 @@ const ChangePassword = () => {
           headers: {
             Authorization: `Bearer ${token}`, // Use the JWT token in the header
           },
-        }
+        },
       );
 
       if (response.status === 200) {
         setPasswordChanged(true);
-        setChangePasswordError("");
+        setChangePasswordError('');
         setTimeout(() => {
           setPasswordChanged(false);
         }, 3000);
       } else {
-        setChangePasswordError("Failed to change password.");
+        setChangePasswordError(
+          t('errors.failed', { fallback: 'Failed to change password.' }),
+        );
       }
     } catch (error) {
-      console.error("Failed to change password", error);
+      console.error('Failed to change password', error);
       setChangePasswordError(
         error.response?.data?.message ||
-          "An error occurred while changing the password."
+          t('error', {
+            fallback: 'An error occurred while changing the password.',
+          }),
       );
     } finally {
       setSubmitting(false);
@@ -70,7 +93,7 @@ const ChangePassword = () => {
 
   return (
     <section className="change-password">
-      <h3>Change Password</h3>
+      <h3>{t('title', { fallback: 'Change Password' })}</h3>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -82,13 +105,15 @@ const ChangePassword = () => {
               <div>
                 <label>
                   <Field
-                    placeholder="Current password"
+                    placeholder={t('currentPassword', {
+                      fallback: 'Current password',
+                    })}
                     type="password"
                     name="currentPassword"
                     className={
                       touched.currentPassword && errors.currentPassword
-                        ? "invalid"
-                        : ""
+                        ? 'invalid'
+                        : ''
                     }
                   />
                 </label>
@@ -101,11 +126,13 @@ const ChangePassword = () => {
               <div>
                 <label>
                   <Field
-                    placeholder="New password"
+                    placeholder={t('newPassword', {
+                      fallback: 'New password',
+                    })}
                     type="password"
                     name="newPassword"
                     className={
-                      touched.newPassword && errors.newPassword ? "invalid" : ""
+                      touched.newPassword && errors.newPassword ? 'invalid' : ''
                     }
                   />
                 </label>
@@ -118,13 +145,15 @@ const ChangePassword = () => {
               <div>
                 <label>
                   <Field
-                    placeholder="Confirm password"
+                    placeholder={t('confirmPassword', {
+                      fallback: 'Confirm password',
+                    })}
                     type="password"
                     name="confirmPassword"
                     className={
                       touched.confirmPassword && errors.confirmPassword
-                        ? "invalid"
-                        : ""
+                        ? 'invalid'
+                        : ''
                     }
                   />
                 </label>
@@ -140,13 +169,17 @@ const ChangePassword = () => {
                   className="main-button"
                   disabled={isSubmitting}
                 >
-                  <span>Save changes</span>
+                  <span>{t('saveChanges', { fallback: 'Save changes' })}</span>
                 </button>
               </div>
             </div>
 
             {passwordChanged && (
-              <div className="success">Password changed successfully!</div>
+              <div className="success">
+                {t('passwordChanged', {
+                  fallback: 'Password changed successfully!',
+                })}
+              </div>
             )}
             {changePasswordError && (
               <div className="error">{changePasswordError}</div>

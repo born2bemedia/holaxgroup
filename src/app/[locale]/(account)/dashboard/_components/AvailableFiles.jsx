@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import useOrderStore from "@/stores/orderStore"; // Import the Zustand store
-import useAuthStore from "@/stores/authStore"; // Import Auth Zustand store
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import useOrderStore from '@/stores/orderStore'; // Import the Zustand store
+import useAuthStore from '@/stores/authStore'; // Import Auth Zustand store
+import { useTranslations } from 'next-intl';
 
 function AvailableFiles() {
   const { currentUser } = useAuthStore(); // Access currentUser from Zustand
@@ -10,12 +11,14 @@ function AvailableFiles() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const formatDate = (dateString) => {
+  const t = useTranslations('dashboard.availableFiles');
+
+  const formatDate = dateString => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat("en-US", {
-      day: "2-digit",
-      month: "long",
-      year: "numeric",
+    return new Intl.DateTimeFormat('en-US', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
     }).format(date);
   };
 
@@ -27,8 +30,8 @@ function AvailableFiles() {
         const ordersData = await getOrdersByUser(currentUser.email); // Fetch orders using Zustand
         setOrders(ordersData);
       } catch (error) {
-        console.error("Failed to fetch orders:", error);
-        setError("Failed to load orders.");
+        console.error('Failed to fetch orders:', error);
+        setError('Failed to load orders.');
       } finally {
         setLoading(false);
       }
@@ -36,11 +39,13 @@ function AvailableFiles() {
     fetchOrders();
   }, [currentUser, getOrdersByUser]);
 
-  const hasInvoice = orders?.some((order) => order.invoice?.url); // Check if any order has an invoice
+  const hasInvoice = orders?.some(order => order.invoice?.url); // Check if any order has an invoice
 
   return (
     <div>
-      {loading && <p className="">Loading orders...</p>}
+      {loading && (
+        <p className="">{t('loading', { fallback: 'Loading orders...' })}</p>
+      )}
       {error && <p className="">{error}</p>}
       <div className="downloads-wrap">
         {hasInvoice ? (
@@ -51,25 +56,37 @@ function AvailableFiles() {
                   <div className="download" key={order.id}>
                     <div>
                       <div>
-                        <span>{String(index + 1).padStart(2, "0")}.</span>
+                        <span>{String(index + 1).padStart(2, '0')}.</span>
                       </div>
                       <div>
-                        <span>Invoice date:</span> {formatDate(order.createdAt)}
+                        <span>
+                          {t('invoiceDate', { fallback: 'Invoice date:' })}
+                        </span>{' '}
+                        {formatDate(order.createdAt)}
                       </div>
                       <div>
-                        <span>Invoice num:</span> #{order.id}
+                        <span>
+                          {t('invoiceNum', { fallback: 'Invoice num:' })}
+                        </span>{' '}
+                        #{order.id}
                       </div>
                     </div>
                     <Link href={`${order.invoice.url}`} target="_blank">
-                      <span>Download Invoice</span>
+                      <span>
+                        {t('downloadInvoice', { fallback: 'Download Invoice' })}
+                      </span>
                       <img src="/images/download.svg" />
                     </Link>
                   </div>
-                )
+                ),
             )}
           </div>
         ) : (
-          <div className="empty">There are no downloads available yet.</div>
+          <div className="empty">
+            {t('noDownloads', {
+              fallback: 'There are no downloads available yet.',
+            })}
+          </div>
         )}
       </div>
     </div>

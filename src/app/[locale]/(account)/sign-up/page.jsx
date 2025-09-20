@@ -1,41 +1,62 @@
-"use client";
-import "@/styles/login.scss";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import useAuthStore from "@/stores/authStore";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import Link from "next/link";
-import CheckboxIcon from "@/icons/CheckboxIcon";
+'use client';
+import '@/styles/login.scss';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import useAuthStore from '@/stores/authStore';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import Link from 'next/link';
+import CheckboxIcon from '@/icons/CheckboxIcon';
+import { useTranslations } from 'next-intl';
 
 export default function SignUp() {
   const [thanksPopupShow, setThanksPopupShow] = useState(false);
   const router = useRouter();
   const { fetchCurrentUser } = useAuthStore();
 
+  const t = useTranslations('signUp');
+
   const initialValues = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
     terms: false,
     privacy: false,
     age: false,
-    username: "",
+    username: '',
   };
 
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required("First name is required"),
-    lastName: Yup.string().required("Last name is required"),
+    firstName: Yup.string().required(
+      t('errors.firstName', { fallback: 'First name is required' }),
+    ),
+    lastName: Yup.string().required(
+      t('errors.lastName', { fallback: 'Last name is required' }),
+    ),
     email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required"),
-    password: Yup.string().required("Password is required"),
+      .email(t('errors.invalidEmail', { fallback: 'Invalid email address' }))
+      .required(t('errors.email', { fallback: 'Email is required' })),
+    password: Yup.string().required(
+      t('errors.password', { fallback: 'Password is required' }),
+    ),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), null], "Passwords must match")
-      .required("Confirm password is required"),
-    terms: Yup.bool().oneOf([true], "You must accept the terms and conditions"),
+      .oneOf(
+        [Yup.ref('password'), null],
+        t('errors.passwordsMustMatch', { fallback: 'Passwords must match' }),
+      )
+      .required(
+        t('errors.confirmPassword', {
+          fallback: 'Confirm password is required',
+        }),
+      ),
+    terms: Yup.bool().oneOf(
+      [true],
+      t('errors.terms', {
+        fallback: 'You must accept the terms and conditions',
+      }),
+    ),
   });
 
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
@@ -45,30 +66,30 @@ export default function SignUp() {
       firstName: values.firstName,
       lastName: values.lastName,
       username: values.email,
-      phone: "",
+      phone: '',
     };
 
     try {
-      const response = await fetch("/api/auth/sign-up", {
-        method: "POST",
+      const response = await fetch('/api/auth/sign-up', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(userData),
       });
 
       const data = await response.json();
       if (!data.jwt) {
-        throw new Error("JWT not found");
+        throw new Error('JWT not found');
       }
 
       setThanksPopupShow(true);
 
       // Надсилаємо email
       try {
-        await fetch("/api/emails/sign-up", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+        await fetch('/api/emails/sign-up', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(values),
         });
       } catch (error) {
@@ -77,16 +98,16 @@ export default function SignUp() {
 
       setTimeout(() => {
         setThanksPopupShow(false);
-        localStorage.setItem("jwt", data.jwt);
+        localStorage.setItem('jwt', data.jwt);
         fetchCurrentUser(); // Оновлюємо користувача через Zustand
-        router.push("/dashboard");
+        router.push('/dashboard');
       }, 3000);
     } catch (error) {
       console.error(
-        "Registration failed",
-        error.response?.data || error.message
+        'Registration failed',
+        error.response?.data || error.message,
       );
-      setFieldError("email", "An account with this email already exists");
+      setFieldError('email', 'An account with this email already exists');
     } finally {
       setSubmitting(false);
     }
@@ -97,11 +118,12 @@ export default function SignUp() {
       <section className="sign-up">
         <div className="_container">
           <div className="log-in__body">
-            <h1>Join Holax Group today</h1>
+            <h1>{t('title', { fallback: 'Join Holax Group today' })}</h1>
             <h2>
-              Join Holax Group today and access exclusive features. Fill out the
-              form below to create your account and enjoy member benefits and
-              opportunities.
+              {t('description', {
+                fallback:
+                  'Join Holax Group today and access exclusive features. Fill out the form below to create your account and enjoy member benefits and opportunities.',
+              })}
             </h2>
             <Formik
               initialValues={initialValues}
@@ -115,9 +137,9 @@ export default function SignUp() {
                     <Field
                       type="text"
                       name="firstName"
-                      placeholder="First name"
+                      placeholder={t('firstName', { fallback: 'First name' })}
                       className={
-                        touched.firstName && errors.firstName ? "invalid" : ""
+                        touched.firstName && errors.firstName ? 'invalid' : ''
                       }
                     />
                     <ErrorMessage
@@ -130,9 +152,9 @@ export default function SignUp() {
                     <Field
                       type="text"
                       name="lastName"
-                      placeholder="Last name"
+                      placeholder={t('lastName', { fallback: 'Last name' })}
                       className={
-                        touched.lastName && errors.lastName ? "invalid" : ""
+                        touched.lastName && errors.lastName ? 'invalid' : ''
                       }
                     />
                     <ErrorMessage
@@ -145,8 +167,8 @@ export default function SignUp() {
                     <Field
                       type="email"
                       name="email"
-                      placeholder="Email"
-                      className={touched.email && errors.email ? "invalid" : ""}
+                      placeholder={t('email', { fallback: 'Email' })}
+                      className={touched.email && errors.email ? 'invalid' : ''}
                     />
                     <ErrorMessage
                       name="email"
@@ -160,9 +182,9 @@ export default function SignUp() {
                     <Field
                       type="password"
                       name="password"
-                      placeholder="Password"
+                      placeholder={t('password', { fallback: 'Password' })}
                       className={
-                        touched.password && errors.password ? "invalid" : ""
+                        touched.password && errors.password ? 'invalid' : ''
                       }
                     />
                     <ErrorMessage
@@ -175,11 +197,13 @@ export default function SignUp() {
                     <Field
                       type="password"
                       name="confirmPassword"
-                      placeholder="Confirm password"
+                      placeholder={t('confirmPassword', {
+                        fallback: 'Confirm password',
+                      })}
                       className={
                         touched.confirmPassword && errors.confirmPassword
-                          ? "invalid"
-                          : ""
+                          ? 'invalid'
+                          : ''
                       }
                     />
                     <ErrorMessage
@@ -196,16 +220,16 @@ export default function SignUp() {
                         type="checkbox"
                         name="terms"
                         className={
-                          touched.terms && errors.terms ? "invalid" : ""
+                          touched.terms && errors.terms ? 'invalid' : ''
                         }
                         id="terms"
                       />
                       <label htmlFor="terms">
                         <CheckboxIcon />
                         <span>
-                          I agree to the{" "}
+                          {t('terms.0', { fallback: 'I agree to the' })}{' '}
                           <Link href="/terms-and-conditions">
-                            Terms and Conditions
+                            {t('terms.1', { fallback: 'Terms and Conditions' })}
                           </Link>
                         </span>
                       </label>
@@ -220,15 +244,17 @@ export default function SignUp() {
                         type="checkbox"
                         name="privacy"
                         className={
-                          touched.privacy && errors.privacy ? "invalid" : ""
+                          touched.privacy && errors.privacy ? 'invalid' : ''
                         }
                         id="privacy"
                       />
                       <label htmlFor="privacy">
                         <CheckboxIcon />
                         <span>
-                          I agree to the{" "}
-                          <Link href="/privacy-policy">Privacy Policy.</Link>
+                          {t('privacy.0', { fallback: 'I agree to the' })}{' '}
+                          <Link href="/privacy-policy">
+                            {t('privacy.1', { fallback: 'Privacy Policy.' })}
+                          </Link>
                         </span>
                       </label>
                       <ErrorMessage
@@ -242,12 +268,17 @@ export default function SignUp() {
                       <Field
                         type="checkbox"
                         name="age"
-                        className={touched.age && errors.age ? "invalid" : ""}
+                        className={touched.age && errors.age ? 'invalid' : ''}
                         id="age"
                       />
                       <label htmlFor="age">
                         <CheckboxIcon />
-                        <span>I am over 18 and I have read all the above.</span>
+                        <span>
+                          {t('age', {
+                            fallback:
+                              'I am over 18 and I have read all the above.',
+                          })}
+                        </span>
                       </label>
                       <ErrorMessage
                         name="age"
@@ -260,15 +291,15 @@ export default function SignUp() {
                   {/* Submit Button */}
                   <div>
                     <button type="submit" disabled={isSubmitting}>
-                      Create Account
+                      {t('submit', { fallback: 'Create Account' })}
                     </button>
                   </div>
 
                   <div className="bottom">
                     <div>
-                      Already a member?{" "}
+                      {t('login.0', { fallback: 'Already a member?' })}{' '}
                       <Link className="reset" href="/log-in">
-                        Log in
+                        {t('login.1', { fallback: 'Log in' })}
                       </Link>
                     </div>
                   </div>
@@ -278,8 +309,10 @@ export default function SignUp() {
 
             {thanksPopupShow && (
               <div className="success">
-                Your account has been successfully created! You can now log in
-                using your email and password.
+                {t('success', {
+                  fallback:
+                    'Your account has been successfully created! You can now log in using your email and password.',
+                })}
               </div>
             )}
           </div>
