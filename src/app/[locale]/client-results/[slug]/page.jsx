@@ -1,12 +1,13 @@
-import "@/styles/cases.scss";
-import axiosClient from "@/app/api/GlobalApi";
-import Image from "next/image";
-import ArrowVertical from "@/icons/other/ArrowVertical";
-import ReactMarkdown from "react-markdown";
-import CasesCta from "../_components/CasesCta";
+import '@/styles/cases.scss';
+import axiosClient from '@/app/api/GlobalApi';
+import Image from 'next/image';
+import ArrowVertical from '@/icons/other/ArrowVertical';
+import ReactMarkdown from 'react-markdown';
+import CasesCta from '../_components/CasesCta';
+import { getTranslations } from 'next-intl/server';
 
 // Use server-side data fetching to get the post by slug
-const fetchPostBySlugServer = async (slug) => {
+const fetchPostBySlugServer = async slug => {
   const url = `cases?filters[slug][$eq]=${slug}&populate=*`; // Adjust your API query here
   const response = await axiosClient.get(url);
   const caseItem = response.data.data[0]; // Assuming the response returns a single post
@@ -32,8 +33,8 @@ export async function generateMetadata({ params }) {
   const caseItem = await fetchPostBySlugServer(slug);
 
   return {
-    title: caseItem?.seo_title || caseItem?.title || "Default Title",
-    description: caseItem?.seo_description || "Default description",
+    title: caseItem?.seo_title || caseItem?.title || 'Default Title',
+    description: caseItem?.seo_description || 'Default description',
   };
 }
 
@@ -42,13 +43,15 @@ const CasesInner = async ({ params }) => {
   const { slug } = awaitedParams;
   const singlePost = await fetchPostBySlugServer(slug);
 
+  const t = await getTranslations('clientResultsSlug');
+
   if (!singlePost) {
     return (
       <section className="case-inner">
         <div className="_container">
           <div className="case-inner__top">
             <div className="col-01">
-              <h1>Post not found</h1>
+              <h1>{t('notFound', { fallback: 'Post not found' })}</h1>
             </div>
           </div>
         </div>
@@ -65,10 +68,13 @@ const CasesInner = async ({ params }) => {
               <div className="col-01">
                 <h1>{singlePost.title}</h1>
                 <div className="client">
-                  <span>Client: {singlePost.client}</span>
+                  <span>
+                    {t('client', { fallback: 'Client:' })} {singlePost.client}
+                  </span>
                 </div>
                 <div className="challenge">
-                  <span>Challenge:</span> {singlePost.challenge}
+                  <span>{t('challenge', { fallback: 'Challenge:' })}</span>{' '}
+                  {singlePost.challenge}
                 </div>
               </div>
               <Image
@@ -80,9 +86,9 @@ const CasesInner = async ({ params }) => {
             </div>
             <ArrowVertical />
             <div className="content">
-              <h2>Solution:</h2>
+              <h2>{t('solution', { fallback: 'Solution:' })}</h2>
               <ReactMarkdown>{singlePost.solution}</ReactMarkdown>
-              <h2>Results:</h2>
+              <h2>{t('results', { fallback: 'Results:' })}</h2>
               <ReactMarkdown>{singlePost.result}</ReactMarkdown>
             </div>
           </div>

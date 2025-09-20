@@ -747,5 +747,12 @@
       },
       "text": "Start your journey with Holax Group"
     }
+  },
+  "clientResultsSlug": {
+    "notFound": "Post not found",
+    "client": "Client:",
+    "challenge": "Challenge:",
+    "solution": "Solution:",
+    "results": "Results:"
   }
 }
