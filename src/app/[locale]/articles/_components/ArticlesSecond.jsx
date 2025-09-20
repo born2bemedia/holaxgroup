@@ -1,10 +1,13 @@
-"use client";
-import { fadeInUp } from "@/utils/animations";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import React from "react";
+'use client';
+import { fadeInUp } from '@/utils/animations';
+import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import React from 'react';
 
 const ArticlesSecond = () => {
+  const t = useTranslations('articles.second');
+
   return (
     <section className="articles-second">
       <div className="video">
@@ -29,14 +32,15 @@ const ArticlesSecond = () => {
           variants={fadeInUp}
           className="articles-second__body"
         >
-          Our Articles page shares in-depth insights, expert analyses, and
-          practical advice on various business and marketing consulting aspects.
-          Our blog posts are designed to help you navigate the complexities of
-          the consulting world, stay informed about the latest trends, and
-          implement effective strategies to drive your business forward.{" "}
+          {t('text1', {
+            fallback:
+              'Our Articles page shares in-depth insights, expert analyses, and practical advice on various business and marketing consulting aspects. Our blog posts are designed to help you navigate the complexities of the consulting world, stay informed about the latest trends, and implement effective strategies to drive your business forward.',
+          })}{' '}
           <span>
-            Explore our collection of articles written by industry experts and
-            gain valuable knowledge to enhance your business success.
+            {t('text2', {
+              fallback:
+                'Explore our collection of articles written by industry experts and gain valuable knowledge to enhance your business success.',
+            })}
           </span>
         </motion.div>
       </div>

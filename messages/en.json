@@ -862,5 +862,27 @@
       "description": "Interested in understanding our service offerings in detail? Download our complete price list to explore the range of consulting solutions we provide. Whether you need business consulting or marketing consulting services, our transparent pricing will help you make informed decisions. Simply click the link below to get started.",
       "button": "Download price list"
     }
+  },
+  "articles": {
+    "hero": {
+      "title": {
+        "0": "Insights and Expertise",
+        "1": "in Business and Marketing Consulting"
+      }
+    },
+    "second": {
+      "text1": "Our Articles page shares in-depth insights, expert analyses, and practical advice on various business and marketing consulting aspects. Our blog posts are designed to help you navigate the complexities of the consulting world, stay informed about the latest trends, and implement effective strategies to drive your business forward.",
+      "text2": "Explore our collection of articles written by industry experts and gain valuable knowledge to enhance your business success."
+    },
+    "wrap": {
+      "title": "Articles",
+      "readMore": "Read more",
+      "loading": "Loading articles..."
+    },
+    "slug": {
+      "notFound": "Post not found",
+      "introduction": "Introduction",
+      "conclusion": "Conclusion"
+    }
   }
 }

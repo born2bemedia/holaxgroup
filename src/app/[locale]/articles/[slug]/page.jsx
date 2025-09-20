@@ -1,12 +1,13 @@
-import "@/styles/articles.scss";
-import axiosClient from "@/app/api/GlobalApi";
-import Image from "next/image";
-import ArrowVertical from "@/icons/other/ArrowVertical";
-import ReactMarkdown from "react-markdown";
-import CasesCta from "../_components/CasesCta";
+import '@/styles/articles.scss';
+import axiosClient from '@/app/api/GlobalApi';
+import Image from 'next/image';
+import ArrowVertical from '@/icons/other/ArrowVertical';
+import ReactMarkdown from 'react-markdown';
+import CasesCta from '../_components/CasesCta';
+import { getTranslations } from 'next-intl/server';
 
 // Use server-side data fetching to get the post by slug
-const fetchPostBySlugServer = async (slug) => {
+const fetchPostBySlugServer = async slug => {
   const url = `articles?filters[slug][$eq]=${slug}&populate=*`; // Adjust your API query here
   const response = await axiosClient.get(url);
   const article = response.data.data[0]; // Assuming the response returns a single post
@@ -34,8 +35,8 @@ export async function generateMetadata({ params }) {
   const article = await fetchPostBySlugServer(slug);
 
   return {
-    title: article?.seo_title || article?.title || "Default Title",
-    description: article?.seo_description || "Default description",
+    title: article?.seo_title || article?.title || 'Default Title',
+    description: article?.seo_description || 'Default description',
   };
 }
 
@@ -44,13 +45,15 @@ const CasesInner = async ({ params }) => {
   const { slug } = awaitedParams;
   const singlePost = await fetchPostBySlugServer(slug);
 
+  const t = await getTranslations('articlesSlug');
+
   if (!singlePost) {
     return (
       <section className="case-inner">
         <div className="_container">
           <div className="case-inner__top">
             <div className="col-01">
-              <h1>Post not found</h1>
+              <h1>{t('notFound', { fallback: 'Post not found' })}</h1>
             </div>
           </div>
         </div>
@@ -69,12 +72,12 @@ const CasesInner = async ({ params }) => {
             </div>
             <div className="content">
               <div className="introduction">
-                <h2>Introduction</h2>
+                <h2>{t('introduction', { fallback: 'Introduction' })}</h2>
                 <p>{singlePost.introduction}</p>
               </div>
               <ReactMarkdown>{singlePost.content}</ReactMarkdown>
               <div className="conclusion">
-                <h2>Conclusion</h2>
+                <h2>{t('conclusion', { fallback: 'Conclusion' })}</h2>
                 <p>{singlePost.conclusion}</p>
               </div>
             </div>
