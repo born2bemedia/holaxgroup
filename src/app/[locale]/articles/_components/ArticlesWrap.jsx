@@ -5,19 +5,21 @@ import { motion } from 'framer-motion';
 import useArticlesStore from '@/stores/articlesStore';
 import Link from 'next/link';
 import OrderIcon from '@/icons/OrderIcon';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 const ArticlesWrap = () => {
+  const locale = useLocale();
+
   const articles = useArticlesStore(state => state.articles);
   const fetchArticles = useArticlesStore(state => state.fetchArticles);
 
   const t = useTranslations('articles.wrap');
 
   useEffect(() => {
-    fetchArticles()
+    fetchArticles(9999, locale)
       .then(() => console.log('Articles loaded:', articles))
       .catch(error => console.error('Error loading articles:', error));
-  }, [fetchArticles]);
+  }, [fetchArticles, locale]);
 
   return (
     <section className="articles-wrap">
