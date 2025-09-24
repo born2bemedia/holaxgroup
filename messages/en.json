@@ -1,0 +1,1130 @@
+{
+  "whatWeDo": {
+    "hero": {
+      "title": {
+        "0": "Elevate Your Project with",
+        "1": "Holax Group"
+      },
+      "text": {
+        "0": "We go beyond traditional consulting to provide a holistic",
+        "1": "and innovative approach tailored to your needs."
+      }
+    },
+    "text": {
+      "0": "We go beyond traditional consulting to provide a holistic and innovative approach tailored to your needs. Our comprehensive range of services, cutting-edge methodologies, and client-centric values set us apart from the competition. Discover how our collaborative approach and advanced techniques work and why clients choose us for sustainable growth and success.",
+      "1": "Choose Holax Group and embark on a journey towards excellence and lasting impact."
+    },
+    "approach": {
+      "title": "Our Approach",
+      "text": "Our approach is built on a foundation of collaboration, innovation, and client-centricity. We believe that the best results come from a partnership between our clients and our team, and we are committed to delivering the highest quality services to our clients.",
+      "initialConsultation": "Initial Consultation",
+      "customisedSolutions": "Customised Solutions",
+      "collaborativeExecution": "Collaborative Execution",
+      "continuousSupport": "Continuous Support",
+      "tabs": {
+        "tab1": {
+          "title": "Initial Consultation",
+          "list": {
+            "0": {
+              "0": "In-Depth Discovery:",
+              "1": "We conduct a thorough analysis of your business, including interviews with key stakeholders, reviewing existing processes, and understanding your goals."
+            },
+            "1": {
+              "0": "Customised Assessment:",
+              "1": "Based on the discovery phase, we develop a comprehensive assessment that identifies strengths, weaknesses, opportunities, and threats."
+            }
+          }
+        },
+        "tab2": {
+          "title": "Customised Solutions",
+          "list": {
+            "0": {
+              "0": "Strategic Planning:",
+              "1": "We craft bespoke strategies that align with your business objectives, focusing on long-term growth and sustainability."
+            },
+            "1": {
+              "0": "Tailored Recommendations:",
+              "1": "Our recommendations are specific, actionable, and designed to address your unique challenges and opportunities."
+            }
+          }
+        },
+        "tab3": {
+          "title": "Collaborative Execution",
+          "list": {
+            "0": {
+              "0": "Implementation Planning:",
+              "1": "We develop a detailed plan for implementing the customised solutions, including timelines, resources, and milestones."
+            },
+            "1": {
+              "0": "Ongoing Collaboration:",
+              "1": "Regular check-ins and progress updates ensure the implementation stays on track and adapts to emerging challenges."
+            }
+          }
+        },
+        "tab4": {
+          "title": "Continuous Support",
+          "list": {
+            "0": {
+              "0": "Performance Monitoring:",
+              "1": "We monitor the performance of implemented strategies to ensure they are delivering the expected results."
+            },
+            "1": {
+              "0": "Adaptation and Improvement:",
+              "1": "Continuous feedback loops and performance reviews allow us to adapt strategy and improve as needed."
+            }
+          }
+        }
+      }
+    },
+    "features": {
+      "title": "Features of Our Services",
+      "text": "Holax Group offers a wide range of features that set our services apart. These include:"
+    },
+    "how": {
+      "title": "How We Stand Out from Competitors",
+      "text": "Holax Group distinguishes itself from competitors through our unique value propositions:"
+    },
+    "our": {
+      "title": "Our Techniques and Methodologies",
+      "text": "Our expertise is built on a foundation of proven techniques and advanced methodologies. We leverage the latest industry best practices and innovative approaches to deliver exceptional results. Some of our fundamental techniques include:"
+    },
+    "values": {
+      "title": "Our Values",
+      "text": "Holax Group distinguishes itself from competitors through our unique value propositions:"
+    },
+    "why": {
+      "title": "Why Choose Holax Group?",
+      "text": "Clients choose us because of our commitment to excellence and track record of delivering measurable results. Here’s why you should partner with us:",
+      "list": {
+        "0": {
+          "title": "Proven Success",
+          "0": {
+            "0": "Track Record:",
+            "1": "We have a history of helping customers achieve their goals and drive growth."
+          },
+          "1": {
+            "0": "Case Studies:",
+            "1": "Showcasing success stories and testimonials from satisfied clients."
+          }
+        },
+        "1": {
+          "title": "Expert Team",
+          "0": {
+            "0": "Seasoned Professionals:",
+            "1": "Our team comprises professionals with deep industry knowledge and expertise."
+          },
+          "1": {
+            "0": "Continuous Learning:",
+            "1": "Commitment to continuous learning and professional development to stay ahead of industry trends."
+          }
+        },
+        "2": {
+          "title": "Client-Centric Approach",
+          "0": {
+            "0": "Collaborative Partnership:",
+            "1": "We prioritise your needs and work collaboratively to achieve your objectives."
+          },
+          "1": {
+            "0": "Responsive Service:",
+            "1": "Providing timely and responsive service to address your concerns and needs."
+          }
+        },
+        "3": {
+          "title": "Innovative Solutions",
+          "0": {
+            "0": "Forward-Thinking:",
+            "1": "We stay ahead of industry trends, offering innovative solutions that give you a competitive edge."
+          },
+          "1": {
+            "0": "Creative Problem-Solving:",
+            "1": "Employing creative problem-solving techniques to address complex challenges."
+          }
+        },
+        "4": {
+          "title": "Sustainable Results",
+          "0": {
+            "0": "Long-Term Value:",
+            "1": "We focus on delivering solutions that provide long-term value and sustainable success."
+          },
+          "1": {
+            "0": "Performance Metrics:",
+            "1": "Using performance metrics to measure success and ensure continuous improvement."
+          }
+        }
+      }
+    },
+    "sliders": {
+      "features": {
+        "0": {
+          "title": {
+            "0": "Comprehensive",
+            "1": "Solutions"
+          },
+          "list": {
+            "0": "End-to-End Services:",
+            "1": "From strategic planning to execution, we provide a complete suite of consulting services.",
+            "2": "Holistic Approach:",
+            "3": "Addressing all aspects of your business, including operations, finance, marketing, and human resources."
+          }
+        },
+        "1": {
+          "title": {
+            "0": "Industry",
+            "1": "Expertise"
+          },
+          "list": {
+            "0": "Diverse Experience:",
+            "1": "Our consultants have extensive experience across various industries, bringing valuable insights and expertise.",
+            "2": "Specialised Knowledge:",
+            "3": "Leveraging industry-specific knowledge to provide tailored solutions."
+          }
+        },
+        "2": {
+          "title": {
+            "0": "Personalised",
+            "1": "Attention"
+          },
+          "list": {
+            "0": "Tailored Solutions:",
+            "1": "We treat each client as unique, offering customised solutions that address specific challenges and goals.",
+            "2": "Dedicated Support:",
+            "3": "Providing one-on-one support ensures your needs are met and exceeded."
+          }
+        },
+        "3": {
+          "title": {
+            "0": "Innovative",
+            "1": "Tools"
+          },
+          "list": {
+            "0": "Cutting-Edge Technology:",
+            "1": "Leveraging the latest tools and technologies to deliver effective and efficient solutions.",
+            "2": "Digital Transformation:",
+            "3": "Helping businesses embrace digital transformation to stay competitive in the digital age."
+          }
+        }
+      },
+      "our": {
+        "0": {
+          "title": "Advanced Analytics",
+          "text": "Utilising sophisticated data analytics tools to gather insights on market trends, customer behaviours, and business performance."
+        },
+        "1": {
+          "title": "Predictive Modelling",
+          "text": "Employing predictive modelling to forecast future trends and inform strategic decisions."
+        },
+        "2": {
+          "title": "Flexible Project Management",
+          "text": "Adopting agile practices to ensure flexibility and rapid adaptation to changing market conditions."
+        },
+        "3": {
+          "title": "Iterative Development",
+          "text": "Implementing solutions in iterative cycles to improve and adapt based on feedback and results continuously."
+        },
+        "4": {
+          "title": "User-Centric Approach",
+          "text": "Focusing on user needs and experiences to deliver solutions that are intuitive, efficient, and effective."
+        },
+        "5": {
+          "title": "Prototyping and Testing",
+          "text": "Rapid prototyping and testing of ideas to identify the most effective solutions."
+        },
+        "6": {
+          "title": "Efficiency and Value Creation",
+          "text": "Focusing on eliminating waste and optimising processes to deliver maximum value."
+        },
+        "7": {
+          "title": "Continuous Improvement",
+          "text": "Embracing a culture of continuous improvement to enhance efficiency and effectiveness."
+        },
+        "8": {
+          "title": "Industry Comparisons",
+          "text": "Comparing your performance with industry standards to identify best practices and areas for improvement."
+        },
+        "9": {
+          "title": "Goal Setting",
+          "text": "Setting ambitious yet achievable goals based on benchmark data."
+        }
+      },
+      "values": {
+        "0": {
+          "title": "Honesty and Transparency",
+          "text": "We uphold the highest standards of honesty and transparency in all our dealings."
+        },
+        "1": {
+          "title": "Ethical Practices",
+          "text": "Commitment to ethical practices in everything we do."
+        },
+        "2": {
+          "title": "High Standards",
+          "text": "We strive for excellence in everything we do, consistently delivering high-quality services."
+        },
+        "3": {
+          "title": "Continuous Improvement",
+          "text": "Embracing a culture of continuous improvement to enhance our services."
+        },
+        "4": {
+          "title": "Creativity",
+          "text": "We embrace creativity and constant improvement to stay ahead in the industry."
+        },
+        "5": {
+          "title": "Forward-Thinking",
+          "text": "Commitment to forward-thinking and innovative solutions."
+        },
+        "6": {
+          "title": "Teamwork",
+          "text": "We believe in the power of teamwork and building strong, cooperative relationships."
+        },
+        "7": {
+          "title": "Partnership",
+          "text": "Fostering partnerships with clients to achieve mutual success."
+        },
+        "8": {
+          "title": "Client-Centric Focus",
+          "text": "Our clients’ success is our success. We are dedicated to helping you achieve your business goals."
+        },
+        "9": {
+          "title": "Value Creation",
+          "text": "Creating value for clients through our expertise and dedication."
+        }
+      },
+      "how": {
+        "0": {
+          "title": {
+            "0": "Customised",
+            "1": "Strategies"
+          },
+          "list": {
+            "0": "Tailored Approach:",
+            "1": "Unlike cookie-cutter solutions, we tailor our strategies to fit your needs.",
+            "2": "Bespoke Solutions:",
+            "3": "Creating bespoke solutions that align with your unique goals and challenges."
+          }
+        },
+        "1": {
+          "title": {
+            "0": "Holistic",
+            "1": "Approach"
+          },
+          "list": {
+            "0": "Comprehensive Services:",
+            "1": "We address all aspects of your business, from strategy and operations to marketing and finance.",
+            "2": "Integrated Solutions:",
+            "3": "Providing integrated solutions that ensure all parts of your business work harmoniously."
+          }
+        },
+        "2": {
+          "title": {
+            "0": "Transparent",
+            "1": "Communication"
+          },
+          "list": {
+            "0": "Open Dialogue:",
+            "1": "We maintain open and honest communication, ensuring you are informed immediately.",
+            "2": "Regular Updates:",
+            "3": "Providing regular updates and reports to keep you apprised of progress and results."
+          }
+        },
+        "3": {
+          "title": {
+            "0": "Result-Oriented",
+            "1": "Focus"
+          },
+          "list": {
+            "0": "Measurable Outcomes:",
+            "1": "Our primary goal is to deliver tangible, measurable results that drive your success.",
+            "2": "Performance Tracking:",
+            "3": "Using performance tracking to measure success and make data-driven decisions."
+          }
+        }
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Start journey toward success with",
+      "subtitle": {
+        "0": "Enrol now and see how we",
+        "1": "can transform your future."
+      },
+      "button": "Book a free consultation"
+    },
+    "services": {
+      "title": "Discover Our Services",
+      "tabs": {
+        "tab1": "Business Consulting",
+        "tab2": "Marketing Consulting"
+      },
+      "businessConsulting": {
+        "title": "Business Consulting",
+        "description": "Elevate your brand and connect with your audience through our dynamic marketing consulting services. Whether you want to enhance your digital presence, create compelling content, or drive targeted campaigns, our tailored solutions deliver measurable results and propel your brand forward.",
+        "button": "Improve operations now",
+        "slides": {
+          "0": {
+            "title": "Strategic Planning",
+            "text": "Develop a clear, actionable roadmap to achieve your business goals. Our strategic planning services help you define your vision, set realistic targets, and outline the steps needed to reach them."
+          },
+          "1": {
+            "title": "Operational Improvement",
+            "text": "Optimise your business processes for maximum efficiency and effectiveness. We identify bottlenecks, streamline workflows, and implement best practices to enhance your operations."
+          },
+          "2": {
+            "title": "Financial Consulting",
+            "text": "Strengthen your financial health with our expert advice. From budgeting and forecasting to financial analysis and risk management, we provide the insights you need to make informed decisions."
+          },
+          "3": {
+            "title": "Market Analysis",
+            "text": "Gain a competitive edge with in-depth market research and analysis. We help you understand market trends, identify opportunities, and develop strategies to capture new markets."
+          },
+          "4": {
+            "title": "Business Process Reengineering",
+            "text": "Transform your business processes to achieve significant performance improvements. We help you redesign workflows, eliminate inefficiencies, and leverage technology to drive growth."
+          },
+          "5": {
+            "title": "Change Management",
+            "text": "Our change management services help you navigate organisational changes smoothly and effectively. They also ensure your team is aligned and engaged."
+          },
+          "6": {
+            "title": "Performance Management",
+            "text": "Enhance your team’s performance with our comprehensive management solutions. We provide tools and strategies to set goals, measure progress, and improve productivity."
+          },
+          "7": {
+            "title": "Risk Management",
+            "text": "Manage potential risks and uncertainties to ensure your business remains resilient and adapts to changing environments."
+          },
+          "8": {
+            "title": "Leadership Development",
+            "text": "Cultivate strong leaders within your organisation. We offer customised leadership development programs that equip your team with the skills and confidence to lead effectively."
+          },
+          "9": {
+            "title": "Innovation & Growth Strategy",
+            "text": "Foster a culture of innovation and drive sustainable growth. Our experts work with you to identify new opportunities, create innovative solutions, and implement growth strategies that keep you ahead of the competition."
+          }
+        }
+      },
+      "marketingConsulting": {
+        "slides": {
+          "0": {
+            "title": "Brand Strategy Development",
+            "text": "Craft a powerful brand identity that resonates with your target audience. We help you define your brand’s mission, vision, and values, creating a cohesive strategy differentiating you in the marketplace."
+          },
+          "1": {
+            "title": "Digital Marketing Strategy",
+            "text": "Maximise your online impact with a comprehensive digital marketing strategy. We provide insights and tactics across SEO, SEM, social media, and email marketing to boost your online presence and engagement."
+          },
+          "2": {
+            "title": "Content Marketing",
+            "text": "Engage your audience with compelling, high-quality content. Our content marketing services include content creation, strategy development, and distribution to ensure your message reaches and resonates with your target audience."
+          },
+          "3": {
+            "title": "Social Media Management",
+            "text": "Build a solid social media presence that drives engagement and growth. We manage your social media channels, creating and executing campaigns that connect with your audience and enhance your brand’s visibility."
+          },
+          "4": {
+            "title": "SEO & SEM",
+            "text": "Improve your website’s visibility and attract more traffic through expert SEO and SEM strategies. We optimise your website and manage paid search campaigns to ensure you rank higher and reach the right audience."
+          },
+          "5": {
+            "title": "Email Marketing",
+            "text": "Develop and execute effective email marketing campaigns that convert. From crafting compelling newsletters to automated email sequences, we ensure your email marketing efforts drive results."
+          },
+          "6": {
+            "title": "Market Research & Analysis",
+            "text": "Understand your market and stay ahead of the competition with in-depth market research. We provide actionable insights into market trends, customer behaviour, and competitive landscape to inform your marketing strategies."
+          },
+          "7": {
+            "title": "Campaign Management",
+            "text": "Plan and execute targeted marketing campaigns that deliver results. Our campaign management services cover everything from strategy development to execution and analysis, ensuring your campaigns achieve their objectives."
+          },
+          "8": {
+            "title": "Influencer Marketing",
+            "text": "Leverage the power of influencers to amplify your brand’s reach. We connect you with the right influencers and manage partnerships to create authentic and impactful marketing campaigns."
+          },
+          "9": {
+            "title": "Public Relations",
+            "text": "Build and maintain a positive public image with our strategic public relations services. We help you craft press releases, manage media relations, and handle crisis communication to keep your brand in a favourable light."
+          }
+        },
+        "title": "Marketing Consulting",
+        "description": "Elevate your brand and connect with your audience through our dynamic marketing consulting services. Whether you want to enhance your digital presence, create compelling content, or drive targeted campaigns, our tailored solutions deliver measurable results and propel your brand forward.",
+        "button": "Improve operations now"
+      }
+    },
+    "about": {
+      "title": "About Us",
+      "description": "At Holax Group, we specialise in offering bespoke business and marketing consulting solutions. Our seasoned experts are dedicated to providing personalised guidance and innovative strategies to help our clients navigate the competitive landscape. We are committed to building lasting relationships through a collaborative approach, ensuring measurable success and growth for our clients.",
+      "ourMission": "Our Mission",
+      "mission": "Our mission is to empower entrepreneurs with the insights, strategies, and tools necessary to achieve their marketing and operational goals. We are dedicated to driving growth, enhancing market presence, and fostering innovation. By leveraging our expertise, we aim to create sustainable value and help our clients realise their fullest potential in their respective industries.",
+      "ourStory": "Our Story",
+      "story": "Holax Group was founded to provide individuals with access to top-tier consulting services that truly understand their unique challenges. Our story concerns passion, dedication, and a relentless quest for excellence. From humble beginnings, we have evolved into a trusted partner for businesses across various industries, known for our ability to adapt to the ever-changing market landscape. Our narrative is woven with tales of transformation, success, and a shared commitment to making a meaningful impact on the businesses we serve.",
+      "ourValues": "Our Values",
+      "values": {
+        "0": "Integrity in Action",
+        "1": "We believe in authenticity and transparency, ensuring that our actions always align with our words."
+      },
+      "pursuitOfExcellence": "Pursuit of Excellence",
+      "pursuitOfExcellenceText": "We strive for brilliance in everything we do, constantly raising the bar to exceed expectations.",
+      "creativeInnovation": "Creative Innovation",
+      "creativeInnovationText": "We thrive on creativity and originality, finding unique solutions to the most complex challenges.",
+      "empoweringPartnerships": "Empowering Partnerships",
+      "empoweringPartnershipsText": "We build empowering relationships that celebrate collaboration and mutual growth.",
+      "clientCentredExcellence": "Client-Centred Excellence",
+      "clientCentredText": "Our clients are the core of our universe, and their success defines our own."
+    },
+    "items": {
+      "title": "What We Do",
+      "label": "Transforming Visions into Reality",
+      "text": "Our approach centres on understanding your unique business challenges and crafting bespoke solutions that align with your vision. Our comprehensive consulting services encompass strategic planning, operational improvement, and innovative growth strategies. By leveraging our deep expertise and collaborative methodology, we drive sustainable growth and ensure your business competes and thrives in a dynamic marketplace.",
+      "button": "Explore our approach",
+      "clientResults": {
+        "title": "Client Results",
+        "label": "Success Stories that Inspire",
+        "text": "Discover how our clients have achieved remarkable success with the help of Holax Group. Read our case studies and testimonials to see the tangible impact of our consulting solutions and learn how we can help you reach your goals.",
+        "button": "See client success"
+      },
+      "industryNews": {
+        "title": "Industry News",
+        "label": "Stay Ahead with the Latest Industry Trends",
+        "text": "Keep up with the ever-evolving market landscape. Our Industry News section brings you the latest updates, trends, and insights from across various sectors, helping you stay informed and make strategic decisions.",
+        "button": "Read industry news"
+      },
+      "articles": {
+        "title": "Articles",
+        "label": "Insights and Expertise",
+        "text": "Dive into our collection of articles written by industry experts. From in-depth analysis to practical tips, our articles provide valuable knowledge to help you navigate the complexities of business and marketing.",
+        "button": "Explore articles"
+      },
+      "careers": {
+        "title": "Careers",
+        "label": "Join Our Dynamic Team",
+        "text": "Are you ready to take your career to the next level? At Holax Group, we are always looking for talented individuals who share our passion for excellence and innovation. Explore our current job openings and become part of a team that makes a difference.",
+        "button": "View open positions"
+      }
+    },
+    "formBottom": {
+      "title": "Connect with",
+      "description": "Start your path to success with our expert guidance. Fill out the form below to share your project vision, and our consultant will contact you promptly to discuss your goals."
+    }
+  },
+  "formMain": {
+    "errors": {
+      "yourName": "This field is required.1",
+      "email": "This field is required.2",
+      "invalidEmail": "Please enter a valid email address.",
+      "phone": "This field is required.3",
+      "businessName": "This field is required.4",
+      "projectDescription": "This field is required.5",
+      "contactPreference": "Please select a contact method.",
+      "bestTimeToReach": "This field is required.7",
+      "timeline": "This field is required.8",
+      "budget": "This field is required.9"
+    },
+    "pleaseFill": "Please fill in all required fields.",
+    "fields": {
+      "yourName": "Your Full Name",
+      "email": "Your Email Address",
+      "phone": "Your Contact Number",
+      "projectName": "Your Business or Project Name",
+      "projectDescription": "Briefly Describe Your Project or Business Needs",
+      "businessName": "What Are Your Main Goals and Objectives?",
+      "contactPreference": "Preferred Contact Method",
+      "contact": {
+        "email": "Email",
+        "phone": "Phone",
+        "other": "Other"
+      },
+      "whenIsTheBestTimeToReach": "When Is the Best Time to Reach You?",
+      "whatIsYourExpectedTimelineForThisProject": "What Is Your Expected Timeline for This Project?",
+      "whatIsYourBudgetRangeForThisProject": "What Is Your Budget Range for This Project?",
+      "anyOtherDetailsOrSpecificRequirementsYoudLikeToShare": "Any Other Details or Specific Requirements You'd Like to Share"
+    },
+    "submit": "Submit Inquiry"
+  },
+  "marketingConsulting": {
+    "hero": {
+      "title": {
+        "0": "Ignite Your Brand with Strategic",
+        "1": "Marketing Solutions"
+      },
+      "text": "At Holax Group, we understand the power of effective marketing in driving business success."
+    },
+    "second": {
+      "text1": "Our tailored marketing consulting services are crafted to elevate your brand and connect with your audience meaningfully. Whether you aim to enhance your digital presence, create compelling content, or execute targeted campaigns, our marketing experts offer the insights and strategies you need to stand out in a crowded marketplace.",
+      "text2": "Let us partner with you to amplify your brand’s impact and achieve measurable results that propel your business forward."
+    },
+    "products": {
+      "howWeCanHelp": "How We Can Help",
+      "categories": {
+        "0": "Brand Strategy & Development",
+        "1": "Digital Marketing & Online Presence",
+        "2": "Content & Communication",
+        "3": "Market Research & Analysis",
+        "4": "Campaign Management & Execution"
+      }
+    },
+    "packages": {
+      "title": "Marketing Consulting Complete Packages",
+      "description": "Transform your marketing efforts with Holax Group comprehensive consulting packages. Our packages are designed to offer a step-by-step enhancement of your marketing capabilities, starting with foundational brand strategies and advancing to full-scale market research and public relations. Whether you’re looking to boost your online presence, engage your audience through compelling content, or leverage influencer partnerships, our packages provide the perfect blend of services to propel your brand forward. Select the package that best fits your marketing objectives and watch your brand soar."
+    },
+    "why": {
+      "title": "Our Step-by-Step Approach",
+      "subtitle": "Your Path to Marketing Success",
+      "text": "At Holax Group, we believe in a systematic and collaborative approach to ensure your marketing consulting experience is seamless and effective. Here’s how we work with you every step of the way to elevate your brand and achieve your marketing goals:",
+      "slides": {
+        "0": {
+          "title": "Initial Consultation",
+          "text": "We start with a comprehensive consultation to understand your business, marketing needs, and objectives. This helps us tailor our services to your specific goals."
+        },
+        "1": {
+          "title": "Market Research & Analysis",
+          "text": "Our team conducts thorough market research to gather insights into your target audience, competitors, and industry trends. This forms the foundation of our strategic planning."
+        },
+        "2": {
+          "title": "Strategy Development",
+          "text": "Based on our research, we develop a customised marketing strategy that aligns with your business goals. This includes brand positioning, digital marketing plans, content strategies, and more."
+        },
+        "3": {
+          "title": "Implementation",
+          "text": "We put the approved strategy into action, setting up your digital presence, creating content, managing social media, and executing campaigns. Our team ensures every aspect is optimised for success."
+        },
+        "4": {
+          "title": "Ongoing Management",
+          "text": "Continuous management and optimization are crucial. We monitor all marketing activities, making necessary adjustments to improve performance and achieve desired outcomes."
+        },
+        "5": {
+          "title": "Performance Analytics",
+          "text": "We provide detailed analytics and reports to measure the effectiveness of our marketing efforts. This includes tracking key metrics, evaluating ROI, and identifying areas for improvement."
+        },
+        "6": {
+          "title": "Continuous Improvement",
+          "text": "Marketing is an ongoing process. We work with you to refine strategies, explore new opportunities, and ensure your marketing efforts evolve with market changes and business growth."
+        },
+        "7": {
+          "title": "Feedback & Collaboration",
+          "text": "Your feedback is essential. We maintain open communication to ensure our services meet your expectations and adapt to your evolving needs."
+        }
+      },
+      "button": "Start your marketing journey"
+    },
+    "pricelist": {
+      "title": "Download Our Complete Price List",
+      "description": "Interested in understanding our service offerings in detail? Download our complete price list to explore the range of consulting solutions we provide. Whether you need business consulting or marketing consulting services, our transparent pricing will help you make informed decisions. Simply click the link below to get started.",
+      "button": "Download price list"
+    },
+    "orderPopup": {
+      "errors": {
+        "required": "This field is required",
+        "invalidEmail": "Please, enter valid email"
+      },
+      "title1": "Service Request",
+      "title2": "Ready-made plan request",
+      "description1": "Ready to enhance your business? Complete the form below to request your customised business consulting solution from Holax Group.",
+      "description2": "Interested in our ready-made plan? Complete the form below, and our specialists will contact you to discuss all the essential details.",
+      "selectedService": "Selected Service:",
+      "request": "Request:",
+      "yourFullName": "Your Full Name",
+      "yourEmailAddress": "Your Email Address",
+      "yourContactNumber": "Your Contact Number",
+      "yourMessage": "Your Message",
+      "send": "Send",
+      "success": {
+        "title": "Your request has been sent successfully.",
+        "description": "We will contact you soon!"
+      }
+    }
+  },
+  "orderButton": {
+    "label": "Order"
+  },
+  "addToCartButton": {
+    "inCart": "In Cart",
+    "buy": "Buy"
+  },
+  "industryNews": {
+    "hero": {
+      "title": {
+        "0": "Stay Updated With the Latest in",
+        "1": "the Industry"
+      },
+      "text": {
+        "0": "Welcome to our Industry News page, where we inform you",
+        "1": "about the latest trends, insights, and developments in the",
+        "2": "business and marketing consulting industry. Stay ahead of",
+        "3": "the curve with our curated news articles and expert analyses."
+      }
+    },
+    "wrap": {
+      "title": "News",
+      "readMore": "Read more",
+      "loading": "Loading articles..."
+    }
+  },
+  "header": {
+    "home": "Home",
+    "ourSolutions": "Our Solutions",
+    "businessConsulting": "Business Consulting",
+    "marketingConsulting": "Marketing Consulting",
+    "company": "Company",
+    "whatWeDo": "What We Do",
+    "clientResults": "Client Results",
+    "insights": "Insights",
+    "industryNews": "Industry News",
+    "articles": "Articles",
+    "careers": "Careers",
+    "contacts": "Contacts",
+    "login": "Login",
+    "signUp": "Sign Up",
+    "account": "Account"
+  },
+  "footer": {
+    "text": "Optimise your operations and transform your strategy today.",
+    "expertise": "Expertise",
+    "whatWeDo": "What We Do",
+    "clientResults": "Client Results",
+    "ourSolutions": "Our Solutions",
+    "businessConsulting": "Business Consulting",
+    "marketingConsulting": "Marketing Consulting",
+    "joinCommunity": "Join Community",
+    "careers": "Careers",
+    "industryNews": "Industry News",
+    "articles": "Articles",
+    "getInTouch": "Get in Touch",
+    "legal": "Legal",
+    "termsAndConditions": "Terms and Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "refundPolicy": "Refund Policy",
+    "cookiePolicy": "Cookie Policy",
+    "copyright": "All Rights Reserved"
+  },
+  "industrySlug": {
+    "conclusion": "Conclusion",
+    "pageNotFound": "Page not found",
+    "casesCta": {
+      "title": {
+        "0": "Ready to Achieve Your",
+        "1": "Success Story?"
+      },
+      "text": "Start your journey with Holax Group"
+    }
+  },
+  "contacts": {
+    "hero": {
+      "title": {
+        "0": "Connect with",
+        "1": "Holax Group"
+      },
+      "text": "We value your interest in Holax Group and are here to assist you. We’re eager to hear from you if you have a question, need more information about our services, or want to discuss a potential collaboration. Use the contact form below to get in touch, or reach out to us directly through our contact details and social media channels."
+    },
+    "main": {
+      "title": "Contact Details",
+      "registeredAddress": "Registered address:",
+      "officeAddress": "Office address:",
+      "followUs": "Follow Us on Social Media",
+      "text": "We’re excited to connect with you and discuss how Holax Group can help you achieve your business goals. Reach out through any of the channels above, and let’s start a conversation.",
+      "fillOut": "Fill out the form below with your details and inquiry, and one of our representatives will get back to you shortly."
+    }
+  },
+  "clientResults": {
+    "hero": {
+      "title": "Transformative Success",
+      "subtitle": "Stories",
+      "text": "At Holax Group, we take pride in the success of our clients."
+    },
+    "second": {
+      "text": "Our personalised consulting services have empowered private clients and entrepreneurs to achieve their goals, overcome challenges, and drive their ventures to new heights. Below, explore ten comprehensive case studies that showcase how our expertise in business and marketing consulting has made a lasting impact on our clients’ journeys."
+    },
+    "wrap": {
+      "title": "Case Study",
+      "client": "Client:",
+      "challenge": "Challenge:",
+      "readMore": "Read more",
+      "loading": "Loading cases..."
+    },
+    "cta": {
+      "title": {
+        "0": "Ready to Achieve Your",
+        "1": "Success Story?"
+      },
+      "text": "Start your journey with Holax Group"
+    }
+  },
+  "clientResultsSlug": {
+    "notFound": "Post not found",
+    "client": "Client:",
+    "challenge": "Challenge:",
+    "solution": "Solution:",
+    "results": "Results:"
+  },
+  "careers": {
+    "hero": {
+      "title": "Join Our Team at",
+      "description": "We believe in fostering a dynamic and inclusive workplace where innovation thrives and talent flourishes. Join a team dedicated to driving growth, delivering excellence, and making a positive impact. Explore our current job openings and discover how you can contribute to our mission and grow your career with us."
+    },
+    "jobs": {
+      "title": "Job Offers",
+      "responsibilities": "Responsibilities:",
+      "requirements": "Requirements:",
+      "button": "Apply for a position"
+    },
+    "last": {
+      "title": "Ready to Make an Impact?",
+      "text": "At Holax Group, we value diversity, creativity, and dedication. If you are passionate about making a difference and want to be part of a forward-thinking team, we invite you to apply for one of our open positions. Join us on our mission to deliver exceptional consulting services and drive meaningful change.",
+      "button": "Apply now and join our team"
+    },
+    "jobPopup": {
+      "errors": {
+        "required": "This field is required",
+        "invalidEmail": "Please, enter valid email"
+      },
+      "title": "Ready to join Holax Group?",
+      "description": "Fill out the form below to submit your application!",
+      "job": "Job:",
+      "yourFullName": "Your Full Name",
+      "contactNumber": "Your Contact Number",
+      "emailAddress": "Your Email Address",
+      "uploadResume": "Upload Resume (PDF or Word)",
+      "uploadPortfolio": "Upload Portfolio (if applicable)",
+      "chooseFile": "Choose file",
+      "yourMessage": "Your Message",
+      "send": "Send",
+      "success": {
+        "title": "Your request has been sent successfully.",
+        "description": "We will contact you soon!"
+      }
+    }
+  },
+  "businessConsulting": {
+    "hero": {
+      "title": "Transform Your Business with",
+      "subtitle": "Expert Guidance",
+      "text": {
+        "0": "At Holax Group, we specialise in empowering",
+        "1": "businesses to achieve their highest potential."
+      }
+    },
+    "second": {
+      "text": {
+        "0": "Our bespoke business consulting solutions are designed to address your unique challenges and drive success. From strategic planning and operational improvement to financial optimization and leadership development, our experts provide personalised guidance and innovative strategies to ensure your business thrives in today’s competitive landscape.",
+        "1": "Let us help you turn your vision into reality and set your business on the path to sustained growth and success."
+      }
+    },
+    "tabs": {
+      "categories": {
+        "0": "Strategic Planning & Development",
+        "1": "Operational Excellence",
+        "2": "Financial Optimization",
+        "3": "Customer & Experience Management",
+        "4": "Technology & Digital Transformation"
+      },
+      "title": "How We Can Help"
+    },
+    "packages": {
+      "title": "Business Consulting Complete Packages",
+      "text": "Unlock your business’s full potential with our comprehensive business consulting packages. Each package is crafted to build upon the previous, providing a robust foundation and advanced growth strategies. With services ranging from market analysis and risk management to change management and innovation strategies, we equip your business with the tools needed to thrive in a competitive market. Choose the package that aligns with your business goals, and let us guide you to success."
+    },
+    "why": {
+      "title": "Why Choose Our Business Consultants?",
+      "text": "Choosing the right business consultant is crucial to achieving your goals. Here’s why our consultants stand out:",
+      "slides": {
+        "0": {
+          "title": "Expertise and Experience",
+          "text": "Our team comprises seasoned professionals with extensive industry experience. We bring a wealth of knowledge and proven strategies to address your unique business challenges."
+        },
+        "1": {
+          "title": "Tailored Solutions",
+          "text": "We don’t believe in one-size-fits-all. Our consultants work closely with you to develop customised solutions that align with your specific needs, objectives, and industry dynamics."
+        },
+        "2": {
+          "title": "Innovative Approach",
+          "text": "We stay ahead by embracing the latest trends and technologies. Our innovative approach ensures you receive cutting-edge solutions that drive sustainable growth and success."
+        },
+        "3": {
+          "title": "Collaborative Partnership",
+          "text": "We view our clients as partners. Our collaborative approach fosters solid relationships and ensures we work together towards your business goals."
+        },
+        "4": {
+          "title": "Measurable Results",
+          "text": "We are committed to delivering results. Our strategies are designed to provide measurable outcomes, helping you track progress and achieve your business objectives."
+        },
+        "5": {
+          "title": "Comprehensive Services",
+          "text": "We offer a wide range of services to meet your business needs. From strategic planning to operational improvement, we provide the tools and expertise you need to succeed."
+        },
+        "6": {
+          "title": "Commitment to Excellence",
+          "text": "We strive for excellence in everything we do. Our dedication to high standards and continuous improvement means receiving the best possible service."
+        }
+      },
+      "button": "Learn more about our consultants"
+    },
+    "priceList": {
+      "title": "Download Our Complete Price List",
+      "description": "Interested in understanding our service offerings in detail? Download our complete price list to explore the range of consulting solutions we provide. Whether you need business consulting or marketing consulting services, our transparent pricing will help you make informed decisions. Simply click the link below to get started.",
+      "button": "Download price list"
+    }
+  },
+  "articles": {
+    "hero": {
+      "title": {
+        "0": "Insights and Expertise",
+        "1": "in Business and Marketing Consulting"
+      }
+    },
+    "second": {
+      "text1": "Our Articles page shares in-depth insights, expert analyses, and practical advice on various business and marketing consulting aspects. Our blog posts are designed to help you navigate the complexities of the consulting world, stay informed about the latest trends, and implement effective strategies to drive your business forward.",
+      "text2": "Explore our collection of articles written by industry experts and gain valuable knowledge to enhance your business success."
+    },
+    "wrap": {
+      "title": "Articles",
+      "readMore": "Read more",
+      "loading": "Loading articles..."
+    },
+    "slug": {
+      "notFound": "Post not found",
+      "introduction": "Introduction",
+      "conclusion": "Conclusion"
+    }
+  },
+  "cart": {
+    "title": "Cart",
+    "serviceName": "Service Name",
+    "price": "Price",
+    "quantity": "Quantity",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "checkout": "Checkout",
+    "goHome": "Go home",
+    "empty": {
+      "title": "Your cart is empty.",
+      "text": "Discover our wide array of business and marketing consulting services!"
+    }
+  },
+  "checkout": {
+    "errors": {
+      "required": "This field is required",
+      "invalidEmail": "Please provide a valid email address.",
+      "termsAndConditions": "You must accept the terms and conditions.",
+      "refundPolicy": "You must accept the refund policy."
+    },
+    "title": "Checkout",
+    "billingAddress": "Billing Address",
+    "country": "Country/Region",
+    "province": "Province/State",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phoneNumber": "Phone Number",
+    "addressLine1": "Address Line 1",
+    "addressLine2": "Address Line 2",
+    "city": "City",
+    "zip": "ZIP Code",
+    "email": "Email",
+    "phone": "Phone",
+    "paymentMethod": "Payment Method",
+    "paymentNotes": "* You will soon receive an email with payment instructions, including our bank details and a summary of your order details.",
+    "additionalInformation": "Additional Information",
+    "specialNotes": "Include special instructions for your order",
+    "orderSummary": "Order Summary",
+    "serviceName": "Service Name",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "terms": {
+      "0": "I have read and agree to the website's",
+      "1": "Terms and Conditions."
+    },
+    "refund": {
+      "0": "I have read and agree to the",
+      "1": "Refund Policy."
+    },
+    "submit": "Submit",
+    "privacy": {
+      "0": "We will utilise your personal information to process your order, improve your browsing experience on our website, and perform other purposes detailed in our",
+      "1": "Privacy Policy."
+    },
+    "empty": {
+      "title": "Your cart is empty.",
+      "text": "Discover our wide array of business and marketing consulting services!",
+      "goHome": "Go home"
+    }
+  },
+  "thankyou": {
+    "title": "Thank you for your order!",
+    "text": "We appreciate your decision to choose Holax Group. One of our representatives will contact you soon to confirm the details of your order.",
+    "goHome": "Go home"
+  },
+  "signUp": {
+    "errors": {
+      "firstName": "First name is required",
+      "lastName": "Last name is required",
+      "invalidEmail": "Invalid email address",
+      "email": "Email is required",
+      "password": "Password is required",
+      "passwordsMustMatch": "Passwords must match",
+      "confirmPassword": "Passwords must match",
+      "terms": "You must accept the terms and conditions"
+    },
+    "title": "Join Holax Group today",
+    "description": "Join Holax Group today and access exclusive features. Fill out the form below to create your account and enjoy member benefits and opportunities.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "terms": {
+      "0": "I agree to the",
+      "1": "Terms and Conditions."
+    },
+    "privacy": {
+      "0": "I agree to the",
+      "1": "Privacy Policy."
+    },
+    "age": "I am over 18 and I have read all the above.",
+    "submit": "Create Account",
+    "login": {
+      "0": "Already a member?",
+      "1": "Log in"
+    },
+    "success": "Your account has been successfully created! You can now log in using your email and password."
+  },
+  "setPassword": {
+    "invalid": "Invalid or expired link.",
+    "form": {
+      "errors": {
+        "newPassword": "New password is required",
+        "confirmPassword": "Passwords must match",
+        "mustMatch": "Passwords must match"
+      },
+      "expiredToken": "Invalid or expired token.",
+      "tryAgain": "An error occurred. Please try again.",
+      "failed": "Failed to change password.",
+      "title": "Change Password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "setNewPassword": "Set new password",
+      "passwordChanged": "Password changed successfully!"
+    }
+  },
+  "resetPassword": {
+    "errors": {
+      "invalidEmail": "Invalid email address",
+      "email": "Email is required"
+    },
+    "title": "Reset Your Password",
+    "description": {
+      "0": "Please enter your email address, and we will",
+      "1": "send you the steps to reset your password."
+    },
+    "email": "Email",
+    "submit": "Reset now",
+    "resetNow": "Reset now",
+    "success": "A link to reset your password has been sent to your email. Please check your inbox and follow the instructions to proceed.",
+    "error": "An error occurred. Please try again.",
+    "goBack": "Go back"
+  },
+  "logIn": {
+    "errors": {
+      "email": "Email is required",
+      "invalidEmail": "Invalid email address",
+      "password": "Password is required"
+    },
+    "loginFailed": "Login failed",
+    "unexpectedError": "An unexpected error occurred",
+    "title": "Welcome to Holax Group!",
+    "description": {
+      "0": "Please enter your username and password",
+      "1": "to access your account."
+    },
+    "email": "Email",
+    "password": "Password",
+    "submit": "Log in",
+    "forgotPassTitle": {
+      "0": "Forgot your password? Don’t worry!",
+      "1": "Click the link below to reset it.",
+      "2": "Forgot your password?"
+    },
+    "signUp": {
+      "0": "New to Holax Group?",
+      "1": "Sign up",
+      "2": {
+        "0": "now to join our",
+        "1": "community and enjoy exclusive benefits and features."
+      }
+    }
+  },
+  "dashboard": {
+    "myAccount": "My Account",
+    "recentOrders": "Recent Orders",
+    "downloads": "Downloads",
+    "myAddresses": "My Addresses",
+    "welcome": "Welcome to your personal control centre.",
+    "brief": {
+      "0": "Here, you can manage your",
+      "1": "account details",
+      "2": "monitor",
+      "3": "recent orders",
+      "4": "in one convenient place. You can do it here if you need to change your password or update your personal information. Stay organised and in control with everything you need at your fingertips."
+    },
+    "orders": {
+      "orderId": "Order ID",
+      "date": "Date",
+      "service": "Service",
+      "cost": "Cost",
+      "status": "Status",
+      "invoice": "Invoice",
+      "cancelled": "Cancelled",
+      "completed": "Completed",
+      "noOrders": "There are currently no orders placed.",
+      "loading": "Loading orders..."
+    },
+    "availableFiles": {
+      "invoiceDate": "Invoice date:",
+      "invoiceNum": "Invoice num:",
+      "downloadInvoice": "Download Invoice",
+      "noDownloads": "There are no downloads available yet.",
+      "loading": "Loading orders..."
+    },
+    "personalData": {
+      "errors": {
+        "required": "This field is required",
+        "invalidEmail": "Please provide a valid email address"
+      },
+      "success": "Your personal information has been updated successfully.",
+      "error": "An error occurred while updating your information.",
+      "personalInformation": "Personal Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone Numberß",
+      "addressLine1": "Address Line 1",
+      "addressLine2": "Address Line 2",
+      "city": "City",
+      "zip": "ZIP",
+      "saveChanges": "Save changes"
+    },
+    "changePassword": {
+      "errors": {
+        "currentPassword": "Current password is required",
+        "newPassword": "New password is required",
+        "confirmPassword": "Passwords must match",
+        "mustMatch": "Confirm password is required",
+        "passwordMustBeAtLeast8Characters": "Password must be at least 8 characters"
+      },
+      "failed": "Failed to change password.",
+      "error": "An error occurred while changing the password.",
+      "title": "Change Password",
+      "newPassword": "New password",
+      "currentPassword": "Current password",
+      "confirmPassword": "Confirm password",
+      "setNewPassword": "Set new password",
+      "passwordChanged": "Password changed successfully!",
+      "changePassword": "Change Password",
+      "saveChanges": "Save changes"
+    },
+    "logout": "Log Out",
+    "loading": "Loading..."
+  },
+  "articlesSlug": {
+    "notFound": "Post not found",
+    "introduction": "Introduction",
+    "conclusion": "Conclusion"
+  }
+}

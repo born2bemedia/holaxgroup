@@ -1,14 +1,17 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import useCartStore from "@/stores/cartStore";
-import OrderIcon from "@/icons/OrderIcon";
-import { toast, ToastContainer } from "react-toastify"; // Import Toast and ToastContainer
-import "react-toastify/dist/ReactToastify.css";
+'use client';
+import React, { useEffect, useState } from 'react';
+import useCartStore from '@/stores/cartStore';
+import OrderIcon from '@/icons/OrderIcon';
+import { toast, ToastContainer } from 'react-toastify'; // Import Toast and ToastContainer
+import 'react-toastify/dist/ReactToastify.css';
+import { useTranslations } from 'next-intl';
 
 const AddToCartButton = ({ product }) => {
   const { cart, addToCart } = useCartStore();
-  const inCart = cart.some((item) => item.id === product.id);
+  const inCart = cart.some(item => item.id === product.id);
   const [isInCart, setIsInCart] = useState(false);
+
+  const t = useTranslations('addToCartButton');
 
   useEffect(() => {
     setIsInCart(inCart);
@@ -24,7 +27,7 @@ const AddToCartButton = ({ product }) => {
         attributes: { price: product.price },
       });
       toast.success(`${product.title} added to cart!`, {
-        position: "bottom-right",
+        position: 'bottom-right',
         autoClose: 3000, // Automatically close after 3 seconds
         hideProgressBar: false,
         closeOnClick: true,
@@ -42,10 +45,11 @@ const AddToCartButton = ({ product }) => {
         onClick={handleAddToCart}
         disabled={isInCart}
       >
-        {isInCart ? "In Cart" : "Buy"}
+        {isInCart
+          ? t('inCart', { fallback: 'In Cart' })
+          : t('buy', { fallback: 'Buy' })}
         <OrderIcon />
       </button>
-      
     </>
   );
 };

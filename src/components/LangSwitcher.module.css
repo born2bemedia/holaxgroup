@@ -1,0 +1,46 @@
+.accountItem {
+  position: relative;
+  list-style: none;
+}
+
+.accountLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 4px 8px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  padding: 0;
+  list-style: none;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  display: none;
+  min-width: 120px;
+}
+
+.open {
+  display: block;
+}
+
+.dropdownItem {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdownItem:hover {
+  background-color: #f3f3f3;
+}
