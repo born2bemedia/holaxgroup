@@ -1,22 +1,22 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import useProductStore from "@/stores/productsStore";
-import AddToCartButton from "@/components/AddToCartButton";
-import Link from "next/link";
-import OrderIcon from "@/icons/OrderIcon";
-import ReactMarkdown from "react-markdown";
-import OrderButton from "@/components/OrderButton";
+'use client';
+import React, { useEffect, useState } from 'react';
+import useProductStore from '@/stores/productsStore';
+import AddToCartButton from '@/components/AddToCartButton';
+import Link from 'next/link';
+import OrderIcon from '@/icons/OrderIcon';
+import ReactMarkdown from 'react-markdown';
+import OrderButton from '@/components/OrderButton';
 
-const ProductRow = ({ category }) => {
+const ProductRow = ({ category, locale = 'en' }) => {
   const [productsArray, setProductsArray] = useState([]);
   const { fetchProducts, getProductByCategory } = useProductStore.getState();
 
   useEffect(() => {
     const fetchAndSetProducts = async () => {
-      await fetchProducts();
+      await fetchProducts(locale);
       const products = getProductByCategory(category);
       setProductsArray(products);
-      console.log("productsArray", products);
+      console.log('productsArray', products);
     };
 
     fetchAndSetProducts();
@@ -30,7 +30,7 @@ const ProductRow = ({ category }) => {
         <div className="product" key={index}>
           <div className="top">
             <h3>
-              <span>{String(index + 1).padStart(2, "0")}.</span>
+              <span>{String(index + 1).padStart(2, '0')}.</span>
               {product.title}
             </h3>
             <div>
@@ -39,7 +39,7 @@ const ProductRow = ({ category }) => {
           </div>
           <div className="bottom">
             <div className="price">
-              <span>{product.for_request && "From "}</span> €{product.price}{" "}
+              <span>{product.for_request && 'From '}</span> €{product.price}{' '}
               <span>{product.suffix && product.suffix}</span>
             </div>
             {product.for_request ? (

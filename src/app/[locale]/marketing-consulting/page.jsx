@@ -23,13 +23,16 @@ export const metadata = {
   },
 };
 
-const BusinessConsulting = () => {
+const BusinessConsulting = async ({ params }) => {
+  const awaitedParams = await params;
+  const { locale } = awaitedParams;
+
   return (
     <>
       <ConsultingHero />
       <ConsultingSecond />
-      <ProductsTabs />
-      <PackagesWrap />
+      <ProductsTabs locale={locale} />
+      <PackagesWrap locale={locale} />
       <ConsultingWhy />
       <ConsultingPricelist />
       <FormBottom />

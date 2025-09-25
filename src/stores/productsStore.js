@@ -5,17 +5,28 @@ import axiosClient from '@/app/api/GlobalApi';
 // Create Zustand store
 const useProductStore = create((set, get) => ({
   products: [],
-  fetchProducts: async () => {
+  fetchProducts: async (locale = 'en') => {
     try {
       const response = await axiosClient.get(
         `products?` +
           qs.stringify({
-            fields: ['id', 'slug', 'title', 'description', 'price', 'category', 'documentId', 'for_request', 'suffix'],
+            fields: [
+              'id',
+              'slug',
+              'title',
+              'description',
+              'price',
+              'category',
+              'documentId',
+              'for_request',
+              'suffix',
+            ],
             pagination: { pageSize: 9999 },
-          })
+            locale: locale,
+          }),
       );
 
-      const products = response.data.data.map((product) => ({
+      const products = response.data.data.map(product => ({
         id: product.id, // Use the correct `id` from Strapi
         slug: product.slug, // Access slug and other attributes directly
         title: product.title,
@@ -23,7 +34,7 @@ const useProductStore = create((set, get) => ({
         price: product.price,
         category: product.category,
         for_request: product.for_request,
-        suffix: product.suffix
+        suffix: product.suffix,
       }));
 
       set({ products: response.data.data });
@@ -31,14 +42,12 @@ const useProductStore = create((set, get) => ({
       console.error('Error fetching products:', error);
     }
   },
-  getProductByCategory: (category) => {
-    return get().products.filter(
-      (product) => product.category === category
-    );
+  getProductByCategory: category => {
+    return get().products.filter(product => product.category === category);
   },
   getProductByCategoryHome: (category, count = 9999) => {
     const products = get().products.filter(
-      (product) => product.category === category
+      product => product.category === category,
     );
     console.log(products);
     if (count) {
@@ -47,8 +56,8 @@ const useProductStore = create((set, get) => ({
 
     return products;
   },
-  getProductBySlug: (slug) => {
-    return get().products.find((product) => product.attributes.slug === slug);
+  getProductBySlug: slug => {
+    return get().products.find(product => product.attributes.slug === slug);
   },
 }));
 

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ProductRow from './ProductRow';
 import { useTranslations } from 'next-intl';
 
-const ProductsTabs = ({ products }) => {
+const ProductsTabs = ({ products, locale = 'en' }) => {
   const [productObject, setProductObject] = useState({});
   const [activeTab, setActiveTab] = useState('tab1');
 
@@ -69,7 +69,7 @@ const ProductsTabs = ({ products }) => {
                         activeTab === category.key ? 'active' : 'hidden'
                       }`}
                     >
-                      <ProductRow category={category.id} />
+                      <ProductRow category={category.id} locale={locale} />
                     </div>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ const ProductsTabs = ({ products }) => {
                     activeTab === category.key ? 'active' : 'hidden'
                   }`}
                 >
-                  <ProductRow category={category.id} />
+                  <ProductRow category={category.id} locale={locale} />
                 </div>
               ))}
             </div>

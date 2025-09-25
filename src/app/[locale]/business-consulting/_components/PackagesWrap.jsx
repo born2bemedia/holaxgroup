@@ -12,9 +12,9 @@ import PackagesSlider from './PackagesSlider';
 import OrderButton from '@/components/OrderButton';
 import { getTranslations } from 'next-intl/server';
 
-const PackagesWrap = async () => {
+const PackagesWrap = async ({ locale }) => {
   const { fetchProducts, getProductByCategory } = useProductStore.getState();
-  await fetchProducts();
+  await fetchProducts(locale);
   const products = getProductByCategory(
     'business-consulting-complete-packages',
   );
