@@ -7,8 +7,8 @@ import CasesCta from '../_components/CasesCta';
 import { getTranslations } from 'next-intl/server';
 
 // Use server-side data fetching to get the post by slug
-const fetchPostBySlugServer = async slug => {
-  const url = `cases?filters[slug][$eq]=${slug}&populate=*`; // Adjust your API query here
+const fetchPostBySlugServer = async (slug, locale = 'en') => {
+  const url = `cases?filters[slug][$eq]=${slug}&populate=*&locale=${locale}`; // Adjust your API query here
   const response = await axiosClient.get(url);
   const caseItem = response.data.data[0]; // Assuming the response returns a single post
 
@@ -29,8 +29,8 @@ const fetchPostBySlugServer = async slug => {
 // Metadata generation for SEO
 export async function generateMetadata({ params }) {
   const awaitedParams = await params; // Await the params
-  const { slug } = awaitedParams;
-  const caseItem = await fetchPostBySlugServer(slug);
+  const { slug, locale } = awaitedParams;
+  const caseItem = await fetchPostBySlugServer(slug, locale);
 
   return {
     title: caseItem?.seo_title || caseItem?.title || 'Default Title',
@@ -40,8 +40,8 @@ export async function generateMetadata({ params }) {
 
 const CasesInner = async ({ params }) => {
   const awaitedParams = await params; // Await the params
-  const { slug } = awaitedParams;
-  const singlePost = await fetchPostBySlugServer(slug);
+  const { slug, locale } = awaitedParams;
+  const singlePost = await fetchPostBySlugServer(slug, locale);
 
   const t = await getTranslations('clientResultsSlug');
 
@@ -82,6 +82,7 @@ const CasesInner = async ({ params }) => {
                 width={574}
                 height={323}
                 alt={singlePost.title}
+                unoptimized
               />
             </div>
             <ArrowVertical />

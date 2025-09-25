@@ -1,43 +1,44 @@
-import { create } from "zustand";
-import qs from "qs";
-import axiosClient from "@/app/api/GlobalApi";
+import { create } from 'zustand';
+import qs from 'qs';
+import axiosClient from '@/app/api/GlobalApi';
 
 const cmsUrl = process.env.NEXT_PUBLIC_CMS_URL;
 
-const buildCasesUrl = (count) => {
+const buildCasesUrl = (locale, count) => {
   const query = {
     fields: [
-      "id",
-      "slug",
-      "title",
-      "client",
-      "challenge",
-      "solution",
-      "result",
+      'id',
+      'slug',
+      'title',
+      'client',
+      'challenge',
+      'solution',
+      'result',
     ],
     populate: {
-      image: { fields: ["url"] },
+      image: { fields: ['url'] },
     },
     pagination: { pageSize: count || 9999 },
-    sort: ["id:asc"],
+    sort: ['id:asc'],
+    locale: locale,
   };
 
   return `cases?${qs.stringify(query)}`;
 };
 
-const useCasesStore = create((set) => ({
+const useCasesStore = create(set => ({
   cases: [],
   slugs: [],
   loading: false,
   error: null,
   singlePost: {},
 
-  fetchCases: async (count = 999) => {
+  fetchCases: async (locale = 'en', count = 999) => {
     set({ loading: true, error: null });
     try {
-      const url = buildCasesUrl(count);
+      const url = buildCasesUrl(locale, count);
       const response = await axiosClient.get(url);
-      const cases = response.data.data.map((caseItem) => {
+      const cases = response.data.data.map(caseItem => {
         return {
           id: caseItem.id,
           slug: caseItem.slug,
@@ -53,38 +54,40 @@ const useCasesStore = create((set) => ({
       set({ cases, loading: false });
     } catch (error) {
       console.error(
-        "Error fetching cases:",
-        error.response?.data || error.message
+        'Error fetching cases:',
+        error.response?.data || error.message,
       );
       set({ error: error.message, loading: false });
     }
   },
 
-  fetchSlugs: async (count) => {
+  fetchSlugs: async count => {
     set({ loading: true, error: null });
     try {
       const url = buildCasesUrl(count);
       const response = await axiosClient.get(url);
 
-      const slugs = response.data.data.map((caseItem) => caseItem.slug);
+      const slugs = response.data.data.map(caseItem => caseItem.slug);
 
       set({ slugs, loading: false });
     } catch (error) {
       console.error(
-        "Error fetching slugs:",
-        error.response?.data || error.message
+        'Error fetching slugs:',
+        error.response?.data || error.message,
       );
       set({ error: error.message, loading: false });
     }
   },
 
-  fetchPostBySlug: async (slug) => {
+  fetchPostBySlug: async slug => {
     set({ loading: true, error: null });
     try {
       const url = buildCasesUrl(999);
       const response = await axiosClient.get(url);
 
-      const caseItem = response.data.data.find((caseItem) => caseItem.slug === slug);
+      const caseItem = response.data.data.find(
+        caseItem => caseItem.slug === slug,
+      );
 
       if (caseItem) {
         const processedPost = {
@@ -101,12 +104,12 @@ const useCasesStore = create((set) => ({
         set({ singlePost: processedPost, loading: false });
       } else {
         set({ singlePost: {}, loading: false });
-        console.error("Post not found.");
+        console.error('Post not found.');
       }
     } catch (error) {
       console.error(
-        "Error fetching caseItem:",
-        error.response?.data || error.message
+        'Error fetching caseItem:',
+        error.response?.data || error.message,
       );
       set({ error: error.message, loading: false });
     }

@@ -7,7 +7,7 @@ import JobPlusIcon from '@/icons/JobPlusIcon';
 import ReactMarkdown from 'react-markdown';
 import JobButton from '@/components/JobButton';
 import JobMinusIcon from '@/icons/JobMinusIcon';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 const JobsWrap = () => {
   const [jobsArray, setJobsArray] = useState([]);
@@ -15,11 +15,12 @@ const JobsWrap = () => {
 
   const jobs = useJobsStore(state => state.jobs);
   const fetchJobs = useJobsStore(state => state.fetchJobs);
+  const locale = useLocale();
 
   const t = useTranslations('careers.jobs');
 
   useEffect(() => {
-    fetchJobs()
+    fetchJobs(locale)
       .then(() => console.log('Articles loaded:', jobs))
       .catch(error => console.error('Error loading articles:', error));
   }, [fetchJobs]);

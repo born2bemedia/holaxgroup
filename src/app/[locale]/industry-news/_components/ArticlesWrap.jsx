@@ -6,7 +6,7 @@ import useArticlesStore from '@/stores/articlesStore';
 import Link from 'next/link';
 import OrderIcon from '@/icons/OrderIcon';
 import usePostsStore from '@/stores/postsStore';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 const ArticlesWrap = () => {
   const posts = usePostsStore(state => state.posts);
@@ -14,8 +14,10 @@ const ArticlesWrap = () => {
 
   const t = useTranslations('industryNews.wrap');
 
+  const locale = useLocale();
+
   useEffect(() => {
-    fetchPosts()
+    fetchPosts(locale)
       .then(() => console.log('Articles loaded:', posts))
       .catch(error => console.error('Error loading articles:', error));
   }, [fetchPosts]);

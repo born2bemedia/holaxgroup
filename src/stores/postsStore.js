@@ -1,45 +1,46 @@
-import { create } from "zustand";
-import qs from "qs";
-import axiosClient from "@/app/api/GlobalApi";
+import { create } from 'zustand';
+import qs from 'qs';
+import axiosClient from '@/app/api/GlobalApi';
 
 const cmsUrl = process.env.NEXT_PUBLIC_CMS_URL;
 
-const buildPostsUrl = (count) => {
+const buildPostsUrl = (locale, count) => {
   const query = {
     fields: [
-      "id",
-      "slug",
-      "title",
-      "content",
-      "introduction",
-      "conclusion",
-      "seo_title",
-      "seo_description",
+      'id',
+      'slug',
+      'title',
+      'content',
+      'introduction',
+      'conclusion',
+      'seo_title',
+      'seo_description',
     ],
     populate: {
-      image: { fields: ["url"] },
-      icon: { fields: ["url"] },
+      image: { fields: ['url'] },
+      icon: { fields: ['url'] },
     },
     pagination: { pageSize: count || 9999 },
-    sort: ["id:asc"],
+    sort: ['id:asc'],
+    locale: locale,
   };
 
   return `posts?${qs.stringify(query)}`;
 };
 
-const usePostsStore = create((set) => ({
+const usePostsStore = create(set => ({
   posts: [],
   slugs: [],
   loading: false,
   error: null,
   singlePost: {},
 
-  fetchPosts: async (count = 999) => {
+  fetchPosts: async (locale, count = 999) => {
     set({ loading: true, error: null });
     try {
-      const url = buildPostsUrl(count);
+      const url = buildPostsUrl(locale, count);
       const response = await axiosClient.get(url);
-      const posts = response.data.data.map((post) => {
+      const posts = response.data.data.map(post => {
         return {
           id: post.id,
           slug: post.slug,
@@ -57,31 +58,30 @@ const usePostsStore = create((set) => ({
       set({ posts, loading: false });
     } catch (error) {
       console.error(
-        "Error fetching posts:",
-        error.response?.data || error.message
+        'Error fetching posts:',
+        error.response?.data || error.message,
       );
       set({ error: error.message, loading: false });
     }
   },
 
-  fetchSlugs: async (count) => {
+  fetchSlugs: async count => {
     set({ loading: true, error: null });
     try {
       const url = buildPostsUrl(count);
       const response = await axiosClient.get(url);
 
-      const slugs = response.data.data.map((article) => post.slug);
+      const slugs = response.data.data.map(article => post.slug);
 
       set({ slugs, loading: false });
     } catch (error) {
       console.error(
-        "Error fetching slugs:",
-        error.response?.data || error.message
+        'Error fetching slugs:',
+        error.response?.data || error.message,
       );
       set({ error: error.message, loading: false });
     }
   },
-
 }));
 
 export default usePostsStore;

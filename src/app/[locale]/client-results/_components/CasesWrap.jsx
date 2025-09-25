@@ -5,19 +5,20 @@ import { motion } from 'framer-motion';
 import useCasesStore from '@/stores/casesStore';
 import Link from 'next/link';
 import OrderIcon from '@/icons/OrderIcon';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 const CasesWrap = () => {
   const cases = useCasesStore(state => state.cases);
   const fetchCases = useCasesStore(state => state.fetchCases);
 
   const t = useTranslations('clientResults.wrap');
+  const locale = useLocale();
 
   useEffect(() => {
-    fetchCases()
+    fetchCases(locale)
       .then(() => console.log('Cases loaded:', cases))
       .catch(error => console.error('Error loading cases:', error));
-  }, [fetchCases]);
+  }, [fetchCases, locale]);
 
   return (
     <section className="cases-wrap">

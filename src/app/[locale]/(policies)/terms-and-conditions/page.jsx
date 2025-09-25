@@ -1,12 +1,12 @@
-import "@/styles/policy.scss";
-import axiosClient from "@/app/api/GlobalApi";
+import '@/styles/policy.scss';
+import axiosClient from '@/app/api/GlobalApi';
 
-import ReactMarkdown from "react-markdown";
-import Link from "next/link";
+import ReactMarkdown from 'react-markdown';
+import Link from 'next/link';
 
 // Use server-side data fetching to get the post by slug
-const fetchPageBySlugServer = async (slug) => {
-  const url = `pages?filters[slug][$eq]=${slug}&populate=*`; // Adjust your API query here
+const fetchPageBySlugServer = async (slug, locale = 'en') => {
+  const url = `pages?filters[slug][$eq]=${slug}&populate=*&locale=${locale}`; // Adjust your API query here
   const response = await axiosClient.get(url);
   const post = response.data.data[0]; // Assuming the response returns a single post
 
@@ -22,18 +22,22 @@ const fetchPageBySlugServer = async (slug) => {
 };
 
 // Metadata generation for SEO
-export async function generateMetadata() {
-  const slug = "terms-and-conditions";
-  const post = await fetchPageBySlugServer(slug);
+export async function generateMetadata({ params }) {
+  const awaitedParams = await params; // Await the params
+  const { locale } = awaitedParams;
+  const slug = 'terms-and-conditions';
+  const post = await fetchPageBySlugServer(slug, locale);
 
   return {
     title: `${post?.title} | Velloxia`,
   };
 }
 
-const PolicyInner = async () => {
-  const slug = "terms-and-conditions";
-  const singlePage = await fetchPageBySlugServer(slug);
+const PolicyInner = async ({ params }) => {
+  const awaitedParams = await params; // Await the params
+  const { locale } = awaitedParams;
+  const slug = 'terms-and-conditions';
+  const singlePage = await fetchPageBySlugServer(slug, locale);
 
   if (!singlePage) {
     return <div>Page not found</div>; // Handle post not found
