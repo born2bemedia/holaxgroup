@@ -1,4 +1,4 @@
-@use "mixin" as *;
+@use 'mixin' as *;
 
 body {
   background: #f1f1f1;
@@ -6,7 +6,7 @@ body {
 
 .consulting-hero {
   background-color: #f1f1f1;
-  @include adaptiv-value("padding-top", 150, 115, 1);
+  @include adaptiv-value('padding-top', 150, 115, 1);
   padding-bottom: 60px;
   &__container {
   }
@@ -20,7 +20,7 @@ body {
   }
 
   &__title {
-    @include adaptiv-value("font-size", 72, 30, 1);
+    @include adaptiv-value('font-size', 72, 30, 1);
     line-height: 130%;
     color: #0e0e0e;
     text-transform: uppercase;
@@ -51,7 +51,7 @@ body {
       }
     }
     h2 {
-      @include adaptiv-value("font-size", 72, 30, 1);
+      @include adaptiv-value('font-size', 72, 30, 1);
       line-height: 1;
       color: #0e0e0e;
       text-transform: uppercase;
@@ -393,6 +393,7 @@ body {
       flex-wrap: wrap;
       max-width: rem(1130);
       margin: 0 auto;
+      justify-content: center;
       @media (max-width: rem(992)) {
         display: none;
         flex-direction: column;
@@ -489,7 +490,7 @@ body {
             padding: 0 0 0 rem(20);
             position: relative;
             &:before {
-              content: "";
+              content: '';
               display: block;
               width: 7px;
               height: 7px;

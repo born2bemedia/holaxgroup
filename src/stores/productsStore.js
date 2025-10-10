@@ -43,7 +43,9 @@ const useProductStore = create((set, get) => ({
     }
   },
   getProductByCategory: category => {
-    return get().products.filter(product => product.category === category);
+    return get().products
+      .filter(product => product.category === category)
+      .sort((a, b) => a.price - b.price);
   },
   getProductByCategoryHome: (category, count = 9999) => {
     const products = get().products.filter(
