@@ -4,6 +4,7 @@ import PackageIcon1 from '@/icons/PackageIcon1';
 import PackageIcon2 from '@/icons/PackageIcon2';
 import PackageIcon3 from '@/icons/PackageIcon3';
 import PackageIcon4 from '@/icons/PackageIcon4';
+import PackageIcon5 from '@/icons/PackageIcon5';
 import useProductStore from '@/stores/productsStore';
 import Link from 'next/link';
 import React from 'react';
@@ -43,6 +44,7 @@ const PackagesWrap = async ({ locale }) => {
                   {index == 1 && <PackageIcon2 />}
                   {index == 2 && <PackageIcon3 />}
                   {index == 3 && <PackageIcon4 />}
+                  {index == 4 && <PackageIcon5 />}
                   <h3>{product.title}</h3>
                   <div>
                     <ReactMarkdown>{product.description}</ReactMarkdown>
