@@ -39,8 +39,11 @@
   padding: 8px 12px;
   cursor: pointer;
   font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .dropdownItem:hover {
-  background-color: #f3f3f3;
+  color: #134cb2;
 }
