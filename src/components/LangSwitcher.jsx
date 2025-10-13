@@ -7,6 +7,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './LangSwitcher.module.css';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
+import { Gb } from '@/icons/countries/gb';
+import { De } from '@/icons/countries/de';
+import { It } from '@/icons/countries/it';
 
 export const LangSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,9 +20,9 @@ export const LangSwitcher = () => {
   const dropdownRef = useRef(null);
 
   const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'de', name: 'German' },
-    { code: 'it', name: 'Italian' },
+    { code: 'en', name: 'English', icon: Gb },
+    { code: 'de', name: 'German', icon: De },
+    { code: 'it', name: 'Italian', icon: It },
   ];
 
   const onChangeLanguage = useCallback(
@@ -47,6 +50,10 @@ export const LangSwitcher = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isOpen]);
 
+  const { name, icon: Icon } = languages.find(
+    language => language.code === locale,
+  );
+
   return (
     <li
       ref={dropdownRef}
@@ -57,10 +64,10 @@ export const LangSwitcher = () => {
         className="header__account-link"
         onClick={() => setIsOpen(prev => !prev)}
       >
-        {languages.find(language => language.code === locale)?.name}
+        <Icon />
+        {name}
         <ChevronDown />
       </button>
-
       <ul className={`${styles.dropdown} ${isOpen ? styles.open : ''}`}>
         {languages.map(language => (
           <li key={language.code}>
@@ -71,6 +78,7 @@ export const LangSwitcher = () => {
                 setIsOpen(false);
               }}
             >
+              <language.icon />
               {language.name}
             </button>
           </li>
