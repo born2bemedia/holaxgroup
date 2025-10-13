@@ -1,28 +1,29 @@
-import React from "react";
-import { Inter } from "next/font/google";
-import "@/styles/base.scss";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import React from 'react';
+import { Inter } from 'next/font/google';
+import '@/styles/base.scss';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 
-import Preloader from "@/components/Preloader";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { routing } from "@/i18n/routing";
+import Preloader from '@/components/Preloader';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { routing } from '@/i18n/routing';
+import { CookiePopup } from '@/components/CookiePopup';
 /* import { PopupsProvider } from "@/context/PopupsContext"; */
 
 const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata = {
-  title: "Welcome to Holax Group| Expert Consulting Services",
+  title: 'Welcome to Holax Group| Expert Consulting Services',
   description:
-    "Discover Holax Group, your trusted business and marketing consulting services partner. Let us help you achieve your business goals with tailored solutions.",
+    'Discover Holax Group, your trusted business and marketing consulting services partner. Let us help you achieve your business goals with tailored solutions.',
   openGraph: {
-    title: "Welcome to Holax Group| Expert Consulting Services",
+    title: 'Welcome to Holax Group| Expert Consulting Services',
     description:
-      "Discover Holax Group, your trusted business and marketing consulting services partner. Let us help you achieve your business goals with tailored solutions.",
+      'Discover Holax Group, your trusted business and marketing consulting services partner. Let us help you achieve your business goals with tailored solutions.',
     //images: "https://holaxgroup.com/images/meta.png",
   },
 };
@@ -43,6 +44,7 @@ export default async function RootLayout({ children, params }) {
           <Header />
           <main className="site">{children}</main>
           <Footer />
+          <CookiePopup />
         </NextIntlClientProvider>
       </body>
     </html>
