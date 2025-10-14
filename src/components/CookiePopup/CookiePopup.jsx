@@ -26,6 +26,8 @@ export const CookiePopup = () => {
     setIsVisible(false);
   };
 
+  if (!isVisible) return null;
+
   return (
     <div
       className={cn(st.cookiePopup, {
