@@ -99,13 +99,13 @@ const Dashboard = () => {
                         fallback: 'monitor',
                       })}{' '}
                       <span onClick={() => toggleItem(2)}>
-                        {t('brief.3ß', {
+                        {t('brief.3', {
                           fallback: 'recent orders',
                         })}
                       </span>{' '}
                       {t('brief.4', {
                         fallback:
-                          'in one convenient place. You can do it here if you need to change your password or update your personal information. Stay organised and in control with everything you need at your fingertips.',
+                          'in one convenient place. Stay organised and in control with everything you need at your fingertips.',
                       })}
                     </p>
                   </div>
