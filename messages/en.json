@@ -1058,10 +1058,10 @@
     "welcome": "Welcome to your personal control centre.",
     "brief": {
       "0": "Here, you can manage your",
-      "1": "account details",
+      "1": "personal information",
       "2": "monitor",
       "3": "recent orders",
-      "4": "in one convenient place. You can do it here if you need to change your password or update your personal information. Stay organised and in control with everything you need at your fingertips."
+      "4": "in one convenient place. Stay organised and in control with everything you need at your fingertips."
     },
     "orders": {
       "orderId": "Order ID",
