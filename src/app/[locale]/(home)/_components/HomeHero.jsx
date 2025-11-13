@@ -6,10 +6,12 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ArrowIcon from '@/icons/other/ArrowIcon';
 import ArrowLine from '@/icons/other/ArrowLine';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 const HomeHero = () => {
   const t = useTranslations('home.hero');
+
+  const locale = useLocale();
 
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -38,6 +40,7 @@ const HomeHero = () => {
             className="home-hero__title"
           >
             {t('title', { fallback: 'Start journey toward success with' })}{' '}
+            <br className={locale === 'en' ? 'hiddenBr' : 'br'} />
             <span>Holax Group</span>
           </motion.h1>
           <motion.div
@@ -46,7 +49,13 @@ const HomeHero = () => {
             viewport={{ once: true }}
             variants={fadeInUp}
             custom={0.1}
-            className="home-hero__icon"
+            className={
+              locale === 'en'
+                ? 'home-hero__icon'
+                : locale === 'de'
+                  ? 'home-hero__iconDe'
+                  : 'home-hero__iconIt'
+            }
           >
             <ArrowLine />
           </motion.div>
