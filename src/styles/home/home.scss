@@ -1,8 +1,17 @@
-@import "../mixin.scss";
+@import '../mixin.scss';
+
+.br {
+  display: block;
+}
+
+.hiddenBr {
+  display: none;
+  visibility: hidden;
+}
 
 .home-hero {
   background-color: #f1f1f1;
-  @include adaptiv-value("padding-top", 150, 115, 1);
+  @include adaptiv-value('padding-top', 150, 115, 1);
   padding-bottom: 60px;
   &__container {
   }
@@ -12,7 +21,7 @@
   }
 
   &__title {
-    @include adaptiv-value("font-size", 72, 30, 1);
+    @include adaptiv-value('font-size', 72, 30, 1);
     line-height: 130%;
     color: #0e0e0e;
     text-transform: uppercase;
@@ -26,6 +35,26 @@
     position: absolute;
     top: 155px;
     right: 295px;
+
+    @media (max-width: 1299px) {
+      display: none;
+    }
+  }
+
+  &__iconDe {
+    position: absolute;
+    top: 155px;
+    right: 40%;
+
+    @media (max-width: 1299px) {
+      display: none;
+    }
+  }
+
+  &__iconIt {
+    position: absolute;
+    top: 155px;
+    right: 30%;
 
     @media (max-width: 1299px) {
       display: none;
@@ -123,8 +152,8 @@
 }
 
 .home-items {
-  @include adaptiv-value("padding-top", 90, 50, 1);
-  @include adaptiv-value("padding-bottom", 90, 50, 1);
+  @include adaptiv-value('padding-top', 90, 50, 1);
+  @include adaptiv-value('padding-bottom', 90, 50, 1);
   background: #fff;
   &__container {
   }
@@ -135,7 +164,7 @@
   &__items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    @include adaptiv-value("gap", 60, 0, 1);
+    @include adaptiv-value('gap', 60, 0, 1);
     align-items: stretch;
 
     @media (max-width: 992px) {
@@ -189,19 +218,19 @@
   }
 
   &__title {
-    @include adaptiv-value("font-size", 48, 30, 1);
+    @include adaptiv-value('font-size', 48, 30, 1);
     line-height: normal;
     color: #0e0e0e;
-    @include adaptiv-value("margin-bottom", 34, 20, 1);
+    @include adaptiv-value('margin-bottom', 34, 20, 1);
     transition: all 0.3s ease 0s;
   }
 
   &__label {
-    @include adaptiv-value("font-size", 20, 18, 1);
+    @include adaptiv-value('font-size', 20, 18, 1);
     line-height: normal;
     color: #134cb2;
     font-style: italic;
-    @include adaptiv-value("margin-bottom", 20, 15, 1);
+    @include adaptiv-value('margin-bottom', 20, 15, 1);
     transition: all 0.3s ease 0s;
   }
 
@@ -249,8 +278,8 @@
 
 .home-about {
   background-color: #f1f1f1;
-  @include adaptiv-value("padding-top", 90, 50, 1);
-  @include adaptiv-value("padding-bottom", 90, 50, 1);
+  @include adaptiv-value('padding-top', 90, 50, 1);
+  @include adaptiv-value('padding-bottom', 90, 50, 1);
   &__container {
     &._container {
       @media (max-width: 992px) {
@@ -263,7 +292,7 @@
   }
 
   &__title {
-    @include adaptiv-value("font-size", 48, 30, 1);
+    @include adaptiv-value('font-size', 48, 30, 1);
     line-height: normal;
     font-weight: 500;
 
@@ -273,18 +302,18 @@
   }
 
   &__subtitle {
-    @include adaptiv-value("margin-top", 64, 80, 1);
-    @include adaptiv-value("margin-bottom", 50, 30, 1);
-    @include adaptiv-value("font-size", 32, 24, 1);
+    @include adaptiv-value('margin-top', 64, 80, 1);
+    @include adaptiv-value('margin-bottom', 50, 30, 1);
+    @include adaptiv-value('font-size', 32, 24, 1);
     font-weight: 500;
     color: #0e0e0e;
   }
 
   &__row-01 {
-    @include adaptiv-value("margin-top", 47, 30, 1);
+    @include adaptiv-value('margin-top', 47, 30, 1);
     display: flex;
     align-items: stretch;
-    @include adaptiv-value("column-gap", 78, 0, 1);
+    @include adaptiv-value('column-gap', 78, 0, 1);
     @media (max-width: 992px) {
       flex-direction: column-reverse;
       column-gap: 0;
@@ -314,7 +343,7 @@
     width: 55%;
     display: flex;
     flex-direction: column;
-    @include adaptiv-value("row-gap", 60, 30, 1);
+    @include adaptiv-value('row-gap', 60, 30, 1);
     @media (max-width: 992px) {
       width: 100%;
       padding: 0 16px;
@@ -325,15 +354,15 @@
   }
 
   &__label {
-    @include adaptiv-value("font-size", 32, 24, 1);
+    @include adaptiv-value('font-size', 32, 24, 1);
     line-height: normal;
     color: #0e0e0e;
     font-weight: 300;
-    @include adaptiv-value("margin-bottom", 30, 15, 1);
+    @include adaptiv-value('margin-bottom', 30, 15, 1);
   }
 
   &__text {
-    @include adaptiv-value("font-size", 20, 16, 1);
+    @include adaptiv-value('font-size', 20, 16, 1);
     line-height: normal;
     font-weight: 300;
   }
@@ -392,8 +421,8 @@
 }
 
 .home-services {
-  @include adaptiv-value("padding-top", 180, 100, 1);
-  @include adaptiv-value("padding-bottom", 100, 80, 1);
+  @include adaptiv-value('padding-top', 180, 100, 1);
+  @include adaptiv-value('padding-bottom', 100, 80, 1);
   &__container {
   }
 
@@ -401,18 +430,18 @@
   }
 
   &__title {
-    @include adaptiv-value("font-size", 48, 30, 1);
+    @include adaptiv-value('font-size', 48, 30, 1);
     line-height: normal;
     color: #0e0e0e;
     font-weight: 500;
   }
 
   &__tabs {
-    @include adaptiv-value("margin-top", 60, 30, 1);
+    @include adaptiv-value('margin-top', 60, 30, 1);
 
     .tabs-home {
       display: flex;
-      @include adaptiv-value("column-gap", 128, 0, 1);
+      @include adaptiv-value('column-gap', 128, 0, 1);
 
       @media (max-width: 992px) {
         display: block;
@@ -448,7 +477,7 @@
       }
 
       &__bottom {
-        @include adaptiv-value("margin-top", 80, 40, 1);
+        @include adaptiv-value('margin-top', 80, 40, 1);
         display: flex;
         align-items: center;
         gap: 35px;
@@ -503,11 +532,11 @@
 
       &__wrapper {
         .text {
-          @include adaptiv-value("font-size", 20, 16, 1);
+          @include adaptiv-value('font-size', 20, 16, 1);
           line-height: normal;
           font-weight: 300;
           color: #0e0e0e;
-          @include adaptiv-value("margin-bottom", 65, 40, 1);
+          @include adaptiv-value('margin-bottom', 65, 40, 1);
         }
 
         &.tab2 {
@@ -567,8 +596,8 @@
   @media (min-width: 992px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    @include adaptiv-value("column-gap", 40, 0, 1);
-    @include adaptiv-value("row-gap", 40, 0, 1);
+    @include adaptiv-value('column-gap', 40, 0, 1);
+    @include adaptiv-value('row-gap', 40, 0, 1);
   }
   &__item {
   }
@@ -585,12 +614,12 @@
   &__number {
     font-weight: 600;
     color: #134cb2;
-    @include adaptiv-value("font-size", 24, 18, 1);
+    @include adaptiv-value('font-size', 24, 18, 1);
     line-height: normal;
   }
 
   &__title {
-    @include adaptiv-value("font-size", 24, 18, 1);
+    @include adaptiv-value('font-size', 24, 18, 1);
     line-height: normal;
     color: #0e0e0e;
     font-weight: 400;
