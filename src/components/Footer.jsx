@@ -115,10 +115,10 @@ const Footer = () => {
               </h3>
               <ul className="footer__list">
                 <li className="footer__item">
-                  <Link href="tel:+447482749572" className="footer__link">
+                  <Link href="tel:+447366586692" className="footer__link">
                     <span>
                       <Phone />
-                      +447482749572
+                      +447366586692
                     </span>
                   </Link>
                 </li>

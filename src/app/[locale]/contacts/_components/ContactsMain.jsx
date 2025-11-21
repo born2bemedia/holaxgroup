@@ -34,10 +34,10 @@ const ContactsMain = () => {
                 <li className="contacts-main__item">
                   <PhoneContacts />
                   <Link
-                    href="tel:+447482749572"
+                    href="tel:+447366586692"
                     className="contacts-main__link"
                   >
-                    +447482749572
+                    +447366586692
                   </Link>
                 </li>
                 <li className="contacts-main__item">
